@@ -1,0 +1,42 @@
+LAMMPS (2 Aug 2023 - Development - stable_17Nov2016-25561-gabed6c92f4-modified)
+KOKKOS mode is enabled (../kokkos.cpp:107)
+package kokkos
+###
+# Reference paper:
+# K. Kremer and G. S. Grest
+# Dynamics of entangled linear polymer melts: A molecular-dynamics simulation
+# J Chem Phys 92, 5057 (1990)
+###
+
+###
+# Box and units  (use LJ units and periodic boundaries)
+###
+
+units lj
+
+atom_style hybrid bond ellipsoid
+WARNING: Atom style hybrid defines both, per-type and per-atom masses; both must be set, but only per-atom masses will be used (../atom_vec_hybrid.cpp:132)
+
+boundary        p p p
+
+###
+# Pair interactions require lists of neighbours to be calculated
+###
+neighbor 3.0 bin
+neigh_modify every 1 delay 0 check yes
+
+### Generate RESTART file, SPECIAL format, not a .txt file ###
+### Useful if simulation crashes ###
+#restart 10000 polymer.restart
+#############################
+
+#processors 2 1 1
+
+### READ "REstart" data file ###
+#read_restart polymer.restart.10000
+######################
+
+read_data lmp_data
+Reading data file ...
+ERROR: No ellipsoids allowed with this atom style (../read_data.cpp:1222)
+Last command: read_data lmp_data

@@ -1,4 +1,6 @@
-LAMMPS (2 Aug 2023 - Development - stable_17Nov2016-25381-g34b50b98bf)
+LAMMPS (2 Aug 2023 - Development - stable_17Nov2016-25564-g60e42edf82-modified)
+KOKKOS mode is enabled (../kokkos.cpp:107)
+package kokkos
 ###
 # Reference paper:
 # K. Kremer and G. S. Grest
@@ -38,7 +40,7 @@ read_data lmp_data
 Reading data file ...
   orthogonal box = (-50 -50 -50) to (50 50 50)
   1 by 2 by 2 MPI processor grid
-WARNING: Atom style in data file hybrid bond ellipsoid differs from currently defined atom style hybrid (../read_data.cpp:621)
+WARNING: Atom style in data file hybrid bond ellipsoid differs from currently defined atom style hybrid/kk (../read_data.cpp:626)
   reading atoms ...
   499 atoms
   249 ellipsoids
@@ -55,8 +57,8 @@ Finding 1-2 1-3 1-4 neighbors ...
      2 = max # of 1-3 neighbors
      4 = max # of 1-4 neighbors
      6 = max # of special neighbors
-  special bonds CPU = 0.000 seconds
-  read_data CPU = 0.003 seconds
+  special bonds CPU = 0.001 seconds
+  read_data CPU = 0.017 seconds
 
 ### reset timestep ###
 reset_timestep 0
@@ -161,12 +163,12 @@ Neighbor list info ...
   ghost atom cutoff = 6
   binsize = 2.0612308, bins = 49 49 49
   1 neighbor lists, perpetual/occasional/extra = 1 0 0
-  (1) pair lj/cut, perpetual
-      attributes: half, newton on
-      pair build: half/bin/newton
+  (1) pair lj/cut/kk, perpetual
+      attributes: half, newton on, kokkos_device
+      pair build: half/bin/newton/kk/device
       stencil: half/bin/3d
-      bin: standard
- rebalancing time: 0.000 seconds
+      bin: kk/device
+ rebalancing time: 0.007 seconds
   iteration count = 0
   initial/final maximal load/proc = 291 126
   initial/final imbalance factor  = 2.3326653 1.01002
@@ -202,7 +204,7 @@ timestep 0.0001 #0.012
 run 250000
 Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
 0  ekin = 0 | epot = 13304.0963107638 | etot = 13304.0963107638
-Per MPI rank memory allocation (min/avg/max) = 6.163 | 6.24 | 6.303 Mbytes
+Per MPI rank memory allocation (min/avg/max) = 6.015 | 6.016 | 6.016 Mbytes
    Step          Temp          E_pair         E_mol          TotEng         Press     
          0   0              0              26.661516      26.661516     -0.010815874  
 1000  ekin = 136.352244138033 | epot = 13167.7440500819 | etot = 13304.09629422
@@ -343,10 +345,10 @@ Per MPI rank memory allocation (min/avg/max) = 6.163 | 6.24 | 6.303 Mbytes
 136000  ekin = 2932.8788096314 | epot = 10371.2174733354 | etot = 13304.0962829668
 137000  ekin = 2929.321078838 | epot = 10374.7752040217 | etot = 13304.0962828597
 138000  ekin = 2921.48531492005 | epot = 10382.6109726506 | etot = 13304.0962875707
-139000  ekin = 2953.09521505706 | epot = 10351.0010680966 | etot = 13304.0962831537
+139000  ekin = 2953.09521505707 | epot = 10351.0010680966 | etot = 13304.0962831537
 140000  ekin = 2965.1096460323 | epot = 10338.9866362155 | etot = 13304.0962822478
 141000  ekin = 2934.02361394631 | epot = 10370.0726711137 | etot = 13304.09628506
-142000  ekin = 2906.3342783159 | epot = 10397.7620093912 | etot = 13304.0962877072
+142000  ekin = 2906.3342783159 | epot = 10397.7620093912 | etot = 13304.0962877071
 143000  ekin = 2917.5388935663 | epot = 10386.5573890996 | etot = 13304.0962826659
 144000  ekin = 2917.86131756663 | epot = 10386.2349665739 | etot = 13304.0962841406
 145000  ekin = 2909.7052952851 | epot = 10394.3909860093 | etot = 13304.0962812944
@@ -374,7 +376,7 @@ Per MPI rank memory allocation (min/avg/max) = 6.163 | 6.24 | 6.303 Mbytes
 167000  ekin = 2929.46641435866 | epot = 10374.6298725021 | etot = 13304.0962868608
 168000  ekin = 2939.90484602416 | epot = 10364.1914360954 | etot = 13304.0962821196
 169000  ekin = 2909.07838919298 | epot = 10395.0178985125 | etot = 13304.0962877054
-170000  ekin = 2897.25344560907 | epot = 10406.842838137 | etot = 13304.0962837461
+170000  ekin = 2897.25344560906 | epot = 10406.842838137 | etot = 13304.0962837461
 171000  ekin = 2881.30124222566 | epot = 10422.7950428808 | etot = 13304.0962851064
 172000  ekin = 2887.37535983241 | epot = 10416.7209213307 | etot = 13304.0962811631
 173000  ekin = 2903.01741479615 | epot = 10401.0788710799 | etot = 13304.0962858761
@@ -447,7 +449,7 @@ Per MPI rank memory allocation (min/avg/max) = 6.163 | 6.24 | 6.303 Mbytes
 240000  ekin = 2913.66915416177 | epot = 10390.427133172 | etot = 13304.0962873338
 241000  ekin = 2942.00603979179 | epot = 10362.090242305 | etot = 13304.0962820968
 242000  ekin = 2929.84958383186 | epot = 10374.2467010218 | etot = 13304.0962848537
-243000  ekin = 2917.07206740914 | epot = 10387.024218305 | etot = 13304.0962857141
+243000  ekin = 2917.07206740915 | epot = 10387.024218305 | etot = 13304.0962857141
 244000  ekin = 2914.56221020927 | epot = 10389.5340736104 | etot = 13304.0962838197
 245000  ekin = 2905.87234446238 | epot = 10398.2239416229 | etot = 13304.0962860853
 246000  ekin = 2895.28967323484 | epot = 10408.8066067275 | etot = 13304.0962799624
@@ -456,21 +458,21 @@ Per MPI rank memory allocation (min/avg/max) = 6.163 | 6.24 | 6.303 Mbytes
 249000  ekin = 2891.65105653659 | epot = 10412.44521941 | etot = 13304.0962759466
 250000  ekin = 2865.6181497619 | epot = 10438.4781361332 | etot = 13304.0962858951
     250000   3.8361689      0.048990169    20.869804      26.661516      0.00063390807
-Loop time of 4.49108 on 4 procs for 250000 steps with 499 atoms
+Loop time of 19.7673 on 4 procs for 250000 steps with 499 atoms
 
-Performance: 480953.053 tau/day, 55665.863 timesteps/s, 27.777 Matom-step/s
-91.2% CPU use with 4 MPI tasks x no OpenMP threads
+Performance: 109271.496 tau/day, 12647.164 timesteps/s, 6.311 Matom-step/s
+99.8% CPU use with 4 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.24493    | 0.3187     | 0.45936    |  15.3 |  7.10
-Bond    | 0.23152    | 0.27835    | 0.32511    |   6.4 |  6.20
-Neigh   | 0.00080363 | 0.00083222 | 0.00085831 |   0.0 |  0.02
-Comm    | 3.2993     | 3.425      | 3.4958     |   4.0 | 76.26
-Output  | 0.01932    | 0.023109   | 0.025908   |   1.6 |  0.51
-Modify  | 0.1356     | 0.15638    | 0.18709    |   4.8 |  3.48
-Other   |            | 0.2887     |            |       |  6.43
+Pair    | 2.3606     | 2.5067     | 2.8388     |  12.2 | 12.68
+Bond    | 1.3915     | 1.4283     | 1.4802     |   2.7 |  7.23
+Neigh   | 0.0036565  | 0.0038029  | 0.0039151  |   0.2 |  0.02
+Comm    | 9.3387     | 9.6921     | 9.8362     |   6.6 | 49.03
+Output  | 0.057888   | 0.11815    | 0.1681     |  11.5 |  0.60
+Modify  | 2.9636     | 3.0692     | 3.1653     |   4.1 | 15.53
+Other   |            | 2.949      |            |       | 14.92
 
 Nlocal:         124.75 ave         164 max          81 min
 Histogram: 1 0 0 0 1 0 1 0 0 1
@@ -489,4 +491,4 @@ write_data data_out.* nocoeff
 System init for write_data ...
 Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
 
-Total wall time: 0:00:04
+Total wall time: 0:00:19

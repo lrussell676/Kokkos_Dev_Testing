@@ -1,0 +1,155 @@
+LAMMPS (2 Aug 2023 - Development - stable_17Nov2016-25567-gc73e8da293)
+KOKKOS mode is enabled (../kokkos.cpp:107)
+  will use up to 1 GPU(s) per node
+WARNING: When using a single thread, the Kokkos Serial backend (i.e. Makefile.kokkos_mpi_only) gives better performance than the OpenMP backend (../kokkos.cpp:228)
+  using 1 OpenMP thread(s) per MPI task
+package kokkos
+###
+# Reference paper:
+# K. Kremer and G. S. Grest
+# Dynamics of entangled linear polymer melts: A molecular-dynamics simulation
+# J Chem Phys 92, 5057 (1990)
+###
+
+###
+# Box and units  (use LJ units and periodic boundaries)
+###
+
+units lj
+
+atom_style hybrid bond ellipsoid
+WARNING: Atom style hybrid defines both, per-type and per-atom masses; both must be set, but only per-atom masses will be used (../atom_vec_hybrid.cpp:132)
+
+boundary        p p p
+
+###
+# Pair interactions require lists of neighbours to be calculated
+###
+neighbor 3.0 bin
+neigh_modify every 1 delay 0 check yes
+
+### Generate RESTART file, SPECIAL format, not a .txt file ###
+### Useful if simulation crashes ###
+#restart 10000 polymer.restart
+#############################
+
+#processors 2 1 1
+
+### READ "REstart" data file ###
+#read_restart polymer.restart.10000
+######################
+
+read_data lmp_data
+Reading data file ...
+  orthogonal box = (-50 -50 -50) to (50 50 50)
+  1 by 1 by 1 MPI processor grid
+WARNING: Atom style in data file hybrid bond ellipsoid differs from currently defined atom style hybrid/kk (../read_data.cpp:621)
+  reading atoms ...
+  499 atoms
+  249 ellipsoids
+  reading velocities ...
+  499 velocities
+  scanning bonds ...
+  2 = max bonds/atom
+  reading bonds ...
+  498 bonds
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     2 = max # of 1-2 neighbors
+     2 = max # of 1-3 neighbors
+     4 = max # of 1-4 neighbors
+     6 = max # of special neighbors
+  special bonds CPU = 0.001 seconds
+  read_data CPU = 0.014 seconds
+
+### reset timestep ###
+reset_timestep 0
+######################
+
+###
+# Define groups (atom type 1 is group 'all')
+###
+group all type 1
+499 atoms in group all
+group polymer type 1
+499 atoms in group polymer
+
+###
+# Dump configs - "simple dumpings"
+###
+
+###
+# Dump configs + box coords
+###
+#dump   1   all   custom   100000   polymer.dump.*  id  x y z  ix iy iz
+#dump_modify   1   format line "%d %.5f %.5f %.5f %d %d %d"
+dump   id all atom 1000 dump.polymer
+
+###################################################################
+# Stiffness term
+#
+# E = K * (theta-thera0)**2, K>0
+#
+#angle_style   harmonic
+#angle_coeff   1 2.0 120.0
+###################################################################
+
+###################################################################
+# Pair interaction between non-bonded atoms
+#
+#  Lennard-Jones 12-6 potential with cutoff:
+#  potential E=4epsilon[ (sigma/r)^12 - (sigma/r)^6]  for r<r_cut
+#
+#  1.12246152962189 = 2^(1/6) is the minimum of the potential
+
+pair_style      lj/cut 1.12246152962189
+
+#
+#  pair_coeff for lj/cut, specify 4:
+#    * atom type interacting with
+#    * atom type
+#    * epsilon (energy units)
+#    * sigma (distance units)
+#
+
+pair_coeff      1 1 1.0 1.0
+
+#
+#  pair_modify shift yes adds a constant to the potential such
+#  that E(r_cut)=0. Forces remains unchanged.
+#
+
+pair_modify     shift yes
+
+###################################################################
+# Pair interaction between bonded atoms
+#
+# Fene potential + Lennard Jones 12-6:
+#
+#  E= - 0.5 K R0^2 ln[ 1- (r/R0)^2]
+#     + 4epsilon[ (sigma/r)^12 - (sigma/r)^6] + epsilon
+#
+
+bond_style   fene
+
+#
+# For style fene, specify:
+#   * bond type
+#   * K (energy/distance^2)
+#   * R0 (distance)
+#   * epsilon (energy)  (LJ component)
+#   * sigma (distance)  (LJ component)
+#
+
+special_bonds fene #<=== I M P O R T A N T (new command)
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        1        1       
+  special bond factors coul:  0        1        1       
+     2 = max # of 1-2 neighbors
+     6 = max # of special neighbors
+  special bonds CPU = 0.001 seconds
+
+bond_coeff   1   30.0   1.6   1.0   1.0
+
+####################################

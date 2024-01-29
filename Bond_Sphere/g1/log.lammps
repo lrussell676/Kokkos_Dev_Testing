@@ -1,0 +1,465 @@
+LAMMPS (2 Aug 2023 - Development - stable_17Nov2016-25567-gc73e8da293)
+KOKKOS mode is enabled (../kokkos.cpp:107)
+  will use up to 1 GPU(s) per node
+package kokkos
+###
+# Reference paper:
+# K. Kremer and G. S. Grest
+# Dynamics of entangled linear polymer melts: A molecular-dynamics simulation
+# J Chem Phys 92, 5057 (1990)
+###
+
+###
+# Box and units  (use LJ units and periodic boundaries)
+###
+
+units lj
+
+atom_style hybrid bond sphere
+WARNING: Atom style hybrid defines both, per-type and per-atom masses; both must be set, but only per-atom masses will be used (../atom_vec_hybrid.cpp:132)
+
+boundary        p p p
+
+###
+# Pair interactions require lists of neighbours to be calculated
+###
+neighbor 3.0 bin
+neigh_modify every 1 delay 0 check yes
+
+### Generate RESTART file, SPECIAL format, not a .txt file ###
+### Useful if simulation crashes ###
+#restart 10000 polymer.restart
+#############################
+
+#processors 2 1 1
+
+### READ "REstart" data file ###
+#read_restart polymer.restart.10000
+######################
+
+read_data lmp_data
+Reading data file ...
+  orthogonal box = (-20 -20 -20) to (20 20 20)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  10 atoms
+  reading velocities ...
+  10 velocities
+  scanning bonds ...
+  2 = max bonds/atom
+  reading bonds ...
+  9 bonds
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     2 = max # of 1-2 neighbors
+     2 = max # of 1-3 neighbors
+     4 = max # of 1-4 neighbors
+     6 = max # of special neighbors
+  special bonds CPU = 0.002 seconds
+  read_data CPU = 0.012 seconds
+
+### reset timestep ###
+reset_timestep 0
+######################
+
+###
+# Define groups (atom type 1 is group 'all')
+###
+group all type 1
+10 atoms in group all
+group polymer type 1
+10 atoms in group polymer
+
+###
+# Dump configs - "simple dumpings"
+###
+
+###
+# Dump configs + box coords
+###
+#dump   1   all   custom   100000   polymer.dump.*  id  x y z  ix iy iz
+#dump_modify   1   format line "%d %.5f %.5f %.5f %d %d %d"
+dump   id all atom 1000 dump.polymer
+
+###################################################################
+# Stiffness term
+#
+# E = K * (theta-thera0)**2, K>0
+#
+#angle_style   harmonic
+#angle_coeff   1 2.0 120.0
+###################################################################
+
+###################################################################
+# Pair interaction between non-bonded atoms
+#
+#  Lennard-Jones 12-6 potential with cutoff:
+#  potential E=4epsilon[ (sigma/r)^12 - (sigma/r)^6]  for r<r_cut
+#
+#  1.12246152962189 = 2^(1/6) is the minimum of the potential
+
+pair_style      lj/cut 1.12246152962189
+
+#
+#  pair_coeff for lj/cut, specify 4:
+#    * atom type interacting with
+#    * atom type
+#    * epsilon (energy units)
+#    * sigma (distance units)
+#
+
+pair_coeff      1 1 1.0 1.0
+
+#
+#  pair_modify shift yes adds a constant to the potential such
+#  that E(r_cut)=0. Forces remains unchanged.
+#
+
+pair_modify     shift yes
+
+###################################################################
+# Pair interaction between bonded atoms
+#
+# Fene potential + Lennard Jones 12-6:
+#
+#  E= - 0.5 K R0^2 ln[ 1- (r/R0)^2]
+#     + 4epsilon[ (sigma/r)^12 - (sigma/r)^6] + epsilon
+#
+
+bond_style   fene
+
+#
+# For style fene, specify:
+#   * bond type
+#   * K (energy/distance^2)
+#   * R0 (distance)
+#   * epsilon (energy)  (LJ component)
+#   * sigma (distance)  (LJ component)
+#
+
+special_bonds fene #<=== I M P O R T A N T (new command)
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        1        1       
+  special bond factors coul:  0        1        1       
+     2 = max # of 1-2 neighbors
+     6 = max # of special neighbors
+  special bonds CPU = 0.001 seconds
+
+bond_coeff   1   30.0   1.6   1.0   1.0
+
+###################################################
+
+comm_modify cutoff 6
+comm_style tiled
+balance 1.2 rcb
+Balancing ...
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 4.1224615
+  ghost atom cutoff = 6
+  binsize = 4.1224615, bins = 10 10 10
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/kk, perpetual
+      attributes: full, newton off, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+
+###
+# Set up fixes
+###
+
+fix 1 all   nve   ###NVE ensemble
+#fix 2 all   langevin   1.0 1.0   2.0   424242   ###Langevin integrator Tstart Tstop 1/friction rndseed
+
+compute ekin all ke
+compute epot all pe
+variable ekin equal c_ekin
+variable epot equal c_epot
+variable etot equal c_ekin+c_epot
+
+fix 5 all print 1000 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}" screen yes
+
+##### Sample thermodynamic info  (temperature, energy, pressure, etc.) #####
+#thermo 10000
+#thermo_style   custom   step  temp  epair  emol  press pxx pyy pzz  vol
+############################################################################
+
+###
+# set timestep of integrator
+###
+timestep 0.0001 #0.012
+
+###
+# run integration for a number of steps
+###
+run 250000
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+0  ekin = 0 | epot = 269.121742144783 | etot = 269.121742144783
+Per MPI rank memory allocation (min/avg/max) = 5.573 | 5.573 | 5.573 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              0              26.912174      26.912174     -0.0041451125 
+1000  ekin = 2.14425847167235 | epot = 266.977483596547 | etot = 269.12174206822
+2000  ekin = 7.47570514095161 | epot = 261.646036788368 | etot = 269.121741929319
+3000  ekin = 13.8489353506553 | epot = 255.272806490326 | etot = 269.121741840981
+4000  ekin = 19.7038559487261 | epot = 249.417885867278 | etot = 269.121741816004
+5000  ekin = 24.4417166784812 | epot = 244.6800251468 | etot = 269.121741825281
+6000  ekin = 28.0959514213958 | epot = 241.025790418739 | etot = 269.121741840135
+7000  ekin = 30.8875613149326 | epot = 238.234180548232 | etot = 269.121741863165
+8000  ekin = 33.1760877790689 | epot = 235.945654102112 | etot = 269.12174188118
+9000  ekin = 35.4838411375205 | epot = 233.637900791106 | etot = 269.121741928626
+10000  ekin = 38.5410468217854 | epot = 230.580695131223 | etot = 269.121741953008
+11000  ekin = 42.7079170867462 | epot = 226.413824846321 | etot = 269.121741933068
+12000  ekin = 47.6733221874359 | epot = 221.448419702714 | etot = 269.12174189015
+13000  ekin = 52.7447816646626 | epot = 216.3769601757 | etot = 269.121741840363
+14000  ekin = 57.1625527320187 | epot = 211.95918907493 | etot = 269.121741806948
+15000  ekin = 60.426444555462 | epot = 208.695297220172 | etot = 269.121741775634
+16000  ekin = 62.2031147623408 | epot = 206.918626985774 | etot = 269.121741748115
+17000  ekin = 62.5637933877737 | epot = 206.55794845206 | etot = 269.121741839834
+18000  ekin = 63.2255775782681 | epot = 205.896164399302 | etot = 269.12174197757
+19000  ekin = 66.0008895028273 | epot = 203.120852337777 | etot = 269.121741840604
+20000  ekin = 69.1892243354571 | epot = 199.932517334184 | etot = 269.121741669641
+21000  ekin = 70.2683334588536 | epot = 198.853408161903 | etot = 269.121741620756
+22000  ekin = 68.6445126320493 | epot = 200.47722914751 | etot = 269.121741779559
+23000  ekin = 67.3724912232143 | epot = 201.749250973645 | etot = 269.121742196859
+24000  ekin = 71.4597996752965 | epot = 197.661942234983 | etot = 269.12174191028
+25000  ekin = 77.6191713427747 | epot = 191.502570256222 | etot = 269.121741598997
+26000  ekin = 81.0570016408702 | epot = 188.064739996332 | etot = 269.121741637202
+27000  ekin = 81.4289613919807 | epot = 187.692780306844 | etot = 269.121741698825
+28000  ekin = 79.4245497650645 | epot = 189.697191926278 | etot = 269.121741691343
+29000  ekin = 75.1942867181133 | epot = 193.927454980128 | etot = 269.121741698241
+30000  ekin = 69.6055062550137 | epot = 199.51623566319 | etot = 269.121741918204
+31000  ekin = 65.9221790541493 | epot = 203.199562984509 | etot = 269.121742038658
+32000  ekin = 65.8598695220625 | epot = 203.261872390144 | etot = 269.121741912206
+33000  ekin = 67.9418569700054 | epot = 201.179884906206 | etot = 269.121741876211
+34000  ekin = 71.1101812864757 | epot = 198.011560449011 | etot = 269.121741735487
+35000  ekin = 73.2778345997878 | epot = 195.843906919693 | etot = 269.121741519481
+36000  ekin = 72.3700811116523 | epot = 196.751660646751 | etot = 269.121741758404
+37000  ekin = 72.5873546751465 | epot = 196.534387509581 | etot = 269.121742184728
+38000  ekin = 78.6922890186693 | epot = 190.429452615604 | etot = 269.121741634273
+39000  ekin = 83.9126572371085 | epot = 185.209084025031 | etot = 269.12174126214
+40000  ekin = 82.5316376074393 | epot = 186.590103809992 | etot = 269.121741417431
+41000  ekin = 76.9333740266541 | epot = 192.188367628705 | etot = 269.12174165536
+42000  ekin = 70.9607549788789 | epot = 198.160986577808 | etot = 269.121741556687
+43000  ekin = 66.193502620682 | epot = 202.928239508083 | etot = 269.121742128765
+44000  ekin = 69.312329023532 | epot = 199.809412665279 | etot = 269.121741688811
+45000  ekin = 75.2420490860798 | epot = 193.879692196824 | etot = 269.121741282904
+46000  ekin = 77.9472867862333 | epot = 191.174454904638 | etot = 269.121741690871
+47000  ekin = 80.6631124029001 | epot = 188.458629230134 | etot = 269.121741633034
+48000  ekin = 82.5378365167712 | epot = 186.583905094712 | etot = 269.121741611483
+49000  ekin = 82.2446748216464 | epot = 186.877066832057 | etot = 269.121741653704
+50000  ekin = 79.8884974849644 | epot = 189.233244299613 | etot = 269.121741784577
+51000  ekin = 76.8834367311986 | epot = 192.23830509202 | etot = 269.121741823219
+52000  ekin = 73.6895167845213 | epot = 195.43222496814 | etot = 269.121741752661
+53000  ekin = 69.5395126240403 | epot = 199.582229161377 | etot = 269.121741785418
+54000  ekin = 65.1534494692475 | epot = 203.968292504236 | etot = 269.121741973484
+55000  ekin = 63.0496632847083 | epot = 206.07207872332 | etot = 269.121742008029
+56000  ekin = 63.5972696467763 | epot = 205.524472165315 | etot = 269.121741812091
+57000  ekin = 64.2153665861412 | epot = 204.906375152917 | etot = 269.121741739059
+58000  ekin = 63.8020021321764 | epot = 205.319739737792 | etot = 269.121741869968
+59000  ekin = 64.0525247929685 | epot = 205.069217183357 | etot = 269.121741976326
+60000  ekin = 66.4404567975763 | epot = 202.681285108235 | etot = 269.121741905811
+61000  ekin = 70.2605287722048 | epot = 198.861213074789 | etot = 269.121741846994
+62000  ekin = 74.5429181223029 | epot = 194.578823681584 | etot = 269.121741803887
+63000  ekin = 78.4731131420563 | epot = 190.648628550391 | etot = 269.121741692447
+64000  ekin = 80.6479389581831 | epot = 188.473802702752 | etot = 269.121741660935
+65000  ekin = 81.1301501603641 | epot = 187.991591659748 | etot = 269.121741820112
+66000  ekin = 81.6259576426211 | epot = 187.495783891624 | etot = 269.121741534245
+67000  ekin = 78.9745797869441 | epot = 190.147161451856 | etot = 269.1217412388
+68000  ekin = 71.5587680423574 | epot = 181.980385984341 | etot = 253.539154026698
+69000  ekin = 76.2565003342984 | epot = 184.895841176141 | etot = 261.152341510439
+70000  ekin = 92.8963119536028 | epot = 180.084697161638 | etot = 272.981009115241
+71000  ekin = 110.45405564376 | epot = 174.083639074543 | etot = 284.537694718302
+72000  ekin = 118.447218772683 | epot = 173.503525226973 | etot = 291.950743999655
+73000  ekin = 117.792315540255 | epot = 177.6142615976 | etot = 295.406577137855
+74000  ekin = 115.11303036587 | epot = 181.425872583249 | etot = 296.538902949119
+75000  ekin = 115.004810947603 | epot = 181.48471850254 | etot = 296.489529450142
+76000  ekin = 116.15762846055 | epot = 179.640630303433 | etot = 295.798258763983
+77000  ekin = 114.917769530412 | epot = 179.934157645856 | etot = 294.851927176268
+78000  ekin = 112.290999507023 | epot = 182.031162890761 | etot = 294.322162397784
+79000  ekin = 110.561248542028 | epot = 184.217232952119 | etot = 294.778481494148
+80000  ekin = 107.505847488725 | epot = 188.529359490543 | etot = 296.035206979268
+81000  ekin = 101.641897678905 | epot = 196.282907102609 | etot = 297.924804781514
+82000  ekin = 104.093569592329 | epot = 196.380265103238 | etot = 300.473834695566
+83000  ekin = 109.796551054931 | epot = 193.630918090454 | etot = 303.427469145385
+84000  ekin = 110.50218701304 | epot = 195.713467395945 | etot = 306.215654408985
+85000  ekin = 115.20599987987 | epot = 193.254915487025 | etot = 308.460915366895
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+86000  ekin = 118.614387036445 | epot = 329.387264333527 | etot = 448.001651369972
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+WARNING: FENE bond too long (../bond_fene_kokkos.cpp:122)
+87000  ekin = 129.377169403628 | epot = 322.609643479817 | etot = 451.986812883446
+88000  ekin = 284.056697422693 | epot = 327.393331965924 | etot = 611.450029388617
+89000  ekin = 504.957043550817 | epot = 304.910187434522 | etot = 809.867230985339
+90000  ekin = 681.189542784464 | epot = 298.291719586282 | etot = 979.481262370746
+91000  ekin = 558.591984885766 | epot = 427.543059628482 | etot = 986.135044514248
+92000  ekin = 665.198995495333 | epot = 281.431550096777 | etot = 946.63054559211
+93000  ekin = 609.435937517542 | epot = 314.709981513027 | etot = 924.145919030569
+94000  ekin = 597.382735162501 | epot = 338.167512616531 | etot = 935.550247779032
+95000  ekin = 497.668247608449 | epot = 300.21157585422 | etot = 797.879823462669
+96000  ekin = 372.416555555637 | epot = 286.265690027982 | etot = 658.682245583619
+97000  ekin = 293.764705263559 | epot = 282.261291943749 | etot = 576.025997207308
+98000  ekin = 260.160731546135 | epot = 304.902373018518 | etot = 565.063104564653
+99000  ekin = 207.368527272805 | epot = 414.005803185386 | etot = 621.374330458191
+100000  ekin = 424.660317025647 | epot = 298.560055886991 | etot = 723.220372912638
+101000  ekin = 587.971158258715 | epot = 267.287598384968 | etot = 855.258756643683
+102000  ekin = 707.876402879202 | epot = 278.258822148414 | etot = 986.135225027616
+103000  ekin = 685.768422708798 | epot = 300.366817826661 | etot = 986.135240535459
+104000  ekin = 517.521744426904 | epot = 444.595339474778 | etot = 962.117083901682
+105000  ekin = 641.04702910237 | epot = 315.250761995185 | etot = 956.297791097555
+106000  ekin = 644.649002699645 | epot = 416.427520953132 | etot = 1061.07652365278
+107000  ekin = 753.15464437816 | epot = 395.374876450018 | etot = 1148.52952082818
+108000  ekin = 912.389667411841 | epot = 442.528928020325 | etot = 1354.91859543217
+109000  ekin = 975.067414277386 | epot = 473.198841270495 | etot = 1448.26625554788
+110000  ekin = 1106.58100692463 | epot = 323.199539742168 | etot = 1429.7805466668
+111000  ekin = 1005.43877054371 | epot = 444.406516840737 | etot = 1449.84528738445
+112000  ekin = 1347.378177734 | epot = 368.400150992037 | etot = 1715.77832872604
+113000  ekin = 1492.71013508046 | epot = 319.420043309851 | etot = 1812.13017839032
+114000  ekin = 1557.13057910652 | epot = 299.948944228122 | etot = 1857.07952333464
+115000  ekin = 1210.5778714927 | epot = 483.580975322911 | etot = 1694.15884681561
+116000  ekin = 1465.06899583311 | epot = 553.098959606354 | etot = 2018.16795543947
+117000  ekin = 2789.42686871953 | epot = 585.166592956934 | etot = 3374.59346167646
+118000  ekin = 4643.1424528101 | epot = 564.907433241255 | etot = 5208.04988605136
+119000  ekin = 5382.97425447796 | epot = 500.127416058289 | etot = 5883.10167053624
+120000  ekin = 3898.683811051 | epot = 617.870257959392 | etot = 4516.5540690104
+121000  ekin = 4230.45094272204 | epot = 579.556341381905 | etot = 4810.00728410395
+122000  ekin = 3874.10730359712 | epot = 1080.21061634133 | etot = 4954.31791993845
+123000  ekin = 4445.96557609592 | epot = 508.310023116177 | etot = 4954.2755992121
+124000  ekin = 3830.510499625 | epot = 500.618931012879 | etot = 4331.12943063788
+125000  ekin = 3814.10173353215 | epot = 516.689162440765 | etot = 4330.79089597291
+126000  ekin = 4273.96660335356 | epot = 511.171117826016 | etot = 4785.13772117958
+127000  ekin = 4625.1930352212 | epot = 954.063595656239 | etot = 5579.25663087743
+128000  ekin = 4945.05615719112 | epot = 595.320683591296 | etot = 5540.37684078242
+129000  ekin = 5311.36881722021 | epot = 598.878944757127 | etot = 5910.24776197734
+130000  ekin = 5702.0816508117 | epot = 1019.23006029636 | etot = 6721.31171110806
+131000  ekin = 6837.35500741104 | epot = 718.850202839143 | etot = 7556.20521025018
+132000  ekin = 7455.61455511565 | epot = 744.185848058419 | etot = 8199.80040317407
+133000  ekin = 7831.59131712158 | epot = 888.316823565101 | etot = 8719.90814068668
+134000  ekin = 7793.21995619591 | epot = 755.653306872356 | etot = 8548.87326306826
+135000  ekin = 7084.52926651669 | epot = 796.176944283982 | etot = 7880.70621080067
+136000  ekin = 6911.7220073241 | epot = 736.899135729127 | etot = 7648.62114305322
+137000  ekin = 8852.15450567435 | epot = 747.58433455636 | etot = 9599.7388402307
+138000  ekin = 11245.5110051896 | epot = 562.509196708239 | etot = 11808.0202018978
+139000  ekin = 10235.7937314538 | epot = 572.570097148613 | etot = 10808.3638286024
+140000  ekin = 10113.7472947 | epot = 727.774954368771 | etot = 10841.5222490688
+141000  ekin = 9926.93464737138 | epot = 783.403781703918 | etot = 10710.3384290753
+142000  ekin = 10245.6319530121 | epot = 792.879991734309 | etot = 11038.5119447464
+143000  ekin = 9684.42695390381 | epot = 1521.31595052051 | etot = 11205.7429044243
+144000  ekin = 10813.4437253909 | epot = 809.961516027996 | etot = 11623.4052414189
+145000  ekin = 10864.9210342528 | epot = 735.600443673406 | etot = 11600.5214779262
+146000  ekin = 10451.191612328 | epot = 778.447797463821 | etot = 11229.6394097918
+147000  ekin = 10583.1651012404 | epot = 639.770149757759 | etot = 11222.9352509981
+148000  ekin = 10876.4865068741 | epot = 667.772934190929 | etot = 11544.2594410651
+149000  ekin = 11940.6348128389 | epot = 766.258314353357 | etot = 12706.8931271923
+150000  ekin = 22228.6896497798 | epot = 576.142250385408 | etot = 22804.8319001652
+151000  ekin = 20498.9379864113 | epot = 570.889867467557 | etot = 21069.8278538789
+152000  ekin = 18503.7417262559 | epot = 605.437428277526 | etot = 19109.1791545334
+153000  ekin = 15295.9027094725 | epot = 618.9348729968 | etot = 15914.8375824693
+154000  ekin = 14365.4484269178 | epot = 677.598687979916 | etot = 15043.0471148977
+155000  ekin = 13606.9834751135 | epot = 618.217707821805 | etot = 14225.2011829353
+156000  ekin = 13109.3009665425 | epot = 1091.26894916527 | etot = 14200.5699157078
+157000  ekin = 13451.5977819509 | epot = 721.731136079622 | etot = 14173.3289180306
+158000  ekin = 14434.5279461088 | epot = 655.170566941166 | etot = 15089.69851305
+159000  ekin = 15932.5899275052 | epot = 707.354140567771 | etot = 16639.944068073
+160000  ekin = 17300.3724239479 | epot = 707.354140567771 | etot = 18007.7265645157
+161000  ekin = 19752.4664084786 | epot = 618.9348729968 | etot = 20371.4012814754
+162000  eki

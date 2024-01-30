@@ -1,0 +1,161 @@
+LAMMPS (2 Aug 2023 - Development - stable_17Nov2016-25567-gc73e8da293-modified)
+KOKKOS mode is enabled (../kokkos.cpp:107)
+  will use up to 1 GPU(s) per node
+package kokkos
+###
+# Box and units  (use LJ units and periodic boundaries)
+###
+
+units           lj
+atom_style      ellipsoid
+dimension	3
+boundary	p p p
+
+lattice		sc 0.75
+Lattice spacing in x,y,z = 1.1006424 1.1006424 1.1006424
+region		box block 0 15 0 15 0 15
+create_box	1 box
+Created orthogonal box = (0 0 0) to (16.509636 16.509636 16.509636)
+  1 by 1 by 1 MPI processor grid
+create_atoms	1 box
+Created 3375 atoms
+  using lattice units in orthogonal box = (0 0 0) to (16.509636 16.509636 16.509636)
+  create_atoms CPU = 0.005 seconds
+#reset_atoms 	id sort yes
+
+group           all type 1
+3375 atoms in group all
+set             type 1 mass 1.0
+Setting atom values ...
+  3375 settings made for mass
+set             type 1 shape 3.0 1.0 1.0
+Setting atom values ...
+  3375 settings made for shape
+set             type 1 quat/random 29898
+Setting atom values ...
+  3375 settings made for quat/random
+
+velocity 	all create 0.1 87287 loop geom
+
+neighbor        0.3 bin
+neigh_modify    delay 0 every 1 check yes
+
+dump   id all atom 5000 dump.polymer
+
+###################################################################
+# Pair interaction between non-bonded atoms
+#
+#  Lennard-Jones 12-6 potential with cutoff:
+#  potential E=4epsilon[ (sigma/r)^12 - (sigma/r)^6]  for r<r_cut
+#
+#  1.12246152962189 = 2^(1/6) is the minimum of the potential
+
+pair_style      lj/cut 1.12246152962189
+
+#
+#  pair_coeff for lj/cut, specify 4:
+#    * atom type interacting with
+#    * atom type
+#    * epsilon (energy units)
+#    * sigma (distance units)
+#
+
+pair_coeff      1 1 1.0 1.1
+
+#
+#  pair_modify shift yes adds a constant to the potential such
+#  that E(r_cut)=0. Forces remains unchanged.
+#
+
+pair_modify     shift yes
+
+###################################################
+
+#comm_modify cutoff 6
+#comm_style tiled
+#balance 1.2 rcb
+
+###
+# Set up fixes
+###
+
+fix 1 all   nve   ###NVE ensemble
+#fix 2 all   langevin   1.0 1.0   2.0   424242   ###Langevin integrator Tstart Tstop 1/friction rndseed
+
+compute ekin all ke
+compute epot all pe
+variable ekin equal c_ekin
+variable epot equal c_epot
+variable etot equal c_ekin+c_epot
+
+fix 3 all print 5000 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}" screen yes
+
+##### Sample thermodynamic info  (temperature, energy, pressure, etc.) #####
+#thermo 10000
+#thermo_style   custom   step  temp  epair  emol  press pxx pyy pzz  vol
+############################################################################
+
+###
+# set timestep of integrator
+###
+timestep 0.0001 #0.012
+
+###
+# run integration for a number of steps
+###
+run 20000
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 1.4224615
+  ghost atom cutoff = 1.4224615
+  binsize = 1.4224615, bins = 12 12 12
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/kk, perpetual
+      attributes: full, newton off, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+0  ekin = 506.1 | epot = 3956.31548109855 | etot = 4462.41548109855
+Per MPI rank memory allocation (min/avg/max) = 5.047 | 5.047 | 5.047 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0.1            1.1722416      0              1.3221972      17.886583    
+5000  ekin = 2737.62685244237 | epot = 1724.79584368073 | etot = 4462.4226961231
+10000  ekin = 2879.15168805846 | epot = 1583.44263643107 | etot = 4462.59432448953
+15000  ekin = 2864.39814790687 | epot = 1598.34150670673 | etot = 4462.7396546136
+20000  ekin = 2898.57293689066 | epot = 1564.52535305901 | etot = 4463.09828994967
+     20000   0.57272731     0.46356307     0              1.3223995      6.3393133    
+Loop time of 1.71469 on 1 procs for 20000 steps with 3375 atoms
+
+Performance: 100775.962 tau/day, 11663.884 timesteps/s, 39.366 Matom-step/s
+100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.5318     | 0.5318     | 0.5318     |   0.0 | 31.01
+Neigh   | 0.0097047  | 0.0097047  | 0.0097047  |   0.0 |  0.57
+Comm    | 0.19274    | 0.19274    | 0.19274    |   0.0 | 11.24
+Output  | 0.0051247  | 0.0051247  | 0.0051247  |   0.0 |  0.30
+Modify  | 0.4476     | 0.4476     | 0.4476     |   0.0 | 26.10
+Other   |            | 0.5277     |            |       | 30.78
+
+Nlocal:           3375 ave        3375 max        3375 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           2083 ave        2083 max        2083 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:        34272 ave       34272 max       34272 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 34272
+Ave neighs/atom = 10.154667
+Neighbor list builds = 38
+Dangerous builds = 0
+
+write_data data_out.* nocoeff
+System init for write_data ...
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+Total wall time: 0:00:01

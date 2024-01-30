@@ -20,7 +20,8 @@ Created orthogonal box = (0 0 0) to (70.441115 70.441115 70.441115)
 create_atoms	1 box
 Created 262144 atoms
   using lattice units in orthogonal box = (0 0 0) to (70.441115 70.441115 70.441115)
-  create_atoms CPU = 0.040 seconds
+  create_atoms CPU = 0.039 seconds
+#reset_atoms 	id sort yes
 
 group           all type 1
 262144 atoms in group all
@@ -121,24 +122,24 @@ Per MPI rank memory allocation (min/avg/max) = 89.29 | 89.29 | 89.29 Mbytes
    Step          Temp          E_pair         E_mol          TotEng         Press     
          0   0.1            1.1722416      0              1.3222411      17.886605    
 5000  ekin = 211870.453220756 | epot = 134748.525788183 | etot = 346618.979008939
-10000  ekin = 223996.828466791 | epot = 122623.186573202 | etot = 346620.015039993
-15000  ekin = 226602.228918851 | epot = 120019.635082227 | etot = 346621.864001077
-20000  ekin = 227410.527502746 | epot = 119212.841916365 | etot = 346623.369419111
+10000  ekin = 223996.828466792 | epot = 122623.1865732 | etot = 346620.015039992
+15000  ekin = 226602.228918868 | epot = 120019.635082195 | etot = 346621.864001063
+20000  ekin = 227410.527502333 | epot = 119212.841916458 | etot = 346623.369418791
      20000   0.57833708     0.4547609      0              1.3222632      6.3048356    
-Loop time of 14.8856 on 1 procs for 20000 steps with 262144 atoms
+Loop time of 14.5125 on 1 procs for 20000 steps with 262144 atoms
 
-Performance: 11608.523 tau/day, 1343.579 timesteps/s, 352.211 Matom-step/s
-99.7% CPU use with 1 MPI tasks x 1 OpenMP threads
+Performance: 11906.942 tau/day, 1378.118 timesteps/s, 361.265 Matom-step/s
+99.5% CPU use with 1 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 7.8986     | 7.8986     | 7.8986     |   0.0 | 53.06
-Neigh   | 0.5        | 0.5        | 0.5        |   0.0 |  3.36
-Comm    | 0.43162    | 0.43162    | 0.43162    |   0.0 |  2.90
-Output  | 0.38511    | 0.38511    | 0.38511    |   0.0 |  2.59
-Modify  | 3.6466     | 3.6466     | 3.6466     |   0.0 | 24.50
-Other   |            | 2.024      |            |       | 13.59
+Pair    | 7.9872     | 7.9872     | 7.9872     |   0.0 | 55.04
+Neigh   | 0.49403    | 0.49403    | 0.49403    |   0.0 |  3.40
+Comm    | 0.39369    | 0.39369    | 0.39369    |   0.0 |  2.71
+Output  | 0.3819     | 0.3819     | 0.3819     |   0.0 |  2.63
+Modify  | 3.3488     | 3.3488     | 3.3488     |   0.0 | 23.07
+Other   |            | 1.907      |            |       | 13.14
 
 Nlocal:         262144 ave      262144 max      262144 min
 Histogram: 1 0 0 0 0 0 0 0 0 0
@@ -157,4 +158,4 @@ Dangerous builds = 0
 write_data data_out.* nocoeff
 System init for write_data ...
 Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
-Total wall time: 0:00:16
+Total wall time: 0:00:15

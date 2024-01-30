@@ -13,13 +13,13 @@ boundary	p p p
 
 lattice		sc 0.75
 Lattice spacing in x,y,z = 1.1006424 1.1006424 1.1006424
-region		box block 0 17.5 0 17.5 0 17.5
+region		box block 0 18 0 18 0 18
 create_box	1 box
-Created orthogonal box = (0 0 0) to (19.261242 19.261242 19.261242)
+Created orthogonal box = (0 0 0) to (19.811563 19.811563 19.811563)
   1 by 1 by 1 MPI processor grid
 create_atoms	1 box
 Created 5832 atoms
-  using lattice units in orthogonal box = (0 0 0) to (19.261242 19.261242 19.261242)
+  using lattice units in orthogonal box = (0 0 0) to (19.811563 19.811563 19.811563)
   create_atoms CPU = 0.005 seconds
 #reset_atoms 	id sort yes
 
@@ -117,45 +117,45 @@ Neighbor list info ...
       pair build: full/bin/kk/device
       stencil: full/bin/3d
       bin: kk/device
-0  ekin = 874.650000000002 | epot = 15597059.6200773 | etot = 15597934.2700773
+0  ekin = 874.650000000002 | epot = 6836.51315133833 | etot = 7711.16315133834
 Per MPI rank memory allocation (min/avg/max) = 5.547 | 5.547 | 5.547 Mbytes
    Step          Temp          E_pair         E_mol          TotEng         Press     
-         0   0.1            2674.3929      0              2674.5429      8815.6178    
-5000  ekin = 13659383.114848 | epot = 1835521.18973082 | etot = 15494904.3045788
-10000  ekin = 13642798.6344603 | epot = 1852083.26698628 | etot = 15494881.9014465
-15000  ekin = 13509575.3346112 | epot = 1985261.13411317 | etot = 15494836.4687244
-20000  ekin = 13571042.2947812 | epot = 1923746.00081434 | etot = 15494788.2955956
-     20000   1551.5969      329.86043      0              2656.8567      2402.0582    
-Loop time of 3.67232 on 1 procs for 20000 steps with 5832 atoms
+         0   0.1            1.1722416      0              1.3222159      17.886593    
+5000  ekin = 4740.27895948368 | epot = 2970.93259404452 | etot = 7711.21155352821
+10000  ekin = 4987.16375011352 | epot = 2724.0776370596 | etot = 7711.24138717313
+15000  ekin = 5050.62083740719 | epot = 2660.35820955497 | etot = 7710.97904696216
+20000  ekin = 5019.21442239921 | epot = 2691.71376700921 | etot = 7710.92818940841
+     20000   0.57385405     0.46154214     0              1.3221756      6.275161     
+Loop time of 2.06491 on 1 procs for 20000 steps with 5832 atoms
 
-Performance: 47054.696 tau/day, 5446.145 timesteps/s, 31.762 Matom-step/s
-100.0% CPU use with 1 MPI tasks x 1 OpenMP threads
+Performance: 83684.052 tau/day, 9685.654 timesteps/s, 56.487 Matom-step/s
+99.8% CPU use with 1 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.79236    | 0.79236    | 0.79236    |   0.0 | 21.58
-Neigh   | 0.78514    | 0.78514    | 0.78514    |   0.0 | 21.38
-Comm    | 1.0796     | 1.0796     | 1.0796     |   0.0 | 29.40
-Output  | 0.0086188  | 0.0086188  | 0.0086188  |   0.0 |  0.23
-Modify  | 0.45164    | 0.45164    | 0.45164    |   0.0 | 12.30
-Other   |            | 0.555      |            |       | 15.11
+Pair    | 0.75949    | 0.75949    | 0.75949    |   0.0 | 36.78
+Neigh   | 0.013022   | 0.013022   | 0.013022   |   0.0 |  0.63
+Comm    | 0.27213    | 0.27213    | 0.27213    |   0.0 | 13.18
+Output  | 0.0086641  | 0.0086641  | 0.0086641  |   0.0 |  0.42
+Modify  | 0.47519    | 0.47519    | 0.47519    |   0.0 | 23.01
+Other   |            | 0.5364     |            |       | 25.98
 
 Nlocal:           5832 ave        5832 max        5832 min
 Histogram: 1 0 0 0 0 0 0 0 0 0
-Nghost:           3011 ave        3011 max        3011 min
+Nghost:           2970 ave        2970 max        2970 min
 Histogram: 1 0 0 0 0 0 0 0 0 0
 Neighs:              0 ave           0 max           0 min
 Histogram: 1 0 0 0 0 0 0 0 0 0
-FullNghs:        53248 ave       53248 max       53248 min
+FullNghs:        59620 ave       59620 max       59620 min
 Histogram: 1 0 0 0 0 0 0 0 0 0
 
-Total # of neighbors = 53248
-Ave neighs/atom = 9.1303155
-Neighbor list builds = 2301
+Total # of neighbors = 59620
+Ave neighs/atom = 10.222908
+Neighbor list builds = 39
 Dangerous builds = 0
 
 write_data data_out.* nocoeff
 System init for write_data ...
 Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
-Total wall time: 0:00:03
+Total wall time: 0:00:02

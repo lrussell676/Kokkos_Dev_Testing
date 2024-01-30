@@ -121,25 +121,25 @@ Neighbor list info ...
 Per MPI rank memory allocation (min/avg/max) = 5.047 | 5.047 | 5.047 Mbytes
    Step          Temp          E_pair         E_mol          TotEng         Press     
          0   0.1            1.1722416      0              1.3222111      17.88659     
-5000  ekin = 4021.04901257289 | epot = 2474.85970771606 | etot = 6495.90872028895
-10000  ekin = 4201.68158009431 | epot = 2294.46186314025 | etot = 6496.14344323456
-15000  ekin = 4276.98088169855 | epot = 2219.46530431772 | etot = 6496.44618601627
-20000  ekin = 4238.44316717902 | epot = 2258.05450853701 | etot = 6496.49767571603
+5000  ekin = 4021.04901257289 | epot = 2474.85970771606 | etot = 6495.90872028896
+10000  ekin = 4201.6815800944 | epot = 2294.46186314027 | etot = 6496.14344323468
+15000  ekin = 4276.98088169823 | epot = 2219.46530431618 | etot = 6496.44618601442
+20000  ekin = 4238.44316718229 | epot = 2258.05450853016 | etot = 6496.49767571245
      20000   0.57525016     0.45960808     0              1.3223077      6.2988438    
-Loop time of 1.86195 on 1 procs for 20000 steps with 4913 atoms
+Loop time of 1.9531 on 1 procs for 20000 steps with 4913 atoms
 
-Performance: 92805.699 tau/day, 10741.400 timesteps/s, 52.772 Matom-step/s
-99.9% CPU use with 1 MPI tasks x 1 OpenMP threads
+Performance: 88474.764 tau/day, 10240.135 timesteps/s, 50.310 Matom-step/s
+99.8% CPU use with 1 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.68844    | 0.68844    | 0.68844    |   0.0 | 36.97
-Neigh   | 0.012332   | 0.012332   | 0.012332   |   0.0 |  0.66
-Comm    | 0.18892    | 0.18892    | 0.18892    |   0.0 | 10.15
-Output  | 0.0072627  | 0.0072627  | 0.0072627  |   0.0 |  0.39
-Modify  | 0.44588    | 0.44588    | 0.44588    |   0.0 | 23.95
-Other   |            | 0.5191     |            |       | 27.88
+Pair    | 0.69274    | 0.69274    | 0.69274    |   0.0 | 35.47
+Neigh   | 0.01245    | 0.01245    | 0.01245    |   0.0 |  0.64
+Comm    | 0.24544    | 0.24544    | 0.24544    |   0.0 | 12.57
+Output  | 0.0072979  | 0.0072979  | 0.0072979  |   0.0 |  0.37
+Modify  | 0.46255    | 0.46255    | 0.46255    |   0.0 | 23.68
+Other   |            | 0.5326     |            |       | 27.27
 
 Nlocal:           4913 ave        4913 max        4913 min
 Histogram: 1 0 0 0 0 0 0 0 0 0
@@ -158,4 +158,4 @@ Dangerous builds = 0
 write_data data_out.* nocoeff
 System init for write_data ...
 Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
-Total wall time: 0:00:01
+Total wall time: 0:00:02

@@ -8,7 +8,7 @@ dimension	3
 boundary	p p p
 
 lattice		sc 0.75
-region		box block 0 120 0 120 0 120
+region		box block 0 18 0 18 0 18
 create_box	1 box
 create_atoms	1 box
 #reset_atoms 	id sort yes
@@ -86,6 +86,6 @@ timestep 0.0001 #0.012
 ###
 # run integration for a number of steps
 ###
-run 50000
+run 20000
 
 write_data data_out.* nocoeff

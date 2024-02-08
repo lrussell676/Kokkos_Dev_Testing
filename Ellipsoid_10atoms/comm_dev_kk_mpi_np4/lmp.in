@@ -125,7 +125,7 @@ timestep 0.0001 #0.012
 ###
 # run integration for a number of steps
 ###
-run 250000
+run 1
 
 write_data data_out.* nocoeff
  

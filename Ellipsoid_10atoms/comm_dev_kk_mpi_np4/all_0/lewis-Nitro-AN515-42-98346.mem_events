@@ -1,0 +1,302 @@
+# Memory Events
+# Time     Ptr                  Size        MemSpace      Op         Name
+0.000150   0x5555566ab240              8             Host Allocate   DualView::modified_flags
+0.000178   0x5555566aa580              8             Host Allocate   comm::k_total_send
+0.000201   0x5555565dcfc0              8             Host Allocate   DualView::modified_flags
+0.000208   0x5555565f92c0            400             Host Allocate   comm:k_exchange_sendlist
+0.000220   0x5555565dd1c0              8             Host Allocate   DualView::modified_flags
+0.000226   0x55555660ab00            400             Host Allocate   comm:k_exchange_copylist
+0.000232   0x5555566fec80              8             Host Allocate   DualView::modified_flags
+0.000237   0x5555566ffa40              8             Host Allocate   comm:k_count
+0.000243   0x5555566ffc80              8             Host Allocate   DualView::modified_flags
+0.000291   0x7ffff0c82040         240000             Host Allocate   comm:sendlist
+0.000644   0x5555566ff340              8             Host Allocate   DualView::modified_flags
+0.000667   0x5555566ff540              8             Host Allocate   comm:k_buf_send_pair
+0.000674   0x5555566ff780              8             Host Allocate   DualView::modified_flags
+0.000679   0x5555566ff940              8             Host Allocate   comm:k_recv_send_pair
+0.000691   0x555556701100              8             Host Allocate   DualView::modified_flags
+0.000696   0x5555567012c0              8             Host Allocate   comm:k_buf_send_fix
+0.000701   0x555556701540              8             Host Allocate   DualView::modified_flags
+0.000713   0x555556703e40              8             Host Allocate   comm:k_recv_send_fix
+0.000754   0x555556703fc0              8             Host Allocate   UnorderedMap size
+0.000760   0x5555567041c0             16             Host Allocate   Bitset
+0.000781   0x5555567043c0            776             Host Allocate   UnorderedMap hash list
+0.000786   0x555556652c00            520             Host Allocate   UnorderedMap next index
+0.000791   0x5555566a8f00            512             Host Allocate   UnorderedMap keys
+0.000797   0x5555566fff80            512             Host Allocate   UnorderedMap values
+0.000803   0x555556700380             16             Host Allocate   UnorderedMap scalars
+0.000814   0x555556700580              8             Host Allocate   UnorderedMap size
+0.000820   0x555556700780             16             Host Allocate   Bitset
+0.000825   0x555556700980            776             Host Allocate   UnorderedMap hash list
+0.000830   0x5555565f9ac0            520             Host Allocate   UnorderedMap next index
+0.000835   0x555556706e00            512             Host Allocate   UnorderedMap keys
+0.000841   0x5555567071c0            512             Host Allocate   UnorderedMap values
+0.000850   0x555556707540             16             Host Allocate   UnorderedMap scalars
+0.000863   0x555556707780              8             Host Allocate   UnorderedMap size
+0.000881   0x555556701a40             16             Host Allocate   Bitset
+0.000887   0x555556701c40            776             Host Allocate   UnorderedMap hash list
+0.000893   0x55555660b300            520             Host Allocate   UnorderedMap next index
+0.000899   0x555556702240            512             Host Allocate   UnorderedMap keys
+0.000905   0x555556702640            512             Host Allocate   UnorderedMap values
+0.000912   0x555556702a40             16             Host Allocate   UnorderedMap scalars
+0.000924   0x555556703fc0             -8             Host DeAllocate UnorderedMap size
+0.000929   0x5555567041c0            -16             Host DeAllocate Bitset
+0.000934   0x5555567043c0           -776             Host DeAllocate UnorderedMap hash list
+0.000938   0x555556652c00           -520             Host DeAllocate UnorderedMap next index
+0.000943   0x5555566a8f00           -512             Host DeAllocate UnorderedMap keys
+0.000948   0x5555566fff80           -512             Host DeAllocate UnorderedMap values
+0.000969   0x555556700380            -16             Host DeAllocate UnorderedMap scalars
+0.000975   0x555556700380              8             Host Allocate   UnorderedMap size
+0.000982   0x5555567041c0             16             Host Allocate   Bitset
+0.000989   0x5555567043c0            776             Host Allocate   UnorderedMap hash list
+0.000995   0x555556652c00            520             Host Allocate   UnorderedMap next index
+0.001001   0x5555566fff80            512             Host Allocate   UnorderedMap keys
+0.001008   0x5555566a8f00            512             Host Allocate   UnorderedMap values
+0.001015   0x555556703fc0             16             Host Allocate   UnorderedMap scalars
+0.001027   0x555556700580             -8             Host DeAllocate UnorderedMap size
+0.001031   0x555556700780            -16             Host DeAllocate Bitset
+0.001036   0x555556700980           -776             Host DeAllocate UnorderedMap hash list
+0.001040   0x5555565f9ac0           -520             Host DeAllocate UnorderedMap next index
+0.001045   0x555556706e00           -512             Host DeAllocate UnorderedMap keys
+0.001050   0x5555567071c0           -512             Host DeAllocate UnorderedMap values
+0.001054   0x555556707540            -16             Host DeAllocate UnorderedMap scalars
+0.001061   0x555556707540              8             Host Allocate   NeighBond:scalars
+0.001069   0x555556700780              8             Host Allocate   NeighBond:scalars_mirror
+0.001077   0x555556700580              8             Host Allocate   UnorderedMap size
+0.001084   0x555556702b40             16             Host Allocate   Bitset
+0.001091   0x555556700980            776             Host Allocate   UnorderedMap hash list
+0.001166   0x5555565f9ac0            520             Host Allocate   UnorderedMap next index
+0.001180   0x5555567071c0            512             Host Allocate   UnorderedMap keys
+0.001188   0x555556706e00            512             Host Allocate   UnorderedMap values
+0.001196   0x555556703ac0             16             Host Allocate   UnorderedMap scalars
+0.001210   0x555556707840              8             Host Allocate   UnorderedMap size
+0.001218   0x555556707a40             16             Host Allocate   Bitset
+0.001225   0x555556707c00            776             Host Allocate   UnorderedMap hash list
+0.001231   0x555556708100            520             Host Allocate   UnorderedMap next index
+0.001237   0x555556708500            512             Host Allocate   UnorderedMap keys
+0.001244   0x555556708900            512             Host Allocate   UnorderedMap values
+0.001251   0x555556708d00             16             Host Allocate   UnorderedMap scalars
+0.001264   0x555556708f40              8             Host Allocate   UnorderedMap size
+0.001271   0x555556709140             16             Host Allocate   Bitset
+0.001278   0x555556709340            776             Host Allocate   UnorderedMap hash list
+0.001284   0x555556709800            520             Host Allocate   UnorderedMap next index
+0.001299   0x555556709c00            512             Host Allocate   UnorderedMap keys
+0.001307   0x55555670a000            512             Host Allocate   UnorderedMap values
+0.001314   0x55555670a440             16             Host Allocate   UnorderedMap scalars
+0.001327   0x555556700580             -8             Host DeAllocate UnorderedMap size
+0.001332   0x555556702b40            -16             Host DeAllocate Bitset
+0.001336   0x555556700980           -776             Host DeAllocate UnorderedMap hash list
+0.001341   0x5555565f9ac0           -520             Host DeAllocate UnorderedMap next index
+0.001345   0x5555567071c0           -512             Host DeAllocate UnorderedMap keys
+0.001349   0x555556706e00           -512             Host DeAllocate UnorderedMap values
+0.001352   0x555556703ac0            -16             Host DeAllocate UnorderedMap scalars
+0.001357   0x555556703ac0              8             Host Allocate   UnorderedMap size
+0.001362   0x555556702b40             16             Host Allocate   Bitset
+0.001368   0x555556700980            776             Host Allocate   UnorderedMap hash list
+0.001372   0x5555565f9ac0            520             Host Allocate   UnorderedMap next index
+0.001384   0x555556706e00            512             Host Allocate   UnorderedMap keys
+0.001391   0x5555567071c0            512             Host Allocate   UnorderedMap values
+0.001396   0x555556700580             16             Host Allocate   UnorderedMap scalars
+0.001407   0x555556707840             -8             Host DeAllocate UnorderedMap size
+0.001410   0x555556707a40            -16             Host DeAllocate Bitset
+0.001414   0x555556707c00           -776             Host DeAllocate UnorderedMap hash list
+0.001418   0x555556708100           -520             Host DeAllocate UnorderedMap next index
+0.001422   0x555556708500           -512             Host DeAllocate UnorderedMap keys
+0.001425   0x555556708900           -512             Host DeAllocate UnorderedMap values
+0.001429   0x555556708d00            -16             Host DeAllocate UnorderedMap scalars
+0.001434   0x555556708d00              8             Host Allocate   NeighBond:scalars
+0.001441   0x555556707a40              8             Host Allocate   NeighBond:scalars_mirror
+0.001567   0x555556707840              8             Host Allocate   UnorderedMap size
+0.001576   0x555556718080             16             Host Allocate   Bitset
+0.001582   0x555556707c00            776             Host Allocate   UnorderedMap hash list
+0.001593   0x555556708100            520             Host Allocate   UnorderedMap next index
+0.001598   0x555556708900            512             Host Allocate   UnorderedMap keys
+0.001604   0x555556708500            512             Host Allocate   UnorderedMap values
+0.001610   0x55555670af00             16             Host Allocate   UnorderedMap scalars
+0.001621   0x55555670b100              8             Host Allocate   UnorderedMap size
+0.001625   0x55555670b300             16             Host Allocate   Bitset
+0.001629   0x55555670b500            776             Host Allocate   UnorderedMap hash list
+0.001632   0x55555670ba00            520             Host Allocate   UnorderedMap next index
+0.001635   0x55555670bdc0            512             Host Allocate   UnorderedMap keys
+0.001639   0x55555670c200            512             Host Allocate   UnorderedMap values
+0.001643   0x55555671a940             16             Host Allocate   UnorderedMap scalars
+0.001649   0x55555671aa00              8             Host Allocate   UnorderedMap size
+0.001653   0x55555671ac00             16             Host Allocate   Bitset
+0.001667   0x55555671ae00            776             Host Allocate   UnorderedMap hash list
+0.001670   0x55555671b300            520             Host Allocate   UnorderedMap next index
+0.001673   0x55555671b6c0            512             Host Allocate   UnorderedMap keys
+0.001677   0x55555671bb00            512             Host Allocate   UnorderedMap values
+0.001680   0x55555671bf00             16             Host Allocate   UnorderedMap scalars
+0.001686   0x555556707840             -8             Host DeAllocate UnorderedMap size
+0.001689   0x555556718080            -16             Host DeAllocate Bitset
+0.001737   0x555556707c00           -776             Host DeAllocate UnorderedMap hash list
+0.001740   0x555556708100           -520             Host DeAllocate UnorderedMap next index
+0.001742   0x555556708900           -512             Host DeAllocate UnorderedMap keys
+0.001745   0x555556708500           -512             Host DeAllocate UnorderedMap values
+0.001747   0x55555670af00            -16             Host DeAllocate UnorderedMap scalars
+0.001750   0x55555670af00              8             Host Allocate   UnorderedMap size
+0.001753   0x555556718080             16             Host Allocate   Bitset
+0.001760   0x555556707c00            776             Host Allocate   UnorderedMap hash list
+0.001763   0x555556708100            520             Host Allocate   UnorderedMap next index
+0.001766   0x555556708500            512             Host Allocate   UnorderedMap keys
+0.001770   0x555556708900            512             Host Allocate   UnorderedMap values
+0.001773   0x555556707840             16             Host Allocate   UnorderedMap scalars
+0.001779   0x55555670b100             -8             Host DeAllocate UnorderedMap size
+0.001781   0x55555670b300            -16             Host DeAllocate Bitset
+0.001784   0x55555670b500           -776             Host DeAllocate UnorderedMap hash list
+0.001786   0x55555670ba00           -520             Host DeAllocate UnorderedMap next index
+0.001788   0x55555670bdc0           -512             Host DeAllocate UnorderedMap keys
+0.001791   0x55555670c200           -512             Host DeAllocate UnorderedMap values
+0.001793   0x55555671a940            -16             Host DeAllocate UnorderedMap scalars
+0.001797   0x55555671a940              8             Host Allocate   DualView::modified_flags
+0.001800   0x55555670b300              8             Host Allocate   atom:error_flag
+0.001809   0x55555670b100              8             Host Allocate   atom:tag_min_max
+0.001813   0x555556702c40              8             Host Allocate   atom:tag_min_max
+0.001854   0x555556702d00              8             Host Allocate   DualView::modified_flags
+0.001858   0x555556702e40              8             Host Allocate   atom:k_count
+0.001882   0x5555567030c0              8             Host Allocate   DualView::modified_flags
+0.001885   0x555556703280              8             Host Allocate   atom:tag
+0.001889   0x5555567034c0              8             Host Allocate   DualView::modified_flags
+0.001892   0x555556703680              8             Host Allocate   atom:type
+0.001896   0x55555670d400              8             Host Allocate   DualView::modified_flags
+0.001899   0x55555670d5c0              8             Host Allocate   atom:mask
+0.001903   0x55555670d800              8             Host Allocate   DualView::modified_flags
+0.001906   0x55555670d9c0              8             Host Allocate   atom:image
+0.001921   0x55555670dc00              8             Host Allocate   DualView::modified_flags
+0.001925   0x5555566a6fc0             24             Host Allocate   atom:x
+0.001949   0x55555670df40              8             Host Allocate   DualView::modified_flags
+0.001952   0x55555662f180             24             Host Allocate   atom:v
+0.001956   0x55555670e280              8             Host Allocate   DualView::modified_flags
+0.001959   0x555556658180             24             Host Allocate   atom:f
+0.010138   0x555556702e40             -8             Host DeAllocate atom:k_count
+0.010142   0x555556702d00             -8             Host DeAllocate DualView::modified_flags
+0.010157   0x555556702d00              8             Host Allocate   DualView::modified_flags
+0.010163   0x555556702e40              8             Host Allocate   atom:k_count
+0.010221   0x555556735a80              8             Host Allocate   DualView::modified_flags
+0.010225   0x555556735c40              8             Host Allocate   atom:rmass
+0.010230   0x555556735e00              8             Host Allocate   DualView::modified_flags
+0.010247   0x555556735fc0             24             Host Allocate   atom:angmom
+0.010252   0x555556736200              8             Host Allocate   DualView::modified_flags
+0.010255   0x555556736400             24             Host Allocate   atom:torque
+0.010262   0x555556736640              8             Host Allocate   DualView::modified_flags
+0.010265   0x555556736800              8             Host Allocate   atom:ellipsoid
+0.011012   0x555556738280          65536             Host Allocate   atom:tag
+0.011109   0x555556748400          65536             Host Allocate   atom:type
+0.011185   0x5555567585c0          65536             Host Allocate   atom:mask
+0.011319   0x555556768780          65536             Host Allocate   atom:image
+0.011437   0x7ffff0bd8040         393216             Host Allocate   atom:x
+0.012189   0x7ffff0b56040         393216             Host Allocate   atom:v
+0.013101   0x7ffff0ad4040         393216             Host Allocate   atom:f
+0.013830   0x7ffff0a92040         131072             Host Allocate   atom:rmass
+0.013986   0x7ffff0a31040         393216             Host Allocate   atom:angmom
+0.014590   0x7ffff09af040         393216             Host Allocate   atom:torque
+0.015256   0x555556778ec0          65536             Host Allocate   atom:ellipsoid
+0.015341   0x555556703280             -8             Host DeAllocate atom:tag
+0.015345   0x555556703680             -8             Host DeAllocate atom:type
+0.015356   0x55555670d5c0             -8             Host DeAllocate atom:mask
+0.015359   0x55555670d9c0             -8             Host DeAllocate atom:image
+0.015362   0x5555566a6fc0            -24             Host DeAllocate atom:x
+0.015365   0x55555662f180            -24             Host DeAllocate atom:v
+0.015367   0x555556658180            -24             Host DeAllocate atom:f
+0.015370   0x555556735c40             -8             Host DeAllocate atom:rmass
+0.015373   0x555556735fc0            -24             Host DeAllocate atom:angmom
+0.015376   0x555556736400            -24             Host DeAllocate atom:torque
+0.015378   0x555556736800             -8             Host DeAllocate atom:ellipsoid
+0.017148   0x555556736800              8             Host Allocate   DualView::modified_flags
+0.017161   0x5555566ac5c0             48             Host Allocate   atom:map_array
+0.017174   0x555556735c40              8             Host Allocate   DualView::modified_flags
+0.017190   0x555556789f40           4024             Host Allocate   atom:sametag
+0.017205   0x55555678afc0          65536             Host Allocate   atom:tag_sorted
+0.017271   0x55555679b080          65536             Host Allocate   atom:i_sorted
+0.017281   0x555556736400             24             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_count
+0.017288   0x555556630ac0             48             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_offsets
+0.017291   0x5555565fd300             40             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sort_order
+0.017301   0x5555567ab680          65544             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_count
+0.017394   0x555556736400            -24             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::bin_count
+0.017398   0x555556630ac0            -48             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::bin_offsets
+0.017427   0x7ffff095d040         131080             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_offsets
+0.017430   0x5555565fd300            -40             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sort_order
+0.017444   0x7ffff093c040         131072             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sort_order
+0.017453   0x5555567bb780          11264             Host Allocate   Kokkos::Serial::scratch_mem
+0.017468   0x555556736400             24             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sorted_values
+0.017474   0x555556736400            -24             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sorted_values
+0.017477   0x555556736400             24             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sorted_values
+0.017485   0x555556736400            -24             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sorted_values
+0.018055   0x55555670d9c0              8             Host Allocate   DualView::modified_flags
+0.018064   0x555556736400             32             Host Allocate   pair:cutsq
+0.018070   0x55555670d5c0              8             Host Allocate   DualView::modified_flags
+0.018075   0x555556737e00            192             Host Allocate   PairLJCut::params
+0.018403   0x555556703680              8             Host Allocate   DualView::modified_flags
+0.018408   0x555556735fc0             32             Host Allocate   neigh:cutneighsq
+0.018542   0x555556703280              8             Host Allocate   NeighborKokkosFunctor::resize
+0.018575   0x5555567e4180              8             Host Allocate   neighbor:scalars
+0.018578   0x5555567e4340              8             Host Allocate   neighbor:scalars_mirror
+0.018900   0x5555568246c0              8             Host Allocate   DualView::modified_flags
+0.018916   0x7ffff0818040         393216             Host Allocate   neigh:xhold
+0.019221   0x5555568249c0              8             Host Allocate   DualView::modified_flags
+0.019235   0x555556824bc0         140280             Host Allocate   comm:k_buf_send
+0.019241   0x5555568471c0              8             Host Allocate   DualView::modified_flags
+0.019248   0x5555568473c0         127920             Host Allocate   comm:k_buf_recv
+0.020112   0x7ffff07c9040         320000             Host Allocate   comm:sendlist
+0.020707   0x7ffff0c82040        -240000             Host DeAllocate comm:sendlist
+0.020822   0x555556866e40              8             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_count
+0.020838   0x555556867000              8             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_offsets
+0.020842   0x555556685640            128             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sort_order
+0.020850   0x555556685380            128             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sorted_values
+0.020855   0x555556685380           -128             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sorted_values
+3.332060   0x555556685640           -128             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sort_order
+3.332070   0x555556866e40             -8             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::bin_count
+3.332075   0x555556867000             -8             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::bin_offsets
+3.332091   0x555556867000              8             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_count
+3.332104   0x555556866e40              8             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_offsets
+3.332109   0x555556685640            128             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sort_order
+3.332122   0x555556685380            128             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sorted_values
+3.332129   0x555556685380           -128             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sorted_values
+11.969493   0x555556685640           -128             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sort_order
+11.969502   0x555556867000             -8             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::bin_count
+11.969506   0x555556866e40             -8             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::bin_offsets
+11.969523   0x555556866e40              8             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_count
+11.969534   0x555556867000              8             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_offsets
+11.969707   0x555556685640            128             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sort_order
+11.969722   0x555556685380            128             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sorted_values
+11.969730   0x555556685380           -128             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sorted_values
+21.149417   0x555556685640           -128             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sort_order
+21.149422   0x555556866e40             -8             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::bin_count
+21.149424   0x555556867000             -8             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::bin_offsets
+24.502547   0x555556867000              8             Host Allocate   DualView::modified_flags
+24.502559   0x55555689e380          28736             Host Allocate   Neighbor::d_bins
+24.502562   0x555556866e40              8             Host Allocate   DualView::modified_flags
+24.502594   0x55555672c140           1800             Host Allocate   Neighbor::d_bincount
+24.502597   0x55555672ca00              8             Host Allocate   DualView::modified_flags
+24.502602   0x55555662b5c0            448             Host Allocate   Neighbor::d_atom2bin
+24.502640   0x55555672cdc0              8             Host Allocate   DualView::modified_flags
+24.502643   0x55555670bdc0            504             Host Allocate   neighlist:stencil
+24.502657   0x55555672d140              8             Host Allocate   DualView::modified_flags
+24.502659   0x555556658180             24             Host Allocate   neighlist:ilist
+24.502662   0x55555662f180             24             Host Allocate   neighlist:numneigh
+24.502664   0x5555567890c0            320             Host Allocate   neighlist:neighbors
+24.503765   0x7ffff0667040         393216             Host Allocate   VerletKokkos::f_merge_copy
+35.503647   0x55555672ec80              8             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_count
+35.503664   0x55555672ee00              8             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_offsets
+35.503668   0x555556685380            128             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sort_order
+35.503683   0x555556685100            128             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sorted_values
+35.503691   0x555556685100           -128             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sorted_values
+46.212734   0x555556685380           -128             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sort_order
+46.212763   0x55555672ec80             -8             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::bin_count
+46.212767   0x55555672ee00             -8             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::bin_offsets
+46.212782   0x55555672ee00              8             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_count
+46.212793   0x55555672ec80              8             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_offsets
+46.212797   0x555556685380            128             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sort_order
+46.212809   0x555556685100            128             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sorted_values
+46.212816   0x555556685100           -128             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sorted_values
+76.697647   0x555556685380           -128             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sort_order
+76.697655   0x55555672ee00             -8             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::bin_count
+76.697658   0x55555672ec80             -8             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::bin_offsets
+76.697673   0x55555672ec80              8             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_count
+76.697682   0x55555672ee00             16             Host Allocate   Kokkos::SortImpl::BinSortFunctor::bin_offsets
+76.697686   0x55555672f0c0              8             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sort_order
+76.697698   0x55555672f180              8             Host Allocate   Kokkos::SortImpl::BinSortFunctor::sorted_values
+76.697723   0x55555672f180             -8             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sorted_values
+94.808299   0x55555672f0c0             -8             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::sort_order
+94.808307   0x55555672ec80             -8             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::bin_count
+94.808311   0x55555672ee00            -16             Host DeAllocate Kokkos::SortImpl::BinSortFunctor::bin_offsets

@@ -1,0 +1,736 @@
+Breakpoint 1 at 0xadad0
+Catchpoint 2 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Breakpoint 1 at 0xadad0
+Catchpoint 2 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 67586)]
+[New Thread 0x7ffff25d4640 (LWP 67587)]
+[New Thread 0x7ffff2dd5640 (LWP 67590)]
+[New Thread 0x7ffff25d4640 (LWP 67591)]
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 2 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 2 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+Continuing.
+warning: Error detected on fd 0
+error detected on stdin
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, __GI_exit (status=1) at ./stdlib/exit.c:142
+Breakpoint 3 at 0xadad0
+Catchpoint 4 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Breakpoint 3 at 0xadad0
+Catchpoint 4 (throw)
+[New Thread 0x7ffff2dd5640 (LWP 88076)]
+[New Thread 0x7ffff25d4640 (LWP 88077)]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 88078)]
+[New Thread 0x7ffff25d4640 (LWP 88079)]
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 4 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 4 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+Continuing.
+warning: Error detected on fd 0
+error detected on stdin
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 3, __GI_exit (status=1) at ./stdlib/exit.c:142
+Breakpoint 3 at 0xadad0
+Catchpoint 4 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Breakpoint 3 at 0xadad0
+Catchpoint 4 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 26717)]
+[New Thread 0x7ffff25d4640 (LWP 26718)]
+[New Thread 0x7ffff2dd5640 (LWP 26721)]
+[New Thread 0x7ffff25d4640 (LWP 26722)]
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::borders_device<Kokkos::Serial> (this=this@entry=0x5555566fbec0) at ../comm_kokkos.cpp:1051
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::borders_device<Kokkos::Serial> (this=this@entry=0x5555566fe840) at ../comm_kokkos.cpp:1051
+LAMMPS_NS::AtomKokkos::sync (this=0x555556707fc0, space=LAMMPS_NS::Host, mask=4294967295) at ../atom_kokkos.cpp:130
+Continuing.
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 4 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x0000555555aab080 in LAMMPS_NS::CommKokkos::borders_device<Kokkos::Serial>() at ../comm_kokkos.cpp:1051
+	breakpoint already hit 1 time
+2       breakpoint     keep y   0x0000555555a9b360 in LAMMPS_NS::CommKokkos::copy_swap_info() at ../comm_kokkos.cpp:1288
+3       breakpoint     keep y   0x00007ffff50455f0 in __GI_exit at ./stdlib/exit.c:142
+4       catchpoint     keep y                      exception throw
+	catchpoint already hit 1 time
+Single stepping until exit from function __cxa_throw,
+which has no line number information.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 3, __GI_exit (status=1) at ./stdlib/exit.c:142
+Breakpoint 2 at 0xadad0
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Breakpoint 2 at 0xadad0
+Catchpoint 3 (throw)
+[New Thread 0x7ffff2dd5640 (LWP 77281)]
+[New Thread 0x7ffff25d4640 (LWP 77282)]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 77283)]
+[New Thread 0x7ffff25d4640 (LWP 77284)]
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fe900) at ../comm_kokkos.cpp:882
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fd1b0) at ../comm_kokkos.cpp:882
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fd1b0) at ../comm_kokkos.cpp:882
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fe900) at ../comm_kokkos.cpp:882
+Continuing.
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fe900) at ../comm_kokkos.cpp:882
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fd1b0) at ../comm_kokkos.cpp:882
+Continuing.
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fe900) at ../comm_kokkos.cpp:882
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fd1b0) at ../comm_kokkos.cpp:882
+Kokkos::BinSort<Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks>, Kokkos::BinOp1D<Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, unsigned long>::~BinSort (this=0x7fffffffd250, __in_chrg=<optimised out>) at ../../lib/kokkos/algorithms/src/Kokkos_Sort.hpp:116
+Kokkos::BinSort<Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks>, Kokkos::BinOp1D<Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, unsigned long>::~BinSort (this=0x7fffffffd250, __in_chrg=<optimised out>) at ../../lib/kokkos/algorithms/src/Kokkos_Sort.hpp:116
+Kokkos::View<unsigned long*, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace> >::~View (this=0x7fffffffd2e0, __in_chrg=<optimised out>)
+    at ../../lib/kokkos/core/src/Kokkos_View.hpp:1269
+Kokkos::Impl::ViewTracker<Kokkos::View<unsigned long*, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace> > >::~ViewTracker (this=0x7fffffffd2e0, 
+    __in_chrg=<optimised out>) at ../../lib/kokkos/core/src/impl/Kokkos_ViewTracker.hpp:39
+0x0000555555aa0cb8 in Kokkos::Impl::SharedAllocationTracker::~SharedAllocationTracker (this=0x7fffffffd2e0, __in_chrg=<optimised out>)
+    at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:419
+Kokkos::Impl::SharedAllocationRecord<void, void>::decrement (arg_record=0x55555689e440) at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.cpp:210
+Kokkos::atomic_fetch_sub<int> (val=<optimised out>, dest=<optimised out>) at ../../lib/kokkos/core/src/Kokkos_Atomics_Desul_Wrapper.hpp:83
+desul::atomic_fetch_sub<int, desul::MemoryOrderRelaxed, desul::MemoryScopeCaller> (scope=..., order=..., val=<optimised out>, 
+    dest=<optimised out>) at ../../lib/kokkos/tpls/desul/include/desul/atomics/Generic.hpp:54
+desul::Impl::host_atomic_fetch_sub<int, desul::MemoryOrderRelaxed, desul::MemoryScopeCaller> (scope=..., order=..., val=<optimised out>, 
+    dest=<optimised out>) at ../../lib/kokkos/tpls/desul/include/desul/atomics/Fetch_Op_Generic.hpp:40
+0x000055555636cdb6 in desul::Impl::host_atomic_fetch_oper<desul::Impl::sub_operator<int, int const>, int, desul::MemoryOrderRelaxed> (
+    val=<optimised out>, dest=<optimised out>, op=...) at ../../lib/kokkos/tpls/desul/include/desul/atomics/Fetch_Op_ScopeCaller.hpp:44
+Kokkos::atomic_fetch_sub<int> (val=1, dest=0x55555689e478) at ../../lib/kokkos/core/src/Kokkos_Atomics_Desul_Wrapper.hpp:83
+desul::atomic_fetch_sub<int, desul::MemoryOrderRelaxed, desul::MemoryScopeCaller> (scope=..., order=..., val=1, dest=0x55555689e478)
+    at ../../lib/kokkos/tpls/desul/include/desul/atomics/Generic.hpp:54
+desul::Impl::host_atomic_fetch_sub<int, desul::MemoryOrderRelaxed, desul::MemoryScopeCaller> (scope=..., order=..., val=1, dest=0x55555689e478)
+    at ../../lib/kokkos/tpls/desul/include/desul/atomics/Fetch_Op_Generic.hpp:40
+desul::Impl::host_atomic_fetch_oper<desul::Impl::sub_operator<int, int const>, int, desul::MemoryOrderRelaxed> (val=1, dest=0x55555689e478, 
+    op=...) at ../../lib/kokkos/tpls/desul/include/desul/atomics/Fetch_Op_ScopeCaller.hpp:44
+desul::Impl::sub_operator<int, int const>::apply (val2=<optimised out>, val1=<optimised out>)
+    at ../../lib/kokkos/tpls/desul/include/desul/atomics/Operator_Function_Objects.hpp:81
+Kokkos::Impl::SharedAllocationRecord<void, void>::decrement (arg_record=0x55555689e440) at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.cpp:213
+Kokkos::is_finalized () at ../../lib/kokkos/core/src/impl/Kokkos_Core.cpp:1289
+Kokkos::Impl::SharedAllocationRecord<void, void>::decrement (arg_record=0x55555689e440) at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.cpp:235
+Kokkos::atomic_exchange<Kokkos::Impl::SharedAllocationRecord<void, void>*> (val=0x0, 
+    dest=0x55555658ec70 <Kokkos::Impl::SharedAllocationRecord<Kokkos::HostSpace, void>::s_root_record+48>)
+    at ../../lib/kokkos/core/src/Kokkos_Atomics_Desul_Wrapper.hpp:214
+desul::atomic_exchange<Kokkos::Impl::SharedAllocationRecord<void, void>*> (value=0x0, 
+    dest=0x55555658ec70 <Kokkos::Impl::SharedAllocationRecord<Kokkos::HostSpace, void>::s_root_record+48>)
+    at ../../lib/kokkos/tpls/desul/include/desul/atomics/Compare_Exchange_ScopeCaller.hpp:37
+Kokkos::atomic_exchange<Kokkos::Impl::SharedAllocationRecord<void, void>*> (val=0x55555689e2a0, 
+    dest=0x55555658ec70 <Kokkos::Impl::SharedAllocationRecord<Kokkos::HostSpace, void>::s_root_record+48>)
+    at ../../lib/kokkos/core/src/Kokkos_Atomics_Desul_Wrapper.hpp:214
+desul::atomic_exchange<Kokkos::Impl::SharedAllocationRecord<void, void>*> (value=0x55555689e2a0, 
+    dest=0x55555658ec70 <Kokkos::Impl::SharedAllocationRecord<Kokkos::HostSpace, void>::s_root_record+48>)
+    at ../../lib/kokkos/tpls/desul/include/desul/atomics/Compare_Exchange_ScopeCaller.hpp:37
+Kokkos::Impl::(anonymous namespace)::deallocate<Kokkos::HostSpace, Kokkos::Impl::ViewValueFunctor<Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, unsigned long, true> > (record_ptr=0x55555689e440) at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:254
+Kokkos::Impl::SharedAllocationRecord<Kokkos::HostSpace, Kokkos::Impl::ViewValueFunctor<Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, unsigned long, true> >::~SharedAllocationRecord (this=0x55555689e440, __in_chrg=<optimised out>) at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:281
+0x00005555558f1aae in Kokkos::Impl::SharedAllocationRecord<Kokkos::HostSpace, Kokkos::Impl::ViewValueFunctor<Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, unsigned long, true> >::~SharedAllocationRecord (this=<optimised out>, __in_chrg=<optimised out>) at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:281
+Kokkos::Impl::ViewValueFunctor<Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, unsigned long, true>::~ViewValueFunctor (this=0x55555689e4a8, __in_chrg=<optimised out>) at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:3006
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string (this=0x55555689e4c8, __in_chrg=<optimised out>)
+    at /usr/include/c++/11/bits/basic_string.h:672
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_dispose (this=0x55555689e4c8)
+    at /usr/include/c++/11/bits/basic_string.h:239
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_is_local (this=0x55555689e4c8)
+    at /usr/include/c++/11/bits/basic_string.h:230
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_data (this=0x55555689e4c8)
+    at /usr/include/c++/11/bits/basic_string.h:194
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_is_local (this=<optimised out>) at /usr/include/c++/11/bits/basic_string.h:230
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_local_data (this=<optimised out>)
+    at /usr/include/c++/11/bits/basic_string.h:208
+Kokkos::Impl::ViewValueFunctor<Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, unsigned long, true>::~ViewValueFunctor (this=0x55555689e4a8, __in_chrg=<optimised out>) at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:3006
+Kokkos::Serial::~Serial (this=0x55555689e4a8, __in_chrg=<optimised out>) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial.hpp:87
+Kokkos::Impl::HostSharedPtr<Kokkos::Impl::SerialInternal>::~HostSharedPtr (this=0x55555689e4a8, __in_chrg=<optimised out>)
+    at ../../lib/kokkos/core/src/impl/Kokkos_HostSharedPtr.hpp:92
+Kokkos::Impl::HostSharedPtr<Kokkos::Impl::SerialInternal>::cleanup (this=0x55555689e4a8)
+    at ../../lib/kokkos/core/src/impl/Kokkos_HostSharedPtr.hpp:119
+Kokkos::atomic_fetch_sub<int> (val=1, dest=0x55555689df90) at ../../lib/kokkos/core/src/Kokkos_Atomics_Desul_Wrapper.hpp:83
+desul::atomic_fetch_sub<int, desul::MemoryOrderRelaxed, desul::MemoryScopeCaller> (scope=..., order=..., val=1, dest=0x55555689df90)
+    at ../../lib/kokkos/tpls/desul/include/desul/atomics/Generic.hpp:54
+desul::Impl::host_atomic_fetch_sub<int, desul::MemoryOrderRelaxed, desul::MemoryScopeCaller> (scope=..., order=..., val=1, dest=0x55555689df90)
+    at ../../lib/kokkos/tpls/desul/include/desul/atomics/Fetch_Op_Generic.hpp:40
+desul::Impl::host_atomic_fetch_oper<desul::Impl::sub_operator<int, int const>, int, desul::MemoryOrderRelaxed> (val=1, dest=0x55555689df90, 
+    op=...) at ../../lib/kokkos/tpls/desul/include/desul/atomics/Fetch_Op_ScopeCaller.hpp:44
+desul::Impl::sub_operator<int, int const>::apply (val2=<optimised out>, val1=<optimised out>) at ../../lib/kokkos/tpls/desul/include/desul/atomics/Operator_Function_Objects.hpp:81
+Kokkos::Impl::SharedAllocationRecord<Kokkos::HostSpace, Kokkos::Impl::ViewValueFunctor<Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, unsigned long, true> >::~SharedAllocationRecord (this=<optimised out>, __in_chrg=<optimised out>)
+    at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:281
+Kokkos::Impl::ViewValueFunctor<Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, unsigned long, true>::~ViewValueFunctor (this=0x55555689e4a8, 
+    __in_chrg=<optimised out>) at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:3006
+Kokkos::Serial::~Serial (this=0x55555689e4a8, __in_chrg=<optimised out>) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial.hpp:87
+Kokkos::Impl::HostSharedPtr<Kokkos::Impl::SerialInternal>::~HostSharedPtr (this=0x55555689e4a8, __in_chrg=<optimised out>)
+    at ../../lib/kokkos/core/src/impl/Kokkos_HostSharedPtr.hpp:92
+Kokkos::Impl::HostSharedPtr<Kokkos::Impl::SerialInternal>::cleanup (this=0x55555689e4a8)
+    at ../../lib/kokkos/core/src/impl/Kokkos_HostSharedPtr.hpp:120
+0x00005555558f1b34 in std::function<void (Kokkos::Impl::SerialInternal*)>::operator()(Kokkos::Impl::SerialInternal*) const (
+    __args#0=<optimised out>, this=0x55555689df70) at /usr/include/c++/11/bits/std_function.h:588
+std::_Function_handler<void(Kokkos::Impl::SerialInternal*), Kokkos::Serial::Serial()::<lambda(Kokkos::Impl::SerialInternal*)> >::_M_invoke(const std::_Any_data &, Kokkos::Impl::SerialInternal *&&) (__functor=..., __args#0=@0x7fffffffcde0: 0x5555566ade70) at /usr/include/c++/11/bits/std_function.h:288
+Kokkos::Impl::HostSharedPtr<Kokkos::Impl::SerialInternal>::cleanup (this=0x55555689e4a8) at ../../lib/kokkos/core/src/impl/Kokkos_HostSharedPtr.hpp:120
+Kokkos::Impl::HostSharedPtr<Kokkos::Impl::SerialInternal>::Control::~Control (this=0x55555689df70, __in_chrg=<optimised out>)
+    at ../../lib/kokkos/core/src/impl/Kokkos_HostSharedPtr.hpp:138
+std::function<void (Kokkos::Impl::SerialInternal*)>::~function() (this=0x55555689df70, __in_chrg=<optimised out>)
+    at /usr/include/c++/11/bits/std_function.h:334
+std::_Function_base::~_Function_base (this=0x55555689df70, __in_chrg=<optimised out>) at /usr/include/c++/11/bits/std_function.h:243
+std::_Function_handler<void(Kokkos::Impl::SerialInternal*), Kokkos::Serial::Serial()::<lambda(Kokkos::Impl::SerialInternal*)> >::_M_manager(std::_Any_data &, const std::_Any_data &, std::_Manager_operation) (__dest=..., __source=..., __op=std::__destroy_functor) at /usr/include/c++/11/bits/std_function.h:267
+Kokkos::Impl::SharedAllocationRecord<Kokkos::HostSpace, void>::~SharedAllocationRecord (this=0x55555689e440, __in_chrg=<optimised out>) at ../../lib/kokkos/core/src/impl/Kokkos_HostSpace.cpp:236
+0x0000555556364395 in Kokkos::HostSpace::deallocate (arg_logical_size=<optimised out>, arg_alloc_size=<optimised out>, 
+    arg_alloc_ptr=<optimised out>, arg_label=<optimised out>, this=<optimised out>) at ../../lib/kokkos/core/src/impl/Kokkos_HostSpace.cpp:197
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::c_str (this=<optimised out>)
+    at /usr/include/c++/11/bits/basic_string.h:2321
+0x00005555563643ce in std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_data (this=<optimised out>)
+    at /usr/include/c++/11/bits/basic_string.h:195
+Kokkos::HostSpace::deallocate (arg_logical_size=0, arg_alloc_size=128, arg_alloc_ptr=0x555556686340, 
+    arg_label=0x5555567b8810 "Kokkos::SortImpl::BinSortFunctor::sort_order", this=0x55555689e4a0)
+    at ../../lib/kokkos/core/src/impl/Kokkos_HostSpace.cpp:197
+Kokkos::Tools::make_space_handle (space_name=space_name@entry=0x55555637770f "Host") at ../../lib/kokkos/core/src/impl/Kokkos_Profiling.cpp:570
+0x00005555563688b8 in strncpy (__len=63, __src=0x55555637770f "Host", __dest=0x7fffffffcd10 "")
+    at /usr/include/x86_64-linux-gnu/bits/string_fortified.h:95
+__strncpy_avx2 () at ../sysdeps/x86_64/multiarch/strcpy-avx2.S:53
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fd1b0) at ../comm_kokkos.cpp:882
+Kokkos::BinSort<Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks>, Kokkos::BinOp1D<Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, unsigned long>::~BinSort (this=0x7fffffffd250, __in_chrg=<optimised out>) at ../../lib/kokkos/algorithms/src/Kokkos_Sort.hpp:116
+Continuing.
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fe900) at ../comm_kokkos.cpp:882
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 2, __GI_exit (status=1) at ./stdlib/exit.c:142
+Breakpoint 2 at 0xadad0
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 77438)]
+[New Thread 0x7ffff25d4640 (LWP 77439)]
+Breakpoint 2 at 0xadad0
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 77443)]
+[New Thread 0x7ffff25d4640 (LWP 77444)]
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fd7c0) at ../comm_kokkos.cpp:882
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fc740) at ../comm_kokkos.cpp:882
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fd7c0) at ../comm_kokkos.cpp:882
+Continuing.
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fc740) at ../comm_kokkos.cpp:882
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fd7c0) at ../comm_kokkos.cpp:882
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fc740) at ../comm_kokkos.cpp:882
+Continuing.
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fc740) at ../comm_kokkos.cpp:882
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fd7c0) at ../comm_kokkos.cpp:882
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fc740) at ../comm_kokkos.cpp:882
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fd7c0) at ../comm_kokkos.cpp:882
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+Kokkos::BinSort<Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks>, Kokkos::BinOp1D<Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, unsigned long>::~BinSort (this=0x7fffffffd250, __in_chrg=<optimised out>) at ../../lib/kokkos/algorithms/src/Kokkos_Sort.hpp:116
+Single stepping until exit from function __cxa_throw,
+which has no line number information.
+warning: Error detected on fd 0
+error detected on stdin
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 2, __GI_exit (status=1) at ./stdlib/exit.c:142
+Breakpoint 2 at 0xadad0
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Breakpoint 2 at 0xadad0
+Catchpoint 3 (throw)
+[New Thread 0x7ffff2dd5640 (LWP 98357)]
+[New Thread 0x7ffff25d4640 (LWP 98358)]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 98364)]
+[New Thread 0x7ffff25d4640 (LWP 98365)]
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fdf50) at ../comm_kokkos.cpp:882
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fc860) at ../comm_kokkos.cpp:882
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fdf50) at ../comm_kokkos.cpp:882
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fc860) at ../comm_kokkos.cpp:882
+Continuing.
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fc860) at ../comm_kokkos.cpp:882
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fdf50) at ../comm_kokkos.cpp:882
+Continuing.
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fdf50) at ../comm_kokkos.cpp:882
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fc860) at ../comm_kokkos.cpp:882
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fc860) at ../comm_kokkos.cpp:882
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 1, LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566fdf50) at ../comm_kokkos.cpp:882
+Kokkos::BinSort<Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks>, Kokkos::BinOp1D<Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, unsigned long>::~BinSort (this=0x7fffffffd200, __in_chrg=<optimised out>) at ../../lib/kokkos/algorithms/src/Kokkos_Sort.hpp:116
+Kokkos::BinSort<Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks>, Kokkos::BinOp1D<Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, unsigned long>::~BinSort (this=0x7fffffffd200, __in_chrg=<optimised out>) at ../../lib/kokkos/algorithms/src/Kokkos_Sort.hpp:116
+Continuing.
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+Continuing.
+Single stepping until exit from function __cxa_throw,
+which has no line number information.
+
+Thread 1 "lmp_DEV_kokkos_" hit Breakpoint 2, __GI_exit (status=1) at ./stdlib/exit.c:142
+Breakpoint 1 at 0xa5c0
+Catchpoint 2 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Catchpoint 2 (exception thrown), 0x00007ffff68ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+Breakpoint 1 at 0xa5c0
+Catchpoint 2 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Catchpoint 2 (exception thrown), 0x00007ffff68ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+Continuing.
+
+Catchpoint 2 (exception thrown), 0x00007ffff68ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+Continuing.
+[New Thread 0x7fffea9ff640 (LWP 40611)]
+[New Thread 0x7fffea1fe640 (LWP 40612)]
+[New Thread 0x7fffe91fc640 (LWP 40614)]
+[New Thread 0x7fffe99fd640 (LWP 40613)]
+
+Thread 1 "gnucash" hit Catchpoint 2 (exception thrown), 0x00007ffff68ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+Continuing.
+
+Catchpoint 2 (exception thrown), 0x00007ffff68ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+Continuing.
+[New Thread 0x7fffea9ff640 (LWP 40616)]
+[New Thread 0x7fffea1fe640 (LWP 40617)]
+[New Thread 0x7fffe99fd640 (LWP 40618)]
+[New Thread 0x7fffe91fc640 (LWP 40619)]
+
+Thread 1 "gnucash" hit Catchpoint 2 (exception thrown), 0x00007ffff68ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+Continuing.
+
+Thread 1 "gnucash" hit Breakpoint 1, __GI_exit (status=1) at ./stdlib/exit.c:142
+Not confirmed.
+Continuing.
+[Thread 0x7fffe99fd640 (LWP 40618) exited]
+[Thread 0x7fffea1fe640 (LWP 40617) exited]
+[Thread 0x7fffea9ff640 (LWP 40616) exited]
+[Thread 0x7fffebb70b00 (LWP 40543) exited]
+[Thread 0x7fffe91fc640 (LWP 40619) exited]
+[New process 40543]
+[Inferior 1 (process 40543) exited with code 01]
+The program is not being run.
+Continuing.
+
+Thread 1 "gnucash" hit Breakpoint 1, __GI_exit (status=1) at ./stdlib/exit.c:142
+Continuing.
+[Thread 0x7fffe91fc640 (LWP 40614) exited]
+[Thread 0x7fffea1fe640 (LWP 40612) exited]
+[Thread 0x7fffea9ff640 (LWP 40611) exited]
+[Thread 0x7fffebb70b00 (LWP 40608) exited]
+[Thread 0x7fffe99fd640 (LWP 40613) exited]
+[New process 40608]
+[Inferior 1 (process 40608) exited with code 01]
+The program is not being run.
+Breakpoint 1 at 0xadad0
+Catchpoint 2 (catch)
+gdb_run.txt:8: Error in sourced command file:
+Unable to insert catchpoint.  Is this an Ada main program?
+The program is not being run.
+Quit
+Breakpoint 1 at 0xadad0
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 40922)]
+[New Thread 0x7ffff25d4640 (LWP 40923)]
+Breakpoint 1 at 0xadad0
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 40927)]
+[New Thread 0x7ffff25d4640 (LWP 40928)]
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#0  0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555693eab in Kokkos::Impl::throw_runtime_exception (msg="View bounds error of view  ( 4 < 0 )")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Error.cpp:48
+#2  0x00005555559cb971 in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, void>, int> (tracker=..., map=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4034
+#3  0x00005555559ccc21 in Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >::operator()<int> (i0=4, this=0x7fffffffc9c0) at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4060
+#4  AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>::operator() (this=this@entry=0x7fffffffc7b0, mysend=@0x7fffffffc774: 0)
+    at ../atom_vec_ellipsoid_kokkos.cpp:1556
+#5  0x00005555559cd2df in Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::exec<void> (this=0x7fffffffc7b0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:37
+#6  Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::execute (
+    this=0x7fffffffc7b0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:52
+#7  Kokkos::parallel_for<Kokkos::RangePolicy<Kokkos::Serial>, AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, void> (str="", policy=..., 
+    functor=...) at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:144
+#8  0x0000555555999e8c in Kokkos::parallel_for<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1> > (functor=..., work_count=1, str="")
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:165
+#9  Kokkos::parallel_for<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1> > (functor=..., work_count=1)
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:170
+#10 LAMMPS_NS::AtomVecEllipsoidKokkos::pack_exchange_kokkos (this=0x555556721ca0, nsend=@0x7fffffffd17c: 1, k_buf=..., k_sendlist=..., k_copylist=..., 
+    space=<optimised out>) at ../atom_vec_ellipsoid_kokkos.cpp:1600
+#11 0x0000555555ab0004 in LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566feb30)
+    at ../../lib/kokkos/core/src/View/Hooks/Kokkos_ViewHooks.hpp:83
+#12 0x00005555558be771 in LAMMPS_NS::VerletKokkos::run (this=0x555556720410, n=250000) at ../verlet_kokkos.cpp:341
+#13 0x000055555583a600 in LAMMPS_NS::Run::command (this=0x5555567ae8e0, narg=<optimised out>, arg=0x555556723930) at ../run.cpp:176
+#14 0x00005555556a86cc in LAMMPS_NS::Input::execute_command (this=0x5555566b00c0) at ../input.cpp:868
+#15 0x00005555556a90ef in LAMMPS_NS::Input::file (this=0x5555566b00c0) at ../input.cpp:313
+#16 0x000055555569515c in main (argc=<optimised out>, argv=<optimised out>) at ../main.cpp:77
+#0  0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555693eab in Kokkos::Impl::throw_runtime_exception (msg="View bounds error of view  ( 4 < 0 )")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Error.cpp:48
+#2  0x00005555559cb971 in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, void>, int> (tracker=..., map=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4034
+#3  0x00005555559ccc21 in Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >::operator()<int> (i0=4, this=0x7fffffffc9c0) at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4060
+#4  AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>::operator() (this=this@entry=0x7fffffffc7b0, mysend=@0x7fffffffc774: 0)
+    at ../atom_vec_ellipsoid_kokkos.cpp:1556
+#5  0x00005555559cd2df in Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::exec<void> (this=0x7fffffffc7b0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:37
+#6  Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::execute (
+    this=0x7fffffffc7b0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:52
+#7  Kokkos::parallel_for<Kokkos::RangePolicy<Kokkos::Serial>, AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, void> (str="", policy=..., 
+    functor=...) at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:144
+#8  0x0000555555999e8c in Kokkos::parallel_for<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1> > (functor=..., work_count=1, str="")
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:165
+#9  Kokkos::parallel_for<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1> > (functor=..., work_count=1)
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:170
+#10 LAMMPS_NS::AtomVecEllipsoidKokkos::pack_exchange_kokkos (this=0x555556721ca0, nsend=@0x7fffffffd17c: 1, k_buf=..., k_sendlist=..., k_copylist=..., 
+    space=<optimised out>) at ../atom_vec_ellipsoid_kokkos.cpp:1600
+#11 0x0000555555ab0004 in LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566feb30)
+    at ../../lib/kokkos/core/src/View/Hooks/Kokkos_ViewHooks.hpp:83
+#12 0x00005555558be771 in LAMMPS_NS::VerletKokkos::run (this=0x555556720410, n=250000) at ../verlet_kokkos.cpp:341
+#13 0x000055555583a600 in LAMMPS_NS::Run::command (this=0x5555567ae8e0, narg=<optimised out>, arg=0x555556723930) at ../run.cpp:176
+#14 0x00005555556a86cc in LAMMPS_NS::Input::execute_command (this=0x5555566b00c0) at ../input.cpp:868
+#15 0x00005555556a90ef in LAMMPS_NS::Input::file (this=0x5555566b00c0) at ../input.cpp:313
+#16 0x000055555569515c in main (argc=<optimised out>, argv=<optimised out>) at ../main.cpp:77
+#0  0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555693eab in Kokkos::Impl::throw_runtime_exception (msg="View bounds error of view  ( 4 < 0 )")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Error.cpp:48
+#2  0x00005555559cb971 in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, void>, int> (tracker=..., map=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4034
+#3  0x00005555559ccc21 in Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >::operator()<int> (i0=4, this=0x7fffffffc9c0) at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4060
+#4  AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>::operator() (this=this@entry=0x7fffffffc7b0, mysend=@0x7fffffffc774: 0)
+    at ../atom_vec_ellipsoid_kokkos.cpp:1556
+#5  0x00005555559cd2df in Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::exec<void> (this=0x7fffffffc7b0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:37
+#6  Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::execute (
+    this=0x7fffffffc7b0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:52
+#7  Kokkos::parallel_for<Kokkos::RangePolicy<Kokkos::Serial>, AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, void> (str="", policy=..., 
+    functor=...) at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:144
+#8  0x0000555555999e8c in Kokkos::parallel_for<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1> > (functor=..., work_count=1, str="")
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:165
+#9  Kokkos::parallel_for<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1> > (functor=..., work_count=1)
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:170
+#10 LAMMPS_NS::AtomVecEllipsoidKokkos::pack_exchange_kokkos (this=0x555556721ca0, nsend=@0x7fffffffd17c: 1, k_buf=..., k_sendlist=..., k_copylist=..., 
+    space=<optimised out>) at ../atom_vec_ellipsoid_kokkos.cpp:1600
+#11 0x0000555555ab0004 in LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555566feb30)
+Breakpoint 1 at 0xaeaf0
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Breakpoint 1 at 0xaeaf0
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[New Thread 0x7ffff2dd5640 (LWP 120701)]
+[New Thread 0x7ffff25d4640 (LWP 120702)]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 120703)]
+[New Thread 0x7ffff25d4640 (LWP 120704)]
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#0  0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555699007 in Kokkos::Impl::throw_runtime_exception (msg="View bounds error of view  ( 4 < 0 )")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Error.cpp:38
+#2  0x00005555559e3c4a in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, void>, int> (tracker=..., map=...) at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4034
+#3  0x00005555559e4d7c in Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >::operator()<int> (i0=4, this=0x7fffffffc9e0)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4060
+#4  AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>::operator() (this=this@entry=0x7fffffffc7d0, mysend=@0x7fffffffc794: 0)
+    at ../atom_vec_ellipsoid_kokkos.cpp:1588
+#5  0x00005555559e541f in Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::exec<void> (this=0x7fffffffc7d0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:37
+#6  Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::execute (this=0x7fffffffc7d0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:52
+#7  Kokkos::parallel_for<Kokkos::RangePolicy<Kokkos::Serial>, AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, void> (
+Quit
+#0  0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555699007 in Kokkos::Impl::throw_runtime_exception (msg="View bounds error of view  ( 4 < 0 )")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Error.cpp:38
+#2  0x00005555559e3c4a in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, void>, int> (tracker=..., map=...) at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4034
+#3  0x00005555559e4d7c in Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >::operator()<int> (i0=4, this=0x7fffffffc9e0)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4060
+#4  AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>::operator() (this=this@entry=0x7fffffffc7d0, mysend=@0x7fffffffc794: 0)
+    at ../atom_vec_ellipsoid_kokkos.cpp:1588
+#5  0x00005555559e541f in Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::exec<void> (this=0x7fffffffc7d0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:37
+#6  Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::execute (this=0x7fffffffc7d0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:52
+#7  Kokkos::parallel_for<Kokkos::RangePolicy<Kokkos::Serial>, AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, void> (
+Quit
+#0  0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555699007 in Kokkos::Impl::throw_runtime_exception (msg="View bounds error of view  ( 4 < 0 )")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Error.cpp:38
+#2  0x00005555559e3c4a in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, void>, int> (tracker=..., map=...) at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4034
+#3  0x00005555559e4d7c in Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >::operator()<int> (i0=4, this=0x7fffffffc9e0)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4060
+#4  AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>::operator() (this=this@entry=0x7fffffffc7d0, mysend=@0x7fffffffc794: 0)
+    at ../atom_vec_ellipsoid_kokkos.cpp:1588
+#5  0x00005555559e541f in Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::exec<void> (this=0x7fffffffc7d0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:37
+#6  Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::execute (this=0x7fffffffc7d0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:52
+#7  Kokkos::parallel_for<Kokkos::RangePolicy<Kokkos::Serial>, AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1>, void> (
+    str="", policy=..., functor=...) at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:144
+#8  0x00005555559b21bc in Kokkos::parallel_for<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1> > (functor=..., 
+    work_count=1, str="") at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:165
+#9  Kokkos::parallel_for<AtomVecEllipsoidKokkos_PackExchangeFunctor<Kokkos::Serial, 1> > (functor=..., work_count=1)
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:170
+#10 LAMMPS_NS::AtomVecEllipsoidKokkos::pack_exchange_kokkos (this=0x555556825840, nsend=@0x7fffffffd17c: 1, k_buf=..., k_sendlist=..., 
+    k_copylist=..., space=<optimised out>) at ../atom_vec_ellipsoid_kokkos.cpp:1631
+#11 0x0000555555ac00d8 in LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555567feb30)
+    at ../../lib/kokkos/core/src/View/Hooks/Kokkos_ViewHooks.hpp:83
+#12 0x00005555558d9dd1 in LAMMPS_NS::VerletKokkos::run (this=0x555556824100, n=250000) at ../verlet_kokkos.cpp:340
+#13 0x000055555585b780 in LAMMPS_NS::Run::command (this=0x555556826800, narg=<optimised out>, arg=0x555556827760) at ../run.cpp:176
+#14 0x00005555556abffc in LAMMPS_NS::Input::execute_command (this=0x555556706e80) at ../input.cpp:868
+#15 0x00005555556aca1f in LAMMPS_NS::Input::file (this=0x555556706e80) at ../input.cpp:313
+#16 0x000055555569a35c in main (argc=<optimised out>, argv=<optimised out>) at ../main.cpp:77
+Breakpoint 1 at 0xaeaf0
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 161103)]
+[New Thread 0x7ffff25d4640 (LWP 161104)]
+Breakpoint 1 at 0xaeaf0
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 161121)]
+[New Thread 0x7ffff25d4640 (LWP 161122)]
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#0  0x00007ffff54ae4a1 in __cxa_throw ()
+   from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555698fff in Kokkos::Impl::throw_runtime_exception (
+    msg="View bounds error of view  ( 0 < 0 )")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Error.cpp:38
+#2  0x00005555559d139a in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRig#0  0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555698fff in Kokkos::Impl::throw_runtime_exception (msg="View bounds error of view  ( 0 < 0 )")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Error.cpp:38
+#2  0x00005555559d139a in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, void>, int> (tracker=..., map=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4034
+#3  0x00005555559d88ad in Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >::operator[]<int> (i0=0, this=0x7fffffffd0d8)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4060
+#4  AtomVecEllipsoidKokkos_PackComm<Kokkos::Serial, 1, 0, 0>::operator() (i=<optimised out>, this=0x7fffffffd000)
+    at ../atom_vec_ellipsoid_kokkos.cpp:235
+warning: Error detected on fd 0
+error detected on stdin
+Breakpoint 1 at 0xaeaf0
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+Breakpoint 1 at 0xaeaf0
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Breakpoint 1 at 0xaeaf0
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 221847)]
+[New Thread 0x7ffff25d4640 (LWP 221848)]
+[New Thread 0x7ffff2dd5640 (LWP 221849)]
+[New Thread 0x7ffff25d4640 (LWP 221850)]
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#0  0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555698f8f in Kokkos::Impl::throw_runtime_exception (msg="View bounds error of view Neighbor::d_bincount ( 481 < 449 )")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Error.cpp:38
+#2  0x0000555555e9d133 in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Serial, void>, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<int*, Kokkos::LayoutRight, Kokkos::Serial, void>, void>, int> (map=..., tracker=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4034
+#3  Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Serial, void>::operator[]<int> (i0=<optimised out>, this=0x7fffffffd2e0)
+    at ../../lib/kokkos/core/src/Kokkos_View.hpp:872
+#4  LAMMPS_NS::NBinKokkos<Kokkos::Serial>::binatomsItem (i=<optimised out>, this=0x7fffffffcfb0) at ../nbin_kokkos.cpp:132
+#5  LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>::operator() (i=<optimised out>, this=0x7fffffffcfb0) at ../nbin_kokkos.h:145
+#6  Kokkos::Impl::ParallelFor<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::exec<void> (this=0x7fffffffcfb0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:37
+#7  Kokkos::Impl::ParallelFor<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::execute (this=0x7fffffffcfb0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:52
+#8  Kokkos::parallel_for<Kokkos::RangePolicy<Kokkos::Serial>, LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, void> (functor=..., 
+    policy=..., str="") at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:144
+#9  Kokkos::parallel_for<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial> > (functor=..., work_count=<optimised out>, str="")
+#0  0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555698f8f in Kokkos::Impl::throw_runtime_exception (msg="View bounds error of view Neighbor::d_bincount ( 537 < 449 )")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Error.cpp:38
+#2  0x0000555555e9d133 in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Serial, void>, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<int*, Kokkos::LayoutRight, Kokkos::Serial, void>, void>, int> (map=..., 
+    tracker=...) at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4034
+#3  Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Serial, void>::operator[]<int> (i0=<optimised out>, this=0x7fffffffd2e0)
+    at ../../lib/kokkos/core/src/Kokkos_View.hpp:872
+#4  LAMMPS_NS::NBinKokkos<Kokkos::Serial>::binatomsItem (i=<optimised out>, this=0x7fffffffcfb0) at ../nbin_kokkos.cpp:132
+#5  LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>::operator() (i=<optimised out>, this=0x7fffffffcfb0) at ../nbin_kokkos.h:145
+#6  Kokkos::Impl::ParallelFor<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::exec<void> (this=0x7fffffffcfb0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:37
+#7  Kokkos::Impl::ParallelFor<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::execute (this=0x7fffffffcfb0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:52
+#8  Kokkos::parallel_for<Kokkos::RangePolicy<Kokkos::Serial>, LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, void> (
+    functor=..., policy=..., str="") at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:144
+#9  Kokkos::parallel_for<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial> > (functor=..., work_count=<optimised out>, str="")
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:165
+#10 Kokkos::parallel_for<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial> > (functor=..., work_count=<optimised out>)
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:170
+#11 LAMMPS_NS::NBinKokkos<Kokkos::Serial>::bin_atoms (this=<optimised out>) at ../nbin_kokkos.cpp:106
+#12 0x00005555557487ae in LAMMPS_NS::NeighborKokkos::build_kokkos<Kokkos::Serial> (this=0x555556806cd0, topoflag=1)
+    at ../neighbor_kokkos.cpp:299
+#13 0x00005555558d72d4 in LAMMPS_NS::VerletKokkos::setup (this=0x5555568280e0, flag=1) at ../verlet_kokkos.cpp:110
+#14 0x000055555585b6d1 in LAMMPS_NS::Run::command (this=0x555556816540, narg=<optimised out>, arg=0x55555682b7b0) at ../run.cpp:171
+#15 0x00005555556abf7c in LAMMPS_NS::Input::execute_command (this=0x555556755710) at ../input.cpp:868
+#16 0x00005555556ac99f in LAMMPS_NS::Input::file (this=0x555556755710) at ../input.cpp:313
+#17 0x000055555569a2dc in main (argc=<optimised out>, argv=<optimised out>) at ../main.cpp:77
+   lib/kokkos/core/src/Kokkos_Parallel.hpp:165
+#10 Kokkos::parallel_for<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial> > (functor=..., work_count=<optimised out>)
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:170
+#11 LAMMPS_NS::NBinKokkos<Kokkos::Serial>::bin_atoms (this=<optimised out>) at ../nbin_kokkos.cpp:106
+#12 0x00005555557487ae in LAMMPS_NS::NeighborKokkos::build_kokkos<Kokkos::Serial> (this=0x555556805050, topoflag=1)
+    at ../neighbor_kokkos.cpp:299
+#13 0x00005555558d72d4 in LAMMPS_NS::VerletKokkos::setup (this=0x555556826cc0, flag=1) at ../verlet_kokkos.cpp:110
+#14 0x000055555585b6d1 in LAMMPS_NS::Run::command (this=0x5555568288e0, narg=<optimised out>, arg=0x555556829370) at ../run.cpp:171
+#15 0x00005555556abf7c in LAMMPS_NS::Input::execute_command (this=0x55555678aba0) at ../input.cpp:868
+#16 0x00005555556ac99f in LAMMPS_NS::Input::file (this=0x55555678aba0) at ../input.cpp:313
+#17 0x000055555569a2dc in main (argc=<optimised out>, argv=<optimised out>) at ../main.cpp:77
+#0  0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555698f8f in Kokkos::Impl::throw_runtime_exception (msg="View bounds error of view Neighbor::d_bincount ( 481 < 449 )")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Error.cpp:38
+#2  0x0000555555e9d133 in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Serial, void>, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<int*, Kokkos::LayoutRight, Kokkos::Serial, void>, void>, int> (map=..., tracker=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4034
+#3  Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Serial, void>::operator[]<int> (i0=<optimised out>, this=0x7fffffffd2e0)
+    at ../../lib/kokkos/core/src/Kokkos_View.hpp:872
+#4  LAMMPS_NS::NBinKokkos<Kokkos::Serial>::binatomsItem (i=<optimised out>, this=0x7fffffffcfb0) at ../nbin_kokkos.cpp:132
+#5  LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>::operator() (i=<optimised out>, this=0x7fffffffcfb0) at ../nbin_kokkos.h:145
+#6  Kokkos::Impl::ParallelFor<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::exec<void> (this=0x7fffffffcfb0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:37
+#7  Kokkos::Impl::ParallelFor<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::execute (this=0x7fffffffcfb0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:52
+#8  Kokkos::parallel_for<Kokkos::RangePolicy<Kokkos::Serial>, LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, void> (functor=..., 
+    policy=..., str="") at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:144
+#9  Kokkos::parallel_for<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial> > (functor=..., work_count=<optimised out>, str="")
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:165
+#10 Kokkos::parallel_for<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial> > (functor=..., work_count=<optimised out>)
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:170
+#11 LAMMPS_NS::NBinKokkos<Kokkos::Serial>::bin_atoms (this=<optimised out>) at ../nbin_kokkos.cpp:106
+#12 0x00005555557487ae in LAMMPS_NS::NeighborKokkos::build_kokkos<Kokkos::Serial> (this=0x555556805050, topoflag=1)
+    at ../neighbor_kokkos.cpp:299
+#13 0x00005555558d72d4 in LAMMPS_NS::VerletKokkos::setup (this=0x555556826cc0, flag=1) at ../verlet_kokkos.cpp:110
+#14 0x000055555585b6d1 in LAMMPS_NS::Run::command (this=0x5555568288e0, narg=<optimised out>, arg=0x555556829370) at ../run.cpp:171
+#15 0x00005555556abf7c in LAMMPS_NS::Input::execute_command (this=0x55555678aba0) at ../input.cpp:868
+#16 0x00005555556ac99f in LAMMPS_NS::Input::file (this=0x55555678aba0) at ../input.cpp:313
+#17 0x000055555569a2dc in main (argc=<optimised out>, argv=<optimised out>) at ../main.cpp:77
+Breakpoint 1 at 0xaeaf0
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Breakpoint 1 at 0xaeaf0
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[New Thread 0x7ffff2dd5640 (LWP 235278)]
+[New Thread 0x7ffff25d4640 (LWP 235280)]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 235283)]
+[New Thread 0x7ffff25d4640 (LWP 235284)]
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#0  0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555698f8f in Kokkos::Impl::throw_runtime_exception (msg="View bounds error of view Neighbor::d_bincount ( 537 < 449 )")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Error.cpp:38
+#2  0x0000555555e9d1f3 in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Serial, void>, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<int*, Kokkos::LayoutRight, Kokkos::Serial, void>, void>, int> (map=..., tracker=...) at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4034
+#3  Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Serial, void>::operator[]<int> (i0=<optimised out>, this=0x7fffffffd2e0) at ../../lib/kokkos/core/src/Kokkos_View.hpp:872
+#4  LAMMPS_NS::NBinKokkos<Kokkos::Serial>::binatomsItem (i=<optimised out>, this=0x7fffffffcfb0) at ../nbin_kokkos.cpp:132
+#5  LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>::operator() (i=<optimised out>, this=0x7fffffffcfb0) at ../nbin_kokkos.h:145
+#6  Kokkos::Impl::ParallelFor<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::exec<void> (this=0x7fffffffcfb0)
+    at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:37
+#7  Kokkos::Impl::ParallelFor<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::execute (this=0x7fffffffcfb0)
+    at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:52
+#8  Kokkos::parallel_for<Kokkos::RangePolicy<Kokkos::Serial>, LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, void> (functor=..., policy=..., str="")
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:144
+#9  Kokkos::parallel_for<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial> > (functor=..., work_count=<optimised out>, str="")
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:165
+#10 Kokkos::parallel_for<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial> > (functor=..., work_count=<optimised out>) at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:170
+#11 LAMMPS_NS::NBinKokkos<Kokkos::Serial>::bin_atoms (this=<optimised out>) at ../nbin_kokkos.cpp:106
+#12 0x00005555557487ae in LAMMPS_NS::NeighborKokkos::build_kokkos<Kokkos::Serial> (this=0x555556806cd0, topoflag=1) at ../neighbor_kokkos.cpp:299
+#13 0x00005555558d72d4 in LAMMPS_NS::VerletKokkos::setup (this=0x5555568280e0, flag=1) at ../verlet_kokkos.cpp:110
+#14 0x000055555585b6d1 in LAMMPS_NS::Run::command (this=0x555556816540, narg=<optimised out>, arg=0x55555682b7b0) at ../run.cpp:171
+#15 0x00005555556abf7c in LAMMPS_NS::Input::execute_command (this=0x555556755710) at ../input.cpp:868
+#16 0x00005555556ac99f in LAMMPS_NS::Input::file (this=0x555556755710) at ../input.cpp:313
+#17 0x000055555569a2dc in main (argc=<optimised out>, argv=<optimised out>) at ../main.cpp:77
+#0  0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555698f8f in Kokkos::Impl::throw_runtime_exception (msg="View bounds error of view Neighbor::d_bincount ( 481 < 449 )")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Error.cpp:38
+#2  0x0000555555e9d1f3 in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Serial, void>, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<int*, Kokkos::LayoutRight, Kokkos::Serial, void>, void>, int> (map=..., 
+    tracker=...) at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4034
+#3  Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Serial, void>::operator[]<int> (i0=<optimised out>, this=0x7fffffffd2e0)
+    at ../../lib/kokkos/core/src/Kokkos_View.hpp:872
+#4  LAMMPS_NS::NBinKokkos<Kokkos::Serial>::binatomsItem (i=<optimised out>, this=0x7fffffffcfb0) at ../nbin_kokkos.cpp:132
+#5  LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>::operator() (i=<optimised out>, this=0x7fffffffcfb0) at ../nbin_kokkos.h:145
+#6  Kokkos::Impl::ParallelFor<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::exec<void> (this=0x7fffffffcfb0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:37
+#7  Kokkos::Impl::ParallelFor<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::execute (this=0x7fffffffcfb0) at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:52
+#8  Kokkos::parallel_for<Kokkos::RangePolicy<Kokkos::Serial>, LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial>, void> (functor=..., 
+    policy=..., str="") at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:144
+#9  Kokkos::parallel_for<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial> > (functor=..., work_count=<optimised out>, str="")
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:165
+#10 Kokkos::parallel_for<LAMMPS_NS::NPairKokkosBinAtomsFunctor<Kokkos::Serial> > (functor=..., work_count=<optimised out>)
+    at ../../lib/kokkos/core/src/Kokkos_Parallel.hpp:170
+#11 LAMMPS_NS::NBinKokkos<Kokkos::Serial>::bin_atoms (this=<optimised out>) at ../nbin_kokkos.cpp:106
+#12 0x00005555557487ae in LAMMPS_NS::NeighborKokkos::build_kokkos<Kokkos::Serial> (this=0x555556805b90, topoflag=1)
+    at ../neighbor_kokkos.cpp:299
+#13 0x00005555558d72d4 in LAMMPS_NS::VerletKokkos::setup (this=0x555556733cb0, flag=1) at ../verlet_kokkos.cpp:110
+#14 0x000055555585b6d1 in LAMMPS_NS::Run::command (this=0x55555689fd80, narg=<optimised out>, arg=0x555556829810) at ../run.cpp:171
+#15 0x00005555556abf7c in LAMMPS_NS::Input::execute_command (this=0x5555567573d0) at ../input.cpp:868
+#16 0x00005555556ac99f in LAMMPS_NS::Input::file (this=0x5555567573d0) at ../input.cpp:313
+#17 0x000055555569a2dc in main (argc=<optimised out>, argv=<optimised out>) at ../main.cpp:77

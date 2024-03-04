@@ -1,0 +1,8 @@
+tui enable
+break atom_vec_ellipsoid_kokkos.cpp:1592 
+break comm_kokkos.cpp:1048
+break comm_kokkos.cpp:1222
+set logging enabled on 
+break exit
+catch throw
+run -in lmp.in -k on -sf kk -pk kokkos comm device

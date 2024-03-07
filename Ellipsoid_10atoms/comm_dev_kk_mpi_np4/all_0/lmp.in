@@ -110,7 +110,7 @@ variable ekin equal c_ekin
 variable epot equal c_epot
 variable etot equal c_ekin+c_epot
 
-fix 5 all print 1000 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}" screen yes
+fix 5 all print 1 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}" screen yes
 
 ##### Sample thermodynamic info  (temperature, energy, pressure, etc.) #####
 #thermo 10000
@@ -125,7 +125,7 @@ timestep 0.0001 #0.012
 ###
 # run integration for a number of steps
 ###
-run 250000
+run 10
 
 write_data data_out.* nocoeff
  

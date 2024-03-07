@@ -51,7 +51,7 @@ group polymer type 1
 ###
 # Dump configs + box coords
 ###
-#dump   1   all   custom   100000   polymer.dump.*  id  x y z  ix iy iz
+#dump   1   all   custom   100000   polymer.dump.*  id x y z  ix iy iz
 #dump_modify   1   format line "%d %.5f %.5f %.5f %d %d %d"
 dump   id all atom 1000 dump.polymer
 
@@ -125,7 +125,7 @@ timestep 0.0001 #0.012
 ###
 # run integration for a number of steps
 ###
-run 250000
+run 27000
 
 write_data data_out.* nocoeff
  

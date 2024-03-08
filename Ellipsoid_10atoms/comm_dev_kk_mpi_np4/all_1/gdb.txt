@@ -1,0 +1,33 @@
+Breakpoint 1 at 0xaeaf0
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Breakpoint 1 at 0xaeaf0
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[New Thread 0x7ffff2dd5640 (LWP 135427)]
+[New Thread 0x7ffff25d4640 (LWP 135428)]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 135429)]
+[New Thread 0x7ffff25d4640 (LWP 135430)]
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#0  0x00007ffff54ae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x000055555569900d in Kokkos::Impl::throw_runtime_exception (msg="View bounds error of view  ( 0 < 0 )")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Error.cpp:38
+#2  0x000055555577e301 in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks>, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks>, void>, int> (
+    tracker=..., map=...) at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4034
+#3  0x00005555559ab823 in Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks>::operator()<int> (i0=0, this=0x555556828098) at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:4060
+#4  LAMMPS_NS::AtomVecEllipsoidKokkos::unpack_exchange_kokkos (this=0x555556827cd0, k_buf=..., nrecv=23, nlocal=<optimised out>, 
+    dim=2, lo=-2, hi=3, space=LAMMPS_NS::Host, k_indices=...) at ../atom_vec_ellipsoid_kokkos.cpp:1813
+#5  0x0000555555ac25e7 in LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x555556802270) at ../comm_kokkos.cpp:971
+#6  0x00005555558d9dd1 in LAMMPS_NS::VerletKokkos::run (this=0x555556732050, n=27000) at ../verlet_kokkos.cpp:340
+#7  0x000055555585b780 in LAMMPS_NS::Run::command (this=0x55555681ca80, narg=<optimised out>, arg=0x555556829bb0)
+    at ../run.cpp:176
+#8  0x00005555556abffc in LAMMPS_NS::Input::execute_command (this=0x555556755770) at ../input.cpp:868
+#9  0x00005555556aca1f in LAMMPS_NS::Input::file (this=0x555556755770) at ../input.cpp:313
+#10 0x000055555569a35c in main (argc=<optimised out>, argv=<optimised out>) at ../main.cpp:77

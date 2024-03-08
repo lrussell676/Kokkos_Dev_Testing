@@ -1,4 +1,4 @@
-LAMMPS (7 Feb 2024 - Development - patch_21Nov2023-1039-gc99539c864-modified)
+LAMMPS (7 Feb 2024 - Development - patch_21Nov2023-1041-g938bf67394-modified)
 KOKKOS mode with Kokkos version 4.2.0 is enabled (../kokkos.cpp:72)
 package kokkos
 package kokkos comm device
@@ -45,7 +45,7 @@ Reading data file ...
   reading velocities ...
   10 velocities
   10 ellipsoids
-  read_data CPU = 0.002 seconds
+  read_data CPU = 0.006 seconds
 
 ### reset timestep ###
 reset_timestep 0
@@ -140,7 +140,7 @@ timestep 0.0001 #0.012
 ###
 # run integration for a number of steps
 ###
-run 27000
+run 83000
 Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
 Neighbor list info ...
   update: every = 1 steps, delay = 0 steps, check = yes
@@ -185,36 +185,92 @@ Per MPI rank memory allocation (min/avg/max) = 5.25 | 5.25 | 5.25 Mbytes
 25000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
 26000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
 27000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
-     27000   1.820551       0              0              2.4577438      0.081924794  
-Loop time of 0.36952 on 2 procs for 27000 steps with 10 atoms
+28000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+29000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+30000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+31000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+32000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+33000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+34000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+35000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+36000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+37000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+38000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+39000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+40000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+41000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+42000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+43000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+44000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+45000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+46000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+47000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+48000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+49000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+50000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+51000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+52000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+53000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+54000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+55000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+56000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+57000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+58000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+59000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+60000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+61000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+62000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+63000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+64000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+65000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+66000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+67000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+68000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+69000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+70000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+71000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+72000  ekin = 24.5774380689783 | epot = 0 | etot = 24.5774380689783
+73000  ekin = 24.396526778027 | epot = 0.180683457816106 | etot = 24.5772102358432
+74000  ekin = 23.7004882627367 | epot = 0.876722025410025 | etot = 24.5772102881468
+75000  ekin = 23.5672338293515 | epot = 1.00997647317611 | etot = 24.5772103025277
+76000  ekin = 24.165945770346 | epot = 0.411264478388876 | etot = 24.5772102487348
+77000  ekin = 24.577241289726 | epot = 0 | etot = 24.577241289726
+78000  ekin = 24.577241289726 | epot = 0 | etot = 24.577241289726
+79000  ekin = 24.577241289726 | epot = 0 | etot = 24.577241289726
+80000  ekin = 24.577241289726 | epot = 0 | etot = 24.577241289726
+81000  ekin = 24.577241289726 | epot = 0 | etot = 24.577241289726
+82000  ekin = 24.577241289726 | epot = 0 | etot = 24.577241289726
+83000  ekin = 24.577241289726 | epot = 0 | etot = 24.577241289726
+     83000   1.8205364      0              0              2.4577241      0.081924138  
+Loop time of 3.41912 on 2 procs for 83000 steps with 10 atoms
 
-Performance: 631306.303 tau/day, 73067.859 timesteps/s, 730.679 katom-step/s
-99.9% CPU use with 2 MPI tasks x 1 OpenMP threads
+Performance: 209737.905 tau/day, 24275.220 timesteps/s, 242.752 katom-step/s
+99.6% CPU use with 2 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.049242   | 0.049362   | 0.049481   |   0.1 | 13.36
-Neigh   | 1.1051e-05 | 1.1121e-05 | 1.1191e-05 |   0.0 |  0.00
-Comm    | 0.2051     | 0.20522    | 0.20535    |   0.0 | 55.54
-Output  | 0.00025048 | 0.00026501 | 0.00027954 |   0.0 |  0.07
-Modify  | 0.06875    | 0.068781   | 0.068813   |   0.0 | 18.61
-Other   |            | 0.04588    |            |       | 12.42
+Pair    | 0.41055    | 0.41064    | 0.41074    |   0.0 | 12.01
+Neigh   | 0.00011709 | 0.00012333 | 0.00012956 |   0.0 |  0.00
+Comm    | 1.9253     | 1.9256     | 1.9259     |   0.0 | 56.32
+Output  | 0.0039077  | 0.016437   | 0.028966   |   9.8 |  0.48
+Modify  | 0.4836     | 0.48572    | 0.48784    |   0.3 | 14.21
+Other   |            | 0.5806     |            |       | 16.98
 
-Nlocal:              5 ave           5 max           5 min
-Histogram: 2 0 0 0 0 0 0 0 0 0
-Nghost:           95.5 ave          97 max          94 min
+Nlocal:              5 ave           6 max           4 min
 Histogram: 1 0 0 0 0 0 0 0 0 1
-Neighs:             31 ave          33 max          29 min
+Nghost:             99 ave         103 max          95 min
+Histogram: 1 0 0 0 0 0 0 0 0 1
+Neighs:           39.5 ave          45 max          34 min
 Histogram: 1 0 0 0 0 0 0 0 0 1
 
-Total # of neighbors = 62
-Ave neighs/atom = 6.2
-Neighbor list builds = 1
+Total # of neighbors = 79
+Ave neighs/atom = 7.9
+Neighbor list builds = 3
 Dangerous builds = 0
 
 write_data data_out.* nocoeff
 System init for write_data ...
 Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
 
-Total wall time: 0:00:00
+Total wall time: 0:00:03

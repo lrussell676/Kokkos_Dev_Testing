@@ -1,0 +1,131 @@
+###
+# Reference paper:
+# K. Kremer and G. S. Grest
+# Dynamics of entangled linear polymer melts: A molecular-dynamics simulation
+# J Chem Phys 92, 5057 (1990)
+###
+
+###
+# Box and units  (use LJ units and periodic boundaries)
+###
+
+units lj
+
+atom_style ellipsoid
+
+boundary        p p p
+
+###
+# Pair interactions require lists of neighbours to be calculated
+###
+neighbor 3.0 bin
+neigh_modify every 1 delay 0 check yes 
+
+### Generate RESTART file, SPECIAL format, not a .txt file ###
+### Useful if simulation crashes ###
+#restart 10000 polymer.restart
+#############################
+
+#processors 2 1 1
+
+### READ "REstart" data file ###
+#read_restart polymer.restart.10000
+######################
+
+read_data lmp_data
+
+### reset timestep ###
+reset_timestep 0 
+######################
+
+###
+# Define groups (atom type 1 is group 'all')
+###
+group all type 1 
+group polymer type 1
+
+###
+# Dump configs - "simple dumpings"
+###
+
+###
+# Dump configs + box coords
+###
+#dump   1   all   custom   100000   polymer.dump.*  id x y z  ix iy iz
+#dump_modify   1   format line "%d %.5f %.5f %.5f %d %d %d"
+dump   id all atom 1 dump.polymer
+
+###################################################################
+# Stiffness term
+#
+# E = K * (theta-thera0)**2, K>0
+#
+#angle_style   harmonic
+#angle_coeff   1 2.0 120.0
+###################################################################
+
+###################################################################
+# Pair interaction between non-bonded atoms
+#
+#  Lennard-Jones 12-6 potential with cutoff:
+#  potential E=4epsilon[ (sigma/r)^12 - (sigma/r)^6]  for r<r_cut
+#
+#  1.12246152962189 = 2^(1/6) is the minimum of the potential
+
+#pair_style      lj/cut 1.12246152962189
+
+#
+#  pair_coeff for lj/cut, specify 4:
+#    * atom type interacting with
+#    * atom type 
+#    * epsilon (energy units) 
+#    * sigma (distance units)
+#
+
+#pair_coeff      1 1 1.0 1.1
+
+#
+#  pair_modify shift yes adds a constant to the potential such
+#  that E(r_cut)=0. Forces remains unchanged.
+#
+
+#pair_modify     shift yes
+
+###################################################
+
+#comm_modify cutoff 6
+#comm_style tiled
+#balance 1.2 rcb
+
+###
+# Set up fixes
+###
+
+fix 1 all   nve   ###NVE ensemble
+#fix 2 all   langevin   1.0 1.0   2.0   424242   ###Langevin integrator Tstart Tstop 1/friction rndseed
+
+compute ekin all ke
+compute epot all pe
+variable ekin equal c_ekin
+variable epot equal c_epot
+variable etot equal c_ekin+c_epot
+
+fix 5 all print 1000 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}" screen yes
+
+##### Sample thermodynamic info  (temperature, energy, pressure, etc.) #####
+#thermo 10000
+#thermo_style   custom   step  temp  epair  emol  press pxx pyy pzz  vol
+############################################################################
+
+###
+# set timestep of integrator
+###
+timestep 0.001 #0.012
+
+###
+# run integration for a number of steps
+###
+run 30000
+
+write_data data_out.* nocoeff
+ 

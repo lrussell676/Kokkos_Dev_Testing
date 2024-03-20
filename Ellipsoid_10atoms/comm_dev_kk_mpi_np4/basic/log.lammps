@@ -1,4 +1,4 @@
-LAMMPS (7 Feb 2024 - Development - patch_21Nov2023-1044-gf8ba68cd2d-modified)
+LAMMPS (7 Feb 2024 - Development - patch_21Nov2023-1045-ge8b69cd74a)
 KOKKOS mode with Kokkos version 4.2.0 is enabled (../kokkos.cpp:72)
 package kokkos
 package kokkos comm device
@@ -41,10 +41,10 @@ Reading data file ...
   orthogonal box = (-3 -3 -3) to (3 3 3)
   1 by 1 by 2 MPI processor grid
   reading atoms ...
-  2 atoms
+  3 atoms
   reading velocities ...
-  2 velocities
-  2 ellipsoids
+  3 velocities
+  3 ellipsoids
   read_data CPU = 0.002 seconds
 
 ### reset timestep ###
@@ -55,9 +55,9 @@ reset_timestep 0
 # Define groups (atom type 1 is group 'all')
 ###
 group all type 1
-2 atoms in group all
+3 atoms in group all
 group polymer type 1
-2 atoms in group polymer
+3 atoms in group polymer
 
 ###
 # Dump configs - "simple dumpings"
@@ -66,9 +66,14 @@ group polymer type 1
 ###
 # Dump configs + box coords
 ###
+compute q all property/atom quatw quati quatj quatk
+compute diameter all property/atom shapex shapey shapez
+dump 1 all custom 100 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
+dump_modify 1 colname c_q[1] quatw colname c_q[2] quati colname c_q[3] quatj colname c_q[4] quatk
+dump_modify 1 colname c_diameter[1] shapex colname c_diameter[2] shapey colname c_diameter[3] shapez
 #dump   1   all   custom   100000   polymer.dump.*  id x y z  ix iy iz
 #dump_modify   1   format line "%d %.5f %.5f %.5f %d %d %d"
-dump   id all atom 1 dump.polymer
+#dump   id all atom 1 dump.polymer
 
 ###################################################################
 # Stiffness term
@@ -87,7 +92,7 @@ dump   id all atom 1 dump.polymer
 #
 #  1.12246152962189 = 2^(1/6) is the minimum of the potential
 
-#pair_style      lj/cut 1.12246152962189
+pair_style      lj/cut 1.12246152962189
 
 #
 #  pair_coeff for lj/cut, specify 4:
@@ -97,14 +102,14 @@ dump   id all atom 1 dump.polymer
 #    * sigma (distance units)
 #
 
-#pair_coeff      1 1 1.0 1.1
+pair_coeff      1 1 1.0 1.1
 
 #
 #  pair_modify shift yes adds a constant to the potential such
 #  that E(r_cut)=0. Forces remains unchanged.
 #
 
-#pair_modify     shift yes
+pair_modify     shift yes
 
 ###################################################
 
@@ -140,13 +145,24 @@ timestep 0.001 #0.012
 ###
 # run integration for a number of steps
 ###
-run 30000
-WARNING: No pairwise cutoff or binsize set. Atom sorting therefore disabled. (../atom.cpp:2388)
-WARNING: Communication cutoff is 0.0. No ghost atoms will be generated. Atoms may get lost. (../comm_brick.cpp:210)
+run 100000
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 4.1224615
+  ghost atom cutoff = 4.1224615
+  binsize = 2.0612308, bins = 3 3 3
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/kk, perpetual
+      attributes: half, newton on, kokkos_device
+      pair build: half/bin/newton/kk/device
+      stencil: half/bin/3d
+      bin: kk/device
 0  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
-Per MPI rank memory allocation (min/avg/max) = 4.415 | 4.415 | 4.415 Mbytes
+Per MPI rank memory allocation (min/avg/max) = 5.125 | 5.188 | 5.25 Mbytes
    Step          Temp          E_pair         E_mol          TotEng         Press     
-         0   1.8749999      0              0              1.4062499      0.0086805552 
+         0   0.93749996     0              0              0.93749996     0.0086805552 
 1000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
 2000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
 3000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
@@ -177,36 +193,106 @@ Per MPI rank memory allocation (min/avg/max) = 4.415 | 4.415 | 4.415 Mbytes
 28000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
 29000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
 30000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
-     30000   1.8749999      0              0              1.4062499      0.0086805552 
-Loop time of 0.414339 on 2 procs for 30000 steps with 2 atoms
+31000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+32000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+33000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+34000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+35000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+36000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+37000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+38000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+39000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+40000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+41000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+42000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+43000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+44000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+45000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+46000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+47000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+48000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+49000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+50000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+51000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+52000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+53000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+54000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+55000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+56000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+57000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+58000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+59000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+60000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+61000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+62000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+63000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+64000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+65000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+66000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+67000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+68000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+69000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+70000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+71000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+72000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+73000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+74000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+75000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+76000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+77000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+78000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+79000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+80000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+81000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+82000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+83000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+84000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+85000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+86000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+87000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+88000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+89000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+90000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+91000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+92000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+93000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+94000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+95000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+96000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+97000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+98000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+99000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+100000  ekin = 2.81249987427178 | epot = 0 | etot = 2.81249987427178
+    100000   0.93749996     0              0              0.93749996     0.0086805552 
+Loop time of 1.69684 on 2 procs for 100000 steps with 3 atoms
 
-Performance: 6255748.087 tau/day, 72404.492 timesteps/s, 144.809 katom-step/s
-93.7% CPU use with 2 MPI tasks x 1 OpenMP threads
+Performance: 5091812.662 tau/day, 58933.017 timesteps/s, 176.799 katom-step/s
+99.6% CPU use with 2 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0          | 0          | 0          |   0.0 |  0.00
-Neigh   | 4.78e-06   | 5.851e-06  | 6.922e-06  |   0.0 |  0.00
-Comm    | 0.1063     | 0.10646    | 0.10662    |   0.0 | 25.69
-Output  | 0.073788   | 0.11114    | 0.1485     |  11.2 | 26.82
-Modify  | 0.077206   | 0.077941   | 0.078677   |   0.3 | 18.81
-Other   |            | 0.1188     |            |       | 28.67
+Pair    | 0.17956    | 0.1806     | 0.18164    |   0.2 | 10.64
+Neigh   | 0.00017532 | 0.000179   | 0.00018268 |   0.0 |  0.01
+Comm    | 1.0758     | 1.076      | 1.0761     |   0.0 | 63.41
+Output  | 0.0057624  | 0.0080181  | 0.010274   |   2.5 |  0.47
+Modify  | 0.25809    | 0.26039    | 0.2627     |   0.5 | 15.35
+Other   |            | 0.1717     |            |       | 10.12
 
-Nlocal:              1 ave           1 max           1 min
-Histogram: 2 0 0 0 0 0 0 0 0 0
-Nghost:              0 ave           0 max           0 min
-Histogram: 2 0 0 0 0 0 0 0 0 0
-Neighs:              0 ave           0 max           0 min
+Nlocal:            1.5 ave           2 max           1 min
+Histogram: 1 0 0 0 0 0 0 0 0 1
+Nghost:           28.5 ave          29 max          28 min
+Histogram: 1 0 0 0 0 0 0 0 0 1
+Neighs:              1 ave           1 max           1 min
 Histogram: 2 0 0 0 0 0 0 0 0 0
 
-Total # of neighbors = 0
-Ave neighs/atom = 0
-Neighbor list builds = 5
+Total # of neighbors = 2
+Ave neighs/atom = 0.66666667
+Neighbor list builds = 19
 Dangerous builds = 0
 
 write_data data_out.* nocoeff
 System init for write_data ...
-WARNING: Communication cutoff is 0.0. No ghost atoms will be generated. Atoms may get lost. (../comm_brick.cpp:210)
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
 
-Total wall time: 0:00:00
+Total wall time: 0:00:01

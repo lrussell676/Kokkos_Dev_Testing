@@ -51,9 +51,14 @@ group polymer type 1
 ###
 # Dump configs + box coords
 ###
+compute q all property/atom quatw quati quatj quatk
+compute diameter all property/atom shapex shapey shapez
+dump 1 all custom 100 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
+dump_modify 1 colname c_q[1] quatw colname c_q[2] quati colname c_q[3] quatj colname c_q[4] quatk
+dump_modify 1 colname c_diameter[1] shapex colname c_diameter[2] shapey colname c_diameter[3] shapez
 #dump   1   all   custom   100000   polymer.dump.*  id x y z  ix iy iz
 #dump_modify   1   format line "%d %.5f %.5f %.5f %d %d %d"
-dump   id all atom 1 dump.polymer
+#dump   id all atom 1 dump.polymer
 
 ###################################################################
 # Stiffness term
@@ -72,7 +77,7 @@ dump   id all atom 1 dump.polymer
 #
 #  1.12246152962189 = 2^(1/6) is the minimum of the potential
 
-#pair_style      lj/cut 1.12246152962189
+pair_style      lj/cut 1.12246152962189
 
 #
 #  pair_coeff for lj/cut, specify 4:
@@ -82,14 +87,14 @@ dump   id all atom 1 dump.polymer
 #    * sigma (distance units)
 #
 
-#pair_coeff      1 1 1.0 1.1
+pair_coeff      1 1 1.0 1.1
 
 #
 #  pair_modify shift yes adds a constant to the potential such
 #  that E(r_cut)=0. Forces remains unchanged.
 #
 
-#pair_modify     shift yes
+pair_modify     shift yes
 
 ###################################################
 
@@ -125,7 +130,7 @@ timestep 0.001 #0.012
 ###
 # run integration for a number of steps
 ###
-run 30000
+run 100000
 
 write_data data_out.* nocoeff
  

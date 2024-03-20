@@ -72,7 +72,7 @@ dump   id all atom 1000 dump.polymer
 #
 #  1.12246152962189 = 2^(1/6) is the minimum of the potential
 
-pair_style      lj/cut 1.12246152962189
+#pair_style      lj/cut 1.12246152962189
 
 #
 #  pair_coeff for lj/cut, specify 4:
@@ -82,14 +82,14 @@ pair_style      lj/cut 1.12246152962189
 #    * sigma (distance units)
 #
 
-pair_coeff      1 1 1.0 1.1
+#pair_coeff      1 1 1.0 1.1
 
 #
 #  pair_modify shift yes adds a constant to the potential such
 #  that E(r_cut)=0. Forces remains unchanged.
 #
 
-pair_modify     shift yes
+#pair_modify     shift yes
 
 ###################################################
 
@@ -125,7 +125,7 @@ timestep 0.0001 #0.012
 ###
 # run integration for a number of steps
 ###
-run 83000
+run 250000
 
 write_data data_out.* nocoeff
  

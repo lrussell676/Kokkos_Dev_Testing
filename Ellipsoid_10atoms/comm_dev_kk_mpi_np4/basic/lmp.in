@@ -18,7 +18,7 @@ boundary        p p p
 ###
 # Pair interactions require lists of neighbours to be calculated
 ###
-neighbor 3.0 bin
+neighbor 0.3 bin
 neigh_modify every 1 delay 0 check yes 
 
 ### Generate RESTART file, SPECIAL format, not a .txt file ###
@@ -87,7 +87,7 @@ pair_style      lj/cut 1.12246152962189
 #    * sigma (distance units)
 #
 
-pair_coeff      1 1 1.0 1.1
+pair_coeff      1 1 1.0 1.0
 
 #
 #  pair_modify shift yes adds a constant to the potential such
@@ -130,7 +130,7 @@ timestep 0.001 #0.012
 ###
 # run integration for a number of steps
 ###
-run 100000
+run 250000
 
 write_data data_out.* nocoeff
  

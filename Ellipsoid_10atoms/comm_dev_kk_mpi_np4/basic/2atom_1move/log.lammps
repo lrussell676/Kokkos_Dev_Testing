@@ -1,0 +1,448 @@
+LAMMPS (7 Feb 2024 - Development - patch_21Nov2023-1045-ge8b69cd74a-modified)
+KOKKOS mode with Kokkos version 4.2.0 is enabled (../kokkos.cpp:72)
+package kokkos
+package kokkos comm device
+###
+# Reference paper:
+# K. Kremer and G. S. Grest
+# Dynamics of entangled linear polymer melts: A molecular-dynamics simulation
+# J Chem Phys 92, 5057 (1990)
+###
+
+###
+# Box and units  (use LJ units and periodic boundaries)
+###
+
+units lj
+
+atom_style ellipsoid
+
+boundary        p p p
+
+###
+# Pair interactions require lists of neighbours to be calculated
+###
+neighbor 0.3 bin
+neigh_modify every 1 delay 0 check yes
+
+### Generate RESTART file, SPECIAL format, not a .txt file ###
+### Useful if simulation crashes ###
+#restart 10000 polymer.restart
+#############################
+
+#processors 2 1 1
+
+### READ "REstart" data file ###
+#read_restart polymer.restart.10000
+######################
+
+read_data lmp_data
+Reading data file ...
+  orthogonal box = (-5 -5 -5) to (5 5 5)
+  1 by 1 by 2 MPI processor grid
+  reading atoms ...
+  2 atoms
+  reading velocities ...
+  2 velocities
+  2 ellipsoids
+  read_data CPU = 0.002 seconds
+
+### reset timestep ###
+reset_timestep 0
+######################
+
+###
+# Define groups (atom type 1 is group 'all')
+###
+group all type 1
+2 atoms in group all
+group polymer type 1
+2 atoms in group polymer
+
+###
+# Dump configs - "simple dumpings"
+###
+
+###
+# Dump configs + box coords
+###
+compute q all property/atom quatw quati quatj quatk
+compute diameter all property/atom shapex shapey shapez
+dump 1 all custom 100 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
+dump_modify 1 colname c_q[1] quatw colname c_q[2] quati colname c_q[3] quatj colname c_q[4] quatk
+dump_modify 1 colname c_diameter[1] shapex colname c_diameter[2] shapey colname c_diameter[3] shapez
+#dump   1   all   custom   100000   polymer.dump.*  id x y z  ix iy iz
+#dump_modify   1   format line "%d %.5f %.5f %.5f %d %d %d"
+#dump   id all atom 1 dump.polymer
+
+###################################################################
+# Stiffness term
+#
+# E = K * (theta-thera0)**2, K>0
+#
+#angle_style   harmonic
+#angle_coeff   1 2.0 120.0
+###################################################################
+
+###################################################################
+# Pair interaction between non-bonded atoms
+#
+#  Lennard-Jones 12-6 potential with cutoff:
+#  potential E=4epsilon[ (sigma/r)^12 - (sigma/r)^6]  for r<r_cut
+#
+#  1.12246152962189 = 2^(1/6) is the minimum of the potential
+
+pair_style      lj/cut 1.12246152962189
+
+#
+#  pair_coeff for lj/cut, specify 4:
+#    * atom type interacting with
+#    * atom type
+#    * epsilon (energy units)
+#    * sigma (distance units)
+#
+
+pair_coeff      1 1 1.0 1.0
+
+#
+#  pair_modify shift yes adds a constant to the potential such
+#  that E(r_cut)=0. Forces remains unchanged.
+#
+
+pair_modify     shift yes
+
+###################################################
+
+#comm_modify cutoff 6
+#comm_style tiled
+#balance 1.2 rcb
+
+###
+# Set up fixes
+###
+
+fix 1 all   nve   ###NVE ensemble
+#fix 2 all   langevin   1.0 1.0   2.0   424242   ###Langevin integrator Tstart Tstop 1/friction rndseed
+
+compute ekin all ke
+compute epot all pe
+variable ekin equal c_ekin
+variable epot equal c_epot
+variable etot equal c_ekin+c_epot
+
+fix 5 all print 1000 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}" screen yes
+
+##### Sample thermodynamic info  (temperature, energy, pressure, etc.) #####
+#thermo 10000
+#thermo_style   custom   step  temp  epair  emol  press pxx pyy pzz  vol
+############################################################################
+
+###
+# set timestep of integrator
+###
+timestep 0.001 #0.012
+
+###
+# run integration for a number of steps
+###
+run 250000
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 1.4224615
+  ghost atom cutoff = 1.4224615
+  binsize = 0.71123076, bins = 15 15 15
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/kk, perpetual
+      attributes: half, newton on, kokkos_device
+      pair build: half/bin/newton/kk/device
+      stencil: half/bin/3d
+      bin: kk/device
+0  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+Per MPI rank memory allocation (min/avg/max) = 5.174 | 5.174 | 5.174 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0.93749996     0              0              0.70312497     0.00093749996
+1000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+2000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+3000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+4000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+5000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+6000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+7000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+8000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+9000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+10000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+11000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+12000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+13000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+14000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+15000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+16000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+17000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+18000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+19000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+20000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+21000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+22000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+23000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+24000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+25000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+26000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+27000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+28000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+29000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+30000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+31000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+32000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+33000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+34000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+35000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+36000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+37000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+38000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+39000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+40000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+41000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+42000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+43000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+44000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+45000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+46000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+47000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+48000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+49000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+50000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+51000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+52000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+53000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+54000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+55000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+56000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+57000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+58000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+59000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+60000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+61000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+62000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+63000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+64000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+65000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+66000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+67000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+68000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+69000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+70000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+71000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+72000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+73000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+74000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+75000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+76000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+77000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+78000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+79000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+80000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+81000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+82000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+83000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+84000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+85000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+86000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+87000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+88000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+89000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+90000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+91000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+92000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+93000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+94000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+95000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+96000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+97000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+98000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+99000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+100000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+101000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+102000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+103000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+104000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+105000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+106000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+107000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+108000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+109000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+110000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+111000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+112000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+113000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+114000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+115000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+116000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+117000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+118000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+119000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+120000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+121000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+122000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+123000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+124000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+125000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+126000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+127000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+128000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+129000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+130000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+131000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+132000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+133000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+134000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+135000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+136000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+137000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+138000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+139000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+140000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+141000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+142000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+143000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+144000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+145000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+146000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+147000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+148000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+149000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+150000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+151000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+152000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+153000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+154000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+155000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+156000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+157000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+158000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+159000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+160000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+161000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+162000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+163000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+164000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+165000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+166000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+167000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+168000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+169000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+170000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+171000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+172000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+173000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+174000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+175000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+176000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+177000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+178000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+179000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+180000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+181000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+182000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+183000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+184000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+185000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+186000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+187000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+188000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+189000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+190000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+191000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+192000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+193000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+194000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+195000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+196000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+197000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+198000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+199000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+200000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+201000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+202000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+203000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+204000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+205000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+206000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+207000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+208000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+209000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+210000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+211000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+212000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+213000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+214000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+215000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+216000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+217000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+218000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+219000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+220000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+221000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+222000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+223000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+224000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+225000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+226000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+227000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+228000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+229000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+230000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+231000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+232000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+233000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+234000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+235000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+236000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+237000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+238000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+239000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+240000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+241000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+242000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+243000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+244000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+245000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+246000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+247000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+248000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+249000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+250000  ekin = 1.40624993713589 | epot = 0 | etot = 1.40624993713589
+    250000   0.93749996     0              0              0.70312497     0.00093749996
+Loop time of 2.48366 on 2 procs for 250000 steps with 2 atoms
+
+Performance: 8696831.654 tau/day, 100657.774 timesteps/s, 201.316 katom-step/s
+97.9% CPU use with 2 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.42615    | 0.42853    | 0.43091    |   0.4 | 17.25
+Neigh   | 0.0039883  | 0.0041973  | 0.0044062  |   0.3 |  0.17
+Comm    | 1.0061     | 1.007      | 1.0078     |   0.1 | 40.54
+Output  | 0.011802   | 0.014578   | 0.017353   |   2.3 |  0.59
+Modify  | 0.61896    | 0.62301    | 0.62706    |   0.5 | 25.08
+Other   |            | 0.4064     |            |       | 16.36
+
+Nlocal:              1 ave           2 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 1
+Nghost:              0 ave           0 max           0 min
+Histogram: 2 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 2 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 0
+Ave neighs/atom = 0
+Neighbor list builds = 499
+Dangerous builds = 0
+
+write_data data_out.* nocoeff
+System init for write_data ...
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+
+Total wall time: 0:00:02

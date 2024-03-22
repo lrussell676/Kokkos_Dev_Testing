@@ -53,7 +53,7 @@ group polymer type 1
 ###
 compute q all property/atom quatw quati quatj quatk
 compute diameter all property/atom shapex shapey shapez
-dump 1 all custom 100 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
+dump 1 all custom 1 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
 dump_modify 1 colname c_q[1] quatw colname c_q[2] quati colname c_q[3] quatj colname c_q[4] quatk
 dump_modify 1 colname c_diameter[1] shapex colname c_diameter[2] shapey colname c_diameter[3] shapez
 #dump   1   all   custom   100000   polymer.dump.*  id x y z  ix iy iz
@@ -115,7 +115,7 @@ variable ekin equal c_ekin
 variable epot equal c_epot
 variable etot equal c_ekin+c_epot
 
-fix 5 all print 1000 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}" screen yes
+fix 5 all print 1 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}" screen yes
 
 ##### Sample thermodynamic info  (temperature, energy, pressure, etc.) #####
 #thermo 10000
@@ -130,7 +130,7 @@ timestep 0.001 #0.012
 ###
 # run integration for a number of steps
 ###
-run 250000
+run 10000
 
 write_data data_out.* nocoeff
  

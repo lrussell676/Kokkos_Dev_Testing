@@ -1,0 +1,32 @@
+LAMMPS (7 Feb 2024 - Development - patch_21Nov2023-1045-ge8b69cd74a-modified)
+KOKKOS mode with Kokkos version 4.2.0 is enabled (../kokkos.cpp:72)
+Reading data file ...
+  orthogonal box = (-5 -5 -5) to (5 5 5)
+  1 by 1 by 2 MPI processor grid
+  reading atoms ...
+  3 atoms
+  reading velocities ...
+  3 velocities
+  3 ellipsoids
+  read_data CPU = 0.005 seconds
+3 atoms in group all
+3 atoms in group polymer
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 1.4224615
+  ghost atom cutoff = 1.4224615
+  binsize = 0.71123076, bins = 15 15 15
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/kk, perpetual
+      attributes: half, newton on, kokkos_device
+      pair build: half/bin/newton/kk/device
+      stencil: half/bin/3d
+      bin: kk/device
+Pex on Host
+Setting up Verlet run ...
+  Unit style    : lj
+  Current step  : 0
+  Time step     : 0.001
+Pex on Host

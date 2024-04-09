@@ -1,4 +1,4 @@
-LAMMPS (7 Feb 2024 - Development - patch_21Nov2023-1048-gbdbdd96ee4-modified)
+LAMMPS (7 Feb 2024 - Development - patch_21Nov2023-1049-gde202b68fe-modified)
 KOKKOS mode with Kokkos version 4.2.0 is enabled (../kokkos.cpp:72)
 package kokkos
 package kokkos comm device
@@ -45,7 +45,7 @@ Reading data file ...
   reading velocities ...
   3 velocities
   3 ellipsoids
-  read_data CPU = 0.002 seconds
+  read_data CPU = 0.003 seconds
 
 ### reset timestep ###
 reset_timestep 0
@@ -10164,20 +10164,20 @@ Per MPI rank memory allocation (min/avg/max) = 5.174 | 5.174 | 5.174 Mbytes
 9999  ekin = 7812.49965075494 | epot = 0 | etot = 7812.49965075494
 10000  ekin = 7812.49965075494 | epot = 0 | etot = 7812.49965075494
      10000   2604.1666      0              0              2604.1666      5.2083331    
-Loop time of 0.327947 on 2 procs for 10000 steps with 3 atoms
+Loop time of 1.87306 on 2 procs for 10000 steps with 3 atoms
 
-Performance: 2634570.596 tau/day, 30492.715 timesteps/s, 91.478 katom-step/s
-91.2% CPU use with 2 MPI tasks x 1 OpenMP threads
+Performance: 461278.362 tau/day, 5338.870 timesteps/s, 16.017 katom-step/s
+81.5% CPU use with 2 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.024522   | 0.026345   | 0.028168   |   1.1 |  8.03
-Neigh   | 0.0078282  | 0.0081862  | 0.0085441  |   0.4 |  2.50
-Comm    | 0.077845   | 0.078409   | 0.078974   |   0.2 | 23.91
-Output  | 0.070649   | 0.076252   | 0.081854   |   2.0 | 23.25
-Modify  | 0.076626   | 0.088137   | 0.099648   |   3.9 | 26.88
-Other   |            | 0.05062    |            |       | 15.43
+Pair    | 0.05936    | 0.078966   | 0.098572   |   7.0 |  4.22
+Neigh   | 0.020148   | 0.022512   | 0.024877   |   1.6 |  1.20
+Comm    | 0.43776    | 0.43992    | 0.44207    |   0.3 | 23.49
+Output  | 0.27284    | 0.55894    | 0.84505    |  38.3 | 29.84
+Modify  | 0.2905     | 0.31384    | 0.33719    |   4.2 | 16.76
+Other   |            | 0.4589     |            |       | 24.50
 
 Nlocal:            1.5 ave           2 max           1 min
 Histogram: 1 0 0 0 0 0 0 0 0 1
@@ -10195,4 +10195,4 @@ write_data data_out.* nocoeff
 System init for write_data ...
 Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
 
-Total wall time: 0:00:00
+Total wall time: 0:00:01

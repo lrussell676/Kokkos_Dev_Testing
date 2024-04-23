@@ -1,0 +1,267 @@
+No symbol table is loaded.  Use the "file" command.
+Make breakpoint pending on future shared library load? (y or [n]) [answered N; input not from terminal]
+Catchpoint 1 (catch)
+Catchpoint 2 (throw)
+./gdb_run.txt:12: Error in sourced command file:
+No executable file specified.
+Use the "file" or "exec-file" command.
+Breakpoint 1 at 0xafb10
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff7672640 (LWP 38075)]
+[New Thread 0x7ffff5d9a640 (LWP 38076)]
+
+Thread 1 "lmp_DEV_kokkos_" received signal SIGSEGV, Segmentation fault.
+0x00005555562d4be3 in LAMMPS_NS::BondOxdnaFene::compute (this=0x555556768a70, eflag=1, vflag=<optimised out>) at ../bond_oxdna_fene.cpp:268
+Breakpoint 1 at 0xafb10
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff7672640 (LWP 59860)]
+[New Thread 0x7ffff5d9a640 (LWP 59861)]
+Breakpoint 1 at 0xafb10
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff7672640 (LWP 59865)]
+[New Thread 0x7ffff5d9a640 (LWP 59866)]
+
+Thread 1 "lmp_DEV_kokkos_" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737344411520) at ./nptl/pthread_kill.c:44
+
+Thread 1 "lmp_DEV_kokkos_" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737344411520) at ./nptl/pthread_kill.c:44
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737344411520)
+    at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737344411520) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737344411520, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff7842476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff78287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00007ffff7889676 in __libc_message (action=action@entry=do_abort, 
+    fmt=fmt@entry=0x7ffff79dbb8c "%s\n") at ../sysdeps/posix/libc_fatal.c:155
+#6  0x00007ffff78a0cfc in malloc_printerr (
+    str=str@entry=0x7ffff79de710 "free(): double free detected in tcache 2") at ./malloc/malloc.c:5664
+#7  0x00007ffff78a30ab in _int_free (av=0x7ffff7a19c80 <main_arena>, p=0x55555677f150, have_lock=0)
+    at ./malloc/malloc.c:4473
+#8  0x00007ffff78a5453 in __GI___libc_free (mem=<optimised out>) at ./malloc/malloc.c:3391
+#9  0x00005555562d30f5 in LAMMPS_NS::Memory::destroy<int> (array=@0x7fffffffc220: 0x55555677f160, 
+    this=<optimised out>) at ../memory.h:95
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737344411520) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737344411520) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737344411520, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff7842476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff78287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00007ffff7889676 in __libc_message (action=action@entry=do_abort, fmt=fmt@entry=0x7ffff79dbb8c "%s\n")
+    at ../sysdeps/posix/libc_fatal.c:155
+#6  0x00007ffff78a0cfc in malloc_printerr (str=str@entry=0x7ffff79de710 "free(): double free detected in tcache 2")
+    at ./malloc/malloc.c:5664
+#7  0x00007ffff78a30ab in _int_free (av=0x7ffff7a19c80 <main_arena>, p=0x5555567f9e40, have_lock=0) at ./malloc/malloc.c:4473
+#8  0x00007ffff78a5453 in __GI___libc_free (mem=<optimised out>) at ./malloc/malloc.c:3391
+#9  0x00005555562d30f5 in LAMMPS_NS::Memory::destroy<int> (array=@0x7fffffffc220: 0x5555567f9e50, this=<optimised out>)
+    at ../memory.h:95
+#10 LAMMPS_NS::BondOxdnaFene::~BondOxdnaFene (this=0x7fffffffc160, __in_chrg=<optimised out>) at ../bond_oxdna_fene.cpp:39
+#11 0x00005555562dcf80 in Kokkos::Impl::FunctorAnalysis<Kokkos::Impl::FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::Reducer::~Reducer (this=0x7fffffffc160, __in_chrg=<optimised out>) at ../../lib/kokkos/core/src/impl/Kokkos_FunctorAnalysis.hpp:994
+#12 Kokkos::Impl::CombinedFunctorReducer<LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, Kokkos::Impl::FunctorAnalysis<Kokkos::Impl::FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::Reducer, void>::~CombinedFunctorReducer (this=0x7fffffffc160, 
+    __in_chrg=<optimised out>) at ../../lib/kokkos/core/src/Kokkos_Parallel_Reduce.hpp:1353
+#13 Kokkos::Impl::ParallelReduce<Kokkos::Impl::CombinedFunctorReducer<LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, Kokkos::Impl::FunctorAnalysis<Kokkos::Impl::FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::Reducer, void>, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, Kokkos::Serial>::~ParallelReduce (this=0x7fffffffc160, __in_chrg=<optimised out>)
+    at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:62
+#14 Kokkos::Impl::ParallelReduceAdaptor<Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::execute_impl (label="", policy=..., functor=..., return_value=...)
+    at ../../lib/kokkos/core/src/Kokkos_Parallel_Reduce.hpp:1521
+#15 0x00005555562df9d9 in Kokkos::Impl::ParallelReduceAdaptor<Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::execute<s_EV_FLOAT> (return_value=..., functor=..., 
+    policy=..., label="") at ../../lib/kokkos/core/src/Kokkos_Parallel_Reduce.hpp:1533
+#16 Kokkos::parallel_reduce<Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT> (return_value=..., functor=..., policy=...)
+    at ../../lib/kokkos/core/src/Kokkos_Parallel_Reduce.hpp:1686
+#17 LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>::compute (this=0x5555567fa110, eflag_in=<optimised out>, 
+    vflag_in=<optimised out>) at ../bond_oxdna_fene_kokkos.cpp:125
+#18 0x00005555558c94aa in LAMMPS_NS::VerletKokkos::setup (this=0x555556774af0, flag=1) at ../verlet_kokkos.cpp:131
+#19 0x000055555584cf41 in LAMMPS_NS::Run::command (this=0x555556903e50, narg=<optimised out>, arg=0x555556785830)
+    at ../run.cpp:171
+#20 0x00005555556aab7c in LAMMPS_NS::Input::execute_command (this=0x55555674c220) at ../input.cpp:868
+#21 0x00005555556ab5a7 in LAMMPS_NS::Input::file (this=0x55555674c220) at ../input.cpp:313
+#22 0x0000555555698f31 in main (argc=<optimised out>, argv=<optimised out>) at ../main.cpp:77
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737344411520) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737344411520) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737344411520, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff7842476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff78287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00007ffff7889676 in __libc_message (action=action@entry=do_abort, fmt=fmt@entry=0x7ffff79dbb8c "%s\n")
+    at ../sysdeps/posix/libc_fatal.c:155
+#6  0x00007ffff78a0cfc in malloc_printerr (str=str@entry=0x7ffff79de710 "free(): double free detected in tcache 2")
+    at ./malloc/malloc.c:5664
+#7  0x00007ffff78a30ab in _int_free (av=0x7ffff7a19c80 <main_arena>, p=0x5555567f9e40, have_lock=0) at ./malloc/malloc.c:4473
+#8  0x00007ffff78a5453 in __GI___libc_free (mem=<optimised out>) at ./malloc/malloc.c:3391
+#9  0x00005555562d30f5 in LAMMPS_NS::Memory::destroy<int> (array=@0x7fffffffc220: 0x5555567f9e50, this=<optimised out>)
+    at ../memory.h:95
+#10 LAMMPS_NS::BondOxdnaFene::~BondOxdnaFene (this=0x7fffffffc160, __in_chrg=<optimised out>) at ../bond_oxdna_fene.cpp:39
+#11 0x00005555562dcf80 in Kokkos::Impl::FunctorAnalysis<Kokkos::Impl::FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::Reducer::~Reducer (this=0x7fffffffc160, __in_chrg=<optimised out>) at ../../lib/kokkos/core/src/impl/Kokkos_FunctorAnalysis.hpp:994
+#12 Kokkos::Impl::CombinedFunctorReducer<LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, Kokkos::Impl::FunctorAnalysis<Kokkos::Impl::FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::Reducer, void>::~CombinedFunctorReducer (this=0x7fffffffc160, 
+    __in_chrg=<optimised out>) at ../../lib/kokkos/core/src/Kokkos_Parallel_Reduce.hpp:1353
+#13 Kokkos::Impl::ParallelReduce<Kokkos::Impl::CombinedFunctorReducer<LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, Kokkos::Impl::FunctorAnalysis<Kokkos::Impl::FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::Reducer, void>, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, Kokkos::Serial>::~ParallelReduce (this=0x7fffffffc160, __in_chrg=<optimised out>)
+    at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:62
+#14 Kokkos::Impl::ParallelReduceAdaptor<Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::execute_impl (label="", policy=..., functor=..., return_value=...)
+    at ../../lib/kokkos/core/src/Kokkos_Parallel_Reduce.hpp:1521
+#15 0x00005555562df9d9 in Kokkos::Impl::ParallelReduceAdaptor<Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::execute<s_EV_FLOAT> (return_value=..., functor=..., 
+    policy=..., label="") at ../../lib/kokkos/core/src/Kokkos_Parallel_Reduce.hpp:1533
+#16 Kokkos::parallel_reduce<Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT> (return_value=..., functor=..., policy=...)
+    at ../../lib/kokkos/core/src/Kokkos_Parallel_Reduce.hpp:1686
+#17 LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>::compute (this=0x5555567fa110, eflag_in=<optimised out>, 
+    vflag_in=<optimised out>) at ../bond_oxdna_fene_kokkos.cpp:125
+#18 0x00005555558c94aa in LAMMPS_NS::VerletKokkos::setup (this=0x555556774af0, flag=1) at ../verlet_kokkos.cpp:131
+#19 0x000055555584cf41 in LAMMPS_NS::Run::command (this=0x555556903e50, narg=<optimised out>, arg=0x555556785830)
+    at ../run.cpp:171
+#20 0x00005555556aab7c in LAMMPS_NS::Input::execute_command (this=0x55555674c220) at ../input.cpp:868
+#21 0x00005555556ab5a7 in LAMMPS_NS::Input::file (this=0x55555674c220) at ../input.cpp:313
+#22 0x0000555555698f31 in main (argc=<optimised out>, argv=<optimised out>) at ../main.cpp:77
+Breakpoint 1 at 0xafb10
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff7672640 (LWP 69032)]
+[New Thread 0x7ffff5d9a640 (LWP 69033)]
+
+Thread 1 "lmp_DEV_kokkos_" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737344411520) at ./nptl/pthread_kill.c:44
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737344411520) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737344411520) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737344411520, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff7842476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff78287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00007ffff7889676 in __libc_message (action=action@entry=do_abort, fmt=fmt@entry=0x7ffff79dbb8c "%s\n") at ../sysdeps/posix/libc_fatal.c:155
+#6  0x00007ffff78a0cfc in malloc_printerr (str=str@entry=0x7ffff79de710 "free(): double free detected in tcache 2") at ./malloc/malloc.c:5664
+#7  0x00007ffff78a30ab in _int_free (av=0x7ffff7a19c80 <main_arena>, p=0x5555567756d0, have_lock=0) at ./malloc/malloc.c:4473
+#8  0x00007ffff78a5453 in __GI___libc_free (mem=<optimised out>) at ./malloc/malloc.c:3391
+#9  0x00005555562d30f5 in LAMMPS_NS::Memory::destroy<int> (array=@0x7fffffffc570: 0x5555567756e0, this=<optimised out>) at ../memory.h:95
+#10 LAMMPS_NS::BondOxdnaFene::~BondOxdnaFene (this=0x7fffffffc4b0, __in_chrg=<optimised out>) at ../bond_oxdna_fene.cpp:39
+#11 0x00005555562dc780 in Kokkos::Impl::FunctorAnalysis<Kokkos::Impl::FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::Reducer::~Reducer (this=0x7fffffffc4b0, __in_chrg=<optimised out>)
+    at ../../lib/kokkos/core/src/impl/Kokkos_FunctorAnalysis.hpp:994
+#12 Kokkos::Impl::CombinedFunctorReducer<LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, Kokkos::Impl::FunctorAnalysis<Kokkos::Impl::FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::Reducer, void>::~CombinedFunctorReducer (this=0x7fffffffc4b0, __in_chrg=<optimised out>) at ../../lib/kokkos/core/src/Kokkos_Parallel_Reduce.hpp:1353
+#13 Kokkos::Impl::ParallelReduce<Kokkos::Impl::CombinedFunctorReducer<LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, Kokkos::Impl::FunctorAnalysis<Kokkos::Impl::FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::Reducer, void>, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, Kokkos::Serial>::~ParallelReduce (this=0x7fffffffc4b0, __in_chrg=<optimised out>)
+    at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:62
+#14 Kokkos::Impl::ParallelReduceAdaptor<Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::execute_impl (label="", policy=..., functor=..., return_value=...) at ../../lib/kokkos/core/src/Kokkos_Parallel_Reduce.hpp:1521
+#15 0x00005555562dedb9 in Kokkos::Impl::ParallelReduceAdaptor<Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::execute<s_EV_FLOAT> (return_value=..., functor=..., policy=..., label="") at ../../lib/kokkos/core/src/Kokkos_Parallel_Reduce.hpp:1533
+#16 Kokkos::parallel_reduce<Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT> (
+    return_value=..., functor=..., policy=...) at ../../lib/kokkos/core/src/Kokkos_Parallel_Reduce.hpp:1686
+#17 LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>::compute (this=0x555556809750, eflag_in=<optimised out>, vflag_in=<optimised out>) at ../bond_oxdna_fene_kokkos.cpp:125
+#18 0x00005555558c94aa in LAMMPS_NS::VerletKokkos::setup (this=0x555556770930, flag=1) at ../verlet_kokkos.cpp:131
+#19 0x000055555584cf41 in LAMMPS_NS::Run::command (this=0x5555569100e0, narg=<optimised out>, arg=0x555556774450) at ../run.cpp:171
+#20 0x00005555556aab7c in LAMMPS_NS::Input::execute_command (this=0x555556747870) at ../input.cpp:868
+#21 0x00005555556ab5a7 in LAMMPS_NS::Input::file (this=0x555556747870) at ../input.cpp:313
+#22 0x0000555555698f31 in main (argc=<optimised out>, argv=<optimised out>) at ../main.cpp:77
+Breakpoint 1 at 0xafb10
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff7672640 (LWP 74093)]
+[New Thread 0x7ffff5d9a640 (LWP 74094)]
+
+Thread 1 "lmp_DEV_kokkos_" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737344411520) at ./nptl/pthread_kill.c:44
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737344411520)
+    at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737344411520)
+    at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737344411520, signo=signo@entry=6)
+    at ./nptl/pthread_kill.c:89
+#3  0x00007ffff7842476 in __GI_raise (sig=sig@entry=6)
+    at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff78287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00007ffff7889676 in __libc_message (action=action@entry=do_abort, 
+    fmt=fmt@entry=0x7ffff79dbb8c "%s\n") at ../sysdeps/posix/libc_fatal.c:155
+#6  0x00007ffff78a0cfc in malloc_printerr (
+    str=str@entry=0x7ffff79de710 "free(): double free detected in tcache 2")
+    at ./malloc/malloc.c:5664
+#7  0x00007ffff78a30ab in _int_free (av=0x7ffff7a19c80 <main_arena>, 
+    p=0x5555567756d0, have_lock=0) at ./malloc/malloc.c:4473
+#8  0x00007ffff78a5453 in __GI___libc_free (mem=<optimised out>)
+    at ./malloc/malloc.c:3391
+#9  0x00005555562d30f5 in LAMMPS_NS::Memory::destroy<int> (
+    array=@0x7fffffffc570: 0x5555567756e0, this=<optimised out>)
+    at ../memory.h:95
+#10 LAMMPS_NS::BondOxdnaFene::~BondOxdnaFene (this=0x7fffffffc4b0, 
+    __in_chrg=<optimised out>) at ../bond_oxdna_fene.cpp:39
+#11 0x00005555562dc780 in Kokkos::Impl::FunctorAnalysis<Kokkos::Impl::FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagBondOxdnaFENECompute<1, 1> >, LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>, s_EV_FLOAT>::Reducer::~Reducer (this=0x7fffffffc4b0, __in_chrg=<optimised out>)
+    at ../../lib/kokkos/core/src/impl/Kokkos_FunctorAnalysis.hpp:994
+Breakpoint 1 at 0xafb10
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff7672640 (LWP 131623)]
+[New Thread 0x7ffff5da0640 (LWP 131624)]
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff7cae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#0  0x00007ffff7cae4a1 in __cxa_throw ()
+   from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555662eb8 in LAMMPS_NS::Error::one (
+    this=this@entry=0x555556718de0, file="../bond_oxdna_fene_kokkos.cpp", 
+    line=line@entry=142, str="Bad FENE bond") at ../error.cpp:176
+#2  0x00005555562dfabe in LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>::compute (this=<optimised out>, eflag_in=<optimised out>, vflag_in=<optimised out>)
+    at ../bond_oxdna_fene_kokkos.cpp:142
+#3  0x00005555558cbebd in LAMMPS_NS::VerletKokkos::run (this=0x555556770e00, 
+    n=<optimised out>) at ../verlet_kokkos.cpp:450
+#4  0x000055555584cf70 in LAMMPS_NS::Run::command (this=0x5555568d06f0, 
+    narg=<optimised out>, arg=0x5555567747f0) at ../run.cpp:176
+#5  0x00005555556aab7c in LAMMPS_NS::Input::execute_command (
+    this=0x555556747880) at ../input.cpp:868
+#6  0x00005555556ab5a7 in LAMMPS_NS::Input::file (this=0x555556747880)
+    at ../input.cpp:313
+#7  0x0000555555698f31 in main (argc=<optimised out>, argv=<optimised out>)
+    at ../main.cpp:77
+#0  0x00007ffff7cae4a1 in __cxa_throw ()
+   from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555662eb8 in LAMMPS_NS::Error::one (
+    this=this@entry=0x555556718de0, file="../bond_oxdna_fene_kokkos.cpp", 
+    line=line@entry=142, str="Bad FENE bond") at ../error.cpp:176
+#2  0x00005555562dfabe in LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>::compute (this=<optimised out>, eflag_in=<optimised out>, vflag_in=<optimised out>)
+    at ../bond_oxdna_fene_kokkos.cpp:142
+#3  0x00005555558cbebd in LAMMPS_NS::VerletKokkos::run (this=0x555556770e00, 
+    n=<optimised out>) at ../verlet_kokkos.cpp:450
+#4  0x000055555584cf70 in LAMMPS_NS::Run::command (this=0x5555568d06f0, 
+    narg=<optimised out>, arg=0x5555567747f0) at ../run.cpp:176
+#5  0x00005555556aab7c in LAMMPS_NS::Input::execute_command (
+    this=0x555556747880) at ../input.cpp:868
+Quit
+Breakpoint 1 at 0xafb10
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff7672640 (LWP 155265)]
+[New Thread 0x7ffff5da0640 (LWP 155266)]
+
+Thread 1 "lmp_DEV_kokkos_" hit Catchpoint 3 (exception thrown), 0x00007ffff7cae4a1 in __cxa_throw () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#0  0x00007ffff7cae4a1 in __cxa_throw ()
+   from /lib/x86_64-linux-gnu/libstdc++.so.6
+#1  0x0000555555662eb8 in LAMMPS_NS::Error::one (this=<optimised out>, 
+    file="../neigh_bond_kokkos.cpp", line=<optimised out>, str=...)
+    at ../error.cpp:176
+#2  0x0000555555bdd78f in LAMMPS_NS::Error::_one (
+    this=this@entry=0x555556718de0, file="../neigh_bond_kokkos.cpp", 
+    line=line@entry=262, format=..., args=...) at ../error.cpp:198
+#3  0x0000555555e42b7c in LAMMPS_NS::Error::one<long&> (
+    this=this@entry=0x555556718de0, file="../neigh_bond_kokkos.cpp", 
+    line=line@entry=262, format=..., format=...)
+    at /usr/include/c++/11/bits/basic_string.h:920
+#4  0x0000555555e5643d in LAMMPS_NS::NeighBondKokkos<Kokkos::Serial>::bond_all
+    (this=0x55555674c760) at ../neigh_bond_kokkos.cpp:262
+#5  0x0000555555e53af7 in LAMMPS_NS::NeighBondKokkos<Kokkos::Serial>::build_topology_kk (this=this@entry=0x55555674c760) at ../neigh_bond_kokkos.cpp:213
+#6  0x0000555555737157 in LAMMPS_NS::NeighborKokkos::build_topology (
+    this=0x55555674b5f0) at ../neighbor_kokkos.cpp:374
+#7  LAMMPS_NS::NeighborKokkos::build_topology (this=0x55555674b5f0)
+    at ../neighbor_kokkos.cpp:372
+#8  0x00005555558ccbe7 in LAMMPS_NS::VerletKokkos::run (this=0x555556770e00, 
+    n=<optimised out>) at ../verlet_kokkos.cpp:355
+#9  0x000055555584cf70 in LAMMPS_NS::Run::command (this=0x5555568d06f0, 
+    narg=<optimised out>, arg=0x5555567747f0) at ../run.cpp:176
+#10 0x00005555556aab7c in LAMMPS_NS::Input::execute_command (
+    this=0x555556747880) at ../input.cpp:868
+#11 0x00005555556ab5a7 in LAMMPS_NS::Input::file (this=0x555556747880)
+    at ../input.cpp:313
+#12 0x0000555555698f31 in main (argc=<optimised out>, argv=<optimised out>)
+    at ../main.cpp:77

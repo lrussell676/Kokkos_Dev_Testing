@@ -24,7 +24,7 @@ ARFLAGS =	-rc
 SHLIBFLAGS =	-shared
 KOKKOS_DEVICES = Cuda,OpenMP
 KOKKOS_ARCH = ZEN3,AMPERE86
-KOKKOS_DEBUG=yes
+#KOKKOS_DEBUG=yes
 KOKKOS_CUDA_OPTIONS = "enable_lambda"
 
 # ---------------------------------------------------------------------

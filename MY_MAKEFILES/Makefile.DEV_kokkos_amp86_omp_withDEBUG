@@ -1,4 +1,4 @@
-# DEV_kokkos_amp86 = DEV, KOKKOS/CUDA package, MPICH or OpenMPI with nvcc compiler, Ampere86 GPU
+# DEV_kokkos_amp86_omp = DEV, KOKKOS/CUDA package, MPICH or OpenMPI with nvcc compiler, Ampere86 GPU and OpenMP
 
 SHELL = /bin/sh
 
@@ -22,9 +22,9 @@ SIZE =		size
 ARCHIVE =	ar
 ARFLAGS =	-rc
 SHLIBFLAGS =	-shared
-KOKKOS_DEVICES = Cuda
+KOKKOS_DEVICES = Cuda,OpenMP
 KOKKOS_ARCH = ZEN3,AMPERE86
-#KOKKOS_DEBUG=yes
+KOKKOS_DEBUG=yes
 KOKKOS_CUDA_OPTIONS = "enable_lambda"
 
 # ---------------------------------------------------------------------

@@ -19,7 +19,7 @@ boundary        p p p
 # Pair interactions require lists of neighbours to be calculated
 ###
 neighbor 0.3 bin
-neigh_modify every 1 delay 0 check yes 
+neigh_modify every 1 delay 0 check yes
 
 ### Generate RESTART file, SPECIAL format, not a .txt file ###
 ### Useful if simulation crashes ###
@@ -32,7 +32,7 @@ neigh_modify every 1 delay 0 check yes
 #read_restart polymer.restart.10000
 ######################
 
-read_data lmp_data
+read_data lmp_data_alt
 
 ### reset timestep ###
 reset_timestep 0 
@@ -130,7 +130,7 @@ timestep 0.001 #0.012
 ###
 # run integration for a number of steps
 ###
-run 10000
+run 4000
 
 write_data data_out.* nocoeff
  

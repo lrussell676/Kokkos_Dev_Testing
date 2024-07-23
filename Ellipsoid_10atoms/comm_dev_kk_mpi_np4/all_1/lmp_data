@@ -4,9 +4,9 @@
 1 atom types
 7 ellipsoids
 
-3.0 8.0 xlo xhi
--4.0 0.0 ylo yhi
--7.0 3.0 zlo zhi
+2.0 9.0 xlo xhi
+-5.0 1.0 ylo yhi
+-8.0 4.0 zlo zhi
 
 Atoms  # ellipsoid
 

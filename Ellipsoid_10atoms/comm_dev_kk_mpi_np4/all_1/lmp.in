@@ -87,7 +87,7 @@ pair_style      lj/cut 1.12246152962189
 #    * sigma (distance units)
 #
 
-pair_coeff      1 1 1.0 0.01
+pair_coeff      1 1 1.0 1.0
 
 #
 #  pair_modify shift yes adds a constant to the potential such
@@ -130,7 +130,7 @@ timestep 0.001 #0.012
 ###
 # run integration for a number of steps
 ###
-run 10000
+run 30000
 
 write_data data_out.* nocoeff
  

@@ -21,7 +21,7 @@ Reading data file ...
   reading velocities ...
   2 velocities
   2 ellipsoids
-  read_data CPU = 0.002 seconds
+  read_data CPU = 0.001 seconds
 
 reset_timestep 0
 
@@ -10145,20 +10145,20 @@ Per MPI rank memory allocation (min/avg/max) = 4.747 | 4.747 | 4.747 Mbytes
 9999  ekin = 3124.99986030197 | epot = 0 | etot = 3124.99986030197
 10000  ekin = 3124.99986030197 | epot = 0 | etot = 3124.99986030197
      10000   2083.3332      0              0              1562.4999      16.276041    
-Loop time of 1.92846 on 2 procs for 10000 steps with 2 atoms
+Loop time of 1.53708 on 2 procs for 10000 steps with 2 atoms
 
-Performance: 448026.692 tau/day, 5185.494 timesteps/s, 10.371 katom-step/s
-63.6% CPU use with 2 MPI tasks x no OpenMP threads
+Performance: 562105.978 tau/day, 6505.856 timesteps/s, 13.012 katom-step/s
+61.8% CPU use with 2 MPI tasks x no OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.00244    | 0.0035965  | 0.0047529  |   1.9 |  0.19
-Neigh   | 0.00062092 | 0.00063974 | 0.00065856 |   0.0 |  0.03
-Comm    | 0.54597    | 0.55063    | 0.55529    |   0.6 | 28.55
-Output  | 0.29289    | 0.69597    | 1.0991     |  48.3 | 36.09
-Modify  | 0.17278    | 0.20129    | 0.2298     |   6.4 | 10.44
-Other   |            | 0.4763     |            |       | 24.70
+Pair    | 0.0022597  | 0.0027438  | 0.0032279  |   0.9 |  0.18
+Neigh   | 0.00056976 | 0.00058087 | 0.00059197 |   0.0 |  0.04
+Comm    | 0.4434     | 0.44659    | 0.44978    |   0.5 | 29.05
+Output  | 0.23233    | 0.55173    | 0.87112    |  43.0 | 35.89
+Modify  | 0.1321     | 0.15695    | 0.18181    |   6.3 | 10.21
+Other   |            | 0.3785     |            |       | 24.62
 
 Nlocal:              1 ave           1 max           1 min
 Histogram: 2 0 0 0 0 0 0 0 0 0

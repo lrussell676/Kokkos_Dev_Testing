@@ -10138,20 +10138,20 @@ Per MPI rank memory allocation (min/avg/max) = 3.059 | 3.059 | 3.059 Mbytes
 9999  ekin = 100 | epot = 0 | etot = 100
 10000  ekin = 100 | epot = 0 | etot = 100
      10000   66.666667      0              0              50             0.52083333   
-Loop time of 1.36477 on 2 procs for 10000 steps with 2 atoms
+Loop time of 1.3138 on 2 procs for 10000 steps with 2 atoms
 
-Performance: 633075.435 tau/day, 7327.262 timesteps/s, 14.655 katom-step/s
-64.4% CPU use with 2 MPI tasks x no OpenMP threads
+Performance: 657635.907 tau/day, 7611.527 timesteps/s, 15.223 katom-step/s
+67.1% CPU use with 2 MPI tasks x no OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.0017752  | 0.00268    | 0.0035847  |   1.7 |  0.20
-Neigh   | 0.00050228 | 0.00050324 | 0.0005042  |   0.0 |  0.04
-Comm    | 0.27013    | 0.27177    | 0.27342    |   0.3 | 19.91
-Output  | 0.20016    | 0.54702    | 0.89388    |  46.9 | 40.08
-Modify  | 0.12272    | 0.14398    | 0.16525    |   5.6 | 10.55
-Other   |            | 0.3988     |            |       | 29.22
+Pair    | 0.0020335  | 0.0025976  | 0.0031618  |   1.1 |  0.20
+Neigh   | 0.00034643 | 0.00040252 | 0.0004586  |   0.0 |  0.03
+Comm    | 0.25916    | 0.26138    | 0.26359    |   0.4 | 19.89
+Output  | 0.20068    | 0.52       | 0.83932    |  44.3 | 39.58
+Modify  | 0.13323    | 0.15488    | 0.17653    |   5.5 | 11.79
+Other   |            | 0.3745     |            |       | 28.51
 
 Nlocal:              1 ave           1 max           1 min
 Histogram: 2 0 0 0 0 0 0 0 0 0

@@ -1,0 +1,46 @@
+Breakpoint 1 at 0xbe830
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Breakpoint 1 at 0xbe830
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff2dd5640 (LWP 30154)]
+[New Thread 0x7ffff25d4640 (LWP 30155)]
+[New Thread 0x7ffff2dd5640 (LWP 30156)]
+[New Thread 0x7ffff25d4640 (LWP 30157)]
+
+Thread 1 "lmp_DEV_00_kokk" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737310283712) at ./nptl/pthread_kill.c:44
+
+Thread 1 "lmp_DEV_00_kokk" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737310283712) at ./nptl/pthread_kill.c:44
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737310283712)
+    at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737310283712)
+    at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737310283712, signo=signo@entry=6)
+    at ./nptl/pthread_kill.c:89
+#3  0x00007ffff5042476 in __GI_raise (sig=sig@entry=6)
+    at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff50287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x0000555556dddbee in Kokkos::Impl::host_abort (
+    message=0x7fffffffc900 "Kokkos::View ERROR: out of bounds access label=(\"atom:bonus\") with indices [-1] but extents [8192]")
+    at ../../lib/kokkos/core/src/impl/Kokkos_Abort.cpp:40
+#6  0x00005555556302a5 in Kokkos::abort (
+    message=0x7fffffffc900 "Kokkos::View ERROR: out of bounds access label=(\"atom:bonus\") with indices [-1] but extents [8192]")
+    at ../../lib/kokkos/core/src/Kokkos_Abort.hpp:97
+#7  0x0000555555ae741a in Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus*, Kokkos::LayoutRight, Kokkos::Serial, void>, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<LAMMPS_NS::AtomVecEllipsoid::Bonus*, Kokkos::LayoutRight, Kokkos::Serial, void>, void>, int>
+    (tracker=..., map=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewMapping.hpp:3619
+#8  0x0000555555ac450e in Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus*, Kokkos::LayoutRight, Kokkos::Serial, void>::operator()<int> (i0=-1, 
+    this=0x7fffffffcdd8) at ../../lib/kokkos/core/src/Kokkos_View.hpp:873
+#9  AtomVecEllipsoidKokkos_PackBorder<Kokkos::Serial, 1, 1>::operator() (
+    this=0x7fffffffcd00, i=@0x7fffffffcc54: 6)
+    at ../atom_vec_ellipsoid_kokkos.cpp:1077
+#10 0x0000555555aa6ba7 in Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackBorder<Kokkos::Serial, 1, 1>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::exec<void> (this=0x7fffffffcd00)
+    at ../../lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:37
+#11 0x0000555555a9dee4 in Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackBorder<Kokkos::Serial, 1, 1>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial

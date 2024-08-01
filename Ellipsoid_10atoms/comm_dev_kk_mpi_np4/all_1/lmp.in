@@ -18,7 +18,7 @@ boundary        p p p
 ###
 # Pair interactions require lists of neighbours to be calculated
 ###
-neighbor 1.5 bin
+neighbor 0.3 bin
 neigh_modify every 1 delay 0 check yes 
 
 ### Generate RESTART file, SPECIAL format, not a .txt file ###

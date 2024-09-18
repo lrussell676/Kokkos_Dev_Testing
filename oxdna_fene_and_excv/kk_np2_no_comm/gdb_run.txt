@@ -1,0 +1,11 @@
+# In CLI: mpirun -np 1 xterm -hold -e gdb -x ./gdb_run.txt /media/lewis/PhD/GH_lammps/src/lmp_DEV
+
+tui enable
+set logging enabled on 
+break exit
+catch catch
+catch throw
+run -in in.duplex2 -k on -sf kk -pk kokkos comm no
+#run -in lmp.in -k on g 1 -sf kk
+#run -in lmp.in -k on -sf kk
+#run -in lmp.in

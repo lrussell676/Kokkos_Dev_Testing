@@ -1,6 +1,6 @@
 units lj
 
-atom_style ellipsoid
+atom_style hybrid bond ellipsoid oxdna
 
 boundary        p p p
 
@@ -11,7 +11,9 @@ read_data lmp_data
 
 reset_timestep 0 
 
-group all type 1 
+set atom * mass 3.1575
+
+group all type 1 4
 group polymer type 1
 
 ###
@@ -48,9 +50,8 @@ fix 5 all print 1000 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}"
 #thermo_style   custom   step  temp  epair  emol  press pxx pyy pzz  vol
 ############################################################################
 
-timestep 0.001
+timestep 0.00001
 
-run 250000
+run 2500000
 
 write_data data_out.* nocoeff
- 

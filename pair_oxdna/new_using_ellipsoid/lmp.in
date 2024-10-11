@@ -29,13 +29,13 @@ dump_modify 1 colname c_diameter[1] shapex colname c_diameter[2] shapey colname 
 # Pairs
 #
 pair_style oxdna/excv
-pair_coeff * *	2.0 0.7 0.675 2.0 0.515 0.5 2.0 0.33 0.32 #oxdna/excv
+pair_coeff * *	0.01 0.7 0.675 0.01 0.15 0.35 0.01 0.33 0.32 #oxdna/excv
 ###################################################################
-#comm_modify cutoff 6
+comm_modify cutoff 6
 #comm_style tiled
 #balance 1.2 rcb
 
-fix 1 all   nve/asphere   ###NVE ensemble
+fix 1 all   nve   ###NVE ensemble
 
 compute ekin all ke
 compute epot all pe
@@ -43,7 +43,7 @@ variable ekin equal c_ekin
 variable epot equal c_epot
 variable etot equal c_ekin+c_epot
 
-fix 5 all print 1000 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}" screen yes
+fix 5 all print 100000 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}" screen yes
 
 ##### Sample thermodynamic info  (temperature, energy, pressure, etc.) #####
 #thermo 10000

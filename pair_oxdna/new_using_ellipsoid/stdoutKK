@@ -1,25 +1,5 @@
 LAMMPS (29 Aug 2024 - Development - patch_27Jun2024-1405-gdcee028bd8-modified)
-variable number	equal 1
-variable ofreq	equal 1000
-variable efreq	equal 1
-variable T      equal 0.1
-
-units lj
-
-dimension 3
-
-newton on
-
-boundary  p p p
-
-atom_style ellipsoid
-#atom_modify sort 0 1.0
-
-# Pair interactions require lists of neighbours to be calculated
-neighbor 2.0 bin
-neigh_modify every 1 delay 0 check yes
-
-read_data data.duplex1
+KOKKOS mode with Kokkos version 4.3.1 is enabled (../kokkos.cpp:72)
 Reading data file ...
   orthogonal box = (-20 -20 -20) to (20 20 20)
   1 by 1 by 1 MPI processor grid
@@ -28,77 +8,14 @@ Reading data file ...
   reading velocities ...
   10 velocities
   10 ellipsoids
-  read_data CPU = 0.001 seconds
-
-group all type 1 4
+  read_data CPU = 0.003 seconds
 10 atoms in group all
-
-# oxDNA bond interactions - FENE backbone
-#bond_style oxdna/fene
-#bond_coeff * 2.0 0.25 0.7525
-#special_bonds lj 0 1 1
-
-# oxDNA pair interactions
-pair_style oxdna/excv
-pair_coeff * * 2.0 0.7 0.675 2.0 0.515 0.5 2.0 0.33 0.32
-#pair_style hybrid/overlay oxdna/excv oxdna/stk oxdna/hbond oxdna/xstk oxdna/coaxstk
-#pair_coeff * * oxdna/excv    2.0 0.7 0.675 2.0 0.515 0.5 2.0 0.33 0.32
-#pair_coeff * * oxdna/stk     seqav ${T} 1.3448 2.6568 6.0 0.4 0.9 0.32 0.75 1.3 0 0.8 0.9 0 0.95 0.9 0 0.95 2.0 0.65 2.0 0.65
-#pair_coeff * * oxdna/hbond   seqav 0.0   8.0 0.4 0.75 0.34 0.7 1.5 0 0.7 1.5 0 0.7 1.5 0 0.7 0.46 3.141592653589793 0.7 4.0 1.5707963267948966 0.45 4.0 1.5707963267948966 0.45
-#pair_coeff 1 4 oxdna/hbond   seqav 1.077 8.0 0.4 0.75 0.34 0.7 1.5 0 0.7 1.5 0 0.7 1.5 0 0.7 0.46 3.141592653589793 0.7 4.0 1.5707963267948966 0.45 4.0 1.5707963267948966 0.45
-#pair_coeff 2 3 oxdna/hbond   seqav 1.077 8.0 0.4 0.75 0.34 0.7 1.5 0 0.7 1.5 0 0.7 1.5 0 0.7 0.46 3.141592653589793 0.7 4.0 1.5707963267948966 0.45 4.0 1.5707963267948966 0.45
-#pair_coeff * * oxdna/xstk    47.5 0.575 0.675 0.495 0.655 2.25 0.791592653589793 0.58 1.7 1.0 0.68 1.7 1.0 0.68 1.5 0 0.65 1.7 0.875 0.68 1.7 0.875 0.68
-#pair_coeff * * oxdna/coaxstk 46.0 0.4 0.6 0.22 0.58 2.0 2.541592653589793 0.65 1.3 0 0.8 0.9 0 0.95 0.9 0 0.95 2.0 -0.65 2.0 -0.65
-
-# NVE ensemble
-fix 1 all nve
-#fix 2 all langevin ${T} ${T} 2.5 457145 angmom 10
-
-timestep 1e-6
-
-#comm_style tiled
-#fix 3 all balance 1000 1.03 shift xyz 10 1.03
-#comm_modify cutoff 3.8
-
-compute quat all property/atom quatw quati quatj quatk
-
-compute erot all erotate/asphere
-compute ekin all ke
-compute epot all pe
-variable erot equal c_erot
-variable ekin equal c_ekin
-variable epot equal c_epot
-variable etot equal c_erot+c_ekin+c_epot
-fix 5 all print ${efreq} "$(step)  ekin = ${ekin} |  erot = ${erot} | epot = ${epot} | etot = ${etot}" screen yes
-fix 5 all print 1 "$(step)  ekin = ${ekin} |  erot = ${erot} | epot = ${epot} | etot = ${etot}" screen yes
-
-#dump out all custom ${ofreq} out.${number}.lammpstrj id mol type x y z ix iy iz vx vy vz c_quat[1] c_quat[2] c_quat[3] c_quat[4] angmomx angmomy angmomz
-#dump_modify out sort id
-#dump_modify out format line "%d %d %d  %22.15le %22.15le %22.15le  %d %d %d  %22.15le %22.15le %22.15le  %22.15le %22.15le %22.15le %22.15le  %22.15le %22.15le %22.15le"
-
-compute q all property/atom quatw quati quatj quatk
-compute diameter all property/atom shapex shapey shapez
-dump 1 all custom 1 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
-dump_modify 1 colname c_q[1] quatw colname c_q[2] quati colname c_q[3] quatj colname c_q[4] quatk
-dump_modify 1 colname c_diameter[1] shapex colname c_diameter[2] shapey colname c_diameter[3] shapez
-
-run 1000
 
 CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
 
 Your simulation uses code contributions which should be cited:
-
 - Type Label Framework: https://doi.org/10.1021/acs.jpcb.3c08419
-
-@Article{Gissinger24,
- author = {Jacob R. Gissinger, Ilia Nikiforov, Yaser Afshar, Brendon Waters, Moon-ki Choi, Daniel S. Karls, Alexander Stukowski, Wonpil Im, Hendrik Heinz, Axel Kohlmeyer, and Ellad B. Tadmor},
- title = {Type Label Framework for Bonded Force Fields in LAMMPS},
- journal = {J. Phys. Chem. B},
- year =    2024,
- volume =  128,
- number =  13,
- pages =   {3282–-3297}
-}
+The log file lists these citations in BibTeX format.
 
 CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
 
@@ -110,13 +27,17 @@ Neighbor list info ...
   ghost atom cutoff = 2.7118792
   binsize = 1.3559396, bins = 30 30 30
   1 neighbor lists, perpetual/occasional/extra = 1 0 0
-  (1) pair oxdna/excv, perpetual
-      attributes: half, newton on
-      pair build: half/bin/atomonly/newton
+  (1) pair oxdna/excv/kk, perpetual
+      attributes: half, newton on, kokkos_device
+      pair build: half/bin/newton/kk/device
       stencil: half/bin/3d
-      bin: standard
+      bin: kk/device
+Setting up Verlet run ...
+  Unit style    : lj
+  Current step  : 0
+  Time step     : 1e-06
 0  ekin = 0.0408626847564314 |  erot = 0 | epot = 10253.6666682448 | etot = 10253.7075309295
-Per MPI rank memory allocation (min/avg/max) = 4.907 | 4.907 | 4.907 Mbytes
+Per MPI rank memory allocation (min/avg/max) = 5.174 | 5.174 | 5.174 Mbytes
    Step          Temp          E_pair         E_mol          TotEng         Press     
          0   0.0030268655   1025.3667      0              1025.3708     -0.019817177  
 1  ekin = 2.0323372284709 |  erot = 0 | epot = 10251.6749752286 | etot = 10253.7073124571
@@ -1120,20 +1041,20 @@ Per MPI rank memory allocation (min/avg/max) = 4.907 | 4.907 | 4.907 Mbytes
 999  ekin = 10170.0731275197 |  erot = 0 | epot = 83.4620813689152 | etot = 10253.5352088886
 1000  ekin = 10170.3491465352 |  erot = 0 | epot = 83.1860659863151 | etot = 10253.5352125215
       1000   753.3592       8.3186066      0              1025.3535      0.11603246   
-Loop time of 0.0269734 on 1 procs for 1000 steps with 10 atoms
+Loop time of 0.118812 on 1 procs for 1000 steps with 10 atoms
 
-Performance: 3203.158 tau/day, 37073.593 timesteps/s, 370.736 katom-step/s
-91.1% CPU use with 1 MPI tasks x no OpenMP threads
+Performance: 727.200 tau/day, 8416.670 timesteps/s, 84.167 katom-step/s
+97.9% CPU use with 1 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.0025321  | 0.0025321  | 0.0025321  |   0.0 |  9.39
+Pair    | 0.046153   | 0.046153   | 0.046153   |   0.0 | 38.85
 Neigh   | 0          | 0          | 0          |   0.0 |  0.00
-Comm    | 0.00034307 | 0.00034307 | 0.00034307 |   0.0 |  1.27
-Output  | 0.016159   | 0.016159   | 0.016159   |   0.0 | 59.91
-Modify  | 0.0074723  | 0.0074723  | 0.0074723  |   0.0 | 27.70
-Other   |            | 0.0004671  |            |       |  1.73
+Comm    | 0.0088442  | 0.0088442  | 0.0088442  |   0.0 |  7.44
+Output  | 0.018874   | 0.018874   | 0.018874   |   0.0 | 15.89
+Modify  | 0.025852   | 0.025852   | 0.025852   |   0.0 | 21.76
+Other   |            | 0.01909    |            |       | 16.07
 
 Nlocal:             10 ave          10 max          10 min
 Histogram: 1 0 0 0 0 0 0 0 0 0

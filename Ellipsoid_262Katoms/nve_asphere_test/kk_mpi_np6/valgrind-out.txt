@@ -1,0 +1,312 @@
+==10855== Memcheck, a memory error detector
+==10855== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==10855== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==10855== Command: /media/lewis/PhD/GH_lammps/src/lmp_DEV_00_kokkos_mpi_only_withDEBUG -in lmp.in -k on -sf kk -pk kokkos comm no
+==10855== Parent PID: 10844
+==10855== 
+--10855-- 
+--10855-- Valgrind options:
+--10855--    --leak-check=full
+--10855--    --show-leak-kinds=all
+--10855--    --track-origins=yes
+--10855--    --verbose
+--10855--    --log-file=valgrind-out.txt
+--10855-- Contents of /proc/version:
+--10855--   Linux version 6.8.0-45-generic (buildd@lcy02-amd64-075) (x86_64-linux-gnu-gcc-12 (Ubuntu 12.3.0-1ubuntu1~22.04) 12.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #45~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Sep 11 15:25:05 UTC 2
+--10855-- 
+--10855-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--10855-- Page sizes: currently 4096, max supported 4096
+--10855-- Valgrind library directory: /usr/libexec/valgrind
+--10855-- Reading syms from /media/lewis/PhD/GH_lammps/src/lmp_DEV_00_kokkos_mpi_only_withDEBUG
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--10855--   Considering /usr/lib/debug/.build-id/41/86944c50f8a32b47d74931e3f512b811813b64.debug ..
+--10855--   .. build-id is valid
+--10855-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--10855--    object doesn't have a symbol table
+--10855--    object doesn't have a dynamic symbol table
+--10855-- Scheduler: using generic scheduler lock implementation.
+--10855-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==10855== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-10855-by-lewis-on-???
+==10855== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-10855-by-lewis-on-???
+==10855== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-10855-by-lewis-on-???
+==10855== 
+==10855== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==10855== don't want to do, unless you know exactly what you're doing,
+==10855== or are doing some strange experiment):
+==10855==   /usr/bin/vgdb --pid=10855 ...command...
+==10855== 
+==10855== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==10855==   /path/to/gdb /media/lewis/PhD/GH_lammps/src/lmp_DEV_00_kokkos_mpi_only_withDEBUG
+==10855== and then give GDB the following command
+==10855==   target remote | /usr/bin/vgdb --pid=10855
+==10855== --pid is optional if only one valgrind process is running
+==10855== 
+--10855-- REDIR: 0x402aa40 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcec2 (???)
+--10855-- REDIR: 0x402a810 (ld-linux-x86-64.so.2:index) redirected to 0x580bcedc (???)
+--10855-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--10855--    object doesn't have a symbol table
+==10855== WARNING: new redirection conflicts with existing -- ignoring it
+--10855--     old: 0x0402aa40 (strlen              ) R-> (0000.0) 0x580bcec2 ???
+--10855--     new: 0x0402aa40 (strlen              ) R-> (2007.0) 0x0484ee30 strlen
+--10855-- REDIR: 0x4027220 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484fcd0 (strcmp)
+--10855-- REDIR: 0x402afa0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4853840 (mempcpy)
+--10855-- Reading syms from /home/lewis/openmpi_install/.openmpi/lib/libmpi.so.40.40.1
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libm.so.6
+--10855--   Considering /usr/lib/debug/.build-id/a5/08ec5d8bf12fb7fd08204e0f87518e5cd0b102.debug ..
+--10855--   .. build-id is valid
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--10855--   Considering /usr/lib/debug/.build-id/49/0fef8403240c91833978d494d39e537409b92e.debug ..
+--10855--   .. build-id is valid
+==10855== WARNING: new redirection conflicts with existing -- ignoring it
+--10855--     old: 0x04fc5c60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--10855--     new: 0x04fc5c60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==10855== WARNING: new redirection conflicts with existing -- ignoring it
+--10855--     old: 0x04fc5c60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--10855--     new: 0x04fc5c60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+==10855== WARNING: new redirection conflicts with existing -- ignoring it
+--10855--     old: 0x04fc5c60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--10855--     new: 0x04fc5c60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==10855== WARNING: new redirection conflicts with existing -- ignoring it
+--10855--     old: 0x04fc5c60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--10855--     new: 0x04fc5c60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+--10855-- Reading syms from /home/lewis/openmpi_install/.openmpi/lib/libopen-pal.so.80.0.1
+--10855-- Reading syms from /home/lewis/openmpi_install/.openmpi/lib/libpmix.so.2.9.4
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libevent_pthreads-2.1.so.7.0.1
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libhwloc.so.15.5.2
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libudev.so.1.7.2
+--10855--    object doesn't have a symbol table
+--10855-- REDIR: 0x4fc8720 (libc.so.6:strnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc89e0 (libc.so.6:strpbrk) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc82e0 (libc.so.6:strcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fe6cd0 (libc.so.6:wcsnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc96d0 (libc.so.6:memset) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fe5540 (libc.so.6:wcslen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc9c10 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fe5370 (libc.so.6:wcschr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc8260 (libc.so.6:index) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc8960 (libc.so.6:rindex) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc95a0 (libc.so.6:memmove) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+==10855== Preferring higher priority redirection:
+--10855--     old: 0x050c07c0 (__memcpy_avx_unalign) R-> (2018.0) 0x04850f90 __memcpy_avx_unaligned_erms
+--10855--     new: 0x050c07c0 (__memcpy_avx_unalign) R-> (2018.1) 0x04852880 memmove
+--10855-- REDIR: 0x4fe53f0 (libc.so.6:wcscmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc99e0 (libc.so.6:stpncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fe59b0 (libc.so.6:wmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc8830 (libc.so.6:strncmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc9a70 (libc.so.6:strcasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc8420 (libc.so.6:strcspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fe5470 (libc.so.6:wcscpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc81d0 (libc.so.6:strcat) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc9b60 (libc.so.6:strncasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc9480 (libc.so.6:bcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fd1570 (libc.so.6:memrchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fcb010 (libc.so.6:strchrnul) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc8390 (libc.so.6:strcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc9b10 (libc.so.6:strcasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc86a0 (libc.so.6:strlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc88d0 (libc.so.6:strncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc9950 (libc.so.6:stpcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc93f0 (libc.so.6:memchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc8b00 (libc.so.6:strspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc97d0 (libc.so.6:mempcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc9ac0 (libc.so.6:strncasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fcaf80 (libc.so.6:rawmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x4fc9310 (libc.so.6:strstr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x5054280 (libc.so.6:__memcpy_chk) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x50bd610 (libc.so.6:__strrchr_avx2) redirected to 0x484e810 (rindex)
+--10855-- REDIR: 0x50bd7e0 (libc.so.6:__strlen_avx2) redirected to 0x484ed10 (strlen)
+--10855-- REDIR: 0x50b8d80 (libc.so.6:__strncmp_avx2) redirected to 0x484f3e0 (strncmp)
+--10855-- REDIR: 0x4fc50a0 (libc.so.6:malloc) redirected to 0x4848820 (malloc)
+--10855-- REDIR: 0x50b9a80 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x4852010 (bcmp)
+--10855-- REDIR: 0x50c07c0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4852880 (memmove)
+--10855-- REDIR: 0x4c99970 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4848fa0 (operator new(unsigned long))
+--10855-- REDIR: 0x4c97c10 (libstdc++.so.6:operator delete(void*)) redirected to 0x484b840 (operator delete(void*))
+--10855-- REDIR: 0x50c0f80 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x4852770 (memset)
+--10855-- REDIR: 0x4c97c20 (libstdc++.so.6:operator delete(void*, unsigned long)) redirected to 0x484bb00 (operator delete(void*, unsigned long))
+--10855-- REDIR: 0x4fc6520 (libc.so.6:calloc) redirected to 0x484d9d0 (calloc)
+--10855-- REDIR: 0x50b8940 (libc.so.6:__strcmp_avx2) redirected to 0x484fbd0 (strcmp)
+--10855-- REDIR: 0x50bd180 (libc.so.6:__strchr_avx2) redirected to 0x484e9f0 (index)
+--10855-- REDIR: 0x4fc5740 (libc.so.6:realloc) redirected to 0x484dc50 (realloc)
+--10855-- REDIR: 0x4fc53e0 (libc.so.6:free) redirected to 0x484b210 (free)
+--10855-- REDIR: 0x50bd400 (libc.so.6:__strchrnul_avx2) redirected to 0x4853330 (strchrnul)
+--10855-- REDIR: 0x50c0780 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4853440 (mempcpy)
+--10855-- REDIR: 0x4fe4180 (libc.so.6:__strstr_sse2_unaligned) redirected to 0x4853a50 (strstr)
+--10855-- REDIR: 0x4fc87a0 (libc.so.6:strncat) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--10855-- REDIR: 0x50be2a0 (libc.so.6:__strncat_avx2) redirected to 0x484ebc0 (strncat)
+--10855-- REDIR: 0x4fc8fc0 (libc.so.6:__GI_strstr) redirected to 0x4853ae0 (__strstr_sse2)
+--10855-- REDIR: 0x50ba130 (libc.so.6:__strcasecmp_avx) redirected to 0x484f560 (strcasecmp)
+--10855-- REDIR: 0x50bf040 (libc.so.6:__strncpy_avx2) redirected to 0x484efe0 (strncpy)
+--10855-- REDIR: 0x50bb7b0 (libc.so.6:__strncasecmp_avx) redirected to 0x484f640 (strncasecmp)
+--10855-- REDIR: 0x50b8800 (libc.so.6:__strspn_sse42) redirected to 0x4853d50 (strspn)
+--10855-- REDIR: 0x50b85a0 (libc.so.6:__strcspn_sse42) redirected to 0x4853c70 (strcspn)
+--10855-- REDIR: 0x4f65150 (libc.so.6:setenv) redirected to 0x48542d0 (setenv)
+--10855-- REDIR: 0x50b9590 (libc.so.6:__rawmemchr_avx2) redirected to 0x4853360 (rawmemchr)
+--10855-- REDIR: 0x50b92c0 (libc.so.6:__memchr_avx2) redirected to 0x484fd50 (memchr)
+--10855-- Reading syms from /home/lewis/openmpi_install/.openmpi/lib/pmix/pmix_mca_pcompress_zlib.so
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/hwloc/hwloc_gl.so
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libXNVCtrl.so.0.0.0
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libbsd.so.0.11.5
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libmd.so.0.0.5
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/hwloc/hwloc_opencl.so
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/local/cuda-12.4/targets/x86_64-linux/lib/libOpenCL.so.1.0.0
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libdl.so.2
+--10855--   Considering /usr/lib/debug/.build-id/6f/6fe1a24b7b981e11c9a3373b806d3496d4d9d4.debug ..
+--10855--   .. build-id is valid
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libpthread.so.0
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/hwloc/hwloc_pci.so
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libpciaccess.so.0.11.1
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/hwloc/hwloc_xml_libxml.so
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libxml2.so.2.9.13
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libicuuc.so.70.1
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/liblzma.so.5.2.5
+--10855--    object doesn't have a symbol table
+--10855-- Reading syms from /usr/lib/x86_64-linux-gnu/libicudata.so.70.1
+--10855--    object doesn't have a symbol table
+--10855-- REDIR: 0x50543b0 (libc.so.6:__memmove_chk) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+==10855== WARNING: new redirection conflicts with existing -- ignoring it
+--10855--     old: 0x050c0790 (__memcpy_chk_avx_una) R-> (2030.0) 0x04853940 __memcpy_chk
+--10855--     new: 0x050c0790 (__memcpy_chk_avx_una) R-> (2024.0) 0x048532c0 __memmove_chk
+==10855== WARNING: new redirection conflicts with existing -- ignoring it
+--10855--     old: 0x050c0790 (__memcpy_chk_avx_una) R-> (2030.0) 0x04853940 __memcpy_chk
+--10855--     new: 0x050c0790 (__memcpy_chk_avx_una) R-> (2024.0) 0x048532c0 __memmove_chk
+==10855== WARNING: new redirection conflicts with existing -- ignoring it
+--10855--     old: 0x050c0790 (__memcpy_chk_avx_una) R-> (2030.0) 0x04853940 __memcpy_chk
+--10855--     new: 0x050c0790 (__memcpy_chk_avx_una) R-> (2024.0) 0x048532c0 __memmove_chk
+--10855-- REDIR: 0x50c0790 (libc.so.6:__memcpy_chk_avx_unaligned_erms) redirected to 0x4853940 (__memcpy_chk)
+--10855-- REDIR: 0x50becb0 (libc.so.6:__strcpy_avx2) redirected to 0x484ee60 (strcpy)
+==10855== Thread 2:
+==10855== Syscall param writev(vector[...]) points to uninitialised byte(s)
+==10855==    at 0x503AA8D: __writev (writev.c:26)
+==10855==    by 0x503AA8D: writev (writev.c:24)
+==10855==    by 0x53E1007: pmix_ptl_base_send_handler (in /home/lewis/openmpi_install/.openmpi/lib/libpmix.so.2.9.4)
+==10855==    by 0x547EFD7: ??? (in /usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1)
+==10855==    by 0x5480BF6: event_base_loop (in /usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1)
+==10855==    by 0x530F588: progress_engine (in /home/lewis/openmpi_install/.openmpi/lib/libpmix.so.2.9.4)
+==10855==    by 0x4FB4AC2: start_thread (pthread_create.c:442)
+==10855==    by 0x5045A03: clone (clone.S:100)
+==10855==  Address 0x9f0668d is 29 bytes inside a block of size 512 alloc'd
+==10855==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10855==    by 0x535ED99: pmix_bfrop_buffer_extend (in /home/lewis/openmpi_install/.openmpi/lib/libpmix.so.2.9.4)
+==10855==    by 0x53635D2: pmix_bfrops_base_pack_byte (in /home/lewis/openmpi_install/.openmpi/lib/libpmix.so.2.9.4)
+==10855==    by 0x536402C: pmix_bfrops_base_pack_buf (in /home/lewis/openmpi_install/.openmpi/lib/libpmix.so.2.9.4)
+==10855==    by 0x5363185: pmix_bfrops_base_pack (in /home/lewis/openmpi_install/.openmpi/lib/libpmix.so.2.9.4)
+==10855==    by 0x52B4AAC: _commitfn (in /home/lewis/openmpi_install/.openmpi/lib/libpmix.so.2.9.4)
+==10855==    by 0x547EEE7: ??? (in /usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1)
+==10855==    by 0x5480BF6: event_base_loop (in /usr/lib/x86_64-linux-gnu/libevent_core-2.1.so.7.0.1)
+==10855==    by 0x530F588: progress_engine (in /home/lewis/openmpi_install/.openmpi/lib/libpmix.so.2.9.4)
+==10855==    by 0x4FB4AC2: start_thread (pthread_create.c:442)
+==10855==    by 0x5045A03: clone (clone.S:100)
+==10855== 
+--10850-- REDIR: 0x4fc70e0 (libc.so.6:posix_memalign) redirected to 0x484df60 (posix_memalign)
+--10850-- REDIR: 0x4c999d0 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x484a280 (operator new[](unsigned long))
+--10850-- Reading syms from /media/lewis/PhD/kokkos-tools/profiling/memory-hwm/kp_hwm.so
+--10850-- REDIR: 0x4c99a70 (libstdc++.so.6:operator new(unsigned long, std::align_val_t, std::nothrow_t const&)) redirected to 0x4849ca0 (operator new(unsigned long, std::align_val_t, std::nothrow_t const&))
+--10850-- REDIR: 0x4c99ad0 (libstdc++.so.6:operator delete(void*, std::align_val_t, std::nothrow_t const&)) redirected to 0x484c600 (operator delete(void*, std::align_val_t, std::nothrow_t const&))
+--10850-- REDIR: 0x4c97c40 (libstdc++.so.6:operator delete[](void*)) redirected to 0x484ca20 (operator delete[](void*))
+==10851== Warning: set address range perms: large range [0x32b6d080, 0x4350a900) (undefined)
+==10851== Warning: set address range perms: large range [0x167e0080, 0x28c0d500) (undefined)
+==10851== Warning: set address range perms: large range [0x32b6d068, 0x4350a918) (noaccess)
+==10851== Warning: set address range perms: large range [0x28c0e080, 0x3cacb100) (undefined)
+==10851== Warning: set address range perms: large range [0x167e0068, 0x28c0d518) (noaccess)
+==10851== Warning: set address range perms: large range [0x3cacc080, 0x52418d00) (undefined)
+==10851== Warning: set address range perms: large range [0x28c0e068, 0x3cacb118) (noaccess)
+==10851== Warning: set address range perms: large range [0x167e0080, 0x2dbbc900) (undefined)
+==10851== Warning: set address range perms: large range [0x3cacc068, 0x52418d18) (noaccess)
+==10851== Warning: set address range perms: large range [0x2dbbd080, 0x46a29500) (undefined)
+==10851== Warning: set address range perms: large range [0x167e0068, 0x2dbbc918) (noaccess)
+==10851== Warning: set address range perms: large range [0x59c87080, 0x74583100) (undefined)
+==10851== Warning: set address range perms: large range [0x2dbbd068, 0x46a29518) (noaccess)
+==10851== Warning: set address range perms: large range [0x167e0080, 0x32b6bd00) (undefined)
+==10851== Warning: set address range perms: large range [0x59c87068, 0x74583118) (noaccess)
+==10851== Warning: set address range perms: large range [0x32b6c080, 0x50987900) (undefined)
+==10851== Warning: set address range perms: large range [0x167e0068, 0x32b6bd18) (noaccess)
+==10851== Warning: set address range perms: large range [0x59c87080, 0x79532500) (undefined)
+==10851== Warning: set address range perms: large range [0x32b6c068, 0x50987918) (noaccess)
+==10851== Warning: set address range perms: large range [0x167e0080, 0x37b1b100) (undefined)
+==10851== Warning: set address range perms: large range [0x59c87068, 0x79532518) (noaccess)
+==10851== Warning: set address range perms: large range [0x59c87080, 0x7ca51d00) (undefined)
+==10851== Warning: set address range perms: large range [0x167e0068, 0x37b1b118) (noaccess)
+==10851== Warning: set address range perms: large range [0x167e0080, 0x3b03a900) (undefined)
+==10851== Warning: set address range perms: large range [0x59c87068, 0x7ca51d18) (noaccess)
+==10851== Warning: set address range perms: large range [0x59c87080, 0x7ff71500) (undefined)
+==10851== Warning: set address range perms: large range [0x167e0068, 0x3b03a918) (noaccess)
+==10851== Warning: set address range perms: large range [0x167e0080, 0x3e55a100) (undefined)
+==10851== Warning: set address range perms: large range [0x59c87068, 0x7ff71518) (noaccess)
+==10851== Warning: set address range perms: large range [0x59c87080, 0x83490d00) (undefined)
+==10851== Warning: set address range perms: large range [0x167e0068, 0x3e55a118) (noaccess)
+==10851== Warning: set address range perms: large range [0x167e0080, 0x41a79900) (undefined)
+==10851== Warning: set address range perms: large range [0x59c87068, 0x83490d18) (noaccess)
+==10851== Warning: set address range perms: large range [0x59c87080, 0x869b0500) (undefined)
+==10851== Warning: set address range perms: large range [0x167e0068, 0x41a79918) (noaccess)
+==10851== Warning: set address range perms: large range [0x167e0080, 0x44f99100) (undefined)
+==10851== Warning: set address range perms: large range [0x59c87068, 0x869b0518) (noaccess)
+==10851== Warning: set address range perms: large range [0x59c87080, 0x89ecfd00) (undefined)
+==10851== Warning: set address range perms: large range [0x167e0068, 0x44f99118) (noaccess)
+==10851== Warning: set address range perms: large range [0x167e0080, 0x484b8900) (undefined)
+==10851== Warning: set address range perms: large range [0x59c87068, 0x89ecfd18) (noaccess)
+==10851== Warning: set address range perms: large range [0x59c87080, 0x8d3ef500) (undefined)
+==10851== Warning: set address range perms: large range [0x167e0068, 0x484b8918) (noaccess)
+==10851== Warning: set address range perms: large range [0x167e0080, 0x4b9d8100) (undefined)
+==10851== Warning: set address range perms: large range [0x59c87068, 0x8d3ef518) (noaccess)
+==10851== Warning: set address range perms: large range [0x59c87080, 0x9090ed00) (undefined)
+==10851== Warning: set address range perms: large range [0x167e0068, 0x4b9d8118) (noaccess)
+==10851== Warning: set address range perms: large range [0x167e0080, 0x4eef7900) (undefined)
+==10851== Warning: set address range perms: large range [0x59c87068, 0x9090ed18) (noaccess)
+==10851== Warning: set address range perms: large range [0x59c87080, 0x93e2e500) (undefined)
+==10851== Warning: set address range perms: large range [0x167e0068, 0x4eef7918) (noaccess)
+==10851== Warning: set address range perms: large range [0x167e0080, 0x52417100) (undefined)
+==10851== Warning: set address range perms: large range [0x59c87068, 0x93e2e518) (noaccess)
+==10851== Warning: set address range perms: large range [0x59c87080, 0x9734dd00) (undefined)
+==10851== 
+==10851== Process terminating with default action of signal 15 (SIGTERM)
+==10851==    at 0x48527F0: memset (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==10851==    by 0x2DC264: Kokkos::Impl::ZeroMemset<Kokkos::Serial, Kokkos::View<int*, Kokkos::HostSpace, Kokkos::MemoryTraits<1u> > >::ZeroMemset(Kokkos::Serial const&, Kokkos::View<int*, Kokkos::HostSpace, Kokkos::MemoryTraits<1u> > const&) (Kokkos_HostSpace_ZeroMemset.hpp:36)
+==10851==    by 0x2D6B01: std::enable_if<std::is_trivial<int>::value&&std::is_trivially_copy_assignable<int>::value, void>::type Kokkos::Impl::ViewValueFunctor<Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, int, true>::construct_shared_allocation<int>() (Kokkos_ViewMapping.hpp:2660)
+==10851==    by 0x2D2890: Kokkos::Impl::SharedAllocationRecord<void, void>* Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<int**, Kokkos::LayoutRight, Kokkos::Serial, void>, void>::allocate_shared<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Kokkos::HostSpace, Kokkos::Serial>(Kokkos::Impl::ViewCtorProp<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Kokkos::HostSpace, Kokkos::Serial> const&, Kokkos::LayoutRight const&, bool) (Kokkos_ViewMapping.hpp:3048)
+==10851==    by 0x2C8429: Kokkos::View<int**, Kokkos::LayoutRight, Kokkos::Serial, void>::View<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(Kokkos::Impl::ViewCtorProp<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&, std::enable_if<!Kokkos::Impl::ViewCtorProp<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::has_pointer, Kokkos::LayoutRight>::type const&) (Kokkos_View.hpp:1464)
+==10851==    by 0x2C07E2: Kokkos::View<int**, Kokkos::LayoutRight, Kokkos::Serial, void>::View<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::enable_if<Kokkos::Impl::is_view_label<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::value, unsigned long const>::type, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long) (Kokkos_View.hpp:1580)
+==10851==    by 0x2BDBC9: Kokkos::DualView<int**, Kokkos::LayoutRight, Kokkos::Serial, void>::DualView(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long, unsigned long) (Kokkos_DualView.hpp:253)
+==10851==    by 0xD2D296: LAMMPS_NS::NBinKokkos<Kokkos::Serial>::bin_atoms() (nbin_kokkos.cpp:112)
+==10851==    by 0x2BC7B0: void LAMMPS_NS::NeighborKokkos::build_kokkos<Kokkos::Serial>(int) (neighbor_kokkos.cpp:299)
+==10851==    by 0x2B8B1F: LAMMPS_NS::NeighborKokkos::build(int) (neighbor_kokkos.cpp:232)
+==10851==    by 0x4EB882: LAMMPS_NS::VerletKokkos::setup(int) (verlet_kokkos.cpp:110)
+==10851==    by 0x42C86A: LAMMPS_NS::Run::command(int, char**) (run.cpp:171)
+==10851== 
+==10851== HEAP SUMMARY:
+==10851==     in use at exit: 2,084,108,084 bytes in 15,552 blocks
+==10851==   total heap usage: 58,564 allocs, 43,012 frees, 20,778,354,228 bytes allocated
+==10851== 
+==10851== Searching for pointers to 15,552 not-freed blocks

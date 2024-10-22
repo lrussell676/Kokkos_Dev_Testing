@@ -1,6 +1,6 @@
 variable number	equal 1
 variable ofreq	equal 1000
-variable efreq	equal 1
+variable efreq	equal 1000
 variable T      equal 0.1
 
 units lj
@@ -11,7 +11,7 @@ newton on
 
 boundary  p p p
 
-atom_style ellipsoid
+atom_style ellipsoid/kk
 #atom_modify sort 0 1.0
 
 # Pair interactions require lists of neighbours to be calculated
@@ -28,7 +28,7 @@ group all type 1 4
 #special_bonds lj 0 1 1
 
 # oxDNA pair interactions
-pair_style oxdna/excv
+pair_style oxdna/excv/kk
 pair_coeff * * 2.0 0.7 0.675 2.0 0.515 0.5 2.0 0.33 0.32
 #pair_style hybrid/overlay oxdna/excv oxdna/stk oxdna/hbond oxdna/xstk oxdna/coaxstk
 #pair_coeff * * oxdna/excv    2.0 0.7 0.675 2.0 0.515 0.5 2.0 0.33 0.32
@@ -40,7 +40,7 @@ pair_coeff * * 2.0 0.7 0.675 2.0 0.515 0.5 2.0 0.33 0.32
 #pair_coeff * * oxdna/coaxstk 46.0 0.4 0.6 0.22 0.58 2.0 2.541592653589793 0.65 1.3 0 0.8 0.9 0 0.95 0.9 0 0.95 2.0 -0.65 2.0 -0.65
 
 # NVE ensemble
-fix 1 all nve
+fix 1 all nve/asphere
 #fix 2 all langevin ${T} ${T} 2.5 457145 angmom 10
 
 timestep 1e-6
@@ -66,8 +66,9 @@ fix 5 all print ${efreq} "$(step)  ekin = ${ekin} |  erot = ${erot} | epot = ${e
 
 compute q all property/atom quatw quati quatj quatk
 compute diameter all property/atom shapex shapey shapez
-dump 1 all custom 1 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
+dump 1 all custom 1000 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
 dump_modify 1 colname c_q[1] quatw colname c_q[2] quati colname c_q[3] quatj colname c_q[4] quatk
 dump_modify 1 colname c_diameter[1] shapex colname c_diameter[2] shapey colname c_diameter[3] shapez
 
-run 1000
+run_style verlet/kk
+run 100000

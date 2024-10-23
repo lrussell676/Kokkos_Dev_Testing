@@ -11,7 +11,7 @@ newton on
 
 boundary  p p p
 
-atom_style hybrid bond ellipsoid oxdna
+atom_style hybrid bond ellipsoid
 atom_modify sort 0 1.0
 
 # Pair interactions require lists of neighbours to be calculated
@@ -60,5 +60,3 @@ dump_modify out format line "%d %d %d  %22.15le %22.15le %22.15le  %d %d %d  %22
 
 run 1000000
 
-write_data last_config.${number}.* nocoeff
-#write_restart last_config.${number}.*

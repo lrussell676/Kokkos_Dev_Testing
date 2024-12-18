@@ -255,21 +255,21 @@ Per MPI rank memory allocation (min/avg/max) = 7.279 | 7.286 | 7.293 Mbytes
 99000  ekin = 2.34122799214981 |  erot = 2.51744947757009 | epot = -21.352820243447 | ebond = BLANK | eexcv = 0 | estk = -14.6522935887626 | ehbond = -4.82606573263325 | exstk = -1.69333489298411 | ecoaxstk = -0.520236249384738 | etot = -16.4941427737271
 100000  ekin = 2.30391204459364 |  erot = 2.3100310083016 | epot = -21.108085825708 | ebond = BLANK | eexcv = 0 | estk = -14.5898969337189 | ehbond = -4.67027203555318 | exstk = -1.66709280623972 | ecoaxstk = -0.520328696741862 | etot = -16.4941427728127
     100000   0.10239609    -1.3404744      0.02121904    -1.1752609     -1.3703217e-05  64000        
-Loop time of 3.43408 on 2 procs for 100000 steps with 16 atoms
+Loop time of 3.34681 on 2 procs for 100000 steps with 16 atoms
 
-Performance: 25159.553 tau/day, 29119.853 timesteps/s, 465.918 katom-step/s
+Performance: 25815.637 tau/day, 29879.209 timesteps/s, 478.067 katom-step/s
 99.9% CPU use with 2 MPI tasks x no OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 1.5574     | 2.1941     | 2.8309     |  43.0 | 63.89
-Bond    | 0.08323    | 0.086619   | 0.090007   |   1.2 |  2.52
-Neigh   | 0.0031597  | 0.0031737  | 0.0031877  |   0.0 |  0.09
-Comm    | 0.22204    | 0.86647    | 1.5109     |  69.2 | 25.23
-Output  | 0.004221   | 0.0047818  | 0.0053425  |   0.8 |  0.14
-Modify  | 0.18378    | 0.1859     | 0.18802    |   0.5 |  5.41
-Other   |            | 0.093      |            |       |  2.71
+Pair    | 1.5294     | 2.1392     | 2.749      |  41.7 | 63.92
+Bond    | 0.079655   | 0.08545    | 0.091245   |   2.0 |  2.55
+Neigh   | 0.0038126  | 0.0038269  | 0.0038411  |   0.0 |  0.11
+Comm    | 0.2143     | 0.83488    | 1.4555     |  67.9 | 24.95
+Output  | 0.0041227  | 0.0046411  | 0.0051595  |   0.8 |  0.14
+Modify  | 0.18914    | 0.18954    | 0.18995    |   0.1 |  5.66
+Other   |            | 0.08927    |            |       |  2.67
 
 Nlocal:              8 ave           8 max           8 min
 Histogram: 2 0 0 0 0 0 0 0 0 0

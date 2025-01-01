@@ -173,3 +173,129 @@ Thread 1 "lmp_DEV_00_kokk" received signal SIGSEGV, Segmentation fault.
 #9  0x000055555562ef47 in LAMMPS_NS::Input::execute_command (this=0x555557a33180) at ../input.cpp:868
 #10 0x000055555562b2f0 in LAMMPS_NS::Input::file (this=0x555557a33180) at ../input.cpp:313
 #11 0x0000555555628e95 in main (argc=9, argv=0x7fffffffdcc8) at ../main.cpp:78
+Breakpoint 1 at 0xd4840
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6e00640 (LWP 99013)]
+
+Thread 1 "lmp_DEV_00_kokk" received signal SIGSEGV, Segmentation fault.
+0x000055555572b3fa in Kokkos::Impl::SharedAllocationTracker::assign_direct (rhs=..., this=0x7fffffffcb80) at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:603
+#0  0x000055555572b3fa in Kokkos::Impl::SharedAllocationTracker::assign_direct (rhs=..., this=0x7fffffffcb80)
+    at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:603
+#1  Kokkos::Impl::ViewTracker<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >::assign<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (this=0x7fffffffcb80, vt=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewTracker.hpp:67
+#2  0x00005555557248a7 in Kokkos::Impl::ViewTracker<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >::ViewTracker<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (
+    this=0x7fffffffcb80, vt=...) at ../../lib/kokkos/core/src/impl/Kokkos_ViewTracker.hpp:61
+#3  0x0000555555722754 in Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks>::View<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (this=0x7fffffffcb80, rhs=...)
+    at ../../lib/kokkos/core/src/Kokkos_View.hpp:1327
+#4  0x0000555555723654 in Kokkos::DualView<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void>::view<Kokkos::Serial> (this=0x488)
+    at ../../lib/kokkos/containers/src/Kokkos_DualView.hpp:462
+#5  0x0000555556e73a71 in LAMMPS_NS::PairOxdnaStkKokkos<Kokkos::Serial>::compute (this=0x555557be20b0, eflag_in=1, vflag_in=0)
+    at ../pair_oxdna_stk_kokkos.cpp:210
+Breakpoint 1 at 0xd4840
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6e00640 (LWP 119823)]
+
+Thread 1 "lmp_DEV_00_kokk" received signal SIGSEGV, Segmentation fault.
+0x000055555572b3fa in Kokkos::Impl::SharedAllocationTracker::assign_direct (rhs=..., this=0x7fffffffcb70) at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:603
+#0  0x000055555572b3fa in Kokkos::Impl::SharedAllocationTracker::assign_direct (rhs=..., this=0x7fffffffcb70)
+    at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:603
+#1  Kokkos::Impl::ViewTracker<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >::assign<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (this=0x7fffffffcb70, vt=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewTracker.hpp:67
+#2  0x00005555557248a7 in Kokkos::Impl::ViewTracker<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >::ViewTracker<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (this=0x7fffffffcb70, vt=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewTracker.hpp:61
+#3  0x0000555555722754 in Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks>::View<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (this=0x7fffffffcb70, rhs=...) at ../../lib/kokkos/core/src/Kokkos_View.hpp:1327
+#4  0x0000555555723654 in Kokkos::DualView<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void>::view<Kokkos::Serial> (this=0x488)
+    at ../../lib/kokkos/containers/src/Kokkos_DualView.hpp:462
+#5  0x0000555556e73a71 in LAMMPS_NS::PairOxdnaStkKokkos<Kokkos::Serial>::compute (this=0x555557bf30f0, eflag_in=1, vflag_in=0)
+    at ../pair_oxdna_stk_kokkos.cpp:210
+#6  0x0000555556597cf8 in LAMMPS_NS::PairHybridKokkos::compute (this=0x555557bf1310, eflag=1, vflag=2) at ../pair_hybrid_kokkos.cpp:113
+#7  0x000055555595255c in LAMMPS_NS::VerletKokkos::setup (this=0x555557e26440, flag=1) at ../verlet_kokkos.cpp:123
+#8  0x000055555589415b in LAMMPS_NS::Run::command (this=0x555557e13a90, narg=1, arg=0x555557df59d0) at ../run.cpp:171
+#9  0x000055555562f017 in LAMMPS_NS::Input::execute_command (this=0x555557b13a30) at ../input.cpp:868
+#10 0x000055555562b3c0 in LAMMPS_NS::Input::file (this=0x555557b13a30) at ../input.cpp:313
+#11 0x0000555555628eda in main (argc=9, argv=0x7fffffffd2f8) at ../main.cpp:82
+Breakpoint 1 at 0xd4840
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6e00640 (LWP 140173)]
+
+Thread 1 "lmp_DEV_00_kokk" received signal SIGSEGV, Segmentation fault.
+0x000055555572b3fa in Kokkos::Impl::SharedAllocationTracker::assign_direct (rhs=..., this=0x7fffffffcb70) at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:603
+#0  0x000055555572b3fa in Kokkos::Impl::SharedAllocationTracker::assign_direct (rhs=..., this=0x7fffffffcb70)
+    at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:603
+#1  Kokkos::Impl::ViewTracker<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >::assign<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (this=0x7fffffffcb70, vt=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewTracker.hpp:67
+#2  0x00005555557248a7 in Kokkos::Impl::ViewTracker<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >::ViewTracker<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (this=0x7fffffffcb70, vt=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewTracker.hpp:61
+#3  0x0000555555722754 in Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks>::View<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (this=0x7fffffffcb70, rhs=...)
+    at ../../lib/kokkos/core/src/Kokkos_View.hpp:1327
+#4  0x0000555555723654 in Kokkos::DualView<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void>::view<Kokkos::Serial> (this=0x488)
+    at ../../lib/kokkos/containers/src/Kokkos_DualView.hpp:462
+#5  0x0000555556e73a71 in LAMMPS_NS::PairOxdnaStkKokkos<Kokkos::Serial>::compute (this=0x555557bf30f0, eflag_in=1, vflag_in=0)
+    at ../pair_oxdna_stk_kokkos.cpp:210
+#6  0x0000555556597cf8 in LAMMPS_NS::PairHybridKokkos::compute (this=0x555557bf1310, eflag=1, vflag=2) at ../pair_hybrid_kokkos.cpp:113
+#7  0x000055555595255c in LAMMPS_NS::VerletKokkos::setup (this=0x555557e26440, flag=1) at ../verlet_kokkos.cpp:123
+#8  0x000055555589415b in LAMMPS_NS::Run::command (this=0x555557e13a90, narg=1, arg=0x555557df59d0) at ../run.cpp:171
+#9  0x000055555562f017 in LAMMPS_NS::Input::execute_command (this=0x555557b13a30) at ../input.cpp:868
+#10 0x000055555562b3c0 in LAMMPS_NS::Input::file (this=0x555557b13a30) at ../input.cpp:313
+#11 0x0000555555628eda in main (argc=9, argv=0x7fffffffd2f8) at ../main.cpp:82
+Breakpoint 1 at 0xd4840
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6e00640 (LWP 201305)]
+
+Thread 1 "lmp_DEV_00_kokk" received signal SIGSEGV, Segmentation fault.
+0x000055555572b3fa in Kokkos::Impl::SharedAllocationTracker::assign_direct (rhs=..., this=0x7fffffffcb70) at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:603
+#0  0x000055555572b3fa in Kokkos::Impl::SharedAllocationTracker::assign_direct (rhs=..., this=0x7fffffffcb70)
+    at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:603
+#1  Kokkos::Impl::ViewTracker<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >::assign<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (this=0x7fffffffcb70, vt=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewTracker.hpp:67
+#2  0x00005555557248a7 in Kokkos::Impl::ViewTracker<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >::ViewTracker<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (this=0x7fffffffcb70, vt=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewTracker.hpp:61
+#3  0x0000555555722754 in Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks>::View<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (this=0x7fffffffcb70, rhs=...) at ../../lib/kokkos/core/src/Kokkos_View.hpp:1327
+#4  0x0000555555723654 in Kokkos::DualView<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void>::view<Kokkos::Serial> (this=0x488)
+    at ../../lib/kokkos/containers/src/Kokkos_DualView.hpp:462
+#5  0x0000555556da4a2b in LAMMPS_NS::PairOxdnaHbondKokkos<Kokkos::Serial>::compute (this=0x555557bf4ef0, eflag_in=1, vflag_in=0)
+    at ../pair_oxdna_hbond_kokkos.cpp:232
+#6  0x0000555556597cf8 in LAMMPS_NS::PairHybridKokkos::compute (this=0x555557bf1310, eflag=1, vflag=2) at ../pair_hybrid_kokkos.cpp:113
+#7  0x000055555595255c in LAMMPS_NS::VerletKokkos::setup (this=0x555557e26440, flag=1) at ../verlet_kokkos.cpp:123
+#8  0x000055555589415b in LAMMPS_NS::Run::command (this=0x555557e13a90, narg=1, arg=0x555557df59d0) at ../run.cpp:171
+#9  0x000055555562f017 in LAMMPS_NS::Input::execute_command (this=0x555557b13a30) at ../input.cpp:868
+#10 0x000055555562b3c0 in LAMMPS_NS::Input::file (this=0x555557b13a30) at ../input.cpp:313
+#11 0x0000555555628eda in main (argc=9, argv=0x7fffffffd2f8) at ../main.cpp:82
+Breakpoint 1 at 0xd4840
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6e00640 (LWP 222073)]
+
+Thread 1 "lmp_DEV_00_kokk" received signal SIGSEGV, Segmentation fault.
+0x000055555572b3fa in Kokkos::Impl::SharedAllocationTracker::assign_direct (rhs=..., this=0x7fffffffc9a0) at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:603
+#0  0x000055555572b3fa in Kokkos::Impl::SharedAllocationTracker::assign_direct (rhs=..., this=0x7fffffffc9a0)
+    at ../../lib/kokkos/core/src/impl/Kokkos_SharedAlloc.hpp:603
+#1  Kokkos::Impl::ViewTracker<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >::assign<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (this=0x7fffffffc9a0, vt=...)
+    at ../../lib/kokkos/core/src/impl/Kokkos_ViewTracker.hpp:67
+#2  0x00005555557248a7 in Kokkos::Impl::ViewTracker<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks> >::ViewTracker<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (
+    this=0x7fffffffc9a0, vt=...) at ../../lib/kokkos/core/src/impl/Kokkos_ViewTracker.hpp:61
+#3  0x0000555555722754 in Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::Experimental::EmptyViewHooks>::View<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> (this=0x7fffffffc9a0, rhs=...)
+    at ../../lib/kokkos/core/src/Kokkos_View.hpp:1327
+#4  0x0000555555723654 in Kokkos::DualView<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void>::view<Kokkos::Serial> (this=0x488)
+    at ../../lib/kokkos/containers/src/Kokkos_DualView.hpp:462
+#5  0x0000555557389682 in LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>::compute (this=0x555557b4cf70, eflag_in=1, vflag_in=2)
+    at ../bond_oxdna_fene_kokkos.cpp:102
+#6  0x00005555573818c9 in LAMMPS_NS::BondHybridKokkos::compute (this=0x555557b28d40, eflag=1, vflag=2) at ../bond_hybrid_kokkos.cpp:123
+#7  0x00005555559526e3 in LAMMPS_NS::VerletKokkos::setup (this=0x555557e26440, flag=1) at ../verlet_kokkos.cpp:131
+#8  0x000055555589415b in LAMMPS_NS::Run::command (this=0x555557e13a90, narg=1, arg=0x555557df59d0) at ../run.cpp:171
+warning: Error detected on fd 0
+error detected on stdin

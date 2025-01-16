@@ -3,7 +3,7 @@ LAMMPS data file via write_data, version 27 May 2021
 16 atoms
 4 atom types
 13 bonds
-2 bond types
+1 bond types
 16 ellipsoids
 
 -20 20 xlo xhi

@@ -25,9 +25,8 @@ set atom * mass 3.1575
 group all type 1 4
 
 # oxDNA bond interactions - FENE backbone
-bond_style hybrid/kk oxdna/fene/kk harmonic/kk
-bond_coeff 1 oxdna/fene/kk 2.0 0.25 0.7564
-bond_coeff 2 harmonic/kk 0.0 0.25
+bond_style hybrid/kk oxdna/fene/kk
+bond_coeff * oxdna/fene/kk 2.0 0.25 0.7564
 special_bonds lj 0 1 1
 
 # oxDNA pair interactions
@@ -61,21 +60,21 @@ variable ekin equal c_ekin
 variable epot equal c_epot
 variable etot equal c_erot+c_ekin+c_epot
 
-#compute ebond all bond
+compute ebond all bond
 compute eexcv all pair oxdna/excv/kk
 compute estk all pair oxdna/stk/kk
 compute ehbond all pair oxdna/hbond/kk
 compute exstk all pair oxdna/xstk/kk
 compute ecoaxstk all pair oxdna/coaxstk/kk
 
-#variable ebond equal c_ebond[1]
+variable ebond equal c_ebond[1]
 variable eexcv equal c_eexcv
 variable estk equal c_estk
 variable ehbond equal c_ehbond
 variable exstk equal c_exstk
 variable ecoaxstk equal c_ecoaxstk
 
-fix 5 all print ${efreq} "$(step)  ekin = ${ekin} |  erot = ${erot} | epot = ${epot} | ebond = BLANK | eexcv = ${eexcv} | estk = ${estk} | ehbond = ${ehbond} | exstk = ${exstk} | ecoaxstk = ${ecoaxstk} | etot = ${etot}" screen yes
+fix 5 all print ${efreq} "$(step)  ekin = ${ekin} |  erot = ${erot} | epot = ${epot} | ebond = ${ebond} | eexcv = ${eexcv} | estk = ${estk} | ehbond = ${ehbond} | exstk = ${exstk} | ecoaxstk = ${ecoaxstk} | etot = ${etot}" screen yes
 
 dump out all custom ${ofreq} out.${number}.lammpstrj id mol type x y z ix iy iz vx vy vz c_quat[1] c_quat[2] c_quat[3] c_quat[4] angmomx angmomy angmomz
 dump_modify out sort id

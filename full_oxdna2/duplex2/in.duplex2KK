@@ -62,7 +62,7 @@ variable ekin equal c_ekin
 variable epot equal c_epot
 variable etot equal c_erot+c_ekin+c_epot
 
-#compute ebond all bond
+compute ebond all bond
 compute eexcv all pair oxdna2/excv/kk
 compute estk all pair oxdna2/stk/kk
 compute ehbond all pair oxdna2/hbond/kk
@@ -70,7 +70,7 @@ compute exstk all pair oxdna2/xstk/kk
 compute ecoaxstk all pair oxdna2/coaxstk/kk
 compute edh all pair oxdna2/dh/kk
 
-#variable ebond equal c_ebond[1]
+variable ebond equal c_ebond[1]
 variable eexcv equal c_eexcv
 variable estk equal c_estk
 variable ehbond equal c_ehbond
@@ -78,7 +78,7 @@ variable exstk equal c_exstk
 variable ecoaxstk equal c_ecoaxstk
 variable edh equal c_edh
 
-fix 5 all print ${efreq} "$(step)  ekin = ${ekin} |  erot = ${erot} | epot = ${epot} | ebond = BLANK | eexcv = ${eexcv} | estk = ${estk} | ehbond = ${ehbond} | exstk = ${exstk} | ecoaxstk = ${ecoaxstk} | edh = ${edh} | etot = ${etot}" screen yes
+fix 5 all print ${efreq} "$(step)  ekin = ${ekin} |  erot = ${erot} | epot = ${epot} | ebond = ${ebond} | eexcv = ${eexcv} | estk = ${estk} | ehbond = ${ehbond} | exstk = ${exstk} | ecoaxstk = ${ecoaxstk} | edh = ${edh} | etot = ${etot}" screen yes
 
 dump out all custom ${ofreq} out.${number}.lammpstrj id mol type x y z ix iy iz vx vy vz c_quat[1] c_quat[2] c_quat[3] c_quat[4] angmomx angmomy angmomz
 dump_modify out sort id

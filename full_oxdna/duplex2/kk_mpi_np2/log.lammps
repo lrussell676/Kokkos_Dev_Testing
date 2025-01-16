@@ -1,4 +1,4 @@
-LAMMPS (19 Nov 2024 - Development - patch_19Nov2024-445-g929d3043d7)
+LAMMPS (19 Nov 2024 - Development - patch_19Nov2024-446-gb64a005491-modified)
 KOKKOS mode with Kokkos version 4.5.1 is enabled (../kokkos.cpp:72)
 package kokkos
 package kokkos comm no
@@ -80,7 +80,7 @@ pair_coeff * * oxdna/xstk/kk    47.5 0.575 0.675 0.495 0.655 2.25 0.791592653589
 pair_coeff * * oxdna/coaxstk/kk 46.0 0.4 0.6 0.22 0.58 2.0 2.541592653589793 0.65 1.3 0 0.8 0.9 0 0.95 0.9 0 0.95 2.0 -0.65 2.0 -0.65
 
 # NVE ensemble
-fix 1 all nve/asphere
+fix 1 all nve/asphere/kk
 #fix 2 all langevin ${T} ${T} 2.5 457145 angmom 10
 
 timestep 1e-5
@@ -263,21 +263,21 @@ Per MPI rank memory allocation (min/avg/max) = 7.997 | 7.997 | 7.997 Mbytes
 99000  ekin = 2.34122799214981 |  erot = 2.51744947757009 | epot = -21.352820243447 | ebond = 0.339110220317709 | eexcv = 0 | estk = -14.6522935887626 | ehbond = -4.82606573263324 | exstk = -1.69333489298412 | ecoaxstk = -0.52023624938477 | etot = -16.4941427737271
 100000  ekin = 2.30391204459361 |  erot = 2.31003100830158 | epot = -21.1080858257079 | ebond = 0.339504646545733 | eexcv = 0 | estk = -14.5898969337189 | ehbond = -4.67027203555314 | exstk = -1.66709280623972 | ecoaxstk = -0.520328696741891 | etot = -16.4941427728127
     100000   0.10239609    -1.3404744      0.02121904    -1.1752609     -1.3703217e-05  64000        
-Loop time of 52.3123 on 2 procs for 100000 steps with 16 atoms
+Loop time of 52.4536 on 2 procs for 100000 steps with 16 atoms
 
-Performance: 1651.619 tau/day, 1911.595 timesteps/s, 30.586 katom-step/s
-99.9% CPU use with 2 MPI tasks x 1 OpenMP threads
+Performance: 1647.169 tau/day, 1906.445 timesteps/s, 30.503 katom-step/s
+100.0% CPU use with 2 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 30.032     | 36.677     | 43.322     | 109.7 | 70.11
-Bond    | 1.7669     | 1.8269     | 1.8868     |   4.4 |  3.49
-Neigh   | 0.015086   | 0.015088   | 0.015091   |   0.0 |  0.03
-Comm    | 2.7337     | 9.4454     | 16.157     | 218.4 | 18.06
-Output  | 0.0055019  | 0.0059883  | 0.0064746  |   0.6 |  0.01
-Modify  | 2.2915     | 2.303      | 2.3144     |   0.8 |  4.40
-Other   |            | 2.039      |            |       |  3.90
+Pair    | 29.995     | 36.712     | 43.428     | 110.9 | 69.99
+Bond    | 1.7629     | 1.8541     | 1.9452     |   6.7 |  3.53
+Neigh   | 0.014269   | 0.014273   | 0.014277   |   0.0 |  0.03
+Comm    | 2.7465     | 9.5611     | 16.376     | 220.4 | 18.23
+Output  | 0.0048003  | 0.0053928  | 0.0059853  |   0.8 |  0.01
+Modify  | 2.2482     | 2.2686     | 2.2891     |   1.4 |  4.33
+Other   |            | 2.039      |            |       |  3.89
 
 Nlocal:              8 ave           8 max           8 min
 Histogram: 2 0 0 0 0 0 0 0 0 0

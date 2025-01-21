@@ -36,7 +36,7 @@ if not file_paths and input_ProcessID:
 # -------------------------------------------------------------------------------------------------------------------------------
 if args.mode == 'p':
     for file_path in file_paths:
-        plot_mem_events(file_path, input_Vname)
+        check_and_plot_mem_event(file_path, input_Vname)
 
 # Check Mode
 # -------------------------------------------------------------------------------------------------------------------------------

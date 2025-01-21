@@ -30,7 +30,7 @@ def plotting_memspace_usage(times_allo, sizes_allocate, times_deallo,
 ############################################################################################################
 # Reads memory events from a file, filters them by a given variable name, and plots the events.
 ############################################################################################################
-def check_and_plot_mem_events(file_path, input_Vname):
+def check_and_plot_mem_event(file_path, input_Vname):
     print(f"Plotting memory events for {input_Vname} from file {file_path}")
     times_allo = []
     times_deallo = []

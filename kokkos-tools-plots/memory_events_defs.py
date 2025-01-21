@@ -6,12 +6,17 @@ import warnings
 ############################################################################################################
 def plotting_memspace_usage(times_allo, sizes_allocate, times_deallo, 
                             sizes_deallocate, times_total, cumulative_sizes, input_Vname):
+    if not sizes_deallocate:
+        warnings.warn(f"\n!!!\nNo deallocation events found for {input_Vname}.\n"
+                      "The plot won't look correct, but will display nonetheless.\n!!!", RuntimeWarning)
+        ymin = 0
+    else:
+        ymin = min(sizes_deallocate)
+    ymax = max(sizes_allocate)
     plt.figure(figsize=(10, 6))
     plt.scatter(times_allo, sizes_allocate, color='blue', label='Allocate', marker='x')
     plt.scatter(times_deallo, sizes_deallocate, color='red', label='Deallocate', marker='o')
     plt.plot(times_total, cumulative_sizes, color='green', label='Cumulative Sum')
-    ymax = max(sizes_allocate)
-    ymin = min(sizes_deallocate)
     for i, size in enumerate(sizes_allocate):
         plt.text(times_allo[i], sizes_allocate[i] + 0.03*ymax, f'+{size}', 
              fontsize=8, verticalalignment='bottom', horizontalalignment='center')
@@ -24,7 +29,7 @@ def plotting_memspace_usage(times_allo, sizes_allocate, times_deallo,
     plt.xlabel('Time (s)')
     plt.ylabel('Size (bytes)')
     plt.title(f'Memory Events for "{input_Vname}"')
-    plt.legend()
+    plt.legend(title=f'Cumulative Size: {cumulative_sizes[-1]}' if cumulative_sizes else None)
     plt.show()
 
 ############################################################################################################
@@ -56,12 +61,10 @@ def check_and_plot_mem_event(file_path, input_Vname):
                 if op == "Allocate":
                     times_allo.append(time)
                     sizes_allocate.append(size)
-                    #sizes_deallocate.append(0)
                     cumulative_sum += size
                 elif op == "DeAllocate":
                     times_deallo.append(time)
                     sizes_deallocate.append(size)
-                    #sizes_allocate.append(0)
                     cumulative_sum += size
                 times_total.append(time)
                 cumulative_sizes.append(cumulative_sum)
@@ -109,36 +112,39 @@ def check_mem_events(file_path):
                     continue
                 parts = line.split()
                 name_redraw = ' '.join(parts[5:])
-                if name != name_redraw:
-                    continue
                 time = float(parts[0])
                 size = int(parts[2])
                 op = parts[4]
-            
-                if op == "Allocate":
-                    times_allo.append(time)
-                    sizes_allocate.append(size)
-                    cumulative_sum += size
-                elif op == "DeAllocate":
-                    times_deallo.append(time)
-                    sizes_deallocate.append(size)
-                    cumulative_sum += size
-                times_total.append(time)
-                cumulative_sizes.append(cumulative_sum)
+                
+                if name_redraw == name:
+                    if op == "Allocate":
+                        times_allo.append(time)
+                        sizes_allocate.append(size)
+                        cumulative_sum += size
+                    elif op == "DeAllocate":
+                        times_deallo.append(time)
+                        sizes_deallocate.append(size)
+                        cumulative_sum += size
+                    times_total.append(time)
+                    cumulative_sizes.append(cumulative_sum)
     
             if cumulative_sizes[-1] != 0:
-                warnings.warn(f"\n!!!\nDifference between total allocated and deallocated memory for {name_redraw} is {cumulative_sizes[-1]}\n!!!", RuntimeWarning)
+                warnings.warn(f"\n!!!\nDifference between total allocated and deallocated memory for {name} is {cumulative_sizes[-1]}\n!!!", RuntimeWarning)
                 warning_count += 1
-                warning_names.append(name_redraw)
-            if cumulative_sizes[-1] != 0:
+                warning_names.append(name)
                 print("/ ----------------------------------------------------------------- /")
-                print(f"Memory events for {name_redraw} are not balanced. Values are:\n"
+                print(f"Memory events for {name} are not balanced. Values are:\n"
                       f"Times Allocated:...... {len(times_allo)} \n"
-                      f"Sizes Allocated:...... {sizes_allocate} \n"
+                      f"Sizes Allocated:...... {sum(sizes_allocate)} \n"
                       f"Times Deallocated:.... {len(times_deallo)} \n"
-                      f"Sizes Deallocated:.... {sizes_deallocate} \n"
-                      f"Total Cumulative Size: {cumulative_sizes}")
+                      f"Sizes Deallocated:.... {sum(sizes_deallocate)} \n"
+                      f"Total Cumulative Size: {cumulative_sizes[-1]}")
                 print("/ ----------------------------------------------------------------- /")
+            else:
+                print(f"Memory events for {name} are balanced. Values are:\n"
+                      f"Times Allocated:...... {len(times_allo)} \n"
+                      f"Times Deallocated:.... {len(times_deallo)} \n"
+                      f"Total Cumulative Size: {cumulative_sizes[-1]}")
     
     print("#\n#\n#")
     print("### Summary ###")

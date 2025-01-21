@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser(description='Used to process mem_events data fr
 parser.add_argument('--mode', type=str, choices=['c', 'p'], required=True, help='Mode of operation: "c" for check, "p" for plot. (mandatory)')
 parser.add_argument('--Vname', type=str, help='Name of the Kokkos View to plot. (mandatory for "p" plot mode, not used for "c" check mode)')
 # Optional arguments
-parser.add_argument('--ID', type=str, help='Isolate Process ID file (optional)')
+parser.add_argument('--ID', type=str, help='Isolate Process ID file. (optional)')
 args = parser.parse_args()
 
 # Input strings

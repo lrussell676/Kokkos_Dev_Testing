@@ -7,3 +7,5 @@ Ellipsoid_262Katoms/nve_asphere_test/vanilla_np6/dump.polymer
 Ellipsoid_262Katoms/nve_asphere_test/kk_g1t2/dump.polymer
 AtomVecEllipKK_Tests/*dump.*
 AtomVecEllipKK_Tests/*/dump.*
+AtomVecEllipKK_Tests/*/*/dump.*
+AtomVecEllipKK_Tests/*/*/*/dump.*

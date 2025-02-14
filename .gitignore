@@ -13,3 +13,4 @@ Full_oxDNAs_Tests/full_oxdna2/1000ncl/*
 !Full_oxDNAs_Tests/full_oxdna2/1000ncl/*.1000ncl
 !Full_oxDNAs_Tests/full_oxdna2/1000ncl/seq.txt
 !Full_oxDNAs_Tests/full_oxdna2/1000ncl/gdb_run.txt
+!kokkos-tools-plots-and-checks/*.py

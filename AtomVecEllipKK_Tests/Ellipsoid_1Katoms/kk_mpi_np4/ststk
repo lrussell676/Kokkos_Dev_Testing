@@ -1,0 +1,381 @@
+LAMMPS (19 Nov 2024 - Development - patch_19Nov2024-564-gf96768effb-modified)
+KOKKOS mode with Kokkos version 4.5.1 is enabled (src/KOKKOS/kokkos.cpp:72)
+  using 1 OpenMP thread(s) per MPI task
+Lattice spacing in x,y,z = 1.1006424 1.1006424 1.1006424
+Created orthogonal box = (0 0 0) to (11.006424 11.006424 11.006424)
+  1 by 2 by 2 MPI processor grid
+Created 1000 atoms
+  using lattice units in orthogonal box = (0 0 0) to (11.006424 11.006424 11.006424)
+  create_atoms CPU = 0.001 seconds
+1000 atoms in group all
+Setting atom values ...
+  1000 settings made for mass
+Setting atom values ...
+  1000 settings made for shape
+Setting atom values ...
+  1000 settings made for quat/random
+Resetting atom IDs ...
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 100 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 1.4224615
+  ghost atom cutoff = 1.4224615
+  binsize = 0.71123076, bins = 16 16 16
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/kk, perpetual
+      attributes: half, newton on, kokkos_device
+      pair build: half/bin/newton/kk/device
+      stencil: half/bin/3d
+      bin: kk/device
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+Setting up Verlet run ...
+  Unit style    : lj
+  Current step  : 0
+  Time step     : 0.0001
+0  ekin = 149.85 | epot = 1172.2416240292 | etot = 1322.0916240292
+Per MPI rank memory allocation (min/avg/max) = 5.971 | 5.971 | 5.971 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0.1            1.1722416      0              1.3220916      17.886531    
+5000  ekin = 816.68787420473 | epot = 505.420367013683 | etot = 1322.10824121841
+10000  ekin = 837.502255868448 | epot = 484.554538412688 | etot = 1322.05679428114
+15000  ekin = 852.573102712991 | epot = 469.541500407759 | etot = 1322.11460312075
+20000  ekin = 859.744855659491 | epot = 462.331602412764 | etot = 1322.07645807225
+25000  ekin = 863.644391296011 | epot = 458.398585827048 | etot = 1322.04297712306
+30000  ekin = 888.52290827715 | epot = 433.543311608681 | etot = 1322.06621988583
+35000  ekin = 845.382710204339 | epot = 476.660849329143 | etot = 1322.04355953348
+40000  ekin = 881.90849256203 | epot = 440.190875381954 | etot = 1322.09936794398
+45000  ekin = 898.955113168541 | epot = 423.295525649713 | etot = 1322.25063881825
+50000  ekin = 884.694798849276 | epot = 437.601668669175 | etot = 1322.29646751845
+55000  ekin = 876.857653238478 | epot = 445.428298747213 | etot = 1322.28595198569
+60000  ekin = 872.585113035322 | epot = 449.67395231769 | etot = 1322.25906535301
+65000  ekin = 881.497906913242 | epot = 440.825984732841 | etot = 1322.32389164608
+70000  ekin = 867.505850025155 | epot = 454.797283089662 | etot = 1322.30313311482
+75000  ekin = 892.304759462386 | epot = 430.043437915538 | etot = 1322.34819737792
+80000  ekin = 853.169282391012 | epot = 469.268516891122 | etot = 1322.43779928213
+85000  ekin = 872.857365044707 | epot = 449.596989994947 | etot = 1322.45435503965
+90000  ekin = 869.548261135106 | epot = 452.910671952811 | etot = 1322.45893308792
+95000  ekin = 901.410351430681 | epot = 421.082303216997 | etot = 1322.49265464768
+100000  ekin = 846.636695089617 | epot = 475.85819329539 | etot = 1322.49488838501
+    100000   0.56498945     0.47585819     0              1.3224949      6.4546131    
+Loop time of 10.6512 on 4 procs for 100000 steps with 1000 atoms
+
+Performance: 81117.395 tau/day, 9388.587 timesteps/s, 9.389 Matom-step/s
+69.0% CPU use with 4 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.43607    | 0.44517    | 0.45691    |   1.1 |  4.18
+Neigh   | 0.023198   | 0.023367   | 0.023589   |   0.1 |  0.22
+Comm    | 8.9143     | 8.9394     | 8.9539     |   0.5 | 83.93
+Output  | 0.0084221  | 0.0087192  | 0.0089149  |   0.2 |  0.08
+Modify  | 0.43108    | 0.43507    | 0.43917    |   0.6 |  4.08
+Other   |            | 0.7995     |            |       |  7.51
+
+Nlocal:            250 ave         254 max         244 min
+Histogram: 1 0 0 0 0 0 1 0 1 1
+Nghost:         5025.5 ave        5050 max        5013 min
+Histogram: 2 0 1 0 0 0 0 0 0 1
+Neighs:        1278.75 ave        1317 max        1249 min
+Histogram: 2 0 0 0 0 0 0 1 0 1
+
+Total # of neighbors = 5115
+Ave neighs/atom = 5.115
+Neighbor list builds = 180
+Dangerous builds = 0
+System init for write_data ...
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+Total wall time: 0:00:10
+
+BEGIN KOKKOS PROFILING REPORT:
+TOTAL TIME: 10.659 seconds
+TOP-DOWN TIME TREE:
+<average time> <percent of total time> <percent time in Kokkos> <percent MPI imbalance> <remainder> <kernels per second> <number of calls> <name> [type]
+===================
+|-> 6.86e-01 sec 6.4% 100.0% 0.0% ------ 200002 Zero<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> > [for]
+|-> 2.41e-01 sec 2.3% 100.0% 0.0% ------ 99980 LAMMPS_NS::PairComputeFunctor<LAMMPS_NS::PairLJCutKokkos<Kokkos::Serial>, 4, true, 0, void> [for]
+|-> 8.48e-02 sec 0.8% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosInitialIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 3.49e-02 sec 0.3% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosFinalIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 1.17e-02 sec 0.1% 100.0% 0.0% ------ 181 LAMMPS_NS::NPairKokkosBuildFunctor<Kokkos::Serial, 1, 1, 0> [for]
+
+BOTTOM-UP TIME TREE:
+<average time> <percent of total time> <percent time in Kokkos> <percent MPI imbalance> <number of calls> <name> [type]
+===================
+|-> 6.86e-01 sec 6.4% 100.0% 0.0% ------ 200002 Zero<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> > [for]
+|-> 2.41e-01 sec 2.3% 100.0% 0.0% ------ 99980 LAMMPS_NS::PairComputeFunctor<LAMMPS_NS::PairLJCutKokkos<Kokkos::Serial>, 4, true, 0, void> [for]
+|-> 8.48e-02 sec 0.8% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosInitialIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 3.49e-02 sec 0.3% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosFinalIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 1.17e-02 sec 0.1% 100.0% 0.0% ------ 181 LAMMPS_NS::NPairKokkosBuildFunctor<Kokkos::Serial, 1, 1, 0> [for]
+
+KOKKOS HOST SPACE:
+===================
+
+BEGIN KOKKOS PROFILING REPORT:
+TOTAL TIME: 10.659 seconds
+TOP-DOWN TIME TREE:
+<average time> <percent of total time> <percent time in Kokkos> <percent MPI imbalance> <remainder> <kernels per second> <number of calls> <name> [type]
+===================
+|-> 6.84e-01 sec 6.4% 100.0% 0.0% ------ 200002 Zero<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> > [for]
+|-> 2.49e-01 sec 2.3% 100.0% 0.0% ------ 99980 LAMMPS_NS::PairComputeFunctor<LAMMPS_NS::PairLJCutKokkos<Kokkos::Serial>, 4, true, 0, void> [for]
+|-> 7.46e-02 sec 0.7% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosInitialIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 3.52e-02 sec 0.3% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosFinalIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 1.20e-02 sec 0.1% 100.0% 0.0% ------ 181 LAMMPS_NS::NPairKokkosBuildFunctor<Kokkos::Serial, 1, 1, 0> [for]
+
+BOTTOM-UP TIME TREE:
+<average time> <percent of total time> <percent time in Kokkos> <percent MPI imbalance> <number of calls> <name> [type]
+===================
+|-> 6.84e-01 sec 6.4% 100.0% 0.0% ------ 200002 Zero<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> > [for]
+|-> 2.49e-01 sec 2.3% 100.0% 0.0% ------ 99980 LAMMPS_NS::PairComputeFunctor<LAMMPS_NS::PairLJCutKokkos<Kokkos::Serial>, 4, true, 0, void> [for]
+|-> 7.46e-02 sec 0.7% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosInitialIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 3.52e-02 sec 0.3% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosFinalIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 1.20e-02 sec 0.1% 100.0% 0.0% ------ 181 LAMMPS_NS::NPairKokkosBuildFunctor<Kokkos::Serial, 1, 1, 0> [for]
+
+KOKKOS HOST SPACE:
+===================
+MAX MEMORY ALLOCATED: 7347.9 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+  21.7% Neighbor::d_bins
+  7.0% atom:bonus
+  6.3% comm:k_buf_recv
+  6.3% comm:k_buf_send
+  5.3% comm:sendlist
+  5.2% VerletKokkos::f_merge_copy
+  5.2% neigh:xhold
+  5.2% neigh:xhold
+  5.2% atom:torque
+  5.2% atom:angmom
+  5.2% atom:f
+  5.2% atom:v
+  5.2% atom:x
+  3.2% comm:sendlist_bonus
+  1.7% atom:rmass
+  1.4% Neighbor::d_bincount
+  0.9% atom:tag
+  0.9% atom:type
+  0.9% atom:mask
+  0.9% atom:image
+  0.9% atom:ellipsoid
+  0.3% Neighbor::d_atom2bin
+  0.2% neighlist:neighbors
+  0.1% CombinedFunctorReducer<LAMMPS_NS::ComputeTempKokkos<Kokkos::Serial>, FunctorAnalysis<FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagComputeTempScalar<1> >, LAMMPS_NS::ComputeTempKokkos<Kokkos::Serial>, LAMMPS_NS::ComputeTempKokkos<Kokkos::Serial>::s_CTEMP>::Reducer, void>/LAMMPS_NS::TagComputeTempScalar<1>/Kokkos::Serial::scratch_mem
+
+KOKKOS CUDA SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+KOKKOS HIP SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+KOKKOS SYCL SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+KOKKOS OpenMPTarget SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+Host process high water mark memory consumption: 38476 kB
+
+END KOKKOS PROFILING REPORT.
+
+BEGIN KOKKOS PROFILING REPORT:
+TOTAL TIME: 10.659 seconds
+TOP-DOWN TIME TREE:
+<average time> <percent of total time> <percent time in Kokkos> <percent MPI imbalance> <remainder> <kernels per second> <number of calls> <name> [type]
+===================
+|-> 6.96e-01 sec 6.5% 100.0% 0.0% ------ 200002 Zero<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> > [for]
+|-> 2.47e-01 sec 2.3% 100.0% 0.0% ------ 99980 LAMMPS_NS::PairComputeFunctor<LAMMPS_NS::PairLJCutKokkos<Kokkos::Serial>, 4, true, 0, void> [for]
+|-> 7.41e-02 sec 0.7% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosInitialIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 3.55e-02 sec 0.3% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosFinalIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 1.19e-02 sec 0.1% 100.0% 0.0% ------ 181 LAMMPS_NS::NPairKokkosBuildFunctor<Kokkos::Serial, 1, 1, 0> [for]
+
+BOTTOM-UP TIME TREE:
+<average time> <percent of total time> <percent time in Kokkos> <percent MPI imbalance> <number of calls> <name> [type]
+===================
+|-> 6.96e-01 sec 6.5% 100.0% 0.0% ------ 200002 Zero<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> > [for]
+|-> 2.47e-01 sec 2.3% 100.0% 0.0% ------ 99980 LAMMPS_NS::PairComputeFunctor<LAMMPS_NS::PairLJCutKokkos<Kokkos::Serial>, 4, true, 0, void> [for]
+|-> 7.41e-02 sec 0.7% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosInitialIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 3.55e-02 sec 0.3% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosFinalIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 1.19e-02 sec 0.1% 100.0% 0.0% ------ 181 LAMMPS_NS::NPairKokkosBuildFunctor<Kokkos::Serial, 1, 1, 0> [for]
+
+KOKKOS HOST SPACE:
+===================
+MAX MEMORY ALLOCATED: 7347.8 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+  21.7% Neighbor::d_bins
+  7.0% atom:bonus
+  6.3% comm:k_buf_recv
+  6.3% comm:k_buf_send
+  5.3% comm:sendlist
+  5.2% VerletKokkos::f_merge_copy
+  5.2% neigh:xhold
+  5.2% neigh:xhold
+  5.2% atom:torque
+  5.2% atom:angmom
+  5.2% atom:f
+  5.2% atom:v
+  5.2% atom:x
+  3.2% comm:sendlist_bonus
+  1.7% atom:rmass
+  1.4% Neighbor::d_bincount
+  0.9% atom:tag
+  0.9% atom:type
+  0.9% atom:mask
+  0.9% atom:image
+  0.9% atom:ellipsoid
+  0.3% Neighbor::d_atom2bin
+  0.2% neighlist:neighbors
+  0.1% CombinedFunctorReducer<LAMMPS_NS::ComputeTempKokkos<Kokkos::Serial>, FunctorAnalysis<FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagComputeTempScalar<1> >, LAMMPS_NS::ComputeTempKokkos<Kokkos::Serial>, LAMMPS_NS::ComputeTempKokkos<Kokkos::Serial>::s_CTEMP>::Reducer, void>/LAMMPS_NS::TagComputeTempScalar<1>/Kokkos::Serial::scratch_mem
+
+KOKKOS CUDA SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+KOKKOS HIP SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+KOKKOS SYCL SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+KOKKOS OpenMPTarget SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+Host process high water mark memory consumption: 38208 kB
+
+END KOKKOS PROFILING REPORT.
+
+BEGIN KOKKOS PROFILING REPORT:
+TOTAL TIME: 10.6584 seconds
+TOP-DOWN TIME TREE:
+<average time> <percent of total time> <percent time in Kokkos> <percent MPI imbalance> <remainder> <kernels per second> <number of calls> <name> [type]
+===================
+|-> 7.00e-01 sec 6.6% 100.0% 0.0% ------ 200002 Zero<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> > [for]
+|-> 2.55e-01 sec 2.4% 100.0% 0.0% ------ 99980 LAMMPS_NS::PairComputeFunctor<LAMMPS_NS::PairLJCutKokkos<Kokkos::Serial>, 4, true, 0, void> [for]
+|-> 7.34e-02 sec 0.7% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosInitialIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 3.65e-02 sec 0.3% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosFinalIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 1.19e-02 sec 0.1% 100.0% 0.0% ------ 181 LAMMPS_NS::NPairKokkosBuildFunctor<Kokkos::Serial, 1, 1, 0> [for]
+
+BOTTOM-UP TIME TREE:
+<average time> <percent of total time> <percent time in Kokkos> <percent MPI imbalance> <number of calls> <name> [type]
+===================
+|-> 7.00e-01 sec 6.6% 100.0% 0.0% ------ 200002 Zero<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Serial, void> > [for]
+|-> 2.55e-01 sec 2.4% 100.0% 0.0% ------ 99980 LAMMPS_NS::PairComputeFunctor<LAMMPS_NS::PairLJCutKokkos<Kokkos::Serial>, 4, true, 0, void> [for]
+|-> 7.34e-02 sec 0.7% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosInitialIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 3.65e-02 sec 0.3% 100.0% 0.0% ------ 100000 LAMMPS_NS::FixNVEKokkosFinalIntegrateFunctor<Kokkos::Serial, 1> [for]
+|-> 1.19e-02 sec 0.1% 100.0% 0.0% ------ 181 LAMMPS_NS::NPairKokkosBuildFunctor<Kokkos::Serial, 1, 1, 0> [for]
+
+KOKKOS HOST SPACE:
+===================
+MAX MEMORY ALLOCATED: 7347.5 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+  21.7% Neighbor::d_bins
+  7.0% atom:bonus
+  6.3% comm:k_buf_recv
+  6.3% comm:k_buf_send
+  5.3% comm:sendlist
+  5.2% VerletKokkos::f_merge_copy
+  5.2% neigh:xhold
+  5.2% neigh:xhold
+  5.2% atom:torque
+  5.2% atom:angmom
+  5.2% atom:f
+  5.2% atom:v
+  5.2% atom:x
+  3.2% comm:sendlist_bonus
+  1.7% atom:rmass
+  1.4% Neighbor::d_bincount
+  0.9% atom:tag
+  0.9% atom:type
+  0.9% atom:mask
+  0.9% atom:image
+  0.9% atom:ellipsoid
+  0.3% Neighbor::d_atom2bin
+  0.2% neighlist:neighbors
+  0.1% CombinedFunctorReducer<LAMMPS_NS::ComputeTempKokkos<Kokkos::Serial>, FunctorAnalysis<FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagComputeTempScalar<1> >, LAMMPS_NS::ComputeTempKokkos<Kokkos::Serial>, LAMMPS_NS::ComputeTempKokkos<Kokkos::Serial>::s_CTEMP>::Reducer, void>/LAMMPS_NS::TagComputeTempScalar<1>/Kokkos::Serial::scratch_mem
+
+KOKKOS CUDA SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+KOKKOS HIP SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+KOKKOS SYCL SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+KOKKOS OpenMPTarget SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+Host process high water mark memory consumption: 38212 kB
+
+END KOKKOS PROFILING REPORT.
+MAX MEMORY ALLOCATED: 7347.7 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+  21.7% Neighbor::d_bins
+  7.0% atom:bonus
+  6.3% comm:k_buf_recv
+  6.3% comm:k_buf_send
+  5.3% comm:sendlist
+  5.2% VerletKokkos::f_merge_copy
+  5.2% neigh:xhold
+  5.2% neigh:xhold
+  5.2% atom:torque
+  5.2% atom:angmom
+  5.2% atom:f
+  5.2% atom:v
+  5.2% atom:x
+  3.2% comm:sendlist_bonus
+  1.7% atom:rmass
+  1.4% Neighbor::d_bincount
+  0.9% atom:tag
+  0.9% atom:type
+  0.9% atom:mask
+  0.9% atom:image
+  0.9% atom:ellipsoid
+  0.3% Neighbor::d_atom2bin
+  0.2% neighlist:neighbors
+  0.1% CombinedFunctorReducer<LAMMPS_NS::ComputeTempKokkos<Kokkos::Serial>, FunctorAnalysis<FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Serial, LAMMPS_NS::TagComputeTempScalar<1> >, LAMMPS_NS::ComputeTempKokkos<Kokkos::Serial>, LAMMPS_NS::ComputeTempKokkos<Kokkos::Serial>::s_CTEMP>::Reducer, void>/LAMMPS_NS::TagComputeTempScalar<1>/Kokkos::Serial::scratch_mem
+
+KOKKOS CUDA SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+KOKKOS HIP SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+KOKKOS SYCL SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+KOKKOS OpenMPTarget SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+Host process high water mark memory consumption: 38584 kB
+
+END KOKKOS PROFILING REPORT.

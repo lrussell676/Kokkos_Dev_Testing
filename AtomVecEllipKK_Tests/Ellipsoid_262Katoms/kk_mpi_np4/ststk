@@ -1,0 +1,35 @@
+LAMMPS (19 Nov 2024 - Development - patch_19Nov2024-564-gf96768effb-modified)
+KOKKOS mode with Kokkos version 4.5.1 is enabled (src/KOKKOS/kokkos.cpp:72)
+  using 1 OpenMP thread(s) per MPI task
+Lattice spacing in x,y,z = 1.1006424 1.1006424 1.1006424
+Created orthogonal box = (0 0 0) to (70.441115 70.441115 70.441115)
+  2 by 1 by 2 MPI processor grid
+Created 262144 atoms
+  using lattice units in orthogonal box = (0 0 0) to (70.441115 70.441115 70.441115)
+  create_atoms CPU = 0.006 seconds
+262144 atoms in group all
+Setting atom values ...
+  262144 settings made for mass
+Setting atom values ...
+  262144 settings made for shape
+Setting atom values ...
+  262144 settings made for quat/random
+Resetting atom IDs ...
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 100 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 1.4224615
+  ghost atom cutoff = 1.4224615
+  binsize = 0.71123076, bins = 100 100 100
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/kk, perpetual
+      attributes: half, newton on, kokkos_device
+      pair build: half/bin/newton/kk/device
+      stencil: half/bin/3d
+      bin: kk/device
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+Setting up Verlet run ...
+  Unit style    : lj
+  Current step  : 0
+  Time step     : 0.0001

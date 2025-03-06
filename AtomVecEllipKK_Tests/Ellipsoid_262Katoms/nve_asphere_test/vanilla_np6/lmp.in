@@ -14,10 +14,17 @@ create_atoms	1 box
 
 group           all type 1
 set             type 1 mass 1.0
-set             type 1 shape 0.4 0.4 0.8
+set             type 1 shape 0.6 0.6 0.6
 set             type 1 quat/random 29898
+group		subA id 1:10000
+group		subB id 10001:100000
+group           subC id 100001:200000
 
-velocity 	all create 0.1 87287 loop geom
+#velocity 	all create 0.1 87287 loop geom rot yes # 'rot yes' zeros angmom
+set group	subA vx 0.01 vy 0.0 vz 0.0
+set group	subB vx -0.03 vy 0.02 vz 0.0
+set group	subC vx 0.01 vy 0.01 vz 0.1
+set group 	all angmom 0.0 0.0 0.0
 
 neighbor        0.3 bin
 neigh_modify    delay 0 every 100 check yes
@@ -40,7 +47,7 @@ pair_style      lj/cut 1.12246152962189
 #    * sigma (distance units)
 #
 
-pair_coeff      1 1 1.0 1.0
+pair_coeff      1 1 1.0 1.12246152962189
 
 #
 #  pair_modify shift yes adds a constant to the potential such
@@ -78,8 +85,8 @@ dump_modify 1 colname c_q[1] quatw colname c_q[2] quati colname c_q[3] quatj col
 
 ###################################################
 
-timestep 0.0001 #0.012
+timestep 0.00001 #0.012
 
-run 20000
+run 100000
 
 write_data data_out.* nocoeff

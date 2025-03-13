@@ -17,8 +17,8 @@ kokkos-tools-plots-and-checks/*.memspace_usage
 kokkos-tools-plots-and-checks/*.mem_events
 kokkos-tools-plots-and-checks/memcheck
 kokkos-tools-plots-and-checks/__pycache__/*
-AtomVecHybrid/bond_test/data_out.*
-AtomVecHybrid/bond_test/dump.polymer
-AtomVecHybrid/bond_test/log.lammps
+AtomVecHybrid/*_test/data_out.*
+AtomVecHybrid/*_test/dump.polymer
+AtomVecHybrid/*_test/log.lammps
 Full_oxDNAs_Tests/full_oxdna2/duplex2/log.lammps
 Full_oxDNAs_Tests/full_oxdna2/duplex2/out.2.lammpstrj

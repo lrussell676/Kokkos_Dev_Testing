@@ -17,3 +17,6 @@ kokkos-tools-plots-and-checks/*.memspace_usage
 kokkos-tools-plots-and-checks/*.mem_events
 kokkos-tools-plots-and-checks/memcheck
 kokkos-tools-plots-and-checks/__pycache__/*
+AtomVecHybrid/bond_test/data_out.*
+AtomVecHybrid/bond_test/dump.polymer
+AtomVecHybrid/bond_test/log.lammps

@@ -20,3 +20,5 @@ kokkos-tools-plots-and-checks/__pycache__/*
 AtomVecHybrid/bond_test/data_out.*
 AtomVecHybrid/bond_test/dump.polymer
 AtomVecHybrid/bond_test/log.lammps
+Full_oxDNAs_Tests/full_oxdna2/duplex2/log.lammps
+Full_oxDNAs_Tests/full_oxdna2/duplex2/out.2.lammpstrj

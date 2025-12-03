@@ -1,0 +1,193 @@
+Breakpoint 1 at 0xb9f40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6dff640 (LWP 13780)]
+Breakpoint 1 at 0xb9f40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6dff640 (LWP 13784)]
+
+Thread 1 "lmp" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737351524032) at ./nptl/pthread_kill.c:44
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737351524032) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737351524032) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737351524032, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff7242476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff72287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00005555563ed4fd in Kokkos::Impl::host_abort (message=message@entry=0x7fffffffc840 "Kokkos::subview bounds error ( 1356 <= 2490 - 0 )")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Abort.cpp:40
+#6  0x000055555590bb38 in Kokkos::abort (message=0x7fffffffc840 "Kokkos::subview bounds error ( 1356 <= 2490 - 0 )")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Kokkos_Abort.hpp:97
+#7  Kokkos::Impl::SubviewExtents<1u, 1u>::error<0ul, std::pair<int, int> > (dim=..., this=<synthetic pointer>)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/View/Kokkos_ViewMapping.hpp:369
+#8  Kokkos::Impl::SubviewExtents<1u, 1u>::SubviewExtents<0ul, std::pair<int, int> > (dim=..., this=<synthetic pointer>)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/View/Kokkos_ViewMapping.hpp:414
+#9  Kokkos::Impl::ViewMapping<void, Kokkos::ViewTraits<int*, Kokkos::LayoutRight, Kokkos::Serial, void>, std::pair<int, int> >::assign<Kokkos::ViewTraits<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<0u> > > (args#0=..., src=..., dst=...)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/View/Kokkos_ViewMapping.hpp:3327
+#10 Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<0u> >::View<int*, Kokkos::LayoutRight, Kokkos::Serial, void, std::pair<int, int>>(Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Serial, void> const&, std::pair<int, int>) (arg0=..., 
+    src_view=..., this=0x7fffffffc690) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/View/Kokkos_ViewLegacy.hpp:955
+#11 Kokkos::subview<int*, Kokkos::LayoutRight, Kokkos::Serial, void, std::pair<int, int> > (src=...)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/View/Kokkos_ViewLegacy.hpp:1421
+#12 LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x5555568593a0) at /media/lewis/PhD/GH_lammps/src/KOKKOS/comm_kokkos.cpp:968
+#13 0x0000555555ac3fe3 in LAMMPS_NS::VerletKokkos::run (this=0x5555568170f0, n=100000) at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:341
+#14 0x000055555579ef05 in LAMMPS_NS::Run::command (this=0x5555568777c0, narg=1, arg=0x55555697f710) at /media/lewis/PhD/GH_lammps/src/run.cpp:175
+#15 0x000055555567bd1f in LAMMPS_NS::Input::execute_command (this=0x5555567adf50) at /media/lewis/PhD/GH_lammps/src/input.cpp:868
+#16 0x000055555567c076 in LAMMPS_NS::Input::file (this=0x5555567adf50) at /media/lewis/PhD/GH_lammps/src/input.cpp:314
+#17 0x0000555555667bf1 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66
+Breakpoint 1 at 0xb9f40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6dff640 (LWP 15094)]
+Breakpoint 1 at 0xb9f40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6dff640 (LWP 15098)]
+
+Thread 1 "lmp" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737351524032) at ./nptl/pthread_kill.c:44
+
+Thread 1 "lmp" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737351524032) at ./nptl/pthread_kill.c:44
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737351524032) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737351524032) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737351524032, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff7242476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff72287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00005555563ed4dd in Kokkos::Impl::host_abort (
+    message=message@entry=0x7ffffffface0 "Kokkos::View ERROR: out of bounds access label=(\"neigh:cutneighsq\") with indices [1,193177656] but extents [2,2]") at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Abort.cpp:40
+#6  0x0000555555964ceb in Kokkos::abort (
+    message=0x7ffffffface0 "Kokkos::View ERROR: out of bounds access label=(\"neigh:cutneighsq\") with indices [1,193177656] but extents [2,2]") at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Kokkos_Abort.hpp:97
+#7  Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<double const**, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<double const**, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, void>, int, int> (map=..., 
+    tracker=...) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/View/Kokkos_ViewMapping.hpp:3439
+#8  Kokkos::View<double const**, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >::operator()<int, int> (i1=193177656, i0=1, this=0x7fffffffb140)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/View/Kokkos_ViewLegacy.hpp:561
+#9  LAMMPS_NS::NeighborKokkosExecute<Kokkos::Serial>::build_Item<0, 0, 0> (this=this@entry=0x7fffffffae90, i=@0x7fffffffae54: 5)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/npair_kokkos.cpp:537
+#10 0x0000555555964fa7 in LAMMPS_NS::NPairKokkosBuildFunctor<Kokkos::Serial, 0, 0, 0>::operator() (i=@0x7fffffffae54: 5, 
+    this=0x7fffffffae90) at /media/lewis/PhD/GH_lammps/src/KOKKOS/npair_kokkos.h:457
+#11 Kokkos::Impl::ParallelFor<LAMMPS_NS::NPairKokkosBuildFunctor<Kokkos::Serial, 0, 0, 0>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::exec<void> (this=0x7fffffffae90)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:37
+#12 Kokkos::Impl::ParallelFor<LAMMPS_NS::NPairKokkosBuildFunctor<Kokkos::Serial, 0, 0, 0>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::execute (this=0x7fffffffae90)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:61
+#13 Kokkos::parallel_for<Kokkos::RangePolicy<Kokkos::Serial>, LAMMPS_NS::NPairKokkosBuildFunctor<Kokkos::Serial, 0, 0, 0>, void> (
+    str="", policy=..., functor=...) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Kokkos_Parallel.hpp:146
+#14 0x00005555559725ab in Kokkos::parallel_for<LAMMPS_NS::NPairKokkosBuildFunctor<Kokkos::Serial, 0, 0, 0> > (functor=..., 
+    work_count=129815, str="") at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Kokkos_Parallel.hpp:167
+#15 Kokkos::parallel_for<LAMMPS_NS::NPairKokkosBuildFunctor<Kokkos::Serial, 0, 0, 0> > (functor=..., work_count=129815)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Kokkos_Parallel.hpp:172
+#16 LAMMPS_NS::NPairKokkos<Kokkos::Serial, 0, 0, 0, 0, 0>::build (this=0x555556918390, list_=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/npair_kokkos.cpp:310
+#17 0x000055555592f6e9 in LAMMPS_NS::NeighborKokkos::build_kokkos<Kokkos::Serial> (this=0x555556862980, topoflag=1)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/neighbor_kokkos.cpp:307
+#18 0x0000555555ac4073 in LAMMPS_NS::VerletKokkos::run (this=0x5555568170f0, n=100000)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:356
+#19 0x000055555579eef5 in LAMMPS_NS::Run::command (this=0x5555568777c0, narg=1, arg=0x55555697f710)
+    at /media/lewis/PhD/GH_lammps/src/run.cpp:175
+#20 0x000055555567bd0f in LAMMPS_NS::Input::execute_command (this=0x5555567adf50) at /media/lewis/PhD/GH_lammps/src/input.cpp:868
+#21 0x000055555567c066 in LAMMPS_NS::Input::file (this=0x5555567adf50) at /media/lewis/PhD/GH_lammps/src/input.cpp:314
+#22 0x0000555555667be1 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66
+----- Backtrace -----
+Backtrace unavailable
+---------------------
+Quit
+/build/gdb-Dh0pdX/gdb-12.1/gdb/event-top.c:385: internal-error: double prompt
+A problem internal to GDB has been detected,
+further debugging may prove unreliable.
+
+
+Fatal signal: Aborted
+----- Backtrace -----
+Backtrace unavailable
+---------------------
+A fatal error internal to GDB has been detected, further
+debugging is not possible.  GDB will now terminate.
+
+This is a bug, please report it.  For instructions, see:
+<https://www.gnu.org/software/gdb/bugs/>.
+
+Quit
+Recursive internal problem.
+Breakpoint 1 at 0xb9f40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6dff640 (LWP 15752)]
+Breakpoint 1 at 0xb9f40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6dff640 (LWP 15756)]
+Breakpoint 1 at 0xb9f40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6dff640 (LWP 15760)]
+Breakpoint 1 at 0xb9f40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6dff640 (LWP 15764)]
+
+Thread 1 "lmp" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737351524032) at ./nptl/pthread_kill.c:44
+
+Thread 1 "lmp" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737351524032) at ./nptl/pthread_kill.c:44
+
+Thread 1 "lmp" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737351524032) at ./nptl/pthread_kill.c:44
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737351524032) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737351524032) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737351524032, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff7242476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff72287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00005555563ed4dd in Kokkos::Impl::host_abort (
+    message=message@entry=0x7fffffffb510 "Kokkos::View ERROR: out of bounds access label=(\"atom:bonus\") with indices [1489611135] but extents [90112]") at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Abort.cpp:40
+#6  0x0000555555f586dc in Kokkos::abort (
+    message=0x7fffffffb510 "Kokkos::View ERROR: out of bounds access label=(\"atom:bonus\") with indices [1489611135] but extents [90112]") at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Kokkos_Abort.hpp:97
+#7  Kokkos::Impl::view_verify_operator_bounds<Kokkos::HostSpace, Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >, void>, int> (tracker=..., map=...)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/View/Kokkos_ViewMapping.hpp:3439
+#8  0x0000555555f58b29 in Kokkos::View<LAMMPS_NS::AtomVecEllipsoid::Bonus const*, Kokkos::LayoutRight, Kokkos::Device<Kokkos::Serial, Kokkos::HostSpace>, Kokkos::MemoryTraits<2u> >::operator[]<int> (i0=1489611135, 
+    this=0x7fffffffb7a0) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/View/Kokkos_ViewMapping.hpp:3448
+#9  AtomVecEllipsoidKokkos_PackExchangeBonus<Kokkos::Serial>::operator() (this=this@entry=0x7fffffffb730, 
+    fffffffb6f4: 0) at /media/lewis/PhD/GH_lammps/src/KOKKOS/atom_vec_ellipsoid_kokkos.cpp:656
+#10 0x0000555555f58f27 in Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackExchangeBonus<Kokkos::Serial>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::exec<void> (this=0x7fffffffb730)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:37
+#11 Kokkos::Impl::ParallelFor<AtomVecEllipsoidKokkos_PackExchangeBonus<Kokkos::Serial>, Kokkos::RangePolicy<Kokkos::Serial>, Kokkos::Serial>::execute (this=0x7fffffffb730) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Serial/Kokkos_Serial_Parallel_Range.hpp:61
+#12 Kokkos::parallel_for<Kokkos::RangePolicy<Kokkos::Serial>, AtomVecEllipsoidKokkos_PackExchangeBonus<Kokkos::Serial>, void> (str="", 
+    policy=..., functor=...) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Kokkos_Parallel.hpp:146
+#13 0x0000555555f4f133 in Kokkos::parallel_for<AtomVecEllipsoidKokkos_PackExchangeBonus<Kokkos::Serial> > (functor=..., work_count=661, 
+    str="") at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Kokkos_Parallel.hpp:167
+#14 Kokkos::parallel_for<AtomVecEllipsoidKokkos_PackExchangeBonus<Kokkos::Serial> > (functor=..., work_count=661)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Kokkos_Parallel.hpp:172
+#15 LAMMPS_NS::AtomVecEllipsoidKokkos::pack_exchange_bonus_kokkos (this=0x55555688ad50, nsend=@0x7fffffffc4f0: 661, k_buf=..., 
+    k_sendlist=..., k_copylist=..., k_copylist_bonus=..., space=LAMMPS_NS::HostKK)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/atom_vec_ellipsoid_kokkos.cpp:685
+#16 0x000055555589cc5d in LAMMPS_NS::AtomVecKokkos::pack_exchange_kokkos (this=this@entry=0x55555688ad50, nsend=@0x7fffffffc4f0: 661, 
+    k_buf=..., k_sendlist=..., k_copylist=..., k_copylist_bonus=..., space=LAMMPS_NS::HostKK)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/atom_vec_kokkos.cpp:2510
+#17 0x000055555590ae1b in LAMMPS_NS::CommKokkos::exchange_device<Kokkos::Serial> (this=0x55555685b000)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/comm_kokkos.cpp:1004
+#18 0x0000555555ac3fc3 in LAMMPS_NS::VerletKokkos::run (this=0x555556817170, n=100000)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:341
+#19 0x000055555579eef5 in LAMMPS_NS::Run::command (this=0x555556874880, narg=1, arg=0x5555568bf410)
+    at /media/lewis/PhD/GH_lammps/src/run.cpp:175
+#20 0x000055555567bd0f in LAMMPS_NS::Input::execute_command (this=0x5555567adf50) at /media/lewis/PhD/GH_lammps/src/input.cpp:868
+#21 0x000055555567c066 in LAMMPS_NS::Input::file (this=0x5555567adf50) at /media/lewis/PhD/GH_lammps/src/input.cpp:314
+#22 0x0000555555667be1 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66
+warning: Error detected on fd 0
+error detected on stdin
+warning: Error detected on fd 0
+error detected on stdin

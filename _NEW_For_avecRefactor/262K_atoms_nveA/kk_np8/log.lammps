@@ -1,7 +1,7 @@
-LAMMPS (10 Sep 2025 - Development - patch_10Sep2025-448-g5623082763)
+LAMMPS (10 Sep 2025 - Development - patch_10Sep2025-639-g7a837a83c1-modified)
 KOKKOS mode with Kokkos version 4.7.1 is enabled
   using double precision
-  using view layout = legacy
+  using view layout = default
   using 1 OpenMP thread(s) per MPI task
 package kokkos
 ###
@@ -18,11 +18,11 @@ Lattice spacing in x,y,z = 1.1006424 1.1006424 1.1006424
 region		box block 0 64 0 64 0 64
 create_box	1 box
 Created orthogonal box = (0 0 0) to (70.441115 70.441115 70.441115)
-  2 by 2 by 2 MPI processor grid
+  1 by 1 by 2 MPI processor grid
 create_atoms	1 box
 Created 262144 atoms
   using lattice units in orthogonal box = (0 0 0) to (70.441115 70.441115 70.441115)
-  create_atoms CPU = 0.008 seconds
+  create_atoms CPU = 0.021 seconds
 
 group           all type 1
 262144 atoms in group all
@@ -32,9 +32,7 @@ Setting atom values ...
 set             type 1 shape 0.6 0.4 0.6
 Setting atom values ...
   262144 settings made for shape
-set             type 1 quat/random 29898
-Setting atom values ...
-  262144 settings made for quat/random
+#set             type 1 quat/random 29898
 group		subA id 1:10000
 10000 atoms in group subA
 group		subB id 10001:100000
@@ -67,6 +65,15 @@ Setting atom values ...
 set group 	subC angmom 0.00 0.0 0.3
 Setting atom values ...
   100000 settings made for angmom
+set group 	subA quat 0.9237853184 0.382910976 0.0 0.0
+Setting atom values ...
+  10000 settings made for quat
+set group 	subB quat 0.5774 0.0 0.5774 0.5774
+Setting atom values ...
+  90000 settings made for quat
+set group 	subC quat 0.707106816 0.0 0.0 0.707106816
+Setting atom values ...
+  100000 settings made for quat
 
 neighbor        0.3 bin
 neigh_modify    delay 0 every 100 check yes
@@ -116,8 +123,10 @@ Neighbor list info ...
       bin: kk/device
 
 comm_modify cutoff 6
-#comm_style tiled
-#balance 1.2 rcb
+comm_style tiled
+balance 1.2 rcb
+Balancing ...
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
 
 ###
 # Set up fixes
@@ -134,72 +143,120 @@ variable epot equal c_epot
 variable erot equal c_erot
 variable etot equal c_ekin+c_epot+c_erot
 
-fix 3 all print 5000 "$(step)  ekin = ${ekin} | epot = ${epot} | erot = ${erot} | etot = ${etot}" screen yes
+fix 3 all print 1 "$(step)  ekin = ${ekin} | epot = ${epot} | erot = ${erot} | etot = ${etot}" screen yes
 
 compute q all property/atom quatw quati quatj quatk
 compute diameter all property/atom shapex shapey shapez
-dump 1 all custom 5000 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
+dump 1 all custom 50 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
 dump_modify 1 colname c_q[1] quatw colname c_q[2] quati colname c_q[3] quatj colname c_q[4] quatk
 
 ###################################################
 
 timestep 0.00001 #0.012
 
-run 100000
+run 50
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Your simulation uses code contributions which should be cited:
+
+- KOKKOS package: https://doi.org/10.1145/3731599.3767498
+
+@inproceedings{Johansson25,
+ author = {A. Johansson and E. Weinberg and C. Trott and M. McCarthy and S. Moore},
+ title = {{LAMMPS-KOKKOS}: {P}erformance Portable Molecular Dynamics Across Exascale Architectures},
+ year = 2025,
+ booktitle = {Proceedings of the SC '25 Workshops of the International Conference for High Performance Computing,
+  Networking, Storage and Analysis},
+ pages = {1217–1232},
+}
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
 Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
-0  ekin = 568.999999999912 | epot = 442355.735002481 | erot = 412641.739318061 | etot = 855566.474320543
-Per MPI rank memory allocation (min/avg/max) = 29.49 | 29.49 | 29.49 Mbytes
+0  ekin = 569.000000000436 | epot = 442355.735001166 | erot = 377998.01692984 | etot = 820922.751931007
+Per MPI rank memory allocation (min/avg/max) = 69.71 | 69.71 | 69.71 Mbytes
    Step          Temp          E_pair         E_mol          TotEng         Press     
          0   0.0014470473   1.6874532      0              1.6896238      25.313389    
-5000  ekin = 558.968096619368 | epot = 442365.766905952 | erot = 412641.739318063 | etot = 855566.474320635
-10000  ekin = 565.369950487243 | epot = 442359.365052076 | erot = 412641.739318065 | etot = 855566.474320628
-15000  ekin = 598.708082140121 | epot = 442326.02692042 | erot = 412641.739318066 | etot = 855566.474320626
-20000  ekin = 684.254695621187 | epot = 442240.48030717 | erot = 412641.739318068 | etot = 855566.474320859
-25000  ekin = 909.129445537984 | epot = 442015.605557795 | erot = 412641.73931807 | etot = 855566.474321403
-30000  ekin = 1502.71732777217 | epot = 441422.017676939 | erot = 412641.739318071 | etot = 855566.474322783
-35000  ekin = 3082.92442799436 | epot = 439841.810580405 | erot = 412641.739318073 | etot = 855566.474326472
-40000  ekin = 7193.47421337503 | epot = 435731.260806351 | erot = 412641.739318075 | etot = 855566.4743378
-45000  ekin = 16581.8742019767 | epot = 426342.86154745 | erot = 412641.739318077 | etot = 855566.475067503
-50000  ekin = 33945.8244052448 | epot = 408978.861444154 | erot = 412641.739318078 | etot = 855566.425167477
-55000  ekin = 55896.8437162163 | epot = 387027.881665382 | erot = 412641.73931808 | etot = 855566.464699678
-60000  ekin = 73268.4213402561 | epot = 369656.244219672 | erot = 412641.739318082 | etot = 855566.40487801
-65000  ekin = 100420.195209185 | epot = 342504.301103682 | erot = 412641.739318083 | etot = 855566.23563095
-70000  ekin = 132036.782831403 | epot = 310887.895349859 | erot = 412641.739318085 | etot = 855566.417499347
-75000  ekin = 143255.7821913 | epot = 299668.877549812 | erot = 412641.739318086 | etot = 855566.399059198
-80000  ekin = 178387.542694243 | epot = 264537.090558525 | erot = 412641.739318089 | etot = 855566.372570856
-85000  ekin = 208374.22572222 | epot = 234550.649697569 | erot = 412641.73931809 | etot = 855566.614737879
-90000  ekin = 229660.514451129 | epot = 213264.298710342 | erot = 412641.739318091 | etot = 855566.552479562
-95000  ekin = 257557.199605555 | epot = 185367.452066296 | erot = 412641.739318093 | etot = 855566.390989944
-100000  ekin = 273313.792272445 | epot = 169610.492568129 | erot = 412641.739318094 | etot = 855566.024158669
-    100000   0.69507557     0.64701268     0              1.6896221      11.737766    
-Loop time of 638.071 on 8 procs for 100000 steps with 262144 atoms
+1  ekin = 568.99999799397 | epot = 442355.735003236 | erot = 377998.01692984 | etot = 820922.75193107
+2  ekin = 568.999991975233 | epot = 442355.735009394 | erot = 377998.01692984 | etot = 820922.751931209
+3  ekin = 568.999981943811 | epot = 442355.735019343 | erot = 377998.01692984 | etot = 820922.751931126
+4  ekin = 568.999967899733 | epot = 442355.735033509 | erot = 377998.01692984 | etot = 820922.751931249
+5  ekin = 568.999949843282 | epot = 442355.735051543 | erot = 377998.01692984 | etot = 820922.751931226
+6  ekin = 568.999927774076 | epot = 442355.735073468 | erot = 377998.01692984 | etot = 820922.751931082
+7  ekin = 568.999901692208 | epot = 442355.735099526 | erot = 377998.01692984 | etot = 820922.751931058
+8  ekin = 568.999871598117 | epot = 442355.735129779 | erot = 377998.01692984 | etot = 820922.751931216
+9  ekin = 568.999837491504 | epot = 442355.735163935 | erot = 377998.01692984 | etot = 820922.751931266
+10  ekin = 568.999799372414 | epot = 442355.735202186 | erot = 377998.01692984 | etot = 820922.751931398
+11  ekin = 568.99975724068 | epot = 442355.735244172 | erot = 377998.01692984 | etot = 820922.751931253
+12  ekin = 568.999711096403 | epot = 442355.735290238 | erot = 377998.01692984 | etot = 820922.751931174
+13  ekin = 568.999660939919 | epot = 442355.735340349 | erot = 377998.01692984 | etot = 820922.751931129
+14  ekin = 568.999606770933 | epot = 442355.735394441 | erot = 377998.01692984 | etot = 820922.751931051
+15  ekin = 568.999548589452 | epot = 442355.735452798 | erot = 377998.01692984 | etot = 820922.751931228
+16  ekin = 568.999486395528 | epot = 442355.735515043 | erot = 377998.01692984 | etot = 820922.751931278
+17  ekin = 568.999420189199 | epot = 442355.735581287 | erot = 377998.01692984 | etot = 820922.751931316
+18  ekin = 568.999349970744 | epot = 442355.735651613 | erot = 377998.01692984 | etot = 820922.751931423
+19  ekin = 568.999275739664 | epot = 442355.735725696 | erot = 377998.01692984 | etot = 820922.751931275
+20  ekin = 568.999197496517 | epot = 442355.73580385 | erot = 377998.01692984 | etot = 820922.751931186
+21  ekin = 568.999115240897 | epot = 442355.735886086 | erot = 377998.01692984 | etot = 820922.751931167
+22  ekin = 568.999028973111 | epot = 442355.735972446 | erot = 377998.01692984 | etot = 820922.751931258
+23  ekin = 568.998938693169 | epot = 442355.736062649 | erot = 377998.01692984 | etot = 820922.751931182
+24  ekin = 568.998844401278 | epot = 442355.736156892 | erot = 377998.01692984 | etot = 820922.751931133
+25  ekin = 568.998746096691 | epot = 442355.736255127 | erot = 377998.01692984 | etot = 820922.751931063
+26  ekin = 568.998643780558 | epot = 442355.736357545 | erot = 377998.01692984 | etot = 820922.751931165
+27  ekin = 568.998537452443 | epot = 442355.736463993 | erot = 377998.01692984 | etot = 820922.751931285
+28  ekin = 568.998427111711 | epot = 442355.736574177 | erot = 377998.01692984 | etot = 820922.751931128
+29  ekin = 568.998312759559 | epot = 442355.736688566 | erot = 377998.01692984 | etot = 820922.751931165
+30  ekin = 568.998194395413 | epot = 442355.736806918 | erot = 377998.01692984 | etot = 820922.751931153
+31  ekin = 568.998072019468 | epot = 442355.736929413 | erot = 377998.01692984 | etot = 820922.751931272
+32  ekin = 568.997945631583 | epot = 442355.737055748 | erot = 377998.01692984 | etot = 820922.751931219
+33  ekin = 568.99781523159 | epot = 442355.737186238 | erot = 377998.01692984 | etot = 820922.751931309
+34  ekin = 568.997680820148 | epot = 442355.737320474 | erot = 377998.01692984 | etot = 820922.751931134
+35  ekin = 568.997542397004 | epot = 442355.737458922 | erot = 377998.01692984 | etot = 820922.751931158
+36  ekin = 568.997399962581 | epot = 442355.737601375 | erot = 377998.01692984 | etot = 820922.751931177
+37  ekin = 568.997253516235 | epot = 442355.737747878 | erot = 377998.01692984 | etot = 820922.751931234
+38  ekin = 568.997103058577 | epot = 442355.737898384 | erot = 377998.01692984 | etot = 820922.751931282
+39  ekin = 568.996948589294 | epot = 442355.738052794 | erot = 377998.01692984 | etot = 820922.751931223
+40  ekin = 568.996790108594 | epot = 442355.738211292 | erot = 377998.01692984 | etot = 820922.75193124
+41  ekin = 568.996627617033 | epot = 442355.738373726 | erot = 377998.01692984 | etot = 820922.751931183
+42  ekin = 568.99646111355 | epot = 442355.738540291 | erot = 377998.01692984 | etot = 820922.751931244
+43  ekin = 568.996290599621 | epot = 442355.738710692 | erot = 377998.01692984 | etot = 820922.751931131
+44  ekin = 568.996116074198 | epot = 442355.738885342 | erot = 377998.01692984 | etot = 820922.751931256
+45  ekin = 568.995937537625 | epot = 442355.739063848 | erot = 377998.01692984 | etot = 820922.751931225
+46  ekin = 568.995754990111 | epot = 442355.739246327 | erot = 377998.01692984 | etot = 820922.751931157
+47  ekin = 568.995568431814 | epot = 442355.7394331 | erot = 377998.01692984 | etot = 820922.751931371
+48  ekin = 568.995377862552 | epot = 442355.739623565 | erot = 377998.01692984 | etot = 820922.751931267
+49  ekin = 568.995183282793 | epot = 442355.739818069 | erot = 377998.01692984 | etot = 820922.751931191
+50  ekin = 568.994984691998 | epot = 442355.740016586 | erot = 377998.01692984 | etot = 820922.751931118
+        50   0.0014470346   1.6874532      0              1.6896238      25.313389    
+Loop time of 2.80045 on 2 procs for 50 steps with 262144 atoms
 
-Performance: 135.408 tau/day, 156.722 timesteps/s, 41.084 Matom-step/s
-92.4% CPU use with 8 MPI tasks x 1 OpenMP threads
+Performance: 15.426 tau/day, 17.854 timesteps/s, 4.680 Matom-step/s
+98.7% CPU use with 2 MPI tasks x 1 OpenMP threads
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 74.742     | 76.249     | 78.762     |  15.2 | 11.95
-Neigh   | 0.16953    | 0.17964    | 0.19029    |   1.4 |  0.03
-Comm    | 236.68     | 240.28     | 243.87     |  15.5 | 37.66
-Output  | 1.19       | 1.3105     | 1.4277     |   6.9 |  0.21
-Modify  | 275.4      | 277.48     | 280.31     |   9.4 | 43.49
-Other   |            | 42.57      |            |       |  6.67
+Pair    | 1.0718     | 1.0727     | 1.0736     |   0.1 | 38.30
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.13142    | 0.13412    | 0.13683    |   0.7 |  4.79
+Output  | 0.22387    | 0.22643    | 0.229      |   0.5 |  8.09
+Modify  | 1.289      | 1.2907     | 1.2925     |   0.2 | 46.09
+Other   |            | 0.07647    |            |       |  2.73
 
-Nlocal:          32768 ave       33361 max       32299 min
-Histogram: 2 0 1 2 0 0 1 1 0 1
-Nghost:        46890.9 ave       47429 max       46239 min
-Histogram: 1 0 1 1 0 1 2 0 1 1
-Neighs:         129862 ave      140061 max      122267 min
-Histogram: 2 0 0 1 3 0 0 1 0 1
+Nlocal:         131072 ave      131072 max      131072 min
+Histogram: 2 0 0 0 0 0 0 0 0 0
+Nghost:         110803 ave      110803 max      110803 min
+Histogram: 2 0 0 0 0 0 0 0 0 0
+Neighs:         393216 ave      393216 max      393216 min
+Histogram: 2 0 0 0 0 0 0 0 0 0
 
-Total # of neighbors = 1038897
-Ave neighs/atom = 3.9630775
-Neighbor list builds = 17
+Total # of neighbors = 786432
+Ave neighs/atom = 3
+Neighbor list builds = 0
 Dangerous builds = 0
 
 write_data data_out.* nocoeff
 System init for write_data ...
 Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
-Total wall time: 0:10:39
+Total wall time: 0:00:04

@@ -1,10 +1,9 @@
-LAMMPS (10 Sep 2025 - Development - patch_10Sep2025-448-g5623082763)
+LAMMPS (10 Sep 2025 - Development - patch_10Sep2025-505-g15d2dd9722-modified)
 KOKKOS mode with Kokkos version 4.7.1 is enabled
   using double precision
-  using view layout = default
-  using unified memory
+  using view layout = legacy
   will use up to 1 GPU(s) per node
-  using 1 OpenMP thread(s) per MPI task
+  using 2 OpenMP thread(s) per MPI task
 package kokkos
 ###
 # Box and units  (use LJ units and periodic boundaries)
@@ -24,7 +23,7 @@ Created orthogonal box = (0 0 0) to (70.441115 70.441115 70.441115)
 create_atoms	1 box
 Created 262144 atoms
   using lattice units in orthogonal box = (0 0 0) to (70.441115 70.441115 70.441115)
-  create_atoms CPU = 0.053 seconds
+  create_atoms CPU = 0.061 seconds
 
 group           all type 1
 262144 atoms in group all
@@ -140,70 +139,4 @@ fix 3 all print 5000 "$(step)  ekin = ${ekin} | epot = ${epot} | erot = ${erot} 
 
 compute q all property/atom quatw quati quatj quatk
 compute diameter all property/atom shapex shapey shapez
-dump 1 all custom 5000 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
-dump_modify 1 colname c_q[1] quatw colname c_q[2] quati colname c_q[3] quatj colname c_q[4] quatk
-
-###################################################
-
-timestep 0.00001 #0.012
-
-run 100000
-Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
-0  ekin = 569.000000001008 | epot = 442355.735002327 | erot = 412637.23120982 | etot = 855561.966212148
-Per MPI rank memory allocation (min/avg/max) = 128.9 | 128.9 | 128.9 Mbytes
-   Step          Temp          E_pair         E_mol          TotEng         Press     
-         0   0.0014470473   1.6874532      0              1.6896238      25.313389    
-5000  ekin = 545.078192070029 | epot = 442379.656810595 | erot = 412656.743142748 | etot = 855581.478145413
-10000  ekin = 525.980656251991 | epot = 442398.75434635 | erot = 412657.329586812 | etot = 855582.064589414
-15000  ekin = 509.691908739333 | epot = 442415.0430938 | erot = 412685.595261371 | etot = 855610.33026391
-20000  ekin = 497.909137998225 | epot = 442426.825864632 | erot = 412706.695664256 | etot = 855631.430666887
-25000  ekin = 505.302510921093 | epot = 442419.432491803 | erot = 412658.67603051 | etot = 855583.411033234
-30000  ekin = 563.105426159567 | epot = 442361.629576703 | erot = 412682.676277748 | etot = 855607.411280611
-35000  ekin = 755.944441267697 | epot = 442168.790562185 | erot = 412661.777266157 | etot = 855586.512269609
-40000  ekin = 1340.39163270529 | epot = 441584.343372451 | erot = 412698.12948153 | etot = 855622.864486686
-45000  ekin = 3038.61006114174 | epot = 439886.124553179 | erot = 412670.879680112 | etot = 855595.614294433
-50000  ekin = 7158.66307380887 | epot = 435766.058964619 | erot = 412630.821430353 | etot = 855555.543468781
-55000  ekin = 15368.7270774734 | epot = 427555.9751983 | erot = 412634.879652679 | etot = 855559.581928452
-60000  ekin = 29577.8531285363 | epot = 413346.728334327 | erot = 412608.801843087 | etot = 855533.383305951
-65000  ekin = 47120.9365002079 | epot = 395803.566870065 | erot = 412644.73681902 | etot = 855569.240189293
-70000  ekin = 67556.0706752227 | epot = 375368.54134916 | erot = 412587.489479696 | etot = 855512.101504079
-75000  ekin = 92018.9539855552 | epot = 350905.893451208 | erot = 412574.244595687 | etot = 855499.09203245
-80000  ekin = 116168.800788758 | epot = 326755.887346287 | erot = 412565.926042654 | etot = 855490.6141777
-85000  ekin = 137785.855626279 | epot = 305139.061657529 | erot = 412569.296018158 | etot = 855494.213301966
-90000  ekin = 157093.181864886 | epot = 285831.586064227 | erot = 412606.381902623 | etot = 855531.149831736
-95000  ekin = 171638.858686777 | epot = 271285.848657514 | erot = 412563.477937449 | etot = 855488.185281741
-100000  ekin = 175896.921935888 | epot = 267027.947968778 | erot = 412585.447573829 | etot = 855510.317478495
-    100000   0.44733071     1.0186308      0              1.6896243      16.56        
-Loop time of 253.782 on 1 procs for 100000 steps with 262144 atoms
-
-Performance: 340.450 tau/day, 394.039 timesteps/s, 103.295 Matom-step/s
-99.4% CPU use with 1 MPI tasks x 1 OpenMP threads
-
-MPI task timing breakdown:
-Section |  min time  |  avg time  |  max time  |%varavg| %total
----------------------------------------------------------------
-Pair    | 16.962     | 16.962     | 16.962     |   0.0 |  6.68
-Neigh   | 0.24065    | 0.24065    | 0.24065    |   0.0 |  0.09
-Comm    | 139.98     | 139.98     | 139.98     |   0.0 | 55.16
-Output  | 8.4735     | 8.4735     | 8.4735     |   0.0 |  3.34
-Modify  | 86.047     | 86.047     | 86.047     |   0.0 | 33.91
-Other   |            | 2.081      |            |       |  0.82
-
-Nlocal:         262144 ave      262144 max      262144 min
-Histogram: 1 0 0 0 0 0 0 0 0 0
-Nghost:         159705 ave      159705 max      159705 min
-Histogram: 1 0 0 0 0 0 0 0 0 0
-Neighs:              0 ave           0 max           0 min
-Histogram: 1 0 0 0 0 0 0 0 0 0
-FullNghs:  1.92621e+06 ave 1.92621e+06 max 1.92621e+06 min
-Histogram: 1 0 0 0 0 0 0 0 0 0
-
-Total # of neighbors = 1926214
-Ave neighs/atom = 7.3479233
-Neighbor list builds = 11
-Dangerous builds = 0
-
-write_data data_out.* nocoeff
-System init for write_data ...
-Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
-Total wall time: 0:04:22
+dump 1 all custom 5000 dump.polymer id type x y z c_

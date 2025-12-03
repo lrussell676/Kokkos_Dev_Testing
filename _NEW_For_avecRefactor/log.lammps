@@ -1,0 +1,221 @@
+LAMMPS (10 Sep 2025 - Development - patch_10Sep2025-639-g7a837a83c1-modified)
+KOKKOS mode with Kokkos version 4.7.1 is enabled
+  using double precision
+  using view layout = default
+  using 1 OpenMP thread(s) per MPI task
+package kokkos
+package kokkos comm device newton off
+###
+# Box and units  (use LJ units and periodic boundaries)
+###
+
+units           lj
+atom_style      ellipsoid
+dimension	3
+boundary	p p p
+
+lattice		sc 0.75
+Lattice spacing in x,y,z = 1.1006424 1.1006424 1.1006424
+region		box block 0 2 0 2 0 2
+create_box	1 box
+Created orthogonal box = (0 0 0) to (2.2012848 2.2012848 2.2012848)
+  1 by 1 by 2 MPI processor grid
+create_atoms	1 box
+Created 8 atoms
+  using lattice units in orthogonal box = (0 0 0) to (2.2012848 2.2012848 2.2012848)
+  create_atoms CPU = 0.002 seconds
+
+group           all type 1
+8 atoms in group all
+set             type 1 mass 1.0
+Setting atom values ...
+  8 settings made for mass
+set             type 1 shape 0.6 0.3 0.2
+Setting atom values ...
+  8 settings made for shape
+#set             type 1 quat/random 29898
+group		subA id 1:4
+4 atoms in group subA
+group		subB id 5:6
+2 atoms in group subB
+group           subC id 7:8
+2 atoms in group subC
+
+#velocity 	all create 0.1 87287 loop geom #rot yes # 'rot yes' zeros angmom
+set group	subA vx 0.01 vy 0.0 vz 0.05
+Setting atom values ...
+  4 settings made for vx
+  4 settings made for vy
+  4 settings made for vz
+set group	subB vx 0.03 vy 0.02 vz 0.0
+Setting atom values ...
+  2 settings made for vx
+  2 settings made for vy
+  2 settings made for vz
+set group	subC vx 0.01 vy 0.01 vz 0.1
+Setting atom values ...
+  2 settings made for vx
+  2 settings made for vy
+  2 settings made for vz
+set group 	subA angmom 0.05 0.0 0.0
+Setting atom values ...
+  4 settings made for angmom
+set group 	subB angmom 0.05 0.4 0.0
+Setting atom values ...
+  2 settings made for angmom
+set group 	subC angmom 0.00 0.0 0.3
+Setting atom values ...
+  2 settings made for angmom
+set group 	subA quat 0.9237853184 0.382910976 0.0 0.0
+Setting atom values ...
+  4 settings made for quat
+set group 	subB quat 0.5774 0.0 0.5774 0.5774
+Setting atom values ...
+  2 settings made for quat
+set group 	subC quat 0.707106816 0.0 0.0 0.707106816
+Setting atom values ...
+  2 settings made for quat
+
+neighbor        0.3 bin
+neigh_modify    delay 0 every 100 check yes
+
+###################################################################
+# Pair interaction between non-bonded atoms
+#
+#  Lennard-Jones 12-6 potential with cutoff:
+#  potential E=4epsilon[ (sigma/r)^12 - (sigma/r)^6]  for r<r_cut
+#
+#  1.12246152962189 = 2^(1/6) is the minimum of the potential
+
+pair_style      lj/cut 1.12246152962189
+
+#
+#  pair_coeff for lj/cut, specify 4:
+#    * atom type interacting with
+#    * atom type
+#    * epsilon (energy units)
+#    * sigma (distance units)
+#
+
+pair_coeff      1 1 1.0 1.12246152962189
+
+#
+#  pair_modify shift yes adds a constant to the potential such
+#  that E(r_cut)=0. Forces remains unchanged.
+#
+
+pair_modify     shift yes
+
+###################################################
+reset_atoms 	id sort yes
+Resetting atom IDs ...
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 100 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 1.4224615
+  ghost atom cutoff = 1.4224615
+  binsize = 0.71123076, bins = 4 4 4
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/kk, perpetual
+      attributes: half, newton off, kokkos_device
+      pair build: half/bin/newtoff/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+
+comm_modify cutoff 6
+#comm_style tiled
+#balance 1.2 rcb
+
+###
+# Set up fixes
+###
+
+fix 1 all   nve/asphere   ###NVE ensemble
+#fix 2 all   langevin   1.0 1.0   2.0   424242   ###Langevin integrator Tstart Tstop 1/friction rndseed
+
+compute ekin all ke
+compute epot all pe
+compute erot all erotate/asphere
+variable ekin equal c_ekin
+variable epot equal c_epot
+variable erot equal c_erot
+variable etot equal c_ekin+c_epot+c_erot
+
+fix 3 all print 1 "$(step)  ekin = ${ekin} | epot = ${epot} | erot = ${erot} | etot = ${etot}" screen yes
+
+compute q all property/atom quatw quati quatj quatk
+compute diameter all property/atom shapex shapey shapez
+dump 1 all custom 1 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
+dump_modify 1 colname c_q[1] quatw colname c_q[2] quati colname c_q[3] quatj colname c_q[4] quatk
+
+###################################################
+
+timestep 0.001 #0.012
+
+run 10
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Your simulation uses code contributions which should be cited:
+
+- KOKKOS package: https://doi.org/10.1145/3731599.3767498
+
+@inproceedings{Johansson25,
+ author = {A. Johansson and E. Weinberg and C. Trott and M. McCarthy and S. Moore},
+ title = {{LAMMPS-KOKKOS}: {P}erformance Portable Molecular Dynamics Across Exascale Architectures},
+ year = 2025,
+ booktitle = {Proceedings of the SC '25 Workshops of the International Conference for High Performance Computing,
+  Networking, Storage and Analysis},
+ pages = {1217–1232},
+}
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+0  ekin = 0.0167 | epot = 13.4996257019754 | erot = 13.1785775686628 | etot = 26.6949032706381
+Per MPI rank memory allocation (min/avg/max) = 5.861 | 5.861 | 5.861 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0.0015904762   1.6874532      0              1.6895407      25.313347    
+1  ekin = 0.0166968100767357 | epot = 12.3746600851008 | erot = 13.1785775919643 | etot = 25.5699344871418
+2  ekin = 0.0166872674845249 | epot = 12.3746696327808 | erot = 13.1785776152807 | etot = 25.569934515546
+3  ekin = 0.0166714535540818 | epot = 12.3746854551488 | erot = 13.178577638619 | etot = 25.5699345473219
+4  ekin = 0.0166495031646688 | epot = 12.3747074172629 | erot = 13.1785776619862 | etot = 25.5699345824138
+5  ekin = 0.0166216037414896 | epot = 12.3747353316108 | erot = 13.1785776853895 | etot = 25.5699346207418
+6  ekin = 0.0165879938625677 | epot = 12.3747689595034 | erot = 13.1785777088359 | etot = 25.5699346622019
+7  ekin = 0.0165489614855471 | epot = 12.3748080128492 | erot = 13.1785777323326 | etot = 25.5699347066673
+8  ekin = 0.0165048418076955 | epot = 12.3748521562953 | erot = 13.1785777558865 | etot = 25.5699347539894
+9  ekin = 0.0164560147751418 | epot = 12.3749010097188 | erot = 13.1785777795049 | etot = 25.5699348039988
+10  ekin = 0.016402902260008 | epot = 12.3749541510516 | erot = 13.1785778031948 | etot = 25.5699348565064
+        10   0.0015621812   1.5468693      0              1.5489196      23.204093    
+Loop time of 0.00780187 on 2 procs for 10 steps with 8 atoms
+
+Performance: 110742.674 tau/day, 1281.744 timesteps/s, 10.254 katom-step/s
+88.9% CPU use with 2 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 3.6759e-05 | 4.7505e-05 | 5.825e-05  |   0.0 |  0.61
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.0070813  | 0.0071409  | 0.0072006  |   0.1 | 91.53
+Output  | 0.00020918 | 0.00023307 | 0.00025696 |   0.0 |  2.99
+Modify  | 0.00018122 | 0.00018568 | 0.00019014 |   0.0 |  2.38
+Other   |            | 0.0001947  |            |       |  2.50
+
+Nlocal:              4 ave           4 max           4 min
+Histogram: 2 0 0 0 0 0 0 0 0 0
+Nghost:           2024 ave        2024 max        2024 min
+Histogram: 2 0 0 0 0 0 0 0 0 0
+Neighs:             20 ave          20 max          20 min
+Histogram: 2 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 40
+Ave neighs/atom = 5
+Neighbor list builds = 0
+Dangerous builds = 0
+
+write_data data_out.* nocoeff
+System init for write_data ...
+Generated 0 of 0 mixed pair_coeff terms from geometric mixing rule
+Total wall time: 0:00:00

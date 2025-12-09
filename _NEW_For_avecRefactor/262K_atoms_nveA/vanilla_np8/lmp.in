@@ -15,18 +15,25 @@ create_atoms	1 box
 group           all type 1
 set             type 1 mass 1.0
 set             type 1 shape 0.6 0.4 0.6
-set             type 1 quat/random 29898
+#set             type 1 quat/random 29898
 group		subA id 1:10000
 group		subB id 10001:100000
 group           subC id 100001:200000
+group		subD id 200001:262144
 
 #velocity 	all create 0.1 87287 loop geom #rot yes # 'rot yes' zeros angmom
 set group	subA vx 0.01 vy 0.0 vz 0.0
 set group	subB vx -0.03 vy 0.02 vz 0.0
 set group	subC vx 0.01 vy 0.01 vz 0.1
+set group       subD vx 0.0 vy 0.0 vz 0.0
 set group 	subA angmom 0.05 0.0 0.0
-set group 	subB angmom 0.05 0.4 0.0
-set group 	subC angmom 0.00 0.0 0.3
+set group 	subB angmom 0.05 0.04 0.0
+set group 	subC angmom 0.00 0.0 0.03
+set group       subD angmom 0.0 0.0 0.0
+set group 	subA quat 0.9237853184 0.382910976 0.0 0.0
+set group 	subB quat 0.5774 0.0 0.5774 0.5774
+set group 	subC quat 0.707106816 0.0 0.0 0.707106816
+set group       subD quat 0.462 0.191 0.462 0.733
 
 neighbor        0.3 bin
 neigh_modify    delay 0 every 100 check yes
@@ -39,7 +46,7 @@ neigh_modify    delay 0 every 100 check yes
 #
 #  1.12246152962189 = 2^(1/6) is the minimum of the potential
 
-pair_style      lj/cut 1.12246152962189
+pair_style      lj/cut 1.1
 
 #
 #  pair_coeff for lj/cut, specify 4:
@@ -49,7 +56,7 @@ pair_style      lj/cut 1.12246152962189
 #    * sigma (distance units)
 #
 
-pair_coeff      1 1 1.0 1.12246152962189
+pair_coeff      1 1 0.1 1.1
 
 #
 #  pair_modify shift yes adds a constant to the potential such
@@ -62,8 +69,8 @@ pair_modify     shift yes
 reset_atoms 	id sort yes
 
 comm_modify cutoff 6
-#comm_style tiled
-#balance 1.2 rcb
+comm_style tiled
+balance 1.2 rcb
 
 ###
 # Set up fixes
@@ -80,16 +87,16 @@ variable epot equal c_epot
 variable erot equal c_erot
 variable etot equal c_ekin+c_epot+c_erot
 
-fix 3 all print 5000 "$(step)  ekin = ${ekin} | epot = ${epot} | erot = ${erot} | etot = ${etot}" screen yes
+fix 3 all print 1000 "$(step)  ekin = ${ekin} | epot = ${epot} | erot = ${erot} | etot = ${etot}" screen yes
 
 compute q all property/atom quatw quati quatj quatk
 compute diameter all property/atom shapex shapey shapez
-dump 1 all custom 5000 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
+dump 1 all custom 10000 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
 dump_modify 1 colname c_q[1] quatw colname c_q[2] quati colname c_q[3] quatj colname c_q[4] quatk
 
 ###################################################
 
-timestep 0.00001 #0.012
+timestep 0.0001 #0.012
 
 run 100000
 

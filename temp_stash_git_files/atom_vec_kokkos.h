@@ -99,7 +99,7 @@ class AtomVecKokkos : virtual public AtomVec {
                              ExecutionSpace space,
                              DAT::tdual_int_1d &k_indices);
 
-  // Bonus functions - MOSTLY PLACEHOLDERS THIS NOW
+  // Bonus functions
 
   virtual void pack_comm_bonus_kokkos(const int &n, const DAT::tdual_int_1d &list,
                                       const DAT::tdual_double_2d_lr &buf) {}
@@ -107,9 +107,10 @@ class AtomVecKokkos : virtual public AtomVec {
   virtual void unpack_comm_bonus_kokkos(const int &n, const int &nfirst,
                                         const DAT::tdual_double_2d_lr &buf) {}
 
-  virtual void pack_comm_self_bonus(const int &n,
-                                    const DAT::tdual_int_1d &list,
-                                    const int nfirst) {}
+  virtual void pack_comm_self_fused_bonus(const int &n, const DAT::tdual_int_2d_lr &list,
+                                          const DAT::tdual_int_1d &sendnum_scan,
+                                          const DAT::tdual_int_1d &firstrecv,
+                                          const DAT::tdual_int_1d &g2l) {}
 
   virtual void pack_border_bonus_kokkos(int n, DAT::tdual_int_1d k_sendlist,
                                         DAT::tdual_double_2d_lr &buf,
@@ -136,7 +137,7 @@ class AtomVecKokkos : virtual public AtomVec {
   virtual int get_status_nlocal_bonus() { return 0; }
   virtual void set_status_nlocal_bonus(int) {}
 
-  int size_exchange,size_exchange_default;
+  int size_exchange,size_exchange_default,size_exchange_bonus;
 
   uint64_t datamask_grow;
   uint64_t datamask_comm;
@@ -145,6 +146,8 @@ class AtomVecKokkos : virtual public AtomVec {
   uint64_t datamask_border;
   uint64_t datamask_border_vel;
   uint64_t datamask_exchange;
+
+  virtual void set_size_exchange();
 
  protected:
   DAT::t_tagint_1d d_tag;
@@ -241,7 +244,6 @@ class AtomVecKokkos : virtual public AtomVec {
   uint64_t field2mask(std::string);
   int field2size(std::string);
   void set_atom_masks();
-  void set_size_exchange();
 
  public:
 

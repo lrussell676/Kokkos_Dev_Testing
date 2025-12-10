@@ -21,9 +21,6 @@
 #include "error.h"
 #include "kokkos.h"
 
-#include "modify.h" // DEBUG
-#include "compute_pe.h" // DEBUG
-
 using namespace LAMMPS_NS;
 
 /* ---------------------------------------------------------------------- */
@@ -157,7 +154,7 @@ int AtomVecKokkos::pack_comm_kokkos(const int &n,
 {
   // Check whether to always run forward communication on the host
   // Choose correct forward PackComm kernel
-  printf("DEBUG: In pack_comm_kokkos\n");
+
   if (lmp->kokkos->forward_comm_on_host) {
     atomKK->sync(HostKK,datamask_comm);
     if (pbc_flag) {
@@ -369,7 +366,7 @@ int AtomVecKokkos::pack_comm_self(const int &n, const DAT::tdual_int_1d &list,
                                         const int nfirst, const int &pbc_flag, const int* const pbc) {
   // Check whether to always run forward communication on the host
   // Choose correct forward PackComm kernel
-  printf("DEBUG: In pack_comm_self\n");
+
   if (lmp->kokkos->forward_comm_on_host) {
     atomKK->sync(HostKK,datamask_comm);
     if (pbc_flag) {
@@ -481,8 +478,6 @@ int AtomVecKokkos::pack_comm_self(const int &n, const DAT::tdual_int_1d &list,
         }
       }
     }
-    if (bonus_flag) pack_comm_self_bonus(n, list, nfirst);
-    
     atomKK->modified(Device,datamask_comm);
   }
 
@@ -604,7 +599,6 @@ struct AtomVecKokkos_PackCommSelfFused {
 int AtomVecKokkos::pack_comm_self_fused(const int &n, const DAT::tdual_int_2d_lr &list, const DAT::tdual_int_1d &sendnum_scan,
                                          const DAT::tdual_int_1d &firstrecv, const DAT::tdual_int_1d &pbc_flag, const DAT::tdual_int_2d &pbc,
                                          const DAT::tdual_int_1d &g2l) {
-  printf("DEBUG: In pack_comm_self_fused\n");
   if (lmp->kokkos->forward_comm_on_host) {
     atomKK->sync(HostKK,datamask_comm);
     if (domain->triclinic) {
@@ -662,6 +656,8 @@ int AtomVecKokkos::pack_comm_self_fused(const int &n, const DAT::tdual_int_2d_lr
     }
     atomKK->modified(Device,datamask_comm);
   }
+
+  if (bonus_flag) pack_comm_self_fused_bonus(n, list, sendnum_scan, firstrecv, g2l);
 
   return n*size_forward;
 }
@@ -741,7 +737,6 @@ struct AtomVecKokkos_UnpackComm {
 
 void AtomVecKokkos::unpack_comm_kokkos(const int &n, const int &first,
     const DAT::tdual_double_2d_lr &buf) {
-  printf("DEBUG: In unpack_comm_kokkos\n");
   if (lmp->kokkos->forward_comm_on_host) {
     atomKK->sync(HostKK,datamask_comm);
     if (comm_x_only) {
@@ -914,7 +909,6 @@ int AtomVecKokkos::pack_comm_vel_kokkos(
   const int &pbc_flag,
   const int* const pbc)
 {
-  printf("DEBUG: In pack_comm_vel_kokkos\n");
   if (lmp->kokkos->forward_comm_on_host) {
     atomKK->sync(HostKK,datamask_comm_vel);
     if (pbc_flag) {
@@ -1138,7 +1132,7 @@ struct AtomVecKokkos_UnpackCommVel {
 
 void AtomVecKokkos::unpack_comm_vel_kokkos(const int &n, const int &first,
     const DAT::tdual_double_2d_lr &buf) {
-  printf("DEBUG: In unpack_comm_vel_kokkos\n");
+
   if (lmp->kokkos->forward_comm_on_host) {
     atomKK->sync(HostKK,datamask_comm_vel);
     if (!ncomm_vel) {
@@ -1225,27 +1219,13 @@ struct AtomVecKokkos_PackReverse {
 
 int AtomVecKokkos::pack_reverse_kokkos(const int &n, const int &first,
     const DAT::tdual_double_2d_lr &buf) {
-  printf("DEBUG: In pack_reverse_kokkos\n");
-  // Locate a ComputePE instance among registered computes and call compute_scalar().
-  ComputePE *cepot = nullptr;
-  for (int ic = 0; ic < modify->ncompute; ++ic) {
-    cepot = dynamic_cast<ComputePE*>(modify->compute[ic]);
-    if (cepot) break;
-  }
-  double epot = 0.0;
-  if (cepot) {
-    epot = cepot->compute_scalar();
-    printf("DEBUG: Found ComputePE in pack_reverse_kokkos, epot = %f\n", epot);
-  } else {
-    printf("DEBUG: ComputePE not found in pack_reverse_kokkos; using epot = %f\n", epot);
-  }
   if (lmp->kokkos->reverse_comm_on_host) {
     atomKK->sync(HostKK,datamask_reverse);
     if (comm_f_only) {
       struct AtomVecKokkos_PackReverse<LMPHostType,1> f(atomKK,buf,first,datamask_reverse);
       Kokkos::parallel_for(n,f);
     } else {
-      struct AtomVecKokkos_PackReverse<LMPHostType,1> f(atomKK,buf,first,datamask_reverse);
+      struct AtomVecKokkos_PackReverse<LMPHostType,0> f(atomKK,buf,first,datamask_reverse);
       Kokkos::parallel_for(n,f);
     }
   } else {
@@ -1254,7 +1234,7 @@ int AtomVecKokkos::pack_reverse_kokkos(const int &n, const int &first,
       struct AtomVecKokkos_PackReverse<LMPDeviceType,1> f(atomKK,buf,first,datamask_reverse);
       Kokkos::parallel_for(n,f);
     } else {
-      struct AtomVecKokkos_PackReverse<LMPDeviceType,1> f(atomKK,buf,first,datamask_reverse);
+      struct AtomVecKokkos_PackReverse<LMPDeviceType,0> f(atomKK,buf,first,datamask_reverse);
       Kokkos::parallel_for(n,f);
     }
   }
@@ -1323,27 +1303,13 @@ struct AtomVecKokkos_UnPackReverseSelf {
 
 int AtomVecKokkos::pack_reverse_self(const int &n, const DAT::tdual_int_1d &list,
                                      const int nfirst) {
-  printf("DEBUG: In pack_reverse_self\n");
-  // Locate a ComputePE instance among registered computes and call compute_scalar().
-  ComputePE *cepot = nullptr;
-  for (int ic = 0; ic < modify->ncompute; ++ic) {
-    cepot = dynamic_cast<ComputePE*>(modify->compute[ic]);
-    if (cepot) break;
-  }
-  double epot = 0.0;
-  if (cepot) {
-    epot = cepot->compute_scalar();
-    printf("DEBUG: Found ComputePE in pack_reverse_self_kokkos, epot = %f\n", epot);
-  } else {
-    printf("DEBUG: ComputePE not found in pack_reverse_self_kokkos; using epot = %f\n", epot);
-  }
   if (lmp->kokkos->reverse_comm_on_host) {
     atomKK->sync(HostKK,datamask_reverse);
     if (comm_f_only) {
       struct AtomVecKokkos_UnPackReverseSelf<LMPHostType,1> f(atomKK,nfirst,list,datamask_reverse);
       Kokkos::parallel_for(n,f);
     } else {
-      struct AtomVecKokkos_UnPackReverseSelf<LMPHostType,1> f(atomKK,nfirst,list,datamask_reverse);
+      struct AtomVecKokkos_UnPackReverseSelf<LMPHostType,0> f(atomKK,nfirst,list,datamask_reverse);
       Kokkos::parallel_for(n,f);
     }
     atomKK->modified(HostKK,datamask_reverse);
@@ -1353,7 +1319,7 @@ int AtomVecKokkos::pack_reverse_self(const int &n, const DAT::tdual_int_1d &list
       struct AtomVecKokkos_UnPackReverseSelf<LMPDeviceType,1> f(atomKK,nfirst,list,datamask_reverse);
       Kokkos::parallel_for(n,f);
     } else {
-      struct AtomVecKokkos_UnPackReverseSelf<LMPDeviceType,1> f(atomKK,nfirst,list,datamask_reverse);
+      struct AtomVecKokkos_UnPackReverseSelf<LMPDeviceType,0> f(atomKK,nfirst,list,datamask_reverse);
       Kokkos::parallel_for(n,f);
     }
     atomKK->modified(Device,datamask_reverse);
@@ -1432,27 +1398,14 @@ void AtomVecKokkos::unpack_reverse_kokkos(const int &n,
 {
   // Check whether to always run reverse communication on the host
   // Choose correct reverse UnPackReverse kernel
-  printf("DEBUG: In unpack_reverse_kokkos\n");
-  // Locate a ComputePE instance among registered computes and call compute_scalar().
-  ComputePE *cepot = nullptr;
-  for (int ic = 0; ic < modify->ncompute; ++ic) {
-    cepot = dynamic_cast<ComputePE*>(modify->compute[ic]);
-    if (cepot) break;
-  }
-  double epot = 0.0;
-  if (cepot) {
-    epot = cepot->compute_scalar();
-    printf("DEBUG: Found ComputePE in unpack_reverse_kokkos, epot = %f\n", epot);
-  } else {
-    printf("DEBUG: ComputePE not found in unpack_reverse_kokkos; using epot = %f\n", epot);
-  }
+
   if (lmp->kokkos->reverse_comm_on_host) {
     atomKK->sync(HostKK,datamask_reverse);
     if (comm_f_only) {
       struct AtomVecKokkos_UnPackReverse<LMPHostType,1> f(atomKK,buf,list,datamask_reverse);
       Kokkos::parallel_for(n,f);
     } else {
-      struct AtomVecKokkos_UnPackReverse<LMPHostType,1> f(atomKK,buf,list,datamask_reverse);
+      struct AtomVecKokkos_UnPackReverse<LMPHostType,0> f(atomKK,buf,list,datamask_reverse);
       Kokkos::parallel_for(n,f);
     }
     atomKK->modified(HostKK,datamask_reverse);
@@ -1462,7 +1415,7 @@ void AtomVecKokkos::unpack_reverse_kokkos(const int &n,
       struct AtomVecKokkos_UnPackReverse<LMPDeviceType,1> f(atomKK,buf,list,datamask_reverse);
       Kokkos::parallel_for(n,f);
     } else {
-      struct AtomVecKokkos_UnPackReverse<LMPDeviceType,1> f(atomKK,buf,list,datamask_reverse);
+      struct AtomVecKokkos_UnPackReverse<LMPDeviceType,0> f(atomKK,buf,list,datamask_reverse);
       Kokkos::parallel_for(n,f);
     }
     atomKK->modified(Device,datamask_reverse);
@@ -1583,7 +1536,7 @@ int AtomVecKokkos::pack_border_kokkos(int n, DAT::tdual_int_1d k_sendlist,
                                                int pbc_flag, int *pbc, ExecutionSpace space)
 {
   atomKK->sync(space,datamask_border);
-  printf("DEBUG: doing pack_border_kokkos\n");
+
   double dx,dy,dz;
 
   if (pbc_flag != 0) {
@@ -2284,8 +2237,8 @@ struct AtomVecKokkos_PackExchangeFunctor {
   KOKKOS_INLINE_FUNCTION
   void operator() (const int &mysend) const {
     const int i = _sendlist(mysend);
-    _buf(mysend,0) = _size_exchange;
-    int m = 1;
+    int m = 0;
+    _buf(mysend,m++) = _size_exchange;
 
     _buf(mysend,m++) = _x(i,0);
     _buf(mysend,m++) = _x(i,1);
@@ -2527,7 +2480,7 @@ int AtomVecKokkos::pack_exchange_kokkos(const int &nsend,DAT::tdual_double_2d_lr
 {
   atomKK->sync(space,datamask_exchange);
   set_size_exchange();
-  printf("DEBUG: doing pack_exchange_kokkos\n");
+
   if (nsend > (int) (k_buf.view_host().extent(0)*
               k_buf.view_host().extent(1))/size_exchange) {
     int newsize = nsend*size_exchange/k_buf.view_host().extent(1)+1;
@@ -2894,6 +2847,8 @@ uint64_t AtomVecKokkos::field2mask(std::string field)
     return MU_MASK;
   else if (field == "radius")
     return RADIUS_MASK;
+  else if (field == "angmom")
+    return ANGMOM_MASK;
   else if (field == "omega")
     return OMEGA_MASK;
   else if (field == "torque")
@@ -2954,6 +2909,7 @@ int AtomVecKokkos::field2size(std::string field)
   else if (field == "mu") return 4;
   else if (field == "mu3") return 3;
   else if (field == "radius") return 1;
+  else if (field == "angmom") return 3;
   else if (field == "omega") return 3;
   else if (field == "torque") return 3;
   else if (field == "ellipsoid") return 1;

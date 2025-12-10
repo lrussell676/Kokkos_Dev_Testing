@@ -14,8 +14,6 @@ create_atoms	1 box
 
 group           all type 1
 set             type 1 mass 1.0
-set             type 1 shape 0.6 0.4 0.6
-#set             type 1 quat/random 29898
 group		subA id 1:10000
 group		subB id 10001:100000
 group           subC id 100001:200000
@@ -30,10 +28,15 @@ set group 	subA angmom 0.05 0.0 0.0
 set group 	subB angmom 0.05 0.04 0.0
 set group 	subC angmom 0.00 0.0 0.03
 set group       subD angmom 0.0 0.0 0.0
+set group 	subA shape 0.5 0.2 0.2
+set group 	subB shape 0.2 0.4 0.3
+set group 	subC shape 0.7 0.3 0.3
+set group       subD shape 0.4 0.5 0.6
+#set             type 1 quat/random 29898
 set group 	subA quat 0.9237853184 0.382910976 0.0 0.0
 set group 	subB quat 0.5774 0.0 0.5774 0.5774
 set group 	subC quat 0.707106816 0.0 0.0 0.707106816
-set group       subD quat 0.462 0.191 0.462 0.733
+set group      subD quat 0.462 0.191 0.462 0.733
 
 neighbor        0.3 bin
 neigh_modify    delay 0 every 100 check yes
@@ -69,8 +72,8 @@ pair_modify     shift yes
 reset_atoms 	id sort yes
 
 comm_modify cutoff 6
-comm_style tiled
-balance 1.2 rcb
+comm_style brick
+#balance 1.2 rcb
 
 ###
 # Set up fixes

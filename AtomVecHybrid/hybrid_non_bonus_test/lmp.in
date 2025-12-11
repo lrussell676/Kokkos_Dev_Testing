@@ -3,10 +3,10 @@
 ###
 
 units           lj
-atom_style      hybrid bond sphere
+atom_style      hybrid/kk bond/kk sphere/kk
 dimension	3
 boundary	p p p
-newton 		on
+#newton 		on
 
 lattice		diamond 0.5
 region		box block 0 20 0 20 0 20
@@ -71,8 +71,8 @@ group           polys type 2
 mass * 1.0
 group		subA region lower
 group		subB region upper
-set group	subA vx 0.0 vy 0.0 vz 0.5
-set group	subB vx -0.01 vy 0.02 vz -0.5
+set group	subA vx 0.0 vy 0.0 vz 0.05
+set group	subB vx -0.01 vy 0.02 vz -0.05
 
 velocity 	all create 0.01 87287 loop geom
 set             group all diameter 1.0
@@ -85,15 +85,15 @@ neigh_modify    delay 0 every 100 check yes
 # Pair interaction between non-bonded atoms
 #
 pair_style      lj/cut 1.12246152962189
-pair_coeff      * * 1.0 1.0
+pair_coeff      * * 0.1 0.1
 pair_modify     shift yes
 
 ###################################################################
 # Pair interaction between bonded atoms
 #
-create_bonds many polys polys 1 1.5 2.5
+create_bonds many polys polys 1 0.5 1.0
 bond_style harmonic
-bond_coeff 1 10.0 1.5
+bond_coeff 1 10.0 1.0
 special_bonds lj 0.0 1.0 1.0
 
 ###################################################
@@ -115,7 +115,7 @@ variable etot equal c_ekin+c_epot
 
 fix 5 all print 5000 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}" screen yes
 
-dump myDump all atom 5000 dump.polymer
+#dump myDump all atom 5000 dump.polymer
 
 ##### Sample thermodynamic info  (temperature, energy, pressure, etc.) #####
 #thermo 10000
@@ -124,7 +124,8 @@ dump myDump all atom 5000 dump.polymer
 
 timestep 0.0001
 
-run 50000
+run_style verlet/kk
+run 100000
 
-write_data data_out.* nocoeff
+#write_data data_out.* nocoeff
  

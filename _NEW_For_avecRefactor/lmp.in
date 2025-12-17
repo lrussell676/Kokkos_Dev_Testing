@@ -18,8 +18,6 @@ create_atoms	1 region mybox
 
 group           all type 1
 set             type 1 mass 1.0
-set             type 1 shape 0.6 0.3 0.2
-#set             type 1 quat/random 29898
 group		subA id 1:4
 group		subB id 5:7
 group           subC id 8
@@ -29,11 +27,14 @@ group           subC id 8
 
 #velocity 	all create 0.1 87287 loop geom #rot yes # 'rot yes' zeros angmom
 set group	subA vx 0.0 vy 0.0 vz 0.0
-set group	subB vx 0.5 vy -0.5 vz -1.0
-set group	subC vx -1.5 vy 0.5 vz 0.5
+set group	subB vx 0.05 vy -0.05 vz -0.1
+set group	subC vx -0.15 vy 0.05 vz 0.05
 set group 	subA angmom 0.05 0.0 0.0
-set group 	subB angmom 0.05 0.4 0.0
-set group 	subC angmom 0.00 0.0 0.3
+set group 	subB angmom 0.05 0.04 0.0
+set group 	subC angmom 0.00 0.0 0.03
+set group       subA shape 0.6 0.3 0.2
+set group       subB shape 0.4 0.5 0.6
+set group       subC shape 0.2 0.3 0.2
 set group 	subA quat 0.0 0.0 0.0 1.0
 set group 	subB quat 0.146 0.0 0.354 0.354
 set group 	subC quat 0.683 -0.183 0.500 0.500
@@ -59,7 +60,7 @@ pair_style      lj/cut 1.12246152962189
 #    * sigma (distance units)
 #
 
-pair_coeff      1 1 1 1.12246152962189
+pair_coeff      1 1 0.1 1.0
 
 #
 #  pair_modify shift yes adds a constant to the potential such
@@ -90,17 +91,17 @@ variable epot equal c_epot
 variable erot equal c_erot
 variable etot equal c_ekin+c_epot+c_erot
 
-fix 3 all print 1 "$(step)  ekin = ${ekin} | epot = ${epot} | erot = ${erot} | etot = ${etot}" screen yes
+fix 3 all print 1000 "$(step)  ekin = ${ekin} | epot = ${epot} | erot = ${erot} | etot = ${etot}" screen yes
 
 compute q all property/atom quatw quati quatj quatk
 compute diameter all property/atom shapex shapey shapez
-dump 1 all custom 1 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
+dump 1 all custom 1000 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
 dump_modify 1 colname c_q[1] quatw colname c_q[2] quati colname c_q[3] quatj colname c_q[4] quatk
 
 ###################################################
 
 timestep 0.001 #0.012
 
-run 1000
+run 100000
 
 write_data data_out.* nocoeff

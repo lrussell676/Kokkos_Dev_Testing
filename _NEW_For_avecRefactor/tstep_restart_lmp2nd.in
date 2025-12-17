@@ -1,0 +1,13 @@
+read_restart restart.%.*
+
+compute ekin all ke
+compute epot all pe
+compute erot all erotate/asphere
+variable ekin equal c_ekin
+variable epot equal c_epot
+variable erot equal c_erot
+variable etot equal c_ekin+c_epot+c_erot
+
+fix 1 all print 1 "$(step)  ekin = ${ekin} | epot = ${epot} | erot = ${erot} | etot = ${etot}" screen yes
+
+run 20

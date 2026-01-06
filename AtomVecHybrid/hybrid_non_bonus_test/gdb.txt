@@ -1,0 +1,39 @@
+Breakpoint 1 at 0x1323f0
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff0dff000 (LWP 64179)]
+[New Thread 0x7fffea1ff000 (LWP 64180)]
+[New Thread 0x7fffe99fe000 (LWP 64181)]
+[New Thread 0x7fffe8f6a000 (LWP 64185)]
+[New Thread 0x7fffdcdde000 (LWP 64186)]
+[New Thread 0x7fffd6dde000 (LWP 64187)]
+
+Thread 1 "lmp" received signal SIGSEGV, Segmentation fault.
+0x0000555555ead748 in LAMMPS_NS::AtomVec::create_atom (this=0x55555c8a9680, itype=1, coord=0x7fffffffcb60) at /media/lewis/PhD/GH_lammps/src/atom_vec.cpp:1603
+#0  0x0000555555ead748 in LAMMPS_NS::AtomVec::create_atom (
+    this=0x55555c8a9680, itype=1, coord=0x7fffffffcb60)
+    at /media/lewis/PhD/GH_lammps/src/atom_vec.cpp:1603
+#1  0x0000555555f6c402 in LAMMPS_NS::CreateAtoms::loop_lattice (
+    this=0x55555c694af0, action=1)
+    at /media/lewis/PhD/GH_lammps/src/create_atoms.cpp:1532
+#2  0x0000555555f6ca58 in LAMMPS_NS::CreateAtoms::add_lattice (
+    this=0x55555c694af0)
+    at /media/lewis/PhD/GH_lammps/src/create_atoms.cpp:1437
+#3  0x0000555555f6f25f in LAMMPS_NS::CreateAtoms::command (
+    this=0x55555c694af0, narg=3, arg=0x55555c8c0de0)
+    at /media/lewis/PhD/GH_lammps/src/create_atoms.cpp:527
+#4  0x000055555578e513 in LAMMPS_NS::Input::execute_command (
+    this=0x55555b9c1170) at /media/lewis/PhD/GH_lammps/src/input.cpp:870
+#5  0x000055555578e85e in LAMMPS_NS::Input::file (this=0x55555b9c1170)
+    at /media/lewis/PhD/GH_lammps/src/input.cpp:315
+#6  0x0000555555707741 in main (argc=<optimised out>, argv=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/src/main.cpp:66
+#0  0x0000555555ead748 in LAMMPS_NS::AtomVec::create_atom (
+    this=0x55555c8a9680, itype=1, coord=0x7fffffffcb60)
+    at /media/lewis/PhD/GH_lammps/src/atom_vec.cpp:1603
+#1  0x0000555555f6c402 in LAMMPS_NS::CreateAtoms::loop_lattice (
+    this=0x55555c694af0, action=1)
+    at /media/lewis/PhD/GH_lammps/src/create_atoms.cpp:1532
+#2  0x0000555555f6ca58 in LAMMPS_NS::CreateAtoms::add_lattice (

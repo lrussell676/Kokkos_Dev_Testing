@@ -1,0 +1,3476 @@
+LAMMPS (10 Dec 2025)
+KOKKOS mode with Kokkos version 4.7.1 is enabled
+  using double precision
+  using view layout = legacy
+  will use up to 1 GPU(s) per node
+  using 1 OpenMP thread(s) per MPI task
+WARNING: Atom style hybrid defines both, per-type and per-atom masses; both must be set, but only per-atom masses will be used (src/atom_vec_hybrid.cpp:132)
+Lattice spacing in x,y,z = 2.5198421 2.5198421 2.5198421
+Created orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  1 by 1 by 1 MPI processor grid
+Created 1166 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.026 seconds
+Created 1166 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.004 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.001 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (50.396842 50.396842 50.396842)
+  create_atoms CPU = 0.000 seconds
+2845 atoms in group all
+2332 atoms in group atoms
+513 atoms in group polys
+1166 atoms in group subA
+1166 atoms in group subB
+Setting atom values ...
+  1166 settings made for vx
+  1166 settings made for vy
+  1166 settings made for vz
+Setting atom values ...
+  1166 settings made for vx
+  1166 settings made for vy
+  1166 settings made for vz
+Setting atom values ...
+  2845 settings made for mass
+Setting atom values ...
+  2845 settings made for shape
+Setting atom values ...
+  2845 settings made for quat/random
+Setting atom values ...
+  2845 settings made for angmom
+Generated 0 of 1 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 100 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 2.6224615
+  ghost atom cutoff = 2.6224615
+  binsize = 2.6224615, bins = 20 20 20
+  2 neighbor lists, perpetual/occasional/extra = 1 1 0
+  (1) command create_bonds, occasional, copy from (2)
+      attributes: full, newton off
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+  (2) pair lj/cut/kk, perpetual
+      attributes: full, newton off, kokkos_device
+      pair build: full/bin/kk/device
+      stencil: full/bin/3d
+      bin: kk/device
+ERROR on proc 0: New bond exceeded bonds per atom limit of 2 in create_bonds (src/create_bonds.cpp:293)

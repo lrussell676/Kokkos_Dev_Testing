@@ -79,7 +79,7 @@ set             group all diameter 1.0
 set             group all omega 0.0 0.0 0.0
 
 neighbor        1.5 bin
-neigh_modify    delay 0 every 100 check yes
+neigh_modify  delay 0 every 1 check yes
 
 ###################################################################
 # Pair interaction between non-bonded atoms
@@ -113,7 +113,7 @@ variable ekin equal c_ekin
 variable epot equal c_epot
 variable etot equal c_ekin+c_epot
 
-fix 5 all print 5000 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}" screen yes
+fix 5 all print 1 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}" screen yes
 
 #dump myDump all atom 5000 dump.polymer
 

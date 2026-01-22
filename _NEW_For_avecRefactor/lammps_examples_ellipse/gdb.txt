@@ -1,0 +1,16 @@
+Breakpoint 1 at 0xb3b40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6dff640 (LWP 18712)]
+
+Thread 1 "lmp" received signal SIGSEGV, Segmentation fault.
+0x0000555555dee1ba in LAMMPS_NS::NBinStandard::bin_atoms (this=0x555556840ea0) at /media/lewis/PhD/GH_lammps/src/nbin_standard.cpp:256
+#0  0x0000555555dee1ba in LAMMPS_NS::NBinStandard::bin_atoms (this=0x555556840ea0) at /media/lewis/PhD/GH_lammps/src/nbin_standard.cpp:256
+#1  0x000055555593556e in LAMMPS_NS::NeighborKokkos::build_kokkos<Kokkos::Serial> (this=0x555556882a80, topoflag=1) at /media/lewis/PhD/GH_lammps/src/KOKKOS/neighbor_kokkos.cpp:294
+#2  0x0000555555afd912 in LAMMPS_NS::VerletKokkos::run (this=0x55555683ebc0, n=2000) at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:356
+#3  0x0000555555798158 in LAMMPS_NS::Run::command (this=0x55555688b100, narg=<optimised out>, arg=0x5555568b0280) at /media/lewis/PhD/GH_lammps/src/run.cpp:176
+#4  0x0000555555679d33 in LAMMPS_NS::Input::execute_command (this=0x5555567d4c00) at /media/lewis/PhD/GH_lammps/src/input.cpp:877
+#5  0x000055555567a63e in LAMMPS_NS::Input::file (this=0x5555567d4c00) at /media/lewis/PhD/GH_lammps/src/input.cpp:315
+#6  0x0000555555661fd1 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66

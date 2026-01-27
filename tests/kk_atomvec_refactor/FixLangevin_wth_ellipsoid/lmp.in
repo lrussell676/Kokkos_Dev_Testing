@@ -6,7 +6,7 @@ units           lj
 atom_style      hybrid bond ellipsoid
 dimension	    3
 boundary	    p p p
-newton 		    on
+#newton 		    on
 
 lattice		    diamond 0.01
 region		    box block 0 10 0 10 0 10
@@ -135,7 +135,7 @@ comm_modify cutoff 6
 ###
 
 fix 1 all   nve/asphere   ###NVE ensemble
-#fix 2 all   langevin   1.0 1.0   2.0   424242   ###Langevin integrator Tstart Tstop 1/friction rndseed
+fix 2 all   langevin   0.01 0.01   2.0   424242 angmom 10   ###Langevin integrator Tstart Tstop 1/friction rndseed
 
 compute ekin all ke
 compute epot all pe pair

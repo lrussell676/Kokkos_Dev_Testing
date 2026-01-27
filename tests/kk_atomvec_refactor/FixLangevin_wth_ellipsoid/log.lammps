@@ -1,0 +1,2979 @@
+LAMMPS (10 Dec 2025 - Development - patch_10Sep2025-1417-g836e542f7a)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread.
+  using 1 OpenMP thread(s) per MPI task
+###
+# Box and units  (use LJ units and periodic boundaries)
+###
+
+units           lj
+atom_style      hybrid bond ellipsoid
+WARNING: Atom style hybrid defines both, per-type and per-atom masses; both must be set, but only per-atom masses will be used (src/atom_vec_hybrid.cpp:132)
+dimension	3
+boundary	p p p
+newton 		on
+
+lattice		diamond 0.01
+Lattice spacing in x,y,z = 9.2831777 9.2831777 9.2831777
+region		box block 0 10 0 10 0 10
+create_box	2 box bond/types 1 extra/bond/per/atom 2
+Created orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  1 by 2 by 2 MPI processor grid
+
+###################################################################
+# Create Atoms in empty space
+#
+region         lower block 1 9 1 9 1 3
+create_atoms   1 region lower
+Created 1235 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.001 seconds
+region         upper block 1 9 1 9 7 9
+create_atoms   1 region upper
+Created 1235 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+
+###################################################################
+# Create Polymers
+#
+variable N       equal 30   # Number of beads per polymer
+variable Ny_val  equal 2   # Number of polymers placed in y
+variable Ny       loop ${Ny_val}
+variable Ny       loop 2
+variable Nz       loop 2    # Number of polymers placed in z
+variable dbead   equal 0.3
+variable step    equal 1    # Step size for loop
+
+# Initialise the first bead
+variable x0 equal 1.0
+variable y0 equal 1.0
+variable z0 equal 30.0
+
+# Create the remaining beads
+label loop_z
+label loop_y
+label loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1 + ${dbead}
+    variable x equal 1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 1.3 ${y} ${z}
+    create_atoms 2 single 1.3 2.5 ${z}
+    create_atoms 2 single 1.3 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 1.3
+    variable step equal ${step} + 1
+    variable step equal 1 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1.3 + ${dbead}
+    variable x equal 1.3 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 1.6 ${y} ${z}
+    create_atoms 2 single 1.6 2.5 ${z}
+    create_atoms 2 single 1.6 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 1.6
+    variable step equal ${step} + 1
+    variable step equal 2 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1.6 + ${dbead}
+    variable x equal 1.6 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 1.9 ${y} ${z}
+    create_atoms 2 single 1.9 2.5 ${z}
+    create_atoms 2 single 1.9 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 1.9
+    variable step equal ${step} + 1
+    variable step equal 3 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1.9 + ${dbead}
+    variable x equal 1.9 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 2.2 ${y} ${z}
+    create_atoms 2 single 2.2 2.5 ${z}
+    create_atoms 2 single 2.2 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 2.2
+    variable step equal ${step} + 1
+    variable step equal 4 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 2.2 + ${dbead}
+    variable x equal 2.2 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 2.5 ${y} ${z}
+    create_atoms 2 single 2.5 2.5 ${z}
+    create_atoms 2 single 2.5 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 2.5
+    variable step equal ${step} + 1
+    variable step equal 5 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 2.5 + ${dbead}
+    variable x equal 2.5 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 2.8 ${y} ${z}
+    create_atoms 2 single 2.8 2.5 ${z}
+    create_atoms 2 single 2.8 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 2.8
+    variable step equal ${step} + 1
+    variable step equal 6 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 2.8 + ${dbead}
+    variable x equal 2.8 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 3.1 ${y} ${z}
+    create_atoms 2 single 3.1 2.5 ${z}
+    create_atoms 2 single 3.1 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 3.1
+    variable step equal ${step} + 1
+    variable step equal 7 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 3.1 + ${dbead}
+    variable x equal 3.1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 3.4 ${y} ${z}
+    create_atoms 2 single 3.4 2.5 ${z}
+    create_atoms 2 single 3.4 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 3.4
+    variable step equal ${step} + 1
+    variable step equal 8 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 3.4 + ${dbead}
+    variable x equal 3.4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 3.7 ${y} ${z}
+    create_atoms 2 single 3.7 2.5 ${z}
+    create_atoms 2 single 3.7 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 3.7
+    variable step equal ${step} + 1
+    variable step equal 9 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 3.7 + ${dbead}
+    variable x equal 3.7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4 ${y} ${z}
+    create_atoms 2 single 4 2.5 ${z}
+    create_atoms 2 single 4 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4
+    variable step equal ${step} + 1
+    variable step equal 10 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4 + ${dbead}
+    variable x equal 4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4.3 ${y} ${z}
+    create_atoms 2 single 4.3 2.5 ${z}
+    create_atoms 2 single 4.3 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4.3
+    variable step equal ${step} + 1
+    variable step equal 11 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4.3 + ${dbead}
+    variable x equal 4.3 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4.6 ${y} ${z}
+    create_atoms 2 single 4.6 2.5 ${z}
+    create_atoms 2 single 4.6 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4.6
+    variable step equal ${step} + 1
+    variable step equal 12 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4.6 + ${dbead}
+    variable x equal 4.6 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4.9 ${y} ${z}
+    create_atoms 2 single 4.9 2.5 ${z}
+    create_atoms 2 single 4.9 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4.9
+    variable step equal ${step} + 1
+    variable step equal 13 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4.9 + ${dbead}
+    variable x equal 4.9 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 5.2 ${y} ${z}
+    create_atoms 2 single 5.2 2.5 ${z}
+    create_atoms 2 single 5.2 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 5.2
+    variable step equal ${step} + 1
+    variable step equal 14 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 5.2 + ${dbead}
+    variable x equal 5.2 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 5.5 ${y} ${z}
+    create_atoms 2 single 5.5 2.5 ${z}
+    create_atoms 2 single 5.5 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 5.5
+    variable step equal ${step} + 1
+    variable step equal 15 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 5.5 + ${dbead}
+    variable x equal 5.5 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 5.8 ${y} ${z}
+    create_atoms 2 single 5.8 2.5 ${z}
+    create_atoms 2 single 5.8 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 5.8
+    variable step equal ${step} + 1
+    variable step equal 16 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 5.8 + ${dbead}
+    variable x equal 5.8 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 6.1 ${y} ${z}
+    create_atoms 2 single 6.1 2.5 ${z}
+    create_atoms 2 single 6.1 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 6.1
+    variable step equal ${step} + 1
+    variable step equal 17 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 6.1 + ${dbead}
+    variable x equal 6.1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 6.4 ${y} ${z}
+    create_atoms 2 single 6.4 2.5 ${z}
+    create_atoms 2 single 6.4 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 6.4
+    variable step equal ${step} + 1
+    variable step equal 18 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 6.4 + ${dbead}
+    variable x equal 6.4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 6.7 ${y} ${z}
+    create_atoms 2 single 6.7 2.5 ${z}
+    create_atoms 2 single 6.7 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 6.7
+    variable step equal ${step} + 1
+    variable step equal 19 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 6.7 + ${dbead}
+    variable x equal 6.7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7 ${y} ${z}
+    create_atoms 2 single 7 2.5 ${z}
+    create_atoms 2 single 7 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7
+    variable step equal ${step} + 1
+    variable step equal 20 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7 + ${dbead}
+    variable x equal 7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7.3 ${y} ${z}
+    create_atoms 2 single 7.3 2.5 ${z}
+    create_atoms 2 single 7.3 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7.3
+    variable step equal ${step} + 1
+    variable step equal 21 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7.3 + ${dbead}
+    variable x equal 7.3 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7.6 ${y} ${z}
+    create_atoms 2 single 7.6 2.5 ${z}
+    create_atoms 2 single 7.6 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7.6
+    variable step equal ${step} + 1
+    variable step equal 22 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7.6 + ${dbead}
+    variable x equal 7.6 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7.9 ${y} ${z}
+    create_atoms 2 single 7.9 2.5 ${z}
+    create_atoms 2 single 7.9 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7.9
+    variable step equal ${step} + 1
+    variable step equal 23 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7.9 + ${dbead}
+    variable x equal 7.9 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 8.2 ${y} ${z}
+    create_atoms 2 single 8.2 2.5 ${z}
+    create_atoms 2 single 8.2 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 8.2
+    variable step equal ${step} + 1
+    variable step equal 24 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 8.2 + ${dbead}
+    variable x equal 8.2 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 8.5 ${y} ${z}
+    create_atoms 2 single 8.5 2.5 ${z}
+    create_atoms 2 single 8.5 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 8.5
+    variable step equal ${step} + 1
+    variable step equal 25 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 8.5 + ${dbead}
+    variable x equal 8.5 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 8.8 ${y} ${z}
+    create_atoms 2 single 8.8 2.5 ${z}
+    create_atoms 2 single 8.8 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 8.8
+    variable step equal ${step} + 1
+    variable step equal 26 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 8.8 + ${dbead}
+    variable x equal 8.8 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 9.1 ${y} ${z}
+    create_atoms 2 single 9.1 2.5 ${z}
+    create_atoms 2 single 9.1 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 9.1
+    variable step equal ${step} + 1
+    variable step equal 27 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 9.1 + ${dbead}
+    variable x equal 9.1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 9.4 ${y} ${z}
+    create_atoms 2 single 9.4 2.5 ${z}
+    create_atoms 2 single 9.4 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 9.4
+    variable step equal ${step} + 1
+    variable step equal 28 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 9.4 + ${dbead}
+    variable x equal 9.4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 9.7 ${y} ${z}
+    create_atoms 2 single 9.7 2.5 ${z}
+    create_atoms 2 single 9.7 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 9.7
+    variable step equal ${step} + 1
+    variable step equal 29 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 9.7 + ${dbead}
+    variable x equal 9.7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 10 ${y} ${z}
+    create_atoms 2 single 10 2.5 ${z}
+    create_atoms 2 single 10 2.5 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 10
+    variable step equal ${step} + 1
+    variable step equal 30 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+jump SELF end_inner
+variable x0 equal 1.0
+variable y0 equal 1.0
+variable step equal 1
+next Ny
+jump SELF loop_y
+label loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1 + ${dbead}
+    variable x equal 1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 1.3 ${y} ${z}
+    create_atoms 2 single 1.3 4 ${z}
+    create_atoms 2 single 1.3 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 1.3
+    variable step equal ${step} + 1
+    variable step equal 1 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1.3 + ${dbead}
+    variable x equal 1.3 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 1.6 ${y} ${z}
+    create_atoms 2 single 1.6 4 ${z}
+    create_atoms 2 single 1.6 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 1.6
+    variable step equal ${step} + 1
+    variable step equal 2 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1.6 + ${dbead}
+    variable x equal 1.6 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 1.9 ${y} ${z}
+    create_atoms 2 single 1.9 4 ${z}
+    create_atoms 2 single 1.9 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 1.9
+    variable step equal ${step} + 1
+    variable step equal 3 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1.9 + ${dbead}
+    variable x equal 1.9 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 2.2 ${y} ${z}
+    create_atoms 2 single 2.2 4 ${z}
+    create_atoms 2 single 2.2 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 2.2
+    variable step equal ${step} + 1
+    variable step equal 4 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 2.2 + ${dbead}
+    variable x equal 2.2 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 2.5 ${y} ${z}
+    create_atoms 2 single 2.5 4 ${z}
+    create_atoms 2 single 2.5 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 2.5
+    variable step equal ${step} + 1
+    variable step equal 5 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 2.5 + ${dbead}
+    variable x equal 2.5 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 2.8 ${y} ${z}
+    create_atoms 2 single 2.8 4 ${z}
+    create_atoms 2 single 2.8 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 2.8
+    variable step equal ${step} + 1
+    variable step equal 6 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 2.8 + ${dbead}
+    variable x equal 2.8 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 3.1 ${y} ${z}
+    create_atoms 2 single 3.1 4 ${z}
+    create_atoms 2 single 3.1 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 3.1
+    variable step equal ${step} + 1
+    variable step equal 7 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 3.1 + ${dbead}
+    variable x equal 3.1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 3.4 ${y} ${z}
+    create_atoms 2 single 3.4 4 ${z}
+    create_atoms 2 single 3.4 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 3.4
+    variable step equal ${step} + 1
+    variable step equal 8 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 3.4 + ${dbead}
+    variable x equal 3.4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 3.7 ${y} ${z}
+    create_atoms 2 single 3.7 4 ${z}
+    create_atoms 2 single 3.7 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 3.7
+    variable step equal ${step} + 1
+    variable step equal 9 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 3.7 + ${dbead}
+    variable x equal 3.7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4 ${y} ${z}
+    create_atoms 2 single 4 4 ${z}
+    create_atoms 2 single 4 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4
+    variable step equal ${step} + 1
+    variable step equal 10 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4 + ${dbead}
+    variable x equal 4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4.3 ${y} ${z}
+    create_atoms 2 single 4.3 4 ${z}
+    create_atoms 2 single 4.3 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4.3
+    variable step equal ${step} + 1
+    variable step equal 11 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4.3 + ${dbead}
+    variable x equal 4.3 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4.6 ${y} ${z}
+    create_atoms 2 single 4.6 4 ${z}
+    create_atoms 2 single 4.6 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4.6
+    variable step equal ${step} + 1
+    variable step equal 12 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4.6 + ${dbead}
+    variable x equal 4.6 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4.9 ${y} ${z}
+    create_atoms 2 single 4.9 4 ${z}
+    create_atoms 2 single 4.9 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4.9
+    variable step equal ${step} + 1
+    variable step equal 13 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4.9 + ${dbead}
+    variable x equal 4.9 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 5.2 ${y} ${z}
+    create_atoms 2 single 5.2 4 ${z}
+    create_atoms 2 single 5.2 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 5.2
+    variable step equal ${step} + 1
+    variable step equal 14 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 5.2 + ${dbead}
+    variable x equal 5.2 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 5.5 ${y} ${z}
+    create_atoms 2 single 5.5 4 ${z}
+    create_atoms 2 single 5.5 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 5.5
+    variable step equal ${step} + 1
+    variable step equal 15 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 5.5 + ${dbead}
+    variable x equal 5.5 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 5.8 ${y} ${z}
+    create_atoms 2 single 5.8 4 ${z}
+    create_atoms 2 single 5.8 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 5.8
+    variable step equal ${step} + 1
+    variable step equal 16 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 5.8 + ${dbead}
+    variable x equal 5.8 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 6.1 ${y} ${z}
+    create_atoms 2 single 6.1 4 ${z}
+    create_atoms 2 single 6.1 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 6.1
+    variable step equal ${step} + 1
+    variable step equal 17 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 6.1 + ${dbead}
+    variable x equal 6.1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 6.4 ${y} ${z}
+    create_atoms 2 single 6.4 4 ${z}
+    create_atoms 2 single 6.4 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 6.4
+    variable step equal ${step} + 1
+    variable step equal 18 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 6.4 + ${dbead}
+    variable x equal 6.4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 6.7 ${y} ${z}
+    create_atoms 2 single 6.7 4 ${z}
+    create_atoms 2 single 6.7 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 6.7
+    variable step equal ${step} + 1
+    variable step equal 19 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 6.7 + ${dbead}
+    variable x equal 6.7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7 ${y} ${z}
+    create_atoms 2 single 7 4 ${z}
+    create_atoms 2 single 7 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7
+    variable step equal ${step} + 1
+    variable step equal 20 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7 + ${dbead}
+    variable x equal 7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7.3 ${y} ${z}
+    create_atoms 2 single 7.3 4 ${z}
+    create_atoms 2 single 7.3 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7.3
+    variable step equal ${step} + 1
+    variable step equal 21 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7.3 + ${dbead}
+    variable x equal 7.3 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7.6 ${y} ${z}
+    create_atoms 2 single 7.6 4 ${z}
+    create_atoms 2 single 7.6 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7.6
+    variable step equal ${step} + 1
+    variable step equal 22 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7.6 + ${dbead}
+    variable x equal 7.6 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7.9 ${y} ${z}
+    create_atoms 2 single 7.9 4 ${z}
+    create_atoms 2 single 7.9 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7.9
+    variable step equal ${step} + 1
+    variable step equal 23 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7.9 + ${dbead}
+    variable x equal 7.9 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 8.2 ${y} ${z}
+    create_atoms 2 single 8.2 4 ${z}
+    create_atoms 2 single 8.2 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 8.2
+    variable step equal ${step} + 1
+    variable step equal 24 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 8.2 + ${dbead}
+    variable x equal 8.2 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 8.5 ${y} ${z}
+    create_atoms 2 single 8.5 4 ${z}
+    create_atoms 2 single 8.5 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 8.5
+    variable step equal ${step} + 1
+    variable step equal 25 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 8.5 + ${dbead}
+    variable x equal 8.5 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 8.8 ${y} ${z}
+    create_atoms 2 single 8.8 4 ${z}
+    create_atoms 2 single 8.8 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 8.8
+    variable step equal ${step} + 1
+    variable step equal 26 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 8.8 + ${dbead}
+    variable x equal 8.8 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 9.1 ${y} ${z}
+    create_atoms 2 single 9.1 4 ${z}
+    create_atoms 2 single 9.1 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 9.1
+    variable step equal ${step} + 1
+    variable step equal 27 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 9.1 + ${dbead}
+    variable x equal 9.1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 9.4 ${y} ${z}
+    create_atoms 2 single 9.4 4 ${z}
+    create_atoms 2 single 9.4 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 9.4
+    variable step equal ${step} + 1
+    variable step equal 28 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 9.4 + ${dbead}
+    variable x equal 9.4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 9.7 ${y} ${z}
+    create_atoms 2 single 9.7 4 ${z}
+    create_atoms 2 single 9.7 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 9.7
+    variable step equal ${step} + 1
+    variable step equal 29 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 9.7 + ${dbead}
+    variable x equal 9.7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 30 + 1.5*${Nz}
+    variable z equal 30 + 1.5*1
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 10 ${y} ${z}
+    create_atoms 2 single 10 4 ${z}
+    create_atoms 2 single 10 4 31.5
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 10
+    variable step equal ${step} + 1
+    variable step equal 30 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+jump SELF end_inner
+variable x0 equal 1.0
+variable y0 equal 1.0
+variable step equal 1
+next Ny
+jump SELF loop_y
+variable x0 equal 1.0
+variable y0 equal 1.0
+variable z0 equal 3.0
+variable step equal 1
+variable Ny loop ${Ny_val}
+variable Ny loop 2
+next Nz
+jump SELF loop_z
+label loop_y
+label loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1 + ${dbead}
+    variable x equal 1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 1.3 ${y} ${z}
+    create_atoms 2 single 1.3 2.5 ${z}
+    create_atoms 2 single 1.3 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 1.3
+    variable step equal ${step} + 1
+    variable step equal 1 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1.3 + ${dbead}
+    variable x equal 1.3 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 1.6 ${y} ${z}
+    create_atoms 2 single 1.6 2.5 ${z}
+    create_atoms 2 single 1.6 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 1.6
+    variable step equal ${step} + 1
+    variable step equal 2 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1.6 + ${dbead}
+    variable x equal 1.6 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 1.9 ${y} ${z}
+    create_atoms 2 single 1.9 2.5 ${z}
+    create_atoms 2 single 1.9 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 1.9
+    variable step equal ${step} + 1
+    variable step equal 3 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1.9 + ${dbead}
+    variable x equal 1.9 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 2.2 ${y} ${z}
+    create_atoms 2 single 2.2 2.5 ${z}
+    create_atoms 2 single 2.2 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 2.2
+    variable step equal ${step} + 1
+    variable step equal 4 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 2.2 + ${dbead}
+    variable x equal 2.2 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 2.5 ${y} ${z}
+    create_atoms 2 single 2.5 2.5 ${z}
+    create_atoms 2 single 2.5 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 2.5
+    variable step equal ${step} + 1
+    variable step equal 5 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 2.5 + ${dbead}
+    variable x equal 2.5 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 2.8 ${y} ${z}
+    create_atoms 2 single 2.8 2.5 ${z}
+    create_atoms 2 single 2.8 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 2.8
+    variable step equal ${step} + 1
+    variable step equal 6 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 2.8 + ${dbead}
+    variable x equal 2.8 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 3.1 ${y} ${z}
+    create_atoms 2 single 3.1 2.5 ${z}
+    create_atoms 2 single 3.1 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 3.1
+    variable step equal ${step} + 1
+    variable step equal 7 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 3.1 + ${dbead}
+    variable x equal 3.1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 3.4 ${y} ${z}
+    create_atoms 2 single 3.4 2.5 ${z}
+    create_atoms 2 single 3.4 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 3.4
+    variable step equal ${step} + 1
+    variable step equal 8 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 3.4 + ${dbead}
+    variable x equal 3.4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 3.7 ${y} ${z}
+    create_atoms 2 single 3.7 2.5 ${z}
+    create_atoms 2 single 3.7 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 3.7
+    variable step equal ${step} + 1
+    variable step equal 9 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 3.7 + ${dbead}
+    variable x equal 3.7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4 ${y} ${z}
+    create_atoms 2 single 4 2.5 ${z}
+    create_atoms 2 single 4 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4
+    variable step equal ${step} + 1
+    variable step equal 10 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4 + ${dbead}
+    variable x equal 4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4.3 ${y} ${z}
+    create_atoms 2 single 4.3 2.5 ${z}
+    create_atoms 2 single 4.3 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4.3
+    variable step equal ${step} + 1
+    variable step equal 11 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4.3 + ${dbead}
+    variable x equal 4.3 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4.6 ${y} ${z}
+    create_atoms 2 single 4.6 2.5 ${z}
+    create_atoms 2 single 4.6 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4.6
+    variable step equal ${step} + 1
+    variable step equal 12 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4.6 + ${dbead}
+    variable x equal 4.6 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4.9 ${y} ${z}
+    create_atoms 2 single 4.9 2.5 ${z}
+    create_atoms 2 single 4.9 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4.9
+    variable step equal ${step} + 1
+    variable step equal 13 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4.9 + ${dbead}
+    variable x equal 4.9 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 5.2 ${y} ${z}
+    create_atoms 2 single 5.2 2.5 ${z}
+    create_atoms 2 single 5.2 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 5.2
+    variable step equal ${step} + 1
+    variable step equal 14 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 5.2 + ${dbead}
+    variable x equal 5.2 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 5.5 ${y} ${z}
+    create_atoms 2 single 5.5 2.5 ${z}
+    create_atoms 2 single 5.5 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 5.5
+    variable step equal ${step} + 1
+    variable step equal 15 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 5.5 + ${dbead}
+    variable x equal 5.5 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 5.8 ${y} ${z}
+    create_atoms 2 single 5.8 2.5 ${z}
+    create_atoms 2 single 5.8 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 5.8
+    variable step equal ${step} + 1
+    variable step equal 16 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 5.8 + ${dbead}
+    variable x equal 5.8 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 6.1 ${y} ${z}
+    create_atoms 2 single 6.1 2.5 ${z}
+    create_atoms 2 single 6.1 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 6.1
+    variable step equal ${step} + 1
+    variable step equal 17 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 6.1 + ${dbead}
+    variable x equal 6.1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 6.4 ${y} ${z}
+    create_atoms 2 single 6.4 2.5 ${z}
+    create_atoms 2 single 6.4 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 6.4
+    variable step equal ${step} + 1
+    variable step equal 18 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 6.4 + ${dbead}
+    variable x equal 6.4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 6.7 ${y} ${z}
+    create_atoms 2 single 6.7 2.5 ${z}
+    create_atoms 2 single 6.7 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 6.7
+    variable step equal ${step} + 1
+    variable step equal 19 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 6.7 + ${dbead}
+    variable x equal 6.7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7 ${y} ${z}
+    create_atoms 2 single 7 2.5 ${z}
+    create_atoms 2 single 7 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7
+    variable step equal ${step} + 1
+    variable step equal 20 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7 + ${dbead}
+    variable x equal 7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7.3 ${y} ${z}
+    create_atoms 2 single 7.3 2.5 ${z}
+    create_atoms 2 single 7.3 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7.3
+    variable step equal ${step} + 1
+    variable step equal 21 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7.3 + ${dbead}
+    variable x equal 7.3 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7.6 ${y} ${z}
+    create_atoms 2 single 7.6 2.5 ${z}
+    create_atoms 2 single 7.6 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7.6
+    variable step equal ${step} + 1
+    variable step equal 22 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7.6 + ${dbead}
+    variable x equal 7.6 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7.9 ${y} ${z}
+    create_atoms 2 single 7.9 2.5 ${z}
+    create_atoms 2 single 7.9 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7.9
+    variable step equal ${step} + 1
+    variable step equal 23 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7.9 + ${dbead}
+    variable x equal 7.9 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 8.2 ${y} ${z}
+    create_atoms 2 single 8.2 2.5 ${z}
+    create_atoms 2 single 8.2 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 8.2
+    variable step equal ${step} + 1
+    variable step equal 24 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 8.2 + ${dbead}
+    variable x equal 8.2 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 8.5 ${y} ${z}
+    create_atoms 2 single 8.5 2.5 ${z}
+    create_atoms 2 single 8.5 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 8.5
+    variable step equal ${step} + 1
+    variable step equal 25 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 8.5 + ${dbead}
+    variable x equal 8.5 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 8.8 ${y} ${z}
+    create_atoms 2 single 8.8 2.5 ${z}
+    create_atoms 2 single 8.8 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 8.8
+    variable step equal ${step} + 1
+    variable step equal 26 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 8.8 + ${dbead}
+    variable x equal 8.8 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 9.1 ${y} ${z}
+    create_atoms 2 single 9.1 2.5 ${z}
+    create_atoms 2 single 9.1 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 9.1
+    variable step equal ${step} + 1
+    variable step equal 27 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 9.1 + ${dbead}
+    variable x equal 9.1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 9.4 ${y} ${z}
+    create_atoms 2 single 9.4 2.5 ${z}
+    create_atoms 2 single 9.4 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 9.4
+    variable step equal ${step} + 1
+    variable step equal 28 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 9.4 + ${dbead}
+    variable x equal 9.4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 9.7 ${y} ${z}
+    create_atoms 2 single 9.7 2.5 ${z}
+    create_atoms 2 single 9.7 2.5 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 9.7
+    variable step equal ${step} + 1
+    variable step equal 29 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 9.7 + ${dbead}
+    variable x equal 9.7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*1
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 10 ${y} ${z}
+    create_atoms 2 single 10 2.5 ${z}
+    create_atoms 2 single 10 2.5 6
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 10
+    variable step equal ${step} + 1
+    variable step equal 30 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+jump SELF end_inner
+variable x0 equal 1.0
+variable y0 equal 1.0
+variable step equal 1
+next Ny
+jump SELF loop_y
+label loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1 + ${dbead}
+    variable x equal 1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 1.3 ${y} ${z}
+    create_atoms 2 single 1.3 4 ${z}
+    create_atoms 2 single 1.3 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 1.3
+    variable step equal ${step} + 1
+    variable step equal 1 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1.3 + ${dbead}
+    variable x equal 1.3 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 1.6 ${y} ${z}
+    create_atoms 2 single 1.6 4 ${z}
+    create_atoms 2 single 1.6 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 1.6
+    variable step equal ${step} + 1
+    variable step equal 2 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1.6 + ${dbead}
+    variable x equal 1.6 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 1.9 ${y} ${z}
+    create_atoms 2 single 1.9 4 ${z}
+    create_atoms 2 single 1.9 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 1.9
+    variable step equal ${step} + 1
+    variable step equal 3 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 1.9 + ${dbead}
+    variable x equal 1.9 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 2.2 ${y} ${z}
+    create_atoms 2 single 2.2 4 ${z}
+    create_atoms 2 single 2.2 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 2.2
+    variable step equal ${step} + 1
+    variable step equal 4 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 2.2 + ${dbead}
+    variable x equal 2.2 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 2.5 ${y} ${z}
+    create_atoms 2 single 2.5 4 ${z}
+    create_atoms 2 single 2.5 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 2.5
+    variable step equal ${step} + 1
+    variable step equal 5 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 2.5 + ${dbead}
+    variable x equal 2.5 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 2.8 ${y} ${z}
+    create_atoms 2 single 2.8 4 ${z}
+    create_atoms 2 single 2.8 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 2.8
+    variable step equal ${step} + 1
+    variable step equal 6 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 2.8 + ${dbead}
+    variable x equal 2.8 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 3.1 ${y} ${z}
+    create_atoms 2 single 3.1 4 ${z}
+    create_atoms 2 single 3.1 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 3.1
+    variable step equal ${step} + 1
+    variable step equal 7 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 3.1 + ${dbead}
+    variable x equal 3.1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 3.4 ${y} ${z}
+    create_atoms 2 single 3.4 4 ${z}
+    create_atoms 2 single 3.4 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 3.4
+    variable step equal ${step} + 1
+    variable step equal 8 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 3.4 + ${dbead}
+    variable x equal 3.4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 3.7 ${y} ${z}
+    create_atoms 2 single 3.7 4 ${z}
+    create_atoms 2 single 3.7 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 3.7
+    variable step equal ${step} + 1
+    variable step equal 9 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 3.7 + ${dbead}
+    variable x equal 3.7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4 ${y} ${z}
+    create_atoms 2 single 4 4 ${z}
+    create_atoms 2 single 4 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4
+    variable step equal ${step} + 1
+    variable step equal 10 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4 + ${dbead}
+    variable x equal 4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4.3 ${y} ${z}
+    create_atoms 2 single 4.3 4 ${z}
+    create_atoms 2 single 4.3 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4.3
+    variable step equal ${step} + 1
+    variable step equal 11 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4.3 + ${dbead}
+    variable x equal 4.3 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4.6 ${y} ${z}
+    create_atoms 2 single 4.6 4 ${z}
+    create_atoms 2 single 4.6 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4.6
+    variable step equal ${step} + 1
+    variable step equal 12 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4.6 + ${dbead}
+    variable x equal 4.6 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 4.9 ${y} ${z}
+    create_atoms 2 single 4.9 4 ${z}
+    create_atoms 2 single 4.9 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 4.9
+    variable step equal ${step} + 1
+    variable step equal 13 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 4.9 + ${dbead}
+    variable x equal 4.9 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 5.2 ${y} ${z}
+    create_atoms 2 single 5.2 4 ${z}
+    create_atoms 2 single 5.2 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 5.2
+    variable step equal ${step} + 1
+    variable step equal 14 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 5.2 + ${dbead}
+    variable x equal 5.2 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 5.5 ${y} ${z}
+    create_atoms 2 single 5.5 4 ${z}
+    create_atoms 2 single 5.5 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 5.5
+    variable step equal ${step} + 1
+    variable step equal 15 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 5.5 + ${dbead}
+    variable x equal 5.5 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 5.8 ${y} ${z}
+    create_atoms 2 single 5.8 4 ${z}
+    create_atoms 2 single 5.8 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 5.8
+    variable step equal ${step} + 1
+    variable step equal 16 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 5.8 + ${dbead}
+    variable x equal 5.8 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 6.1 ${y} ${z}
+    create_atoms 2 single 6.1 4 ${z}
+    create_atoms 2 single 6.1 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 6.1
+    variable step equal ${step} + 1
+    variable step equal 17 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 6.1 + ${dbead}
+    variable x equal 6.1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 6.4 ${y} ${z}
+    create_atoms 2 single 6.4 4 ${z}
+    create_atoms 2 single 6.4 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 6.4
+    variable step equal ${step} + 1
+    variable step equal 18 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 6.4 + ${dbead}
+    variable x equal 6.4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 6.7 ${y} ${z}
+    create_atoms 2 single 6.7 4 ${z}
+    create_atoms 2 single 6.7 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 6.7
+    variable step equal ${step} + 1
+    variable step equal 19 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 6.7 + ${dbead}
+    variable x equal 6.7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7 ${y} ${z}
+    create_atoms 2 single 7 4 ${z}
+    create_atoms 2 single 7 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7
+    variable step equal ${step} + 1
+    variable step equal 20 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7 + ${dbead}
+    variable x equal 7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7.3 ${y} ${z}
+    create_atoms 2 single 7.3 4 ${z}
+    create_atoms 2 single 7.3 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7.3
+    variable step equal ${step} + 1
+    variable step equal 21 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7.3 + ${dbead}
+    variable x equal 7.3 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7.6 ${y} ${z}
+    create_atoms 2 single 7.6 4 ${z}
+    create_atoms 2 single 7.6 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7.6
+    variable step equal ${step} + 1
+    variable step equal 22 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7.6 + ${dbead}
+    variable x equal 7.6 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 7.9 ${y} ${z}
+    create_atoms 2 single 7.9 4 ${z}
+    create_atoms 2 single 7.9 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 7.9
+    variable step equal ${step} + 1
+    variable step equal 23 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 7.9 + ${dbead}
+    variable x equal 7.9 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 8.2 ${y} ${z}
+    create_atoms 2 single 8.2 4 ${z}
+    create_atoms 2 single 8.2 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 8.2
+    variable step equal ${step} + 1
+    variable step equal 24 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 8.2 + ${dbead}
+    variable x equal 8.2 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 8.5 ${y} ${z}
+    create_atoms 2 single 8.5 4 ${z}
+    create_atoms 2 single 8.5 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 8.5
+    variable step equal ${step} + 1
+    variable step equal 25 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 8.5 + ${dbead}
+    variable x equal 8.5 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 8.8 ${y} ${z}
+    create_atoms 2 single 8.8 4 ${z}
+    create_atoms 2 single 8.8 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 8.8
+    variable step equal ${step} + 1
+    variable step equal 26 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 8.8 + ${dbead}
+    variable x equal 8.8 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 9.1 ${y} ${z}
+    create_atoms 2 single 9.1 4 ${z}
+    create_atoms 2 single 9.1 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 9.1
+    variable step equal ${step} + 1
+    variable step equal 27 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 9.1 + ${dbead}
+    variable x equal 9.1 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 9.4 ${y} ${z}
+    create_atoms 2 single 9.4 4 ${z}
+    create_atoms 2 single 9.4 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 9.4
+    variable step equal ${step} + 1
+    variable step equal 28 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 9.4 + ${dbead}
+    variable x equal 9.4 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 9.7 ${y} ${z}
+    create_atoms 2 single 9.7 4 ${z}
+    create_atoms 2 single 9.7 4 6
+Created 1 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 9.7
+    variable step equal ${step} + 1
+    variable step equal 29 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+    variable x equal ${x0} + ${dbead}
+    variable x equal 9.7 + ${dbead}
+    variable x equal 9.7 + 0.3
+    variable y equal ${y0} + 1.5*${Ny}
+    variable y equal 1 + 1.5*${Ny}
+    variable y equal 1 + 1.5*2
+    variable z equal ${z0} + 1.5*${Nz}
+    variable z equal 3 + 1.5*${Nz}
+    variable z equal 3 + 1.5*2
+    create_atoms 2 single ${x} ${y} ${z}
+    create_atoms 2 single 10 ${y} ${z}
+    create_atoms 2 single 10 4 ${z}
+    create_atoms 2 single 10 4 6
+Created 0 atoms
+  using lattice units in orthogonal box = (0 0 0) to (92.831777 92.831777 92.831777)
+  create_atoms CPU = 0.000 seconds
+    variable x0 equal ${x}
+    variable x0 equal 10
+    variable step equal ${step} + 1
+    variable step equal 30 + 1
+jump SELF loop_bead
+if "${step} > ${N}" then "jump SELF end_inner"
+jump SELF end_inner
+variable x0 equal 1.0
+variable y0 equal 1.0
+variable step equal 1
+next Ny
+jump SELF loop_y
+variable x0 equal 1.0
+variable y0 equal 1.0
+variable z0 equal 3.0
+variable step equal 1
+variable Ny loop ${Ny_val}
+variable Ny loop 2
+next Nz
+jump SELF loop_z
+
+###################################################################
+# Create groups, finish setup, etc
+#
+
+group           all type 1 2
+2528 atoms in group all
+group           atoms type 1
+2470 atoms in group atoms
+group           polys type 2
+58 atoms in group polys
+#mass * 1.0
+group		subA region lower
+1235 atoms in group subA
+group		subB region upper
+1235 atoms in group subB
+set group	subA vx 0.0 vy 0.0 vz 0.5
+Setting atom values ...
+  1235 settings made for vx
+  1235 settings made for vy
+  1235 settings made for vz
+set group	subB vx -0.01 vy 0.02 vz -0.5
+Setting atom values ...
+  1235 settings made for vx
+  1235 settings made for vy
+  1235 settings made for vz
+
+velocity 	all create 0.01 87287 loop geom
+# If ellipsoid
+set             group all mass 1.0
+Setting atom values ...
+  2528 settings made for mass
+set             group all shape 1.0 0.4 0.8
+Setting atom values ...
+  2528 settings made for shape
+set             group all quat/random 29898
+Setting atom values ...
+  2528 settings made for quat/random
+set      	group all angmom 0.0 0.0 0.0
+Setting atom values ...
+  2528 settings made for angmom
+
+neighbor        1.5 bin
+neigh_modify    delay 0 every 100 check yes
+
+###################################################################
+# Pair interaction between non-bonded atoms
+#
+#pair_style      lj/cut 1.12246152962189
+#pair_coeff      * * 1.0 1.0
+#pair_modify     shift yes
+
+pair_style   resquared 4.0
+pair_coeff   1 1 3.0 1 1 1 1 1 1 1 2.5
+pair_coeff   1 2 3.0 1 1 1 1 0 0 0
+pair_coeff   2 2 1.0 1 1 1 0.2 0 0 0
+
+###################################################################
+# Pair interaction between bonded atoms
+#
+create_bonds many polys polys 1 1.5 2.5
+Generated 0 of 1 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 100 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 5.5
+  ghost atom cutoff = 5.5
+  binsize = 2.75, bins = 34 34 34
+  2 neighbor lists, perpetual/occasional/extra = 1 1 0
+  (1) command create_bonds, occasional
+      attributes: full, newton on
+      pair build: full/bin
+      stencil: full/bin/3d
+      bin: standard
+  (2) pair resquared, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+Added 0 bonds, new total = 0
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+bond_style harmonic
+bond_coeff 1 10.0 1.5
+special_bonds lj 0.0 1.0 1.0
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        1        1       
+  special bond factors coul:  0        0        0       
+     0 = max # of 1-2 neighbors
+     0 = max # of 1-3 neighbors
+     0 = max # of 1-4 neighbors
+     1 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+
+###################################################
+
+comm_modify cutoff 6
+
+###
+# Set up fixes
+###
+
+fix 1 all   nve   ###NVE ensemble
+#fix 2 all   langevin   1.0 1.0   2.0   424242   ###Langevin integrator Tstart Tstop 1/friction rndseed
+
+compute ekin all ke
+compute epot all pe
+compute erot all erotate/asphere
+variable ekin equal c_ekin
+variable epot equal c_epot
+variable erot equal c_erot
+variable etot equal c_ekin+c_epot+c_erot
+
+fix 3 all print 1000 "$(step)  ekin = ${ekin} | epot = ${epot} | erot = ${erot} | etot = ${etot}" screen yes
+
+compute q all property/atom quatw quati quatj quatk
+compute diameter all property/atom shapex shapey shapez
+dump 1 all custom 1000 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
+dump_modify 1 colname c_q[1] quatw colname c_q[2] quati colname c_q[3] quatj colname c_q[4] quatk
+
+##### Sample thermodynamic info  (temperature, energy, pressure, etc.) #####
+#thermo 10000
+#thermo_style   custom   step  temp  epair  emol  press pxx pyy pzz  vol
+############################################################################
+
+timestep 0.0001
+
+run 50000
+Generated 0 of 1 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 100 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 5.5
+  ghost atom cutoff = 6
+  binsize = 2.75, bins = 34 34 34
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair resquared, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+0  ekin = 37.905 | epot = -0.00111495085796065 | erot = 0 | etot = 37.9038850491421
+Per MPI rank memory allocation (min/avg/max) = 5.999 | 6 | 6 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0.01          -4.4104069e-07  0              0.014993625    3.1584232e-05
+1000  ekin = 37.9050000412921 | epot = -0.0011149921500725 | erot = 0 | etot = 37.9038850491421
+2000  ekin = 37.905001409069 | epot = -0.00111635992693179 | erot = 0 | etot = 37.9038850491421
+3000  ekin = 37.9050041157743 | epot = -0.00111906663224788 | erot = 0 | etot = 37.9038850491421
+4000  ekin = 37.9050081795731 | epot = -0.00112313043105827 | erot = 0 | etot = 37.9038850491421
+5000  ekin = 37.9050136242332 | epot = -0.00112857509115873 | erot = 0 | etot = 37.9038850491421
+6000  ekin = 37.9050204790177 | epot = -0.00113542987559137 | erot = 0 | etot = 37.9038850491421
+7000  ekin = 37.9050287785822 | epot = -0.00114372944010193 | erot = 0 | etot = 37.9038850491421
+8000  ekin = 37.9050385628721 | epot = -0.00115351372999684 | erot = 0 | etot = 37.9038850491421
+9000  ekin = 37.9050498770137 | epot = -0.00116482787161717 | erot = 0 | etot = 37.9038850491421
+10000  ekin = 37.9050627711969 | epot = -0.00117772205476857 | erot = 0 | etot = 37.9038850491421
+11000  ekin = 37.9050773005461 | epot = -0.00119225140396182 | erot = 0 | etot = 37.9038850491421
+12000  ekin = 37.9050935249804 | epot = -0.00120847583828591 | erot = 0 | etot = 37.9038850491421
+13000  ekin = 37.9051115090643 | epot = -0.00122645992217349 | erot = 0 | etot = 37.9038850491421
+14000  ekin = 37.9051313218543 | epot = -0.00124627271222676 | erot = 0 | etot = 37.9038850491421
+15000  ekin = 37.9051530367507 | epot = -0.00126798760859516 | erot = 0 | etot = 37.9038850491421
+16000  ekin = 37.9051767313651 | epot = -0.00129168222301483 | erot = 0 | etot = 37.9038850491421
+17000  ekin = 37.9052024874215 | epot = -0.00131743827937157 | erot = 0 | etot = 37.9038850491421
+18000  ekin = 37.9052303907084 | epot = -0.00134534156627996 | erot = 0 | etot = 37.9038850491421
+19000  ekin = 37.9052605311065 | epot = -0.0013754819644065 | erot = 0 | etot = 37.9038850491421
+20000  ekin = 37.9052930027159 | epot = -0.00140795357376823 | erot = 0 | etot = 37.9038850491422
+21000  ekin = 37.9053279041099 | epot = -0.00144285496771123 | erot = 0 | etot = 37.9038850491422
+22000  ekin = 37.9053653387426 | epot = -0.00148028960042003 | erot = 0 | etot = 37.9038850491422
+23000  ekin = 37.9054054155356 | epot = -0.00152036639343095 | erot = 0 | etot = 37.9038850491422
+24000  ekin = 37.9054482496658 | epot = -0.00156320052359586 | erot = 0 | etot = 37.9038850491422
+25000  ekin = 37.9054939635725 | epot = -0.00160891443027593 | erot = 0 | etot = 37.9038850491422
+26000  ekin = 37.9055426881955 | epot = -0.00165763905327651 | erot = 0 | etot = 37.9038850491422
+27000  ekin = 37.9055945644475 | epot = -0.00170951530529209 | erot = 0 | etot = 37.9038850491422
+28000  ekin = 37.9056497449157 | epot = -0.00176469577348855 | erot = 0 | etot = 37.9038850491422
+29000  ekin = 37.9057083957765 | epot = -0.00182334663429023 | erot = 0 | etot = 37.9038850491423
+30000  ekin = 37.9057706988955 | epot = -0.00188564975326387 | erot = 0 | etot = 37.9038850491423
+31000  ekin = 37.9058368540701 | epot = -0.00195180492780564 | erot = 0 | etot = 37.9038850491423
+32000  ekin = 37.9059070813557 | epot = -0.0020220322133775 | erot = 0 | etot = 37.9038850491423
+33000  ekin = 37.9059816233956 | epot = -0.0020965742532509 | erot = 0 | etot = 37.9038850491423
+34000  ekin = 37.9060607476479 | epot = -0.00217569850557674 | erot = 0 | etot = 37.9038850491424
+35000  ekin = 37.906150270204 | epot = -0.00239865060846088 | erot = 0 | etot = 37.9037516195955
+36000  ekin = 37.9062679849184 | epot = -0.00267251598265632 | erot = 0 | etot = 37.9035954689357
+37000  ekin = 37.9064196825606 | epot = -0.0029959415130669 | erot = 0 | etot = 37.9034237410476
+38000  ekin = 37.9065898969072 | epot = -0.00325878287172281 | erot = 0 | etot = 37.9033311140354
+39000  ekin = 37.9067870482884 | epot = -0.00345593425272145 | erot = 0 | etot = 37.9033311140356
+40000  ekin = 37.9070077601615 | epot = -0.00380017051160387 | erot = 0 | etot = 37.9032075896499
+41000  ekin = 37.9072606854038 | epot = -0.00405309575371401 | erot = 0 | etot = 37.9032075896501
+42000  ekin = 37.9075507667369 | epot = -0.00446147057708186 | erot = 0 | etot = 37.9030892961598
+43000  ekin = 37.9078805693794 | epot = -0.00491533672218297 | erot = 0 | etot = 37.9029652326572
+44000  ekin = 37.9082582460849 | epot = -0.00543703933656789 | erot = 0 | etot = 37.9028212067483
+45000  ekin = 37.9087034136788 | epot = -0.00600567960916048 | erot = 0 | etot = 37.9026977340696
+46000  ekin = 37.9092059800275 | epot = -0.00665227370248418 | erot = 0 | etot = 37.902553706325
+47000  ekin = 37.9098010706273 | epot = -0.0076087848673841 | erot = 0 | etot = 37.9021922857599
+48000  ekin = 37.9104913632858 | epot = -0.00857145317708871 | erot = 0 | etot = 37.9019199101088
+49000  ekin = 37.9113037964885 | epot = -0.00990827781381551 | erot = 0 | etot = 37.9013955186747
+50000  ekin = 37.912280604945 | epot = -0.0115474494785227 | erot = 0 | etot = 37.9007331554665
+     50000   0.010001921   -4.5678202e-06  0              0.014992379    3.1560401e-05
+Loop time of 4.39438 on 4 procs for 50000 steps with 2528 atoms
+
+Performance: 98307.376 tau/day, 11378.169 timesteps/s, 28.764 Matom-step/s
+96.5% CPU use with 4 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 1.9987     | 2.4349     | 3.6006     |  43.2 | 55.41
+Bond    | 0.0020122  | 0.0022154  | 0.0024583  |   0.3 |  0.05
+Neigh   | 0.00015389 | 0.00015429 | 0.0001547  |   0.0 |  0.00
+Comm    | 0.55319    | 0.97244    | 2.0929     |  65.7 | 22.13
+Output  | 0.056468   | 0.059793   | 0.062976   |   1.0 |  1.36
+Modify  | 0.14687    | 0.15003    | 0.15562    |   0.9 |  3.41
+Other   |            | 0.7749     |            |       | 17.63
+
+Nlocal:            632 ave         682 max         611 min
+Histogram: 3 0 0 0 0 0 0 0 0 1
+Nghost:           96.5 ave         102 max          93 min
+Histogram: 1 0 1 1 0 0 0 0 0 1
+Neighs:            464 ave         539 max         418 min
+Histogram: 1 1 0 1 0 0 0 0 0 1
+
+Total # of neighbors = 1856
+Ave neighs/atom = 0.73417722
+Ave special neighs/atom = 0
+Neighbor list builds = 1
+Dangerous builds = 0
+
+write_data data_out.* nocoeff
+System init for write_data ...
+Generated 0 of 1 mixed pair_coeff terms from geometric mixing rule
+
+Total wall time: 0:00:05

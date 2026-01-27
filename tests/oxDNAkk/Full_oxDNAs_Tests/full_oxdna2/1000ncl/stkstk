@@ -1,0 +1,330 @@
+LAMMPS (19 Nov 2024 - Development - patch_19Nov2024-565-g145407821d-modified)
+KOKKOS mode with Kokkos version 4.5.1 is enabled (src/KOKKOS/kokkos.cpp:72)
+  will use up to 1 GPU(s) per node
+  using 2 OpenMP thread(s) per MPI task
+WARNING: Atom style hybrid defines both, per-type and per-atom masses; both must be set, but only per-atom masses will be used (src/atom_vec_hybrid.cpp:132)
+Reading data file ...
+  orthogonal box = (0 0 0) to (375 375 375)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  2000 atoms
+  reading velocities ...
+  2000 velocities
+  2000 ellipsoids
+  scanning bonds ...
+  1 = max bonds/atom
+  orthogonal box = (0 0 0) to (375 375 375)
+  1 by 1 by 1 MPI processor grid
+  reading bonds ...
+  1978 bonds
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     2 = max # of 1-2 neighbors
+     2 = max # of 1-3 neighbors
+     4 = max # of 1-4 neighbors
+     6 = max # of special neighbors
+  special bonds CPU = 0.002 seconds
+  read_data CPU = 0.042 seconds
+Setting atom values ...
+  2000 settings made for mass
+2000 atoms in group all
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        1        1       
+  special bond factors coul:  0        0        0       
+     2 = max # of 1-2 neighbors
+     2 = max # of 1-3 neighbors
+     4 = max # of 1-4 neighbors
+     6 = max # of special neighbors
+  special bonds CPU = 0.002 seconds
+Generated 0 of 6 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 5.6389877
+  ghost atom cutoff = 5.6389877
+  binsize = 5.6389877, bins = 67 67 67
+  6 neighbor lists, perpetual/occasional/extra = 6 0 0
+  (1) pair oxdna2/excv, perpetual
+      attributes: half, newton on, kokkos_device
+      pair build: half/bin/newton/kk/device
+      stencil: half/bin/3d
+      bin: kk/device
+  (2) pair oxdna2/stk, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+  (3) pair oxdna2/hbond, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+  (4) pair oxdna2/xstk, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+  (5) pair oxdna2/coaxstk, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+  (6) pair oxdna2/dh, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+Setting up Verlet run ...
+  Unit style    : lj
+  Current step  : 0
+  Time step     : 1e-05
+WARNING: Communication cutoff adjusted to 5.638987723814633 (src/comm.cpp:740)
+WARNING: Inconsistent image flags (src/domain.cpp:1051)
+WARNING: FENE bond too long: 0 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+0  ekin = 0 |  erot = 0 | epot = 23423.0189922252 | ebond = 26822.9846488146 | eexcv = 0.200973932940443 | estk = -2179.11069473885 | ehbond = -938.114936324698 | exstk = -345.234383455046 | ecoaxstk = -1.3511739436492 | edh = 63.6445579399296 | etot = 23423.0189922252
+Per MPI rank memory allocation (min/avg/max) = 11.69 | 11.69 | 11.69 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press          Volume    
+         0   0             -1.6999828      13.411492      11.711509     -0.00016210761  52734375     
+WARNING: FENE bond too long: 1 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 2 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 3 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 4 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 5 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 6 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 7 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 8 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 9 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 10 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 11 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 12 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 13 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 14 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 15 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 16 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 17 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 18 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 19 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 20 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 21 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 22 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 23 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 24 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 25 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 26 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 27 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 28 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 29 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 30 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 31 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 32 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 33 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 34 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 35 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 36 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 37 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 38 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 39 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 40 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 41 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 42 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 43 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 44 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 45 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 46 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 47 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 48 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 49 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 50 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 51 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 52 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 53 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 54 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 55 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 56 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 57 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 58 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 59 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 60 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 61 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 62 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 63 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 64 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 65 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 66 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 67 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 68 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 69 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 70 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 71 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 72 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 73 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 74 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 75 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 76 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 77 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 78 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 79 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 80 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 81 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 82 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 83 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 84 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 85 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 86 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 87 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 88 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 89 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 90 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 91 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 92 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 93 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 94 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 95 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+WARNING: FENE bond too long: 96 (src/KOKKOS/bond_oxdna_fene_kokkos.cpp:157)
+1000  ekin = 0.310398792744363 |  erot = 1.0835116029627 | epot = 23421.6250819184 | ebond = 26822.3331476556 | eexcv = 0.118638830039815 | estk = -2179.77114711998 | ehbond = -938.114632417868 | exstk = -345.240632107353 | ecoaxstk = -1.34668174211229 | edh = 63.6463888200603 | etot = 23423.0189923141
+2000  ekin = 1.17754365013154 |  erot = 4.25317356705693 | epot = 23417.5882750827 | ebond = 26820.3800489174 | eexcv = 0.00762130250620113 | estk = -2181.74756993529 | ehbond = -938.110229937686 | exstk = -345.258173981561 | ecoaxstk = -1.33548244965742 | edh = 63.6520611669296 | etot = 23423.0189922999
+3000  ekin = 2.53269053515515 |  erot = 9.41485185138314 | epot = 23411.0714499257 | ebond = 26817.1329397281 | eexcv = 0 | estk = -2185.02498305421 | ehbond = -938.091774529095 | exstk = -345.283640449478 | ecoaxstk = -1.32307529169598 | edh = 63.6619835221211 | etot = 23423.0189923123
+4000  ekin = 4.41123532986359 |  erot = 16.5648412365582 | epot = 23402.0429157398 | ebond = 26812.6117174785 | eexcv = 0 | estk = -2189.57763204796 | ehbond = -938.043364081013 | exstk = -345.312103528753 | ecoaxstk = -1.31203863599183 | edh = 63.6763365550167 | etot = 23423.0189923062
+5000  ekin = 6.80354060335072 |  erot = 25.6245219457053 | epot = 23390.5909297495 | ebond = 26806.847918546 | eexcv = 0 | estk = -2195.36908006101 | ehbond = -937.943608570941 | exstk = -345.336932348713 | ecoaxstk = -1.3025000860847 | edh = 63.6951322702405 | etot = 23423.0189922986
+6000  ekin = 9.69286735174302 |  erot = 36.4895667134798 | epot = 23376.8365582242 | ebond = 26799.8817302308 | eexcv = 0 | estk = -2202.35269819112 | ehbond = -937.766817072938 | exstk = -345.34953744096 | ecoaxstk = -1.29449935297611 | edh = 63.7183800513571 | etot = 23423.0189922894
+7000  ekin = 13.0590513058311 |  erot = 49.0354288678122 | epot = 23360.9245121051 | ebond = 26791.7625086352 | eexcv = 0 | estk = -2210.47201489933 | ehbond = -937.484698999636 | exstk = -345.339350288738 | ecoaxstk = -1.28801993245898 | edh = 63.7460875900634 | etot = 23423.0189922787
+8000  ekin = 16.8781323851347 |  erot = 63.119071584563 | epot = 23343.0217882969 | ebond = 26782.5502568609 | eexcv = 0 | estk = -2219.66128989006 | ehbond = -937.068595473283 | exstk = -345.293849024466 | ecoaxstk = -1.28299222667295 | edh = 63.7782580505044 | etot = 23423.0189922666
+9000  ekin = 21.121492994347 |  erot = 78.5806492830578 | epot = 23323.3168499755 | ebond = 26772.3184553979 | eexcv = 0 | estk = -2229.84639839119 | ehbond = -936.492126052324 | exstk = -345.198668572999 | ecoaxstk = -1.2792997714375 | edh = 63.8148873655905 | etot = 23423.0189922529
+10000  ekin = 25.7541772405892 |  erot = 95.2444744292504 | epot = 23302.0203405675 | ebond = 26761.1591077716 | eexcv = 0 | estk = -2240.94610992613 | ehbond = -935.733981872826 | exstk = -345.037850204456 | ecoaxstk = -1.2767882369382 | edh = 63.8559630362577 | etot = 23423.0189922373
+WARNING: Too many warnings: 10004 vs 100. All future warnings will be suppressed (src/thermo.cpp:493)
+     10000   0.0085890203  -1.7295694      13.38058       11.663887     -0.00016077572  52734375     
+Loop time of 32.2442 on 2 procs for 10000 steps with 2000 atoms
+
+Performance: 267.955 tau/day, 310.133 timesteps/s, 620.266 katom-step/s
+99.9% CPU use with 1 MPI tasks x 2 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 24.838     | 24.838     | 24.838     |   0.0 | 77.03
+Bond    | 0.55721    | 0.55721    | 0.55721    |   0.0 |  1.73
+Neigh   | 0.0079749  | 0.0079749  | 0.0079749  |   0.0 |  0.02
+Comm    | 2.9228     | 2.9228     | 2.9228     |   0.0 |  9.06
+Output  | 0.068662   | 0.068662   | 0.068662   |   0.0 |  0.21
+Modify  | 3.346      | 3.346      | 3.346      |   0.0 | 10.38
+Other   |            | 0.5032     |            |       |  1.56
+
+Nlocal:           2000 ave        2000 max        2000 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:            563 ave         563 max         563 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:          49778 ave       49778 max       49778 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 49778
+Ave neighs/atom = 24.889
+Ave special neighs/atom = 5.868
+Neighbor list builds = 10
+Dangerous builds = 0
+Total wall time: 0:00:32
+
+BEGIN KOKKOS PROFILING REPORT:
+TOTAL TIME: 32.4296 seconds
+TOP-DOWN TIME TREE:
+<average time> <percent of total time> <percent time in Kokkos> <percent MPI imbalance> <remainder> <kernels per second> <number of calls> <name> [type]
+===================
+|-> 6.81e+00 sec 21.0% 100.0% 0.0% ------ 9990 LAMMPS_NS::PairOxdnaXstkKokkos<Kokkos::Cuda>/LAMMPS_NS::TagPairOxdnaXstkCompute<2, 1, 0> [for]
+|-> 6.00e+00 sec 18.5% 100.0% 0.0% ------ 9990 LAMMPS_NS::PairOxdnaHbondKokkos<Kokkos::Cuda>/LAMMPS_NS::TagPairOxdnaHbondCompute<2, 1, 0> [for]
+|-> 4.57e+00 sec 14.1% 100.0% 0.0% ------ 9990 LAMMPS_NS::PairOxdna2CoaxstkKokkos<Kokkos::Cuda>/LAMMPS_NS::TagPairOxdna2CoaxstkCompute<2, 1, 0> [for]
+|-> 1.79e+00 sec 5.5% 100.0% 0.0% ------ 9990 LAMMPS_NS::PairOxdna2DhKokkos<Kokkos::Cuda>/LAMMPS_NS::TagPairOxdna2DhCompute<1, 2, 1, 0> [for]
+|-> 1.07e+00 sec 3.3% 100.0% 0.0% ------ 9990 LAMMPS_NS::PairOxdnaExcvKokkos<Kokkos::Cuda>/LAMMPS_NS::TagPairOxdnaExcvCompute<2, 2, 1, 0> [for]
+|-> 3.72e-01 sec 1.1% 100.0% 0.0% ------ 9990 LAMMPS_NS::PairOxdnaStkKokkos<Kokkos::Cuda>/LAMMPS_NS::TagPairOxdnaStkCompute<2, 1, 0> [for]
+|-> 2.45e-01 sec 0.8% 100.0% 0.0% ------ 10000 LAMMPS_NS::FixNVEAsphereKokkosInitialIntegrateFunctor<Kokkos::Cuda> [for]
+|-> 1.84e-01 sec 0.6% 100.0% 0.0% ------ 9990 LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Cuda>/LAMMPS_NS::TagBondOxdnaFENECompute<2, 1, 0> [for]
+|-> 1.83e-01 sec 0.6% 100.0% 0.0% ------ 9990 Kokkos::Impl::CombinedFunctorReducer<LAMMPS_NS::NeighborKokkos, Kokkos::Impl::FunctorAnalysis<Kokkos::Impl::FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Cuda, LAMMPS_NS::TagNeighborCheckDistance<Kokkos::Cuda> >, LAMMPS_NS::NeighborKokkos, int>::Reducer, void>/LAMMPS_NS::TagNeighborCheckDistance<Kokkos::Cuda> [reduce]
+|-> 1.60e-01 sec 0.5% 100.0% 0.0% ------ 20002 Zero<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Cuda, void> > [for]
+|-> 1.59e-01 sec 0.5% 100.0% 0.0% ------ 10000 LAMMPS_NS::FixNVEAsphereKokkosFinalIntegrateFunctor<Kokkos::Cuda> [for]
+|-> 1.53e-01 sec 0.5% 100.0% 0.0% ------ 10001 LAMMPS_NS::PairOxdnaExcvKokkos<Kokkos::Cuda>/LAMMPS_NS::TagPairOxdnaExcvQuatToXYZ [for]
+|-> 5.09e-02 sec 0.2% 100.0% 0.0% ------ 2 Kokkos::View::initialization [bins_mirror] via memset [for]
+
+BOTTOM-UP TIME TREE:
+<average time> <percent of total time> <percent time in Kokkos> <percent MPI imbalance> <number of calls> <name> [type]
+===================
+|-> 6.81e+00 sec 21.0% 100.0% 0.0% ------ 9990 LAMMPS_NS::PairOxdnaXstkKokkos<Kokkos::Cuda>/LAMMPS_NS::TagPairOxdnaXstkCompute<2, 1, 0> [for]
+|-> 6.00e+00 sec 18.5% 100.0% 0.0% ------ 9990 LAMMPS_NS::PairOxdnaHbondKokkos<Kokkos::Cuda>/LAMMPS_NS::TagPairOxdnaHbondCompute<2, 1, 0> [for]
+|-> 4.57e+00 sec 14.1% 100.0% 0.0% ------ 9990 LAMMPS_NS::PairOxdna2CoaxstkKokkos<Kokkos::Cuda>/LAMMPS_NS::TagPairOxdna2CoaxstkCompute<2, 1, 0> [for]
+|-> 1.79e+00 sec 5.5% 100.0% 0.0% ------ 9990 LAMMPS_NS::PairOxdna2DhKokkos<Kokkos::Cuda>/LAMMPS_NS::TagPairOxdna2DhCompute<1, 2, 1, 0> [for]
+|-> 1.07e+00 sec 3.3% 100.0% 0.0% ------ 9990 LAMMPS_NS::PairOxdnaExcvKokkos<Kokkos::Cuda>/LAMMPS_NS::TagPairOxdnaExcvCompute<2, 2, 1, 0> [for]
+|-> 3.72e-01 sec 1.1% 100.0% 0.0% ------ 9990 LAMMPS_NS::PairOxdnaStkKokkos<Kokkos::Cuda>/LAMMPS_NS::TagPairOxdnaStkCompute<2, 1, 0> [for]
+|-> 2.45e-01 sec 0.8% 100.0% 0.0% ------ 10000 LAMMPS_NS::FixNVEAsphereKokkosInitialIntegrateFunctor<Kokkos::Cuda> [for]
+|-> 1.84e-01 sec 0.6% 100.0% 0.0% ------ 9990 LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Cuda>/LAMMPS_NS::TagBondOxdnaFENECompute<2, 1, 0> [for]
+|-> 1.83e-01 sec 0.6% 100.0% 0.0% ------ 9990 Kokkos::Impl::CombinedFunctorReducer<LAMMPS_NS::NeighborKokkos, Kokkos::Impl::FunctorAnalysis<Kokkos::Impl::FunctorPatternInterface::REDUCE, Kokkos::RangePolicy<Kokkos::Cuda, LAMMPS_NS::TagNeighborCheckDistance<Kokkos::Cuda> >, LAMMPS_NS::NeighborKokkos, int>::Reducer, void>/LAMMPS_NS::TagNeighborCheckDistance<Kokkos::Cuda> [reduce]
+|-> 1.60e-01 sec 0.5% 100.0% 0.0% ------ 20002 Zero<Kokkos::View<double* [3], Kokkos::LayoutRight, Kokkos::Cuda, void> > [for]
+|-> 1.59e-01 sec 0.5% 100.0% 0.0% ------ 10000 LAMMPS_NS::FixNVEAsphereKokkosFinalIntegrateFunctor<Kokkos::Cuda> [for]
+|-> 1.53e-01 sec 0.5% 100.0% 0.0% ------ 10001 LAMMPS_NS::PairOxdnaExcvKokkos<Kokkos::Cuda>/LAMMPS_NS::TagPairOxdnaExcvQuatToXYZ [for]
+|-> 5.09e-02 sec 0.2% 100.0% 0.0% ------ 2 Kokkos::View::initialization [bins_mirror] via memset [for]
+
+KOKKOS HOST SPACE:
+===================
+MAX MEMORY ALLOCATED: 114434.5 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+  56.2% bins_mirror
+  37.5% bins_mirror
+  1.2% Neighbor::d_bincount_mirror
+  0.4% atom:bonus_mirror
+  0.3% atom:x_mirror
+  0.3% atom:v_mirror
+  0.3% atom:f_mirror
+  0.3% atom:angmom_mirror
+  0.3% atom:torque_mirror
+  0.3% atom:special_mirror
+  0.3% PairOxdnaExcv:nx_mirror
+  0.3% PairOxdnaExcv:ny_mirror
+  0.3% PairOxdnaExcv:nz_mirror
+  0.3% neigh:xhold_mirror
+  0.2% comm:sendlist_mirror
+  0.2% atom:nspecial_mirror
+  0.1% comm:k_buf_send_mirror
+  0.1% atom:rmass_mirror
+  0.1% comm:k_buf_recv_mirror
+
+KOKKOS CUDA SPACE:
+===================
+MAX MEMORY ALLOCATED: 114964.5 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+  55.9% bins
+  37.3% bins
+  1.2% Neighbor::d_bincount
+  0.4% atom:bonus
+  0.3% atom:v
+  0.3% atom:f
+  0.3% atom:angmom
+  0.3% atom:torque
+  0.3% atom:special
+  0.3% PairOxdnaExcv:nx
+  0.3% PairOxdnaExcv:ny
+  0.3% PairOxdnaExcv:nz
+  0.3% neigh:xhold
+  0.3% atom:x
+  0.2% Kokkos::UniqueToken<Cuda>::m_locks
+  0.2% atom:sorted
+  0.2% comm:sendlist
+  0.2% atom:nspecial
+  0.1% comm:k_buf_send
+  0.1% atom:rmass
+  0.1% comm:k_buf_recv
+
+KOKKOS HIP SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+KOKKOS SYCL SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+KOKKOS OpenMPTarget SPACE:
+===================
+MAX MEMORY ALLOCATED: 0.0 kB
+ALLOCATIONS AT TIME OF HIGH WATER MARK:
+
+Host process high water mark memory consumption: 259292 kB
+
+END KOKKOS PROFILING REPORT.

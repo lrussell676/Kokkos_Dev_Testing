@@ -1,0 +1,60 @@
+Breakpoint 1 at 0xe7270
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff4a00000 (LWP 16304)]
+[New Thread 0x7fffed200000 (LWP 16305)]
+[New Thread 0x7fffec800000 (LWP 16306)]
+[New Thread 0x7fffea800000 (LWP 16307)]
+[New Thread 0x7fffe8c00000 (LWP 16308)]
+
+Thread 1 "lmp" received signal SIGSEGV, Segmentation fault.
+0x000055555629f644 in LAMMPS_NS::AtomVecHybridKokkos::modified (this=0x55555dc90920, space=LAMMPS_NS::Host, h_mask=4294967295) at /media/lewis/PhD/GH_lammps/src/KOKKOS/atom_vec_hybrid_kokkos.cpp:161
+warning: Source file is more recent than executable.
+#0  0x000055555629f644 in LAMMPS_NS::AtomVecHybridKokkos::modified (this=0x55555dc90920, space=LAMMPS_NS::Host, h_mask=4294967295)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/atom_vec_hybrid_kokkos.cpp:161
+#1  0x00005555558de1e4 in LAMMPS_NS::AtomKokkos::sync (this=0x55555dc71d70, space=space@entry=LAMMPS_NS::Device, mask=mask@entry=4294967295)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/atom_kokkos.cpp:162
+#2  0x000055555632c4b3 in LAMMPS_NS::AtomVecBondKokkos::grow (this=0x55555dc91710, n=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/atom_vec_bond_kokkos.cpp:51
+#3  0x000055555629f6a7 in LAMMPS_NS::AtomVecHybridKokkos::grow (this=0x55555dc90920, n=1)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/atom_vec_hybrid_kokkos.cpp:41
+#4  0x0000555555dada2e in LAMMPS_NS::Atom::create_avec (this=this@entry=0x55555dc71d70, style="hybrid", narg=narg@entry=3, 
+    arg=arg@entry=0x55555dc8f598, trysuffix=trysuffix@entry=1) at /media/lewis/PhD/GH_lammps/src/atom.cpp:690
+#5  0x0000555555711b8e in LAMMPS_NS::Input::atom_style (this=<optimised out>) at /media/lewis/PhD/GH_lammps/src/input.cpp:1386
+#6  0x0000555555718fc2 in LAMMPS_NS::Input::execute_command (this=0x55555cfbbaf0) at /media/lewis/PhD/GH_lammps/src/input.cpp:787
+#7  0x000055555571977e in LAMMPS_NS::Input::file (this=0x55555cfbbaf0) at /media/lewis/PhD/GH_lammps/src/input.cpp:313
+#8  0x00005555556a5de1 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:78
+Quit
+Quit
+Quit
+Quit
+Quit
+Quit
+Breakpoint 1 at 0xe7270
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff4a00000 (LWP 16850)]
+[New Thread 0x7fffed200000 (LWP 16851)]
+[New Thread 0x7fffec800000 (LWP 16852)]
+[New Thread 0x7fffea800000 (LWP 16853)]
+[New Thread 0x7fffe8c00000 (LWP 16854)]
+
+Thread 1 "lmp" received signal SIGSEGV, Segmentation fault.
+0x000055555629f554 in LAMMPS_NS::AtomVecHybridKokkos::sync (this=0x55555dc90920, space=LAMMPS_NS::Device, h_mask=4294967295) at /media/lewis/PhD/GH_lammps/src/KOKKOS/atom_vec_hybrid_kokkos.cpp:146
+Breakpoint 1 at 0xe7270
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff4a00000 (LWP 19173)]
+[New Thread 0x7fffed200000 (LWP 19174)]
+[New Thread 0x7fffec800000 (LWP 19175)]
+[New Thread 0x7fffea800000 (LWP 19176)]
+[New Thread 0x7fffe8c00000 (LWP 19177)]
+
+Thread 1 "lmp" received signal SIGSEGV, Segmentation fault.
+0x000055555629f39d in LAMMPS_NS::AtomVecHybridKokkos::sync (this=0x55555dc906a0, space=LAMMPS_NS::Device, h_mask=4294967295) at /media/lewis/PhD/GH_lammps/src/KOKKOS/atom_vec_hybrid_kokkos.cpp:155

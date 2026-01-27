@@ -1,0 +1,307 @@
+LAMMPS (19 Nov 2024 - Development - patch_19Nov2024-445-g929d3043d7)
+KOKKOS mode with Kokkos version 4.5.1 is enabled (../kokkos.cpp:72)
+package kokkos
+package kokkos comm no
+variable number	equal 2
+variable ofreq	equal 1000
+variable efreq	equal 1000
+variable T      equal 0.1
+variable rhos   equal 0.2
+
+units lj
+
+dimension 3
+
+newton on
+
+boundary  p p p
+
+atom_style hybrid/kk bond/kk ellipsoid/kk oxdna/kk
+WARNING: Atom style hybrid defines both, per-type and per-atom masses; both must be set, but only per-atom masses will be used (../atom_vec_hybrid.cpp:132)
+atom_modify sort 0 1.0
+
+# Pair interactions require lists of neighbours to be calculated
+neighbor 2.0 bin
+neigh_modify every 1 delay 0 check yes
+
+read_data data.duplex2
+Reading data file ...
+  orthogonal box = (-20 -20 -20) to (20 20 20)
+  1 by 1 by 2 MPI processor grid
+  reading atoms ...
+  16 atoms
+  reading velocities ...
+  16 velocities
+  scanning bonds ...
+  1 = max bonds/atom
+  16 ellipsoids
+  orthogonal box = (-20 -20 -20) to (20 20 20)
+  1 by 1 by 2 MPI processor grid
+  reading bonds ...
+  13 bonds
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     2 = max # of 1-2 neighbors
+     2 = max # of 1-3 neighbors
+     4 = max # of 1-4 neighbors
+     6 = max # of special neighbors
+  special bonds CPU = 0.002 seconds
+  read_data CPU = 0.018 seconds
+
+set atom * mass 3.1575
+Setting atom values ...
+  16 settings made for mass
+
+group all type 1 4
+16 atoms in group all
+
+# oxDNA bond interactions - FENE backbone
+bond_style hybrid/kk oxdna2/fene/kk
+bond_coeff * oxdna2/fene/kk 2.0 0.25 0.7564
+special_bonds lj 0 1 1
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        1        1       
+  special bond factors coul:  0        0        0       
+     2 = max # of 1-2 neighbors
+     2 = max # of 1-3 neighbors
+     4 = max # of 1-4 neighbors
+     6 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+
+# oxDNA pair interactions
+pair_style hybrid/overlay/kk oxdna2/excv/kk oxdna2/stk/kk oxdna2/hbond/kk oxdna2/xstk/kk oxdna2/coaxstk/kk oxdna2/dh/kk
+pair_coeff * * oxdna2/excv/kk    2.0 0.7 0.675 2.0 0.515 0.5 2.0 0.33 0.32
+pair_coeff * * oxdna2/stk/kk     seqav ${T} 1.3523 2.6717 6.0 0.4 0.9 0.32 0.75 1.3 0 0.8 0.9 0 0.95 0.9 0 0.95 2.0 0.65 2.0 0.65
+pair_coeff * * oxdna2/stk/kk     seqav 0.1 1.3523 2.6717 6.0 0.4 0.9 0.32 0.75 1.3 0 0.8 0.9 0 0.95 0.9 0 0.95 2.0 0.65 2.0 0.65
+pair_coeff * * oxdna2/hbond/kk   seqav 0.0 8.0 0.4 0.75 0.34 0.7 1.5 0 0.7 1.5 0 0.7 1.5 0 0.7 0.46 3.141592653589793 0.7 4.0 1.5707963267948966 0.45 4.0 1.5707963267948966 0.45
+pair_coeff 1 4 oxdna2/hbond/kk   seqav 1.0678 8.0 0.4 0.75 0.34 0.7 1.5 0 0.7 1.5 0 0.7 1.5 0 0.7 0.46 3.141592653589793 0.7 4.0 1.5707963267948966 0.45 4.0 1.5707963267948966 0.45
+pair_coeff 2 3 oxdna2/hbond/kk   seqav 1.0678 8.0 0.4 0.75 0.34 0.7 1.5 0 0.7 1.5 0 0.7 1.5 0 0.7 0.46 3.141592653589793 0.7 4.0 1.5707963267948966 0.45 4.0 1.5707963267948966 0.45
+pair_coeff * * oxdna2/xstk/kk    47.5 0.575 0.675 0.495 0.655 2.25 0.791592653589793 0.58 1.7 1.0 0.68 1.7 1.0 0.68 1.5 0 0.65 1.7 0.875 0.68 1.7 0.875 0.68
+pair_coeff * * oxdna2/coaxstk/kk 58.5 0.4 0.6 0.22 0.58 2.0 2.891592653589793 0.65 1.3 0 0.8 0.9 0 0.95 0.9 0 0.95 40.0 3.116592653589793
+pair_coeff * * oxdna2/dh/kk      ${T} ${rhos} 0.815
+pair_coeff * * oxdna2/dh/kk      0.1 ${rhos} 0.815
+pair_coeff * * oxdna2/dh/kk      0.1 0.2 0.815
+
+# NVE ensemble
+fix 1 all nve/asphere
+#fix 2 all langevin ${T} ${T} 2.5 457145 angmom 10
+
+timestep 1e-5
+
+#comm_style tiled
+fix 3 all balance 1000 1.03 shift xyz 10 1.03
+comm_modify cutoff 3.8
+
+compute quat all property/atom quatw quati quatj quatk
+
+compute erot all erotate/asphere
+compute ekin all ke
+compute epot all pe
+
+variable erot equal c_erot
+variable ekin equal c_ekin
+variable epot equal c_epot
+variable etot equal c_erot+c_ekin+c_epot
+
+compute ebond all bond
+compute eexcv all pair oxdna2/excv/kk
+compute estk all pair oxdna2/stk/kk
+compute ehbond all pair oxdna2/hbond/kk
+compute exstk all pair oxdna2/xstk/kk
+compute ecoaxstk all pair oxdna2/coaxstk/kk
+compute edh all pair oxdna2/dh/kk
+
+variable ebond equal c_ebond[1]
+variable eexcv equal c_eexcv
+variable estk equal c_estk
+variable ehbond equal c_ehbond
+variable exstk equal c_exstk
+variable ecoaxstk equal c_ecoaxstk
+variable edh equal c_edh
+
+fix 5 all print ${efreq} "$(step)  ekin = ${ekin} |  erot = ${erot} | epot = ${epot} | ebond = ${ebond} | eexcv = ${eexcv} | estk = ${estk} | ehbond = ${ehbond} | exstk = ${exstk} | ecoaxstk = ${ecoaxstk} | edh = ${edh} | etot = ${etot}" screen yes
+fix 5 all print 1000 "$(step)  ekin = ${ekin} |  erot = ${erot} | epot = ${epot} | ebond = ${ebond} | eexcv = ${eexcv} | estk = ${estk} | ehbond = ${ehbond} | exstk = ${exstk} | ecoaxstk = ${ecoaxstk} | edh = ${edh} | etot = ${etot}" screen yes
+
+dump out all custom ${ofreq} out.${number}.lammpstrj id mol type x y z ix iy iz vx vy vz c_quat[1] c_quat[2] c_quat[3] c_quat[4] angmomx angmomy angmomz
+dump out all custom 1000 out.${number}.lammpstrj id mol type x y z ix iy iz vx vy vz c_quat[1] c_quat[2] c_quat[3] c_quat[4] angmomx angmomy angmomz
+dump out all custom 1000 out.2.lammpstrj id mol type x y z ix iy iz vx vy vz c_quat[1] c_quat[2] c_quat[3] c_quat[4] angmomx angmomy angmomz
+dump_modify out sort id
+dump_modify out format line "%d %d %d  %22.15le %22.15le %22.15le  %d %d %d  %22.15le %22.15le %22.15le  %22.15le %22.15le %22.15le %22.15le  %22.15le %22.15le %22.15le"
+
+run_style verlet/kk
+run 100000
+Generated 0 of 6 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 5.6389877
+  ghost atom cutoff = 5.6389877
+  binsize = 2.8194939, bins = 15 15 15
+  6 neighbor lists, perpetual/occasional/extra = 6 0 0
+  (1) pair oxdna2/excv/kk, perpetual
+      attributes: half, newton on, kokkos_device
+      pair build: half/bin/newton/kk/device
+      stencil: half/bin/3d
+      bin: kk/device
+  (2) pair oxdna2/stk/kk, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+  (3) pair oxdna2/hbond/kk, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+  (4) pair oxdna2/xstk/kk, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+  (5) pair oxdna2/coaxstk/kk, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+  (6) pair oxdna2/dh/kk, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+WARNING: Communication cutoff adjusted to 5.638987723814632 (../comm.cpp:740)
+0  ekin = 2.70475393009871 |  erot = 2.80172072918779 | epot = -21.0482852787267 | ebond = 0.728328584787068 | eexcv = 0 | estk = -15.3042578545525 | ehbond = -4.72564592775319 | exstk = -1.9571705537007 | ecoaxstk = -0.163920500918169 | edh = 0.374380973410841 | etot = -15.5418106194402
+Per MPI rank memory allocation (min/avg/max) = 8.378 | 8.378 | 8.378 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press          Volume    
+         0   0.12021129    -1.3610384      0.045520537   -1.1464707      5.9660461e-05  64000        
+1000  ekin = 2.66713605869952 |  erot = 2.68968998249049 | epot = -20.8986366598974 | ebond = 0.698364162223192 | eexcv = 0 | estk = -15.2026989494983 | ehbond = -4.65123957433295 | exstk = -1.95276300785443 | ecoaxstk = -0.164209957354343 | edh = 0.373910666919412 | etot = -15.5418106187074
+2000  ekin = 2.6280810398224 |  erot = 2.59287749059016 | epot = -20.7627691484237 | ebond = 0.664971618808133 | eexcv = 0 | estk = -15.0985754591125 | ehbond = -4.58221280881473 | exstk = -1.95564029293962 | ecoaxstk = -0.164687231129046 | edh = 0.373375024764109 | etot = -15.5418106180111
+3000  ekin = 2.58958516731629 |  erot = 2.51877931678469 | epot = -20.6501751016102 | ebond = 0.628906566383969 | eexcv = 0 | estk = -14.9928366320881 | ehbond = -4.52618614815918 | exstk = -1.96741050032888 | ecoaxstk = -0.165426888041549 | edh = 0.372778500623546 | etot = -15.5418106175093
+4000  ekin = 2.55347158279477 |  erot = 2.47254864019071 | epot = -20.5678308402211 | ebond = 0.591034778157768 | eexcv = 0 | estk = -14.8866132406972 | ehbond = -4.48883871442337 | exstk = -1.98906747500358 | ecoaxstk = -0.166472041092337 | edh = 0.372125852837664 | etot = -15.5418106172356
+5000  ekin = 2.52122903259307 |  erot = 2.45627857500642 | epot = -20.5193182248334 | ebond = 0.552305934457451 | eexcv = 0 | estk = -14.7815025150751 | ehbond = -4.47291671306524 | exstk = -2.02079199203553 | ecoaxstk = -0.167835149002713 | edh = 0.37142220988772 | etot = -15.5418106172339
+6000  ekin = 2.49400978812989 |  erot = 2.46883569226 | epot = -20.5046560977838 | ebond = 0.513712347406996 | eexcv = 0 | estk = -14.6797934747471 | ehbond = -4.47790924452869 | exstk = -2.06183878320138 | ecoaxstk = -0.169500006853276 | edh = 0.370673064139715 | etot = -15.5418106173939
+7000  ekin = 2.47287690859022 |  erot = 2.50689321609176 | epot = -20.5215807423691 | ebond = 0.47624307832175 | eexcv = 0 | estk = -14.5844619959898 | ehbond = -4.5013295027749 | exstk = -2.11049216490208 | ecoaxstk = -0.171424520285444 | edh = 0.369884363261292 | etot = -15.5418106176872
+8000  ekin = 2.45866135596017 |  erot = 2.56548684381196 | epot = -20.5659588178726 | ebond = 0.440838477015396 | eexcv = 0 | estk = -14.498814572244 | ehbond = -4.53941378836612 | exstk = -2.16408765139897 | ecoaxstk = -0.173544003903447 | edh = 0.369062721024511 | etot = -15.5418106181005
+9000  ekin = 2.45161445721812 |  erot = 2.63852714504523 | epot = -20.6319522208822 | ebond = 0.408346808249155 | eexcv = 0 | estk = -14.425836749249 | ehbond = -4.58778561202237 | exstk = -2.219117383126 | ecoaxstk = -0.17577489052443 | edh = 0.368215605790457 | etot = -15.5418106186188
+10000  ekin = 2.45103649120706 |  erot = 2.71934576966588 | epot = -20.712192880091 | ebond = 0.379487449210026 | eexcv = 0 | estk = -14.3674475236456 | ehbond = -4.64212292132634 | exstk = -2.27144250701642 | ecoaxstk = -0.178018840967679 | edh = 0.367351463655058 | etot = -15.541810619218
+11000  ekin = 2.45504777742975 |  erot = 2.80120022018266 | epot = -20.7980586174905 | ebond = 0.354824238188503 | eexcv = 0 | estk = -14.3239419474678 | ehbond = -4.69863593415966 | exstk = -2.31661744620813 | ecoaxstk = -0.180167274134834 | edh = 0.366479746291388 | etot = -15.5418106198781
+12000  ekin = 2.4605896953407 |  erot = 2.87753614967549 | epot = -20.8799364656022 | ebond = 0.334751424034078 | eexcv = 0 | estk = -14.2938544152914 | ehbond = -4.75403826715777 | exstk = -2.35029974384021 | ecoaxstk = -0.18210629076885 | edh = 0.36561082742194 | etot = -15.5418106205861
+13000  ekin = 2.46369499389285 |  erot = 2.94194103464561 | epot = -20.9474466498502 | ebond = 0.319493415528938 | eexcv = 0 | estk = -14.2743094169932 | ehbond = -4.8049658480227 | exstk = -2.36869872524798 | ecoaxstk = -0.183721874375323 | edh = 0.364755799260138 | etot = -15.5418106213117
+14000  ekin = 2.46006608138512 |  erot = 2.98808666978768 | epot = -20.9899633731401 | ebond = 0.309118187204422 | eexcv = 0 | estk = -14.261730838982 | ehbond = -4.84735304552883 | exstk = -2.36901864114991 | ecoaxstk = -0.184905176667871 | edh = 0.36392614198407 | etot = -15.5418106219673
+15000  ekin = 2.44595248937938 |  erot = 3.01017797440183 | epot = -20.9979410861794 | ebond = 0.303562803335132 | eexcv = 0 | estk = -14.2526557338103 | ehbond = -4.87656271843783 | exstk = -2.34986102580553 | ecoaxstk = -0.18555768045266 | edh = 0.363133268991773 | etot = -15.5418106223982
+16000  ekin = 2.41915452670611 |  erot = 3.00415546279344 | epot = -20.9651206119381 | ebond = 0.302668025736736 | eexcv = 0 | estk = -14.2443940178381 | ehbond = -4.88864781024704 | exstk = -2.3115387084043 | ecoaxstk = -0.18559608358223 | edh = 0.362387982396834 | etot = -15.5418106224385
+17000  ekin = 2.37978985378794 |  erot = 2.96923726991429 | epot = -20.8908377457096 | ebond = 0.306217369552107 | eexcv = 0 | estk = -14.2353703871497 | ehbond = -4.88220765473234 | exstk = -2.25622018058645 | ecoaxstk = -0.184956814614791 | edh = 0.361699921821563 | etot = -15.5418106220074
+18000  ekin = 2.33044540487905 |  erot = 2.90889183041729 | epot = -20.7811478564664 | ebond = 0.313974702314417 | eexcv = 0 | estk = -14.2251170950255 | ehbond = -4.85967112376777 | exstk = -2.18781136139461 | ecoaxstk = -0.183600102906069 | edh = 0.361077124313206 | etot = -15.54181062117
+19000  ekin = 2.27578696319224 |  erot = 2.83094466579867 | epot = -20.6485422483505 | ebond = 0.32571451167564 | eexcv = 0 | estk = -14.213998498147 | ehbond = -4.827113109952 | exstk = -2.11215745765443 | ecoaxstk = -0.181513439002932 | edh = 0.360525744730228 | etot = -15.5418106193596
+20000  ekin = 2.22212459509934 |  erot = 2.74790444844539 | epot = -20.5118396620388 | ebond = 0.341243809020904 | eexcv = 0 | estk = -14.2027759974514 | ehbond = -4.79254042377009 | exstk = -2.03910341946986 | ecoaxstk = -0.178714094846413 | edh = 0.360050464477991 | etot = -15.5418106184941
+21000  ekin = 2.17358882591526 |  erot = 2.66900236068002 | epot = -20.3844018043915 | ebond = 0.360408467130349 | eexcv = 0 | estk = -14.192211828614 | ehbond = -4.76375172719429 | exstk = -1.97325135494669 | ecoaxstk = -0.175250205518474 | edh = 0.359654844751566 | etot = -15.5418106177962
+22000  ekin = 2.13351860637416 |  erot = 2.60129356557781 | epot = -20.2766227890422 | ebond = 0.383081030447284 | eexcv = 0 | estk = -14.18289963345 | ehbond = -4.74704903096569 | exstk = -1.91789651785678 | ecoaxstk = -0.171199855507255 | edh = 0.359341218290307 | etot = -15.5418106170902
+23000  ekin = 2.10547641295824 |  erot = 2.54950751937637 | epot = -20.1967945492566 | ebond = 0.409148341295298 | eexcv = 0 | estk = -14.1752447129124 | ehbond = -4.74654455457789 | exstk = -1.87659625972536 | ecoaxstk = -0.166667752111213 | edh = 0.359110388775 | etot = -15.541810616922
+24000  ekin = 2.08953860597236 |  erot = 2.51625234702542 | epot = -20.1476015698542 | ebond = 0.438489682143076 | eexcv = 0 | estk = -14.1695684238793 | ehbond = -4.76436518452003 | exstk = -1.84934033779831 | ecoaxstk = -0.161779382450352 | edh = 0.358962076650703 | etot = -15.5418106168564
+25000  ekin = 2.08517322407226 |  erot = 2.50290043151037 | epot = -20.1298842724324 | ebond = 0.470934045738562 | eexcv = 0 | estk = -14.166265461617 | ehbond = -4.80131667701917 | exstk = -1.83545899817564 | ecoaxstk = -0.156672926841037 | edh = 0.358895745481922 | etot = -15.5418106168498
+26000  ekin = 2.09193264083158 |  erot = 2.50992605816889 | epot = -20.1436693158847 | ebond = 0.506217509665683 | eexcv = 0 | estk = -14.1659263170866 | ehbond = -4.85728306319221 | exstk = -1.83409870954709 | ecoaxstk = -0.151489490956535 | edh = 0.358910755232089 | etot = -15.5418106168842
+27000  ekin = 2.10960344382024 |  erot = 2.53699355145327 | epot = -20.1884076122463 | ebond = 0.543946030741416 | eexcv = 0 | estk = -14.1693782120732 | ehbond = -4.93138270907255 | exstk = -1.8442368149681 | ecoaxstk = -0.146362348256109 | edh = 0.359006441382256 | etot = -15.5418106169728
+28000  ekin = 2.13817447730018 |  erot = 2.58278568329909 | epot = -20.2627707777561 | ebond = 0.583568724515 | eexcv = 0 | estk = -14.1776227328904 | ehbond = -5.02183938917032 | exstk = -1.86465365383955 | ecoaxstk = -0.141405864084906 | edh = 0.359182137714069 | etot = -15.5418106171569
+29000  ekin = 2.17762230511279 |  erot = 2.64462022623414 | epot = -20.3640531488426 | ebond = 0.624363969442555 | eexcv = 0 | estk = -14.1916759438591 | ehbond = -5.12559082586373 | exstk = -1.89388273754069 | ecoaxstk = -0.13670473300308 | edh = 0.359437121981382 | etot = -15.5418106174957
+30000  ekin = 2.22754074340188 |  erot = 2.71796624078064 | epot = -20.4873176022358 | ebond = 0.665436764989455 | eexcv = 0 | estk = -14.2123370090651 | ehbond = -5.23771224527861 | exstk = -1.93017128042509 | ecoaxstk = -0.132304287908439 | edh = 0.359770455451934 | etot = -15.5418106180533
+31000  ekin = 2.28666661039514 |  erot = 2.79602035475744 | epot = -20.624497584031 | ebond = 0.705722722451412 | eexcv = 0 | estk = -14.2399254309839 | ehbond = -5.35078346212056 | exstk = -1.97148905403406 | ecoaxstk = -0.128203048479294 | edh = 0.360180689135413 | etot = -15.5418106188784
+32000  ekin = 2.35180595364985 |  erot = 2.86827522004837 | epot = -20.7618917941349 | ebond = 0.744004391774629 | eexcv = 0 | estk = -14.2740280768711 | ehbond = -5.45436173827381 | exstk = -2.01382228665095 | ecoaxstk = -0.1243492847724 | edh = 0.360665200658733 | etot = -15.5418106204367
+33000  ekin = 2.41691202617204 |  erot = 2.92163655938567 | epot = -20.8803592073868 | ebond = 0.778959849152729 | eexcv = 0 | estk = -14.3132997706004 | ehbond = -5.5349248095858 | exstk = -2.05166944306109 | ecoaxstk = -0.12064382535499 | edh = 0.361218792062725 | etot = -15.5418106218291
+34000  ekin = 2.47440025539144 |  erot = 2.94384405570073 | epot = -20.9600549342147 | ebond = 0.809158108234282 | eexcv = 0 | estk = -14.3555019390621 | ehbond = -5.57728474299999 | exstk = -2.08130900678276 | ecoaxstk = -0.116951016546623 | edh = 0.361833662942479 | etot = -15.5418106231225
+35000  ekin = 2.51620352479353 |  erot = 2.92484493402909 | epot = -20.9828590827706 | ebond = 0.833092440549459 | eexcv = 0 | estk = -14.3977514142223 | ehbond = -5.56752030907522 | exstk = -2.10006098333519 | ecoaxstk = -0.113118034979843 | edh = 0.36249921829252 | etot = -15.541810623948
+36000  ekin = 2.53581720590315 |  erot = 2.85988334623414 | epot = -20.9375111760873 | ebond = 0.849276711125266 | eexcv = 0 | estk = -14.4369561873305 | ehbond = -5.49728459967793 | exstk = -2.10674932470104 | ecoaxstk = -0.108999799030109 | edh = 0.36320202352702 | etot = -15.54181062395
+37000  ekin = 2.53021237757824 |  erot = 2.75169906158558 | epot = -20.8237220624793 | ebond = 0.856405606691548 | eexcv = 0 | estk = -14.4703391495602 | ehbond = -5.36797401379769 | exstk = -2.10125715901122 | ecoaxstk = -0.104483711408652 | edh = 0.363926364606939 | etot = -15.5418106233154
+38000  ekin = 2.5003865438264 |  erot = 2.61037102379085 | epot = -20.6525681891814 | ebond = 0.853562213892089 | eexcv = 0 | estk = -14.4958956472839 | ehbond = -5.19235519661496 | exstk = -2.08302778050039 | ecoaxstk = -0.0995074527611667 | edh = 0.364655674086986 | etot = -15.5418106215641
+39000  ekin = 2.45367306657797 |  erot = 2.45279079693058 | epot = -20.4482744830566 | ebond = 0.840418958442364 | eexcv = 0 | estk = -14.5126476873285 | ehbond = -4.99191081859051 | exstk = -2.05544363471784 | ecoaxstk = -0.0940652985097999 | edh = 0.36537399764764 | etot = -15.5418106195481
+40000  ekin = 2.40006772973084 |  erot = 2.29713912764293 | epot = -20.2390174751761 | ebond = 0.817369017609478 | eexcv = 0 | estk = -14.5206195771027 | ehbond = -4.79068000222944 | exstk = -2.02295140782367 | ecoaxstk = -0.0882027863414717 | edh = 0.366067280711703 | etot = -15.5418106178023
+41000  ekin = 2.34902599829869 |  erot = 2.15836058738373 | epot = -20.049197202331 | ebond = 0.785532354161772 | eexcv = 0 | estk = -14.5206422660034 | ehbond = -4.6089256604812 | exstk = -1.98988283238798 | ecoaxstk = -0.082003203550601 | edh = 0.36672440593049 | etot = -15.5418106166486
+42000  ekin = 2.30734315152642 |  erot = 2.04574343079549 | epot = -19.8948971984632 | ebond = 0.746623127285104 | eexcv = 0 | estk = -14.5141248406931 | ehbond = -4.4593424081934 | exstk = -1.95982012392339 | ecoaxstk = -0.075570503496256 | edh = 0.367337550557845 | etot = -15.5418106161412
+43000  ekin = 2.27850585905963 |  erot = 1.96275395663531 | epot = -19.7830704317755 | ebond = 0.702720278835109 | eexcv = 0 | estk = -14.5028811467958 | ehbond = -4.34645935004867 | exstk = -1.93533972339516 | ecoaxstk = -0.069012424930507 | edh = 0.367901934559575 | etot = -15.5418106160805
+44000  ekin = 2.26315469016812 |  erot = 1.90867965708366 | epot = -19.7136449637195 | ebond = 0.656004046576511 | eexcv = 0 | estk = -14.4890299513639 | ehbond = -4.2682239205317 | exstk = -1.91838102039459 | ecoaxstk = -0.0624296414954525 | edh = 0.368415523489595 | etot = -15.5418106164677
+45000  ekin = 2.25976855654827 |  erot = 1.87930166387472 | epot = -19.6808808373738 | ebond = 0.608534886951238 | eexcv = 0 | estk = -14.474930066971 | ehbond = -4.21855760295867 | exstk = -1.90890068535272 | ecoaxstk = -0.0559056835788358 | edh = 0.36887831453621 | etot = -15.5418106169508
+46000  ekin = 2.26617194370988 |  erot = 1.8692973872413 | epot = -19.6772799483394 | ebond = 0.562118253010205 | eexcv = 0 | estk = -14.463095221743 | ehbond = -4.18999858805095 | exstk = -1.90610127291557 | ecoaxstk = -0.0494940483732976 | edh = 0.369290929733138 | etot = -15.5418106173883
+47000  ekin = 2.28043175923617 |  erot = 1.87378783231733 | epot = -19.6960302092597 | ebond = 0.518227385451878 | eexcv = 0 | estk = -14.4560616309092 | ehbond = -4.1756518069753 | exstk = -1.9089828561886 | ecoaxstk = -0.0432151704364134 | edh = 0.369653869797904 | etot = -15.5418106177062
+48000  ekin = 2.30139086323047 |  erot = 1.88895511085652 | epot = -19.7321565919707 | ebond = 0.477979740937022 | eexcv = 0 | estk = -14.4562071817649 | ehbond = -4.17034433179887 | exstk = -1.9164954704664 | ecoaxstk = -0.0370562687028063 | edh = 0.369966919825272 | etot = -15.5418106178837
+49000  ekin = 2.32902961780341 |  erot = 1.91208961110639 | epot = -19.7829298468247 | ebond = 0.44214834259625 | eexcv = 0 | estk = -14.465559146918 | ehbond = -4.17113647682738 | exstk = -1.92763869114852 | ecoaxstk = -0.0309725419624049 | edh = 0.370228667435378 | etot = -15.5418106179149
+50000  ekin = 2.36525929240133 |  erot = 1.94184756696667 | epot = -19.8489174765549 | ebond = 0.411191525148451 | eexcv = 0 | estk = -14.4856500838032 | ehbond = -4.17844394664179 | exstk = -1.94152424818719 | ecoaxstk = -0.0249270739981165 | edh = 0.370436350926963 | etot = -15.5418106171869
+51000  ekin = 2.41391381023242 |  erot = 1.97938532125238 | epot = -19.9351097486216 | ebond = 0.385293889249233 | eexcv = 0 | estk = -14.517543823542 | ehbond = -4.19671166196954 | exstk = -1.95735515716578 | ecoaxstk = -0.0193810329780778 | edh = 0.370588037784624 | etot = -15.5418106171368
+52000  ekin = 2.47898887954103 |  erot = 2.01140111972529 | epot = -20.0322006154227 | ebond = 0.364385625005326 | eexcv = 0.0132687916824716 | estk = -14.5613900353642 | ehbond = -4.23004232358998 | exstk = -1.97462488626095 | ecoaxstk = -0.0144685564693026 | edh = 0.370670769573917 | etot = -15.5418106161564
+53000  ekin = 2.60211117342913 |  erot = 2.04611297008192 | epot = -20.1900347655735 | ebond = 0.348058563782083 | eexcv = 0.00236152427609349 | estk = -14.6158618377371 | ehbond = -4.29142908439569 | exstk = -1.99362752664024 | ecoaxstk = -0.0101769769576792 | edh = 0.370640572099053 | etot = -15.5418106220624
+54000  ekin = 2.72512763440583 |  erot = 2.10525239064968 | epot = -20.3721906455003 | ebond = 0.335889522013441 | eexcv = 0 | estk = -14.6809736929419 | ehbond = -4.37872643423822 | exstk = -2.01237640292345 | ecoaxstk = -0.00652393906388658 | edh = 0.370520301653707 | etot = -15.5418106204448
+55000  ekin = 2.86428940312458 |  erot = 2.17152481925724 | epot = -20.5776248444958 | ebond = 0.327409476229829 | eexcv = 0 | estk = -14.7557707006822 | ehbond = -4.48710147629999 | exstk = -2.02893078233928 | ecoaxstk = -0.00356438522452956 | edh = 0.370333023820366 | etot = -15.541810622114
+56000  ekin = 3.01249758001845 |  erot = 2.24038047591859 | epot = -20.7946886794459 | ebond = 0.321984104743445 | eexcv = 0 | estk = -14.8377195851001 | ehbond = -4.60498399855407 | exstk = -2.04264679778621 | ecoaxstk = -0.00140022692393929 | edh = 0.370077824174886 | etot = -15.5418106235089
+57000  ekin = 3.15502769878216 |  erot = 2.30553041938333 | epot = -21.0023687429662 | ebond = 0.318942318084561 | eexcv = 0 | estk = -14.9235625344878 | ehbond = -4.71445864591052 | exstk = -2.0528632599917 | ecoaxstk = -0.000187231585495429 | edh = 0.369760610924756 | etot = -15.5418106248007
+58000  ekin = 3.28050964381624 |  erot = 2.36055422535189 | epot = -21.1828744950285 | ebond = 0.317600471919605 | eexcv = 0 | estk = -15.0091787431739 | ehbond = -4.8015527805641 | exstk = -2.05913338320563 | ecoaxstk = 0 | edh = 0.369389939995474 | etot = -15.5418106258604
+59000  ekin = 3.37968667414166 |  erot = 2.40109458501571 | epot = -21.3225918854991 | ebond = 0.317290006702711 | eexcv = 0 | estk = -15.0894003567328 | ehbond = -4.85817525602472 | exstk = -2.06128157055379 | ecoaxstk = 0 | edh = 0.368975291109466 | etot = -15.5418106263418
+60000  ekin = 3.44717739238675 |  erot = 2.42535783429453 | epot = -21.4143458532541 | ebond = 0.317384094069133 | eexcv = 0 | estk = -15.1577407895526 | ehbond = -4.88315171300689 | exstk = -2.0593634092574 | ecoaxstk = 0 | edh = 0.368525964493598 | etot = -15.5418106265729
+61000  ekin = 3.48014855404959 |  erot = 2.43290121587229 | epot = -21.4548603966701 | ebond = 0.317321818770773 | eexcv = 0 | estk = -15.2061887717422 | ehbond = -4.88045666878479 | exstk = -2.05358705215449 | ecoaxstk = 0 | edh = 0.36805027724058 | etot = -15.5418106267482
+62000  ekin = 3.47711737868295 |  erot = 2.42327209234256 | epot = -21.4422000979557 | ebond = 0.316631058911585 | eexcv = 0 | estk = -15.2254029376412 | ehbond = -4.85674128943827 | exstk = -2.04424222670849 | ecoaxstk = 0 | edh = 0.367555296920754 | etot = -15.5418106269301
+63000  ekin = 3.43766495184877 |  erot = 2.39567072968509 | epot = -21.3751463081516 | ebond = 0.3149489294109 | eexcv = 0 | estk = -15.2057738276652 | ehbond = -4.81966902960711 | exstk = -2.03169925834961 | ecoaxstk = 0 | edh = 0.367046878059386 | etot = -15.5418106266177
+64000  ekin = 3.36379376753339 |  erot = 2.35099926923381 | epot = -21.2566036632084 | ebond = 0.312038134437169 | eexcv = 0 | estk = -15.1397575290706 | ehbond = -4.77714288017666 | exstk = -2.01827124411185 | ecoaxstk = 0 | edh = 0.366529855713539 | etot = -15.5418106264412
+65000  ekin = 3.26030965011333 |  erot = 2.29217990580895 | epot = -21.0943001815999 | ebond = 0.307795056324012 | eexcv = 0 | estk = -15.0255439547131 | ehbond = -4.7367858786296 | exstk = -2.00577375773991 | ecoaxstk = 0 | edh = 0.36600835315869 | etot = -15.5418106256776
+66000  ekin = 3.13626822316361 |  erot = 2.22529119403693 | epot = -20.9033700413386 | ebond = 0.302249583231162 | eexcv = 0 | estk = -14.8713302562442 | ehbond = -4.7053812263999 | exstk = -1.99439400084004 | ecoaxstk = 0 | edh = 0.365485858914322 | etot = -15.5418106241381
+67000  ekin = 3.00705445204744 |  erot = 2.16157461432526 | epot = -20.7104396883081 | ebond = 0.295556969423714 | eexcv = 0 | estk = -14.6981855763951 | ehbond = -4.6881470562978 | exstk = -1.98462950861338 | ecoaxstk = 0 | edh = 0.364965483574459 | etot = -15.5418106219354
+68000  ekin = 2.89571254912374 |  erot = 2.11746823700786 | epot = -20.5549914031552 | ebond = 0.287983250194585 | eexcv = 0 | estk = -14.5423825611722 | ehbond = -4.68792565270969 | exstk = -1.97711661968334 | ecoaxstk = 0 | edh = 0.364450180215424 | etot = -15.5418106170236
+69000  ekin = 2.82639239332881 |  erot = 2.10654223849631 | epot = -20.4747452497344 | ebond = 0.279889258800851 | eexcv = 0 | estk = -14.443082021606 | ehbond = -4.70358280527545 | exstk = -1.97191275576041 | ecoaxstk = 0 | edh = 0.363943074106531 | etot = -15.5418106179093
+70000  ekin = 2.79565285385877 |  erot = 2.12286274634124 | epot = -20.460326218777 | ebond = 0.271708633529026 | eexcv = 0 | estk = -14.3966097480842 | ehbond = -4.73060137593135 | exstk = -1.96827116253708 | ecoaxstk = 0 | edh = 0.36344743424665 | etot = -15.5418106185769
+71000  ekin = 2.79913604936751 |  erot = 2.15979555039701 | epot = -20.5007422187512 | ebond = 0.263911965340897 | eexcv = 0 | estk = -14.3994754154085 | ehbond = -4.76305411930372 | exstk = -1.96509087850886 | ecoaxstk = 0 | edh = 0.362966229129021 | etot = -15.5418106189866
+72000  ekin = 2.83485330999318 |  erot = 2.21254454966403 | epot = -20.5892084787835 | ebond = 0.256970444077052 | eexcv = 0 | estk = -14.453387117894 | ehbond = -4.79414693429773 | exstk = -1.96114679776963 | ecoaxstk = 0 | edh = 0.362501927100805 | etot = -15.5418106191263
+73000  ekin = 2.90234004553917 |  erot = 2.27761534792017 | epot = -20.7217660150378 | ebond = 0.251322535788629 | eexcv = 0 | estk = -14.5635470398302 | ehbond = -4.81639700446588 | exstk = -1.95520087927943 | ecoaxstk = 0 | edh = 0.362056372749106 | etot = -15.5418106215785
+74000  ekin = 2.98238854938305 |  erot = 2.33321489633984 | epot = -20.8574140699063 | ebond = 0.247350161796993 | eexcv = 0 | estk = -14.6991089922089 | ehbond = -4.82151187166327 | exstk = -1.94577427083819 | ecoaxstk = 0 | edh = 0.361630903007047 | etot = -15.5418106241834
+75000  ekin = 3.04958073413756 |  erot = 2.35709073357355 | epot = -20.9484820932992 | ebond = 0.245362894924484 | eexcv = 0 | estk = -14.8215891982181 | ehbond = -4.80231506956031 | exstk = -1.93116702704038 | ecoaxstk = 0 | edh = 0.361226306595123 | etot = -15.5418106255881
+76000  ekin = 3.08817451165062 |  erot = 2.3408706412273 | epot = -20.9708557784141 | ebond = 0.245582489255152 | eexcv = 0 | estk = -14.9102060231249 | ehbond = -4.75674471229002 | exstk = -1.91032975411975 | ecoaxstk = 0 | edh = 0.360842221865431 | etot = -15.5418106255362
+77000  ekin = 3.09173696442996 |  erot = 2.28866173362053 | epot = -20.9222093220498 | ebond = 0.248144508224472 | eexcv = 0 | estk = -14.9579225764347 | ehbond = -4.68961165540534 | exstk = -1.88329656172837 | ecoaxstk = 0 | edh = 0.360476963294189 | etot = -15.5418106239993
+78000  ekin = 3.06310491800763 |  erot = 2.2148861697618 | epot = -20.8198017099124 | ebond = 0.253113311167189 | eexcv = 0 | estk = -14.9687896854788 | ehbond = -4.61196100502032 | exstk = -1.85229184543379 | ecoaxstk = 0 | edh = 0.36012751485334 | etot = -15.541810622143
+79000  ekin = 3.00871130217712 |  erot = 2.13954755561574 | epot = -20.6900694779179 | ebond = 0.260502896274173 | eexcv = 0 | estk = -14.9533497754445 | ehbond = -4.53844741861294 | exstk = -1.81856497075614 | ecoaxstk = 0 | edh = 0.359789790621508 | etot = -15.5418106201251
+80000  ekin = 2.93669787400743 |  erot = 2.08370599643199 | epot = -20.5622144887237 | ebond = 0.27029565697656 | eexcv = 0 | estk = -14.924440382674 | ehbond = -4.48398581978911 | exstk = -1.7833307279952 | ecoaxstk = -0.000212501812059748 | edh = 0.359459286570165 | etot = -15.5418106182843
+81000  ekin = 2.85554489274873 |  erot = 2.06652139660167 | epot = -20.4638769064999 | ebond = 0.2824586757659 | eexcv = 0 | estk = -14.8940877143285 | ehbond = -4.46060062434824 | exstk = -1.74816179077612 | ecoaxstk = -0.00261723498610117 | edh = 0.359131782173162 | etot = -15.5418106171495
+82000  ekin = 2.77191745979403 |  erot = 2.09919799889886 | epot = -20.4129260754064 | ebond = 0.296952142121842 | eexcv = 0 | estk = -14.8716355208672 | ehbond = -4.47515124586887 | exstk = -1.71469905397014 | ecoaxstk = -0.00719621241782306 | edh = 0.358803815595787 | etot = -15.5418106167135
+83000  ekin = 2.6901807702058 |  erot = 2.18462142674196 | epot = -20.4166128139369 | ebond = 0.313731359724871 | eexcv = 0 | estk = -14.8629114032238 | ehbond = -4.52815178009714 | exstk = -1.68445925804169 | ecoaxstk = -0.013294344939041 | edh = 0.358472612639933 | etot = -15.5418106169892
+84000  ekin = 2.61250884182932 |  erot = 2.31754779902906 | epot = -20.4718672587272 | ebond = 0.332743717613768 | eexcv = 0 | estk = -14.8699914328316 | ehbond = -4.61373277532237 | exstk = -1.65875151387371 | ecoaxstk = -0.0202713679263541 | edh = 0.358136113613027 | etot = -15.5418106178689
+85000  ekin = 2.53947623854977 |  erot = 2.48551810412877 | epot = -20.5668049617925 | ebond = 0.353920651036139 | eexcv = 0 | estk = -14.8914692121286 | ehbond = -4.72084636708382 | exstk = -1.63866830572347 | ecoaxstk = -0.0275346365300215 | edh = 0.357792908637303 | etot = -15.541810619114
+86000  ekin = 2.47116081424022 |  erot = 2.67114061715589 | epot = -20.6841120517846 | ebond = 0.377165769607415 | eexcv = 0 | estk = -14.9232038825973 | ehbond = -4.83583850163218 | exstk = -1.62511806981105 | ecoaxstk = -0.0345594896074186 | edh = 0.357442122255908 | etot = -15.5418106203885
+87000  ekin = 2.40835747232397 |  erot = 2.85525531827206 | epot = -20.8054234119301 | ebond = 0.402341184409028 | eexcv = 0 | estk = -14.9594751173907 | ehbond = -4.9459725195993 | exstk = -1.61887070426788 | ecoaxstk = -0.040529549468822 | edh = 0.357083294387647 | etot = -15.541810621334
+88000  ekin = 2.3535938920232 |  erot = 3.02088454354499 | epot = -20.9162890576482 | ebond = 0.429255688837765 | eexcv = 0 | estk = -14.9943581955261 | ehbond = -5.04267853508204 | exstk = -1.62059779667999 | ecoaxstk = -0.0446264205922441 | edh = 0.356716201394388 | etot = -15.54181062208
+89000  ekin = 2.31110612494288 |  erot = 3.1553126829427 | epot = -21.0082294300642 | ebond = 0.45765755947256 | eexcv = 0 | estk = -15.0228353505507 | ehbond = -5.12293766788 | exstk = -1.62940794530684 | ecoaxstk = -0.0470471544597114 | edh = 0.356341128660508 | etot = -15.5418106221787
+90000  ekin = 2.28521600197865 |  erot = 3.25080702095896 | epot = -21.0778336451168 | ebond = 0.487230637146105 | eexcv = 0 | estk = -15.041437021068 | ehbond = -5.18814593587278 | exstk = -1.64340292661708 | ecoaxstk = -0.0480376841101612 | edh = 0.35595928540517 | etot = -15.5418106221792
+91000  ekin = 2.27858600765429 |  erot = 3.30485763209916 | epot = -21.1252542617545 | ebond = 0.517595206307584 | eexcv = 0 | estk = -15.0485287706044 | ehbond = -5.24051734869747 | exstk = -1.66151782470008 | ecoaxstk = -0.0478587827817003 | edh = 0.355573258721619 | etot = -15.541810622001
+92000  ekin = 2.29220325328885 |  erot = 3.31759029246427 | epot = -21.1516041681638 | ebond = 0.548321239155103 | eexcv = 0 | estk = -15.0441301155559 | ehbond = -5.28233841226259 | exstk = -1.68186638061056 | ecoaxstk = -0.046776901022774 | edh = 0.355186402132958 | etot = -15.5418106224107
+93000  ekin = 2.3218526070965 |  erot = 3.28979410480242 | epot = -21.1534573346366 | ebond = 0.578938132923249 | eexcv = 0 | estk = -15.0293431649739 | ehbond = -5.31205815631473 | exstk = -1.70074315585039 | ecoaxstk = -0.0450546867363297 | edh = 0.354803696315522 | etot = -15.5418106227376
+94000  ekin = 2.36219817837724 |  erot = 3.22240482871536 | epot = -21.1264136302125 | ebond = 0.608939366548865 | eexcv = 0 | estk = -15.005919426574 | ehbond = -5.32462149396306 | exstk = -1.71630283412099 | ecoaxstk = -0.0429409160529202 | edh = 0.354431673949682 | etot = -15.5418106231199
+95000  ekin = 2.40711241761998 |  erot = 3.11666178311928 | epot = -21.0655848240593 | ebond = 0.63778412533844 | eexcv = 0 | estk = -14.9760889202677 | ehbond = -5.31356218577196 | exstk = -1.72713510017253 | ecoaxstk = -0.0406601968104545 | edh = 0.354077453624877 | etot = -15.54181062332
+96000  ekin = 2.45126001032202 |  erot = 2.9755325423039 | epot = -20.9686031757256 | ebond = 0.664897978877161 | eexcv = 0 | estk = -14.9425183867037 | ehbond = -5.27402059103443 | exstk = -1.73230654990451 | ecoaxstk = -0.0384035490157779 | edh = 0.35374792205557 | etot = -15.5418106230997
+97000  ekin = 2.49129298411445 |  erot = 2.80547305425608 | epot = -20.8385766608265 | ebond = 0.68967681366916 | eexcv = 0 | estk = -14.908289444045 | ehbond = -5.20550649470206 | exstk = -1.73158480819436 | ecoaxstk = -0.0363215461467688 | edh = 0.353448818592534 | etot = -15.5418106224559
+98000  ekin = 2.52630084710145 |  erot = 2.61667289066736 | epot = -20.6847843591838 | ebond = 0.711499990073026 | eexcv = 0 | estk = -14.8767237135866 | ehbond = -5.11310537032322 | exstk = -1.72511534290349 | ecoaxstk = -0.0345239126063457 | edh = 0.353183990162828 | etot = -15.541810621415
+99000  ekin = 2.55756962636679 |  erot = 2.42234214642342 | epot = -20.5217223929883 | ebond = 0.72975953127319 | eexcv = 0 | estk = -14.8510106283418 | ehbond = -5.00676294307997 | exstk = -1.71357214616992 | ecoaxstk = -0.0330915815264378 | edh = 0.352955374856685 | etot = -15.541810620198
+100000  ekin = 2.58762802669812 |  erot = 2.23690247097524 | epot = -20.3663411167173 | ebond = 0.743900719237136 | eexcv = 0 | estk = -14.8336439365981 | ehbond = -4.89910816848914 | exstk = -1.69821715928332 | ecoaxstk = -0.0320357184442687 | edh = 0.352763146860349 | etot = -15.541810619044
+    100000   0.11500569    -1.3193901      0.046493795   -1.1111696     -5.5177839e-05  64000        
+Loop time of 56.8296 on 2 procs for 100000 steps with 16 atoms
+
+Performance: 1520.334 tau/day, 1759.645 timesteps/s, 28.154 katom-step/s
+100.0% CPU use with 2 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 35.602     | 41.64      | 47.678     |  93.6 | 73.27
+Bond    | 1.9121     | 1.975      | 2.0379     |   4.5 |  3.48
+Neigh   | 0.010319   | 0.010331   | 0.010344   |   0.0 |  0.02
+Comm    | 2.726      | 8.8336     | 14.941     | 205.5 | 15.54
+Output  | 0.0049502  | 0.0053603  | 0.0057704  |   0.6 |  0.01
+Modify  | 2.2969     | 2.311      | 2.3252     |   0.9 |  4.07
+Other   |            | 2.055      |            |       |  3.62
+
+Nlocal:              8 ave           8 max           8 min
+Histogram: 2 0 0 0 0 0 0 0 0 0
+Nghost:              8 ave           8 max           8 min
+Histogram: 2 0 0 0 0 0 0 0 0 0
+Neighs:           53.5 ave          73 max          34 min
+Histogram: 1 0 0 0 0 0 0 0 0 1
+
+Total # of neighbors = 107
+Ave neighs/atom = 6.6875
+Ave special neighs/atom = 3.75
+Neighbor list builds = 100
+Dangerous builds = 0
+
+Total wall time: 0:00:56

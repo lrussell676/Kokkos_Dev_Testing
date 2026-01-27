@@ -1,8 +1,0 @@
-# In CLI: mpirun -np 2 xterm -hold -e gdb -x ./gdb_run.txt ~/Desktop/PhD/lammps/BUILD_oxdna_kokkos_serial/lmp	
-
-tui enable
-set logging enabled on 
-break exit
-catch catch
-catch throw
-run -in in.1000ncl -k on -sf kk -pk kokkos comm no

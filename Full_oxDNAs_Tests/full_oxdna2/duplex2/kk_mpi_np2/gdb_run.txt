@@ -1,8 +1,0 @@
-# In CLI: mpirun -np 2 xterm -hold -e gdb -x ./gdb_run.txt /media/lewis/PhD/GH_lammps/src/lmp_DEV_00_kokkos_mpi_only_withDEBUG
-
-tui enable
-set logging enabled on 
-break exit
-catch catch
-catch throw
-run -in in.duplex2KK -k on -pk kokkos comm no

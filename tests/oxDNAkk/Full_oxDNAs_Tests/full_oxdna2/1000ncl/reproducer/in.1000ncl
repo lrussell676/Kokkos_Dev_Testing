@@ -1,0 +1,67 @@
+###
+# Box and units  (use LJ units and periodic boundaries)
+###
+variable T      equal 0.1
+variable rhos   equal 0.2
+
+units           lj
+atom_style      hybrid bond ellipsoid oxdna
+dimension	3
+boundary	p p p
+newton          on # THIS IS NOT In EllipLJtest
+
+read_data data.1000ncl_alt
+
+neighbor        0.3 bin
+neigh_modify    delay 0 every 100 check yes
+
+###################################################################
+# oxDNA bond interactions - FENE backbone
+bond_style hybrid oxdna2/fene
+bond_coeff * oxdna2/fene 2.0 0.25 0.7564
+special_bonds lj 0 1 1
+
+# oxDNA pair interactions
+pair_style hybrid/overlay oxdna2/excv oxdna2/stk oxdna2/hbond oxdna2/xstk oxdna2/coaxstk oxdna2/dh
+pair_coeff * * oxdna2/excv    2.0 0.7 0.675 2.0 0.515 0.5 2.0 0.33 0.32
+pair_coeff * * oxdna2/stk    seqav ${T} 1.3523 2.6717 6.0 0.4 0.9 0.32 0.75 1.3 0 0.8 0.9 0 0.95 0.9 0 0.95 2.0 0.65 2.0 0.65
+pair_coeff * * oxdna2/hbond   seqav 0.0 8.0 0.4 0.75 0.34 0.7 1.5 0 0.7 1.5 0 0.7 1.5 0 0.7 0.46 3.141592653589793 0.7 4.0 1.5707963267948966 0.45 4.0 1.5707963267948966 0.45
+pair_coeff 1 4 oxdna2/hbond   seqav 1.0678 8.0 0.4 0.75 0.34 0.7 1.5 0 0.7 1.5 0 0.7 1.5 0 0.7 0.46 3.141592653589793 0.7 4.0 1.5707963267948966 0.45 4.0 1.5707963267948966 0.45
+pair_coeff 2 3 oxdna2/hbond   seqav 1.0678 8.0 0.4 0.75 0.34 0.7 1.5 0 0.7 1.5 0 0.7 1.5 0 0.7 0.46 3.141592653589793 0.7 4.0 1.5707963267948966 0.45 4.0 1.5707963267948966 0.45
+pair_coeff * * oxdna2/xstk    47.5 0.575 0.675 0.495 0.655 2.25 0.791592653589793 0.58 1.7 1.0 0.68 1.7 1.0 0.68 1.5 0 0.65 1.7 0.875 0.68 1.7 0.875 0.68
+pair_coeff * * oxdna2/coaxstk 58.5 0.4 0.6 0.22 0.58 2.0 2.891592653589793 0.65 1.3 0 0.8 0.9 0 0.95 0.9 0 0.95 40.0 3.116592653589793
+pair_coeff * * oxdna2/dh      ${T} ${rhos} 0.815
+
+###################################################
+#reset_atoms 	id sort yes    # THIS IS ON with EllipLJtest
+
+comm_modify cutoff 6           # THIS IS ON with EllipLJtest
+
+###
+# Set up fixes
+###
+
+fix 1 all   nve/asphere   ###NVE ensemble
+#fix 2 all   langevin   1.0 1.0   2.0   424242   ###Langevin integrator Tstart Tstop 1/friction rndseed
+
+compute ekin all ke
+compute epot all pe
+variable ekin equal c_ekin
+variable epot equal c_epot
+variable etot equal c_ekin+c_epot
+
+fix 3 all print 5000 "$(step)  ekin = ${ekin} | epot = ${epot} | etot = ${etot}" screen yes
+
+compute q all property/atom quatw quati quatj quatk
+compute diameter all property/atom shapex shapey shapez
+dump 1 all custom 5000 dump.polymer id type x y z c_q[1] c_q[2] c_q[3] c_q[4] c_diameter[1] c_diameter[2] c_diameter[3]
+dump_modify 1 colname c_q[1] quatw colname c_q[2] quati colname c_q[3] quatj colname c_q[4] quatk
+
+###################################################
+
+timestep 0.00001
+
+run 5000
+
+write_data data_out.* nocoeff
+

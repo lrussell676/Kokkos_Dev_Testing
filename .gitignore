@@ -1,4 +1,5 @@
 *lmp_DEV_*
+dump.*
 Ellipsoid_262Katoms/*/dump.polymer
 Ellipsoid_262Katoms/*/data_out.*
 Ellipsoid_262Katoms/nve_asphere_test/kk_g1t2/data_out.20000

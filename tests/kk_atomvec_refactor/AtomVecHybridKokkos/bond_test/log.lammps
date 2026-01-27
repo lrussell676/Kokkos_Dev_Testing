@@ -1,0 +1,17 @@
+LAMMPS (4 Feb 2025 - Development - patch_4Feb2025-116-g16db8e1515)
+KOKKOS mode with Kokkos version 4.5.1 is enabled (src/KOKKOS/kokkos.cpp:72)
+  will use up to 1 GPU(s) per node
+  using 2 OpenMP thread(s) per MPI task
+package kokkos
+package kokkos neigh full newton off
+###
+# Box and units  (use LJ units and periodic boundaries)
+###
+
+units           lj
+atom_style      bond
+dimension	3
+boundary	p p p
+newton 		on
+ERROR: Must use 'newton off' with KOKKOS package option 'neigh full' (src/KOKKOS/kokkos.cpp:648)
+Last input line: newton on

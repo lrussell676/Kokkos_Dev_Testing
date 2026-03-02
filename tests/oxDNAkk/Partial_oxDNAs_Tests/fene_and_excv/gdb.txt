@@ -1,0 +1,25 @@
+Breakpoint 1 at 0x88940
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6dff640 (LWP 26339)]
+
+Thread 1 "lmp" received signal SIGSEGV, Segmentation fault.
+0x0000555555b97104 in LAMMPS_NS::PairOxdnaExcv::compute (this=0x555556048770, eflag=<optimised out>, vflag=<optimised out>) at /media/lewis/PhD/GH_lammps/src/CG-DNA/pair_oxdna_excv.cpp:414
+#0  0x0000555555b97104 in LAMMPS_NS::PairOxdnaExcv::compute (this=0x555556048770, eflag=<optimised out>, vflag=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/src/CG-DNA/pair_oxdna_excv.cpp:414
+#1  0x00005555557d6712 in LAMMPS_NS::Verlet::setup (this=0x555555f68ee0, flag=1) at /media/lewis/PhD/GH_lammps/src/verlet.cpp:140
+#2  0x000055555575b2b6 in LAMMPS_NS::Run::command (this=0x5555560484f0, narg=1, arg=0x5555560bf980) at /media/lewis/PhD/GH_lammps/src/run.cpp:171
+#3  0x0000555555636a4f in LAMMPS_NS::Input::execute_command (this=0x555555ea40e0) at /media/lewis/PhD/GH_lammps/src/input.cpp:877
+#4  0x0000555555636dae in LAMMPS_NS::Input::file (this=0x555555ea40e0) at /media/lewis/PhD/GH_lammps/src/input.cpp:315
+#5  0x0000555555627691 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66
+Breakpoint 1 at 0xc3b50
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6dff640 (LWP 29084)]
+
+Thread 1 "lmp" received signal SIGSEGV, Segmentation fault.
+0x0000555555ec2d8b in LAMMPS_NS::PairOxdnaExcv::coeff (this=this@entry=0x555556c6c890, narg=<optimised out>, arg=arg@entry=0x555556c5b610) at /media/lewis/PhD/GH_lammps/src/CG-DNA/pair_oxdna_excv.cpp:774

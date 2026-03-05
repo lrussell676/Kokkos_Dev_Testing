@@ -25,8 +25,11 @@ set atom * mass 3.1575
 group all type 1 4
 
 # oxDNA bond interactions - FENE backbone
-bond_style oxdna/fene
-bond_coeff * 2.0 0.75 1.07525
+#bond_style oxdna/fene
+#bond_coeff * 2.0 0.75 1.07525
+#special_bonds lj 0 1 1
+bond_style hybrid oxdna/fene
+bond_coeff * oxdna/fene 2.0 0.75 1.07525
 special_bonds lj 0 1 1
 
 # oxDNA pair interactions
@@ -52,7 +55,13 @@ variable erot equal c_erot
 variable ekin equal c_ekin
 variable epot equal c_epot
 variable etot equal c_erot+c_ekin+c_epot
-fix 5 all print ${efreq} "$(step)  ekin = ${ekin} |  erot = ${erot} | epot = ${epot} | etot = ${etot}" screen yes
+
+compute ebond all bond
+compute eexcv all pair oxdna/excv
+variable ebond equal c_ebond[1]
+variable eexcv equal c_eexcv
+
+fix 5 all print ${efreq} "$(step)  ekin = ${ekin} |  erot = ${erot} | epot = ${epot} | ebond = ${ebond} | eexcv = ${eexcv} | etot = ${etot}" screen yes
 
 dump out all custom ${ofreq} out.${number}.lammpstrj id mol type x y z ix iy iz vx vy vz c_quat[1] c_quat[2] c_quat[3] c_quat[4] angmomx angmomy angmomz
 dump_modify out sort id

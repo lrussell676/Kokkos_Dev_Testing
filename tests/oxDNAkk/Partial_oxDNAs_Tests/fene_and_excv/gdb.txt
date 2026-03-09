@@ -23,3 +23,434 @@ Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
 
 Thread 1 "lmp" received signal SIGSEGV, Segmentation fault.
 0x0000555555ec2d8b in LAMMPS_NS::PairOxdnaExcv::coeff (this=this@entry=0x555556c6c890, narg=<optimised out>, arg=arg@entry=0x555556c5b610) at /media/lewis/PhD/GH_lammps/src/CG-DNA/pair_oxdna_excv.cpp:774
+Breakpoint 1 at 0xc3b50
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6dff640 (LWP 19438)]
+Breakpoint 1 at 0xc3b50
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff6dff640 (LWP 19443)]
+
+Thread 1 "lmp" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737351529920) at ./nptl/pthread_kill.c:44
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737351529920)
+    at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737351529920)
+    at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737351529920, signo=signo@entry=6)
+    at ./nptl/pthread_kill.c:89
+#3  0x00007ffff7242476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff72287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x000055555661d16d in Kokkos::Impl::host_abort (
+    message=message@entry=0x7fffffffc4e0 "Kokkos::View ERROR: out of bounds access label=(\"atom:map_array\") with indices [18446744073599458648] but extents [17]")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Abort.cpp:27
+#6  0x0000555555937995 in Kokkos::abort (
+    message=0x7fffffffc4e0 "Kokkos::View ERROR: out of bounds access label=(\"atom:map_array\") with indices [18446744073599458648] but extents [17]")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Kokkos_Abort.hpp:84
+#7  Kokkos::Impl::view_verify_operator_bounds<Kokkos::extents<unsigned long, 18446744073709551615ul>, int> (tracker=..., exts=..., data=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/View/Kokkos_ViewAccessPreconditionsCheck.hpp:144
+#8  0x000055555594134e in Kokkos::View<int*, Kokkos::LayoutRight, Kokkos::Serial>::operator()<int> (this=0x7fffffffc620)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Kokkos_View.hpp:542
+#9  LAMMPS_NS::AtomKokkos::map_kokkos<Kokkos::Serial> (global=-110092968, 
+    map_style=<optimised out>, k_map_array=..., k_map_hash=...)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/atom_kokkos.h:148
+#10 0x0000555555ff80ab in LAMMPS_NS::BondOxdnaFENEKokkos<Kokkos::Serial>::compute(int, int)::{lambda(int const&)#1}::operator()(int const&) const (
+    __closure=__closure@entry=0x7fffffffc870, in=@0x7fffffffc834: 3)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/bond_oxdna_fene_kokkos.cpp:143
+
+Thread 1 "lmp" received signal SIGINT, Interrupt.
+0x00007ffff7c33107 in mca_part_persist_progress () from /home/lewis/openmpi_install/lib/libmpi.so.40
+warning: Error detected on fd 0
+error detected on stdin
+Breakpoint 1 at 0x14bf40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff0dff000 (LWP 47960)]
+[New Thread 0x7fffea1ff000 (LWP 47961)]
+[New Thread 0x7fffe99fe000 (LWP 47962)]
+[New Thread 0x7fffe8f6a000 (LWP 47966)]
+[New Thread 0x7fffdcdde000 (LWP 47967)]
+
+Thread 1 "lmp" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:44
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737348214784, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff1242476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff12287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00005555571fc31d in Kokkos::Impl::host_abort (message=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Abort.cpp:27
+#6  0x0000555557227a74 in Kokkos::Impl::cuda_internal_error_abort (e=<optimised out>, name=<optimised out>, 
+    file=0x555557418f20 "/media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp", line=146)
+    at /usr/include/c++/11/bits/basic_string.h:194
+#7  0x0000555557227bca in Kokkos::Impl::cuda_internal_safe_call (line=146, 
+    file=0x555557418f20 "/media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp", 
+    name=0x555557418c28 "cudaDeviceSynchronize()", e=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Error.hpp:48
+#8  operator() (__closure=<optimised out>) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp:146
+#9  Kokkos::Tools::Experimental::Impl::profile_fence_event<Kokkos::Cuda, Kokkos::Impl::cuda_device_synchronize(const string&)::<lambda()> > (func=..., reason=Kokkos::Tools::Experimental::GlobalDeviceSynchronization, name=...)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Profiling.hpp:200
+#10 Kokkos::Impl::cuda_device_synchronize (name=...)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp:132
+#11 0x00005555571fdead in Kokkos::Impl::ExecSpaceManager::static_fence (
+    this=0x55555cfb06e0 <Kokkos::Impl::ExecSpaceManager::get_instance()::space_initializer>, 
+    name="Kokkos::deep_copy: scalar to scalar copy, pre copy fence")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Core.cpp:229
+#12 0x00005555571fe1e9 in (anonymous namespace)::fence_internal (
+    name="Kokkos::deep_copy: scalar to scalar copy, pre copy fence")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Core.cpp:773
+#13 0x0000555555b86bd3 in Kokkos::deep_copy<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace>, int, Kokkos::LayoutRight, Kokkos::Cuda, void>(Kokkos::View<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace> > const&, Kokkos::View<int, Kokkos::LayoutRight, Kokkos::Cuda, void> const&, std::enable_if<(((is_void_v<Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace> >::specialize>)&&(is_void_v<Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Cuda, void>::specialize>))&&(((unsigned int)Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace> >::rank)==((unsigned int)(0))))&&(((unsigned int)Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Cuda, void>::rank)==((unsigned int)(0))), void>::type*) (dst=..., src=...)
+    at /usr/include/c++/11/ext/new_allocator.h:79
+#14 0x0000555555b8fe18 in LAMMPS_NS::NBinKokkos<Kokkos::Cuda>::bin_atoms (this=0x55555e3405a0)
+    at /usr/include/c++/11/bits/allocator.h:174
+#15 0x0000555555b3ba5d in LAMMPS_NS::NeighborKokkos::build_kokkos<Kokkos::Cuda> (this=0x55555e07c400, topoflag=1)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/neighbor_kokkos.cpp:295
+#16 0x0000555555f3ec0e in LAMMPS_NS::VerletKokkos::run (this=0x55555e2eceb0, n=1000000)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:358
+#17 0x000055555590421a in LAMMPS_NS::Run::command (this=0x55555ee61dc0, narg=<optimised out>, arg=0x55555e33ce00)
+    at /media/lewis/PhD/GH_lammps/src/run.cpp:176
+#18 0x00005555557d4d2c in LAMMPS_NS::Input::execute_command (this=0x55555d3b3ee0)
+    at /media/lewis/PhD/GH_lammps/src/input.cpp:877
+#19 0x00005555557d547e in LAMMPS_NS::Input::file (this=0x55555d3b3ee0) at /media/lewis/PhD/GH_lammps/src/input.cpp:315
+#20 0x00005555557414a1 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737348214784, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff1242476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff12287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00005555571fc31d in Kokkos::Impl::host_abort (message=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Abort.cpp:27
+#6  0x0000555557227a74 in Kokkos::Impl::cuda_internal_error_abort (e=<optimised out>, name=<optimised out>, 
+    file=0x555557418f20 "/media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp", line=146)
+    at /usr/include/c++/11/bits/basic_string.h:194
+#7  0x0000555557227bca in Kokkos::Impl::cuda_internal_safe_call (line=146, 
+    file=0x555557418f20 "/media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp", 
+    name=0x555557418c28 "cudaDeviceSynchronize()", e=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Error.hpp:48
+#8  operator() (__closure=<optimised out>) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp:146
+#9  Kokkos::Tools::Experimental::Impl::profile_fence_event<Kokkos::Cuda, Kokkos::Impl::cuda_device_synchronize(const string&)::<lambda()> > (func=..., reason=Kokkos::Tools::Experimental::GlobalDeviceSynchronization, name=...)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Profiling.hpp:200
+#10 Kokkos::Impl::cuda_device_synchronize (name=...)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp:132
+#11 0x00005555571fdead in Kokkos::Impl::ExecSpaceManager::static_fence (
+    this=0x55555cfb06e0 <Kokkos::Impl::ExecSpaceManager::get_instance()::space_initializer>, 
+    name="Kokkos::deep_copy: scalar to scalar copy, pre copy fence")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Core.cpp:229
+#12 0x00005555571fe1e9 in (anonymous namespace)::fence_internal (
+    name="Kokkos::deep_copy: scalar to scalar copy, pre copy fence")
+   os_Core.cpp:773
+#13 0x0000555555b86bd3 in Kokkos::deep_copy<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace>, int, Kokkos::LayoutRight, Kokkos::Cuda, void>(Kokkos::View<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace> > const&, Kokkos::View<int, Kokkos::LayoutRight, Kokkos::Cuda, void> const&, std::enable_if<(((is_void_v<Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace> >::specialize>)&&(is_void_v<Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Cuda, void>::specialize>))&&(((unsigned int)Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace> >::rank)==((unsigned int)(0))))&&(((unsigned int)Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Cuda, void>::rank)==((unsigned int)(0))), void>::type*) (dst=..., src=...)
+    at /usr/include/c++/11/ext/new_allocator.h:79
+#14 0x0000555555b8fe18 in LAMMPS_NS::NBinKokkos<Kokkos::Cuda>::bin_atoms (this=0x55555e3405a0)
+    at /usr/include/c++/11/bits/allocator.h:174
+#15 0x0000555555b3ba5d in LAMMPS_NS::NeighborKokkos::build_kokkos<Kokkos::Cuda> (this=0x55555e07c400, topoflag=1)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/neighbor_kokkos.cpp:295
+#16 0x0000555555f3ec0e in LAMMPS_NS::VerletKokkos::run (this=0x55555e2eceb0, n=1000000)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:358
+#17 0x000055555590421a in LAMMPS_NS::Run::command (this=0x55555ee61dc0, narg=<optimised out>, arg=0x55555e33ce00)
+    at /media/lewis/PhD/GH_lammps/src/run.cpp:176
+#18 0x00005555557d4d2c in LAMMPS_NS::Input::execute_command (this=0x55555d3b3ee0)
+    at /media/lewis/PhD/GH_lammps/src/input.cpp:877
+#19 0x00005555557d547e in LAMMPS_NS::Input::file (this=0x55555d3b3ee0) at /media/lewis/PhD/GH_lammps/src/input.cpp:315
+#20 0x00005555557414a1 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737348214784, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff1242476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff12287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00005555571fc31d in Kokkos::Impl::host_abort (message=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Abort.cpp:27
+#6  0x0000555557227a74 in Kokkos::Impl::cuda_internal_error_abort (e=<optimised out>, name=<optimised out>, 
+    file=0x555557418f20 "/media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp", line=146)
+    at /usr/include/c++/11/bits/basic_string.h:194
+#7  0x0000555557227bca in Kokkos::Impl::cuda_internal_safe_call (line=146, 
+    file=0x555557418f20 "/media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp", 
+    name=0x555557418c28 "cudaDeviceSynchronize()", e=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Error.hpp:48
+#8  operator() (__closure=<optimised out>) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp:146
+#9  Kokkos::Tools::Experimental::Impl::profile_fence_event<Kokkos::Cuda, Kokkos::Impl::cuda_device_synchronize(const string&)::<lambda()> > (func=..., reason=Kokkos::Tools::Experimental::GlobalDeviceSynchronization, name=...)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Profiling.hpp:200
+#10 Kokkos::Impl::cuda_device_synchronize (name=...)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp:132
+#11 0x00005555571fdead in Kokkos::Impl::ExecSpaceManager::static_fence (
+    this=0x55555cfb06e0 <Kokkos::Impl::ExecSpaceManager::get_instance()::space_initializer>, 
+    name="Kokkos::deep_copy: scalar to scalar copy, pre copy fence")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Core.cpp:229
+#12 0x00005555571fe1e9 in (anonymous namespace)::fence_internal (
+    name="Kokkos::deep_copy: scalar to scalar copy, pre copy fence")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Core.cpp:773
+#13 0x0000555555b86bd3 in Kokkos::deep_copy<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace>, int, Kokkos::LayoutRight, Kokkos::Cuda, void>(Kokkos::View<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace> > const&, Kokkos::View<int, Kokkos::LayoutRight, Kokkos::Cuda, void> const&, std::enable_if<(((is_void_v<Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace> >::specialize>)&&(is_void_v<Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Cuda, void>::specialize>))&&(((unsigned int)Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace> >::rank)==((unsigned int)(0))))&&(((unsigned int)Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Cuda, void>::rank)==((unsigned int)(0))), void>::type*) (dst=..., src=...)
+    at /usr/include/c++/11/ext/new_allocator.h:79
+#14 0x0000555555b8fe18 in LAMMPS_NS::NBinKokkos<Kokkos::Cuda>::bin_atoms (this=0x55555e3405a0)
+    at /usr/include/c++/11/bits/allocator.h:174
+#15 0x0000555555b3ba5d in LAMMPS_NS::NeighborKokkos::build_kokkos<Kokkos::Cuda> (this=0x55555e07c400, topoflag=1)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/neighbor_kokkos.cpp:295
+#16 0x0000555555f3ec0e in LAMMPS_NS::VerletKokkos::run (this=0x55555e2eceb0, n=1000000)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:358
+#17 0x000055555590421a in LAMMPS_NS::Run::command (this=0x55555ee61dc0, narg=<optimised out>, arg=0x55555e33ce00)
+    at /media/lewis/PhD/GH_lammps/src/run.cpp:176
+#18 0x00005555557d4d2c in LAMMPS_NS::Input::execute_command (this=0x55555d3b3ee0)
+    at /media/lewis/PhD/GH_lammps/src/input.cpp:877
+#19 0x00005555557d547e in LAMMPS_NS::Input::file (this=0x55555d3b3ee0) at /media/lewis/PhD/GH_lammps/src/input.cpp:315
+#20 0x00005555557414a1 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737348214784, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff1242476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff12287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00005555571fc31d in Kokkos::Impl::host_abort (message=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Abort.cpp:27
+#6  0x0000555557227a74 in Kokkos::Impl::cuda_internal_error_abort (e=<optimised out>, name=<optimised out>, 
+    file=0x555557418f20 "/media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp", line=146)
+    at /usr/include/c++/11/bits/basic_string.h:194
+#7  0x0000555557227bca in Kokkos::Impl::cuda_internal_safe_call (line=146, 
+    file=0x555557418f20 "/media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp", 
+    name=0x555557418c28 "cudaDeviceSynchronize()", e=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Error.hpp:48
+#8  operator() (__closure=<optimised out>) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp:146
+#9  Kokkos::Tools::Experimental::Impl::profile_fence_event<Kokkos::Cuda, Kokkos::Impl::cuda_device_synchronize(const string&)::<lambda()> > (func=..., reason=Kokkos::Tools::Experimental::GlobalDeviceSynchronization, name=...)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Profiling.hpp:200
+#10 Kokkos::Impl::cuda_device_synchronize (name=...)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp:132
+#11 0x00005555571fdead in Kokkos::Impl::ExecSpaceManager::static_fence (
+    this=0x55555cfb06e0 <Kokkos::Impl::ExecSpaceManager::get_instance()::space_initializer>, 
+    name="Kokkos::deep_copy: scalar to scalar copy, pre copy fence")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Core.cpp:229
+#12 0x00005555571fe1e9 in (anonymous namespace)::fence_internal (
+    name="Kokkos::deep_copy: scalar to scalar copy, pre copy fence")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Core.cpp:773
+#13 0x0000555555b86bd3 in Kokkos::deep_copy<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace>, int, Kokkos::LayoutRight, Kokkos::Cuda, void>(Kokkos::View<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace> > const&, Kokkos::View<int, Kokkos::LayoutRight, Kokkos::Cuda, void> const&, std::enable_if<(((is_void_v<Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace> >::specialize>)&&(is_void_v<Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Cuda, void>::specialize>))&&(((unsigned int)Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::HostSpace> >::rank)==((unsigned int)(0))))&&(((unsigned int)Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Cuda, void>::rank)==((unsigned int)(0))), void>::type*) (dst=..., src=...)
+    at /usr/include/c++/11/ext/new_allocator.h:79
+#14 0x0000555555b8fe18 in LAMMPS_NS::NBinKokkos<Kokkos::Cuda>::bin_atoms (this=0x55555e3405a0)
+    at /usr/include/c++/11/bits/allocator.h:174
+#15 0x0000555555b3ba5d in LAMMPS_NS::NeighborKokkos::build_kokkos<Kokkos::Cuda> (this=0x55555e07c400, topoflag=1)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/neighbor_kokkos.cpp:295
+#16 0x0000555555f3ec0e in LAMMPS_NS::VerletKokkos::run (this=0x55555e2eceb0, n=1000000)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:358
+#17 0x000055555590421a in LAMMPS_NS::Run::command (this=0x55555ee61dc0, narg=<optimised out>, arg=0x55555e33ce00)
+    at /media/lewis/PhD/GH_lammps/src/run.cpp:176
+#18 0x00005555557d4d2c in LAMMPS_NS::Input::execute_command (this=0x55555d3b3ee0)
+    at /media/lewis/PhD/GH_lammps/src/input.cpp:877
+#19 0x00005555557d547e in LAMMPS_NS::Input::file (this=0x55555d3b3ee0) at /media/lewis/PhD/GH_lammps/src/input.cpp:315
+#20 0x00005555557414a1 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66
+Quit
+Quit
+Quit
+warning: Error detected on fd 0
+error detected on stdin
+Breakpoint 1 at 0x14bf40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff0dff000 (LWP 96967)]
+[New Thread 0x7fffea1ff000 (LWP 96968)]
+[New Thread 0x7fffe99fe000 (LWP 96969)]
+[New Thread 0x7fffe8f6a000 (LWP 96973)]
+[New Thread 0x7fffdcdde000 (LWP 96974)]
+[New Thread 0x7fffd6dde000 (LWP 96975)]
+
+Thread 1 "lmp" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:44
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737348214784, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff1242476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff12287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00005555571af66d in Kokkos::Impl::host_abort (message=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Abort.cpp:27
+#6  0x00005555571dadc4 in Kokkos::Impl::cuda_internal_error_abort (e=<optimised out>, name=<optimised out>, 
+    file=0x5555573cf478 "/media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp", line=146)
+    at /usr/include/c++/11/bits/basic_string.h:194
+#7  0x00005555571daf1a in Kokkos::Impl::cuda_internal_safe_call (line=146, 
+    file=0x5555573cf478 "/media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp", 
+    name=0x5555573cf168 "cudaDeviceSynchronize()", e=<optimised out>) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Error.hpp:48
+#8  operator() (__closure=<optimised out>) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp:146
+#9  Kokkos::Tools::Experimental::Impl::profile_fence_event<Kokkos::Cuda, Kokkos::Impl::cuda_device_synchronize(const string&)::<lambda()> > (
+    func=..., reason=Kokkos::Tools::Experimental::GlobalDeviceSynchronization, name=...)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Profiling.hpp:200
+#10 Kokkos::Impl::cuda_device_synchronize (name=...) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp:132
+#11 0x00005555571b11fd in Kokkos::Impl::ExecSpaceManager::static_fence (
+    this=0x55555cd72740 <Kokkos::Impl::ExecSpaceManager::get_instance()::space_initializer>, 
+    name="Kokkos::deep_copy: scalar to scalar copy, pre copy fence") at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Core.cpp:229
+#12 0x00005555571b1539 in (anonymous namespace)::fence_internal (name="Kokkos::deep_copy: scalar to scalar copy, pre copy fence")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Core.cpp:773
+#13 0x0000555555b87e8d in Kokkos::deep_copy<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::CudaUVMSpace>, int, Kokkos::LayoutRight, Kokkos::Cuda, void>(Kokkos::View<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::CudaUVMSpace> > const&, Kokkos::View<int, Kokkos::LayoutRight, Kokkos::Cuda, void> const&, std::enable_if<(((is_void_v<Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::CudaUVMSpace> >::specialize>)&&(is_void_v<Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Cuda, void>::specialize>))&&(((unsigned int)Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::CudaUVMSpace> >::rank)==((unsigned int)(0))))&&(((unsigned int)Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Cuda, void>::rank)==((unsigned int)(0))), void>::type*) (dst=..., src=...)
+    at /usr/include/c++/11/ext/new_allocator.h:79
+#14 0x0000555555b92ba8 in LAMMPS_NS::NBinKokkos<Kokkos::Cuda>::bin_atoms (this=0x55555e87da60) at /usr/include/c++/11/bits/allocator.h:174
+#15 0x0000555555b3501d in LAMMPS_NS::NeighborKokkos::build_kokkos<Kokkos::Cuda> (this=0x55555de322c0, topoflag=1)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/neighbor_kokkos.cpp:295
+#16 0x0000555555f3efbe in LAMMPS_NS::VerletKokkos::run (this=0x55555e044970, n=1000000) at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:358
+#17 0x00005555558ff2ea in LAMMPS_NS::Run::command (this=0x55555e0a7ea0, narg=<optimised out>, arg=0x55555e0a76d0)
+    at /media/lewis/PhD/GH_lammps/src/run.cpp:176
+#18 0x00005555557cf7bc in LAMMPS_NS::Input::execute_command (this=0x55555d169de0) at /media/lewis/PhD/GH_lammps/src/input.cpp:877
+#19 0x00005555557cff0e in LAMMPS_NS::Input::file (this=0x55555d169de0) at /media/lewis/PhD/GH_lammps/src/input.cpp:315
+#20 0x000055555573e4f1 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66
+warning: Error detected on fd 0
+error detected on stdin
+Breakpoint 1 at 0x14bf40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff0dff000 (LWP 117182)]
+[New Thread 0x7fffea1ff000 (LWP 117184)]
+[New Thread 0x7fffe99fe000 (LWP 117185)]
+[New Thread 0x7fffe8f6a000 (LWP 117189)]
+[New Thread 0x7fffdcdde000 (LWP 117190)]
+[New Thread 0x7fffd6dde000 (LWP 117191)]
+
+Thread 1 "lmp" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:44
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737348214784, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff1242476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff12287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00005555571af60d in Kokkos::Impl::host_abort (message=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Abort.cpp:27
+#6  0x00005555571dad64 in Kokkos::Impl::cuda_internal_error_abort (e=<optimised out>, name=<optimised out>, 
+    file=0x5555573cf498 "/media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp", line=146)
+    at /usr/include/c++/11/bits/basic_string.h:194
+#7  0x00005555571daeba in Kokkos::Impl::cuda_internal_safe_call (line=146, 
+    file=0x5555573cf498 "/media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp", 
+    name=0x5555573cf188 "cudaDeviceSynchronize()", e=<optimised out>)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Error.hpp:48
+#8  operator() (__closure=<optimised out>) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp:146
+#9  Kokkos::Tools::Experimental::Impl::profile_fence_event<Kokkos::Cuda, Kokkos::Impl::cuda_device_synchronize(const string&)::<lambda()> > (func=..., 
+    reason=Kokkos::Tools::Experimental::GlobalDeviceSynchronization, name=...) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Profiling.hpp:200
+#10 Kokkos::Impl::cuda_device_synchronize (name=...) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Cuda/Kokkos_Cuda_Instance.cpp:132
+#11 0x00005555571b119d in Kokkos::Impl::ExecSpaceManager::static_fence (this=0x55555cd70740 <Kokkos::Impl::ExecSpaceManager::get_instance()::space_initializer>, 
+    name="Kokkos::deep_copy: scalar to scalar copy, pre copy fence") at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Core.cpp:229
+#12 0x00005555571b14d9 in (anonymous namespace)::fence_internal (name="Kokkos::deep_copy: scalar to scalar copy, pre copy fence")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Core.cpp:773
+#13 0x0000555555b87e8d in Kokkos::deep_copy<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::CudaUVMSpace>, int, Kokkos::LayoutRight, Kokkos::Cuda, void>(Kokkos::View<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::CudaUVMSpace> > const&, Kokkos::View<int, Kokkos::LayoutRight, Kokkos::Cuda, void> const&, std::enable_if<(((is_void_v<Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::CudaUVMSpace> >::specialize>)&&(is_void_v<Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Cuda, void>::specialize>))&&(((unsigned int)Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Device<Kokkos::OpenMP, Kokkos::CudaUVMSpace> >::rank)==((unsigned int)(0))))&&(((unsigned int)Kokkos::ViewTraits<int, Kokkos::LayoutRight, Kokkos::Cuda, void>::rank)==((unsigned int)(0))), void>::type*) (dst=..., src=...) at /usr/include/c++/11/ext/new_allocator.h:79
+#14 0x0000555555b92ba8 in LAMMPS_NS::NBinKokkos<Kokkos::Cuda>::bin_atoms (this=0x55555e87ba60) at /usr/include/c++/11/bits/allocator.h:174
+#15 0x0000555555b3501d in LAMMPS_NS::NeighborKokkos::build_kokkos<Kokkos::Cuda> (this=0x55555de302c0, topoflag=1)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/neighbor_kokkos.cpp:295
+#16 0x0000555555f3efbe in LAMMPS_NS::VerletKokkos::run (this=0x55555e042970, n=1000000) at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:358
+#17 0x00005555558ff2ea in LAMMPS_NS::Run::command (this=0x55555e0a5ea0, narg=<optimised out>, arg=0x55555e0a56d0) at /media/lewis/PhD/GH_lammps/src/run.cpp:176
+#18 0x00005555557cf7bc in LAMMPS_NS::Input::execute_command (this=0x55555d167de0) at /media/lewis/PhD/GH_lammps/src/input.cpp:877
+Breakpoint 1 at 0x14bf40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff0dff000 (LWP 117475)]
+[New Thread 0x7fffea1ff000 (LWP 117476)]
+[New Thread 0x7fffe99fe000 (LWP 117477)]
+[New Thread 0x7fffe8f6a000 (LWP 117481)]
+[New Thread 0x7fffdcdde000 (LWP 117482)]
+[New Thread 0x7fffd6dde000 (LWP 117483)]
+
+Thread 1 "lmp" received signal SIGABRT, Aborted.
+__pthread_kill_implementation (no_tid=0, signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:44
+#0  __pthread_kill_implementation (no_tid=0, signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:44
+#1  __pthread_kill_internal (signo=6, threadid=140737348214784) at ./nptl/pthread_kill.c:78
+#2  __GI___pthread_kill (threadid=140737348214784, signo=signo@entry=6) at ./nptl/pthread_kill.c:89
+#3  0x00007ffff1242476 in __GI_raise (sig=sig@entry=6) at ../sysdeps/posix/raise.c:26
+#4  0x00007ffff12287f3 in __GI_abort () at ./stdlib/abort.c:79
+#5  0x00005555571af60d in Kokkos::Impl::host_abort (message=message@entry=0x5555572fb7f8 "View assignment must have compatible layouts\n")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/impl/Kokkos_Abort.cpp:27
+#6  0x000055555655baec in Kokkos::abort (message=0x5555572fb7f8 "View assignment must have compatible layouts\n")
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/Kokkos_Abort.hpp:84
+#7  Kokkos::Impl::ViewMapping<Kokkos::ViewTraits<int**, Kokkos::LayoutRight, Kokkos::Cuda, void>, Kokkos::ViewTraits<int**, Kokkos::LayoutStride, Kokkos::Device<Kokkos::Cuda, Kokkos::CudaUVMSpace>, Kokkos::MemoryTraits<0u> >, void>::assign (src_track=..., src=..., dst=...)
+    at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/View/Kokkos_ViewMapping.hpp:3094
+#8  Kokkos::View<int**, Kokkos::LayoutRight, Kokkos::Cuda, void>::View<int**, Kokkos::LayoutStride, Kokkos::Device<Kokkos::Cuda, Kokkos::CudaUVMSpace>, Kokkos::MemoryTraits<0u> > (rhs=..., this=0x7fffffffc318) at /media/lewis/PhD/GH_lammps/lib/kokkos/core/src/View/Kokkos_ViewLegacy.hpp:1039
+#9  Kokkos::DualView<int**, Kokkos::LayoutRight, Kokkos::Cuda, void>::DualView<int**, Kokkos::LayoutStride, Kokkos::Device<Kokkos::Cuda, Kokkos::CudaUVMSpace>, Kokkos::MemoryTraits<0u> > (this=0x7fffffffc300, src=...) at /media/lewis/PhD/GH_lammps/lib/kokkos/containers/src/Kokkos_DualView.hpp:310
+#10 0x0000555556558db4 in LAMMPS_NS::BondHybridKokkos::compute (this=0x55555e8545c0, eflag=1, vflag=2)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/bond_hybrid_kokkos.cpp:119
+Breakpoint 1 at 0x148f40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff0dff000 (LWP 135013)]
+[New Thread 0x7fffea1ff000 (LWP 135014)]
+[New Thread 0x7fffe99fe000 (LWP 135015)]
+[New Thread 0x7fffe8f6a000 (LWP 135019)]
+[New Thread 0x7fffdcdde000 (LWP 135020)]
+[New Thread 0x7fffd6dde000 (LWP 135021)]
+
+Thread 1 "lmp" received signal SIGSEGV, Segmentation fault.
+LAMMPS_NS::BondHybrid::compute (this=0x55555e67acd0, eflag=1, vflag=2) at /media/lewis/PhD/GH_lammps/src/bond_hybrid.cpp:77
+#0  LAMMPS_NS::BondHybrid::compute (this=0x55555e67acd0, eflag=1, vflag=2) at /media/lewis/PhD/GH_lammps/src/bond_hybrid.cpp:77
+#1  0x0000555555f35dbd in LAMMPS_NS::VerletKokkos::setup (this=0x55555dead390, flag=1)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:132
+#2  0x00005555558f84f4 in LAMMPS_NS::Run::command (this=0x55555df108d0, narg=<optimised out>, arg=0x55555df0c910)
+    at /media/lewis/PhD/GH_lammps/src/run.cpp:171
+#3  0x00005555557c8f2c in LAMMPS_NS::Input::execute_command (this=0x55555cfd30d0)
+    at /media/lewis/PhD/GH_lammps/src/input.cpp:877
+#4  0x00005555557c967e in LAMMPS_NS::Input::file (this=0x55555cfd30d0) at /media/lewis/PhD/GH_lammps/src/input.cpp:315
+#5  0x0000555555739d41 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66
+#0  LAMMPS_NS::BondHybrid::compute (this=0x55555e67acd0, eflag=1, vflag=2) at /media/lewis/PhD/GH_lammps/src/bond_hybrid.cpp:77
+#1  0x0000555555f35dbd in LAMMPS_NS::VerletKokkos::setup (this=0x55555dead390, flag=1)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:132
+#2  0x00005555558f84f4 in LAMMPS_NS::Run::command (this=0x55555df108d0, narg=<optimised out>, arg=0x55555df0c910)
+    at /media/lewis/PhD/GH_lammps/src/run.cpp:171
+#3  0x00005555557c8f2c in LAMMPS_NS::Input::execute_command (this=0x55555cfd30d0)
+    at /media/lewis/PhD/GH_lammps/src/input.cpp:877
+#4  0x00005555557c967e in LAMMPS_NS::Input::file (this=0x55555cfd30d0) at /media/lewis/PhD/GH_lammps/src/input.cpp:315
+#5  0x0000555555739d41 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66
+#0  LAMMPS_NS::BondHybrid::compute (this=0x55555e67acd0, eflag=1, vflag=2) at /media/lewis/PhD/GH_lammps/src/bond_hybrid.cpp:77
+#1  0x0000555555f35dbd in LAMMPS_NS::VerletKokkos::setup (this=0x55555dead390, flag=1)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:132
+#2  0x00005555558f84f4 in LAMMPS_NS::Run::command (this=0x55555df108d0, narg=<optimised out>, arg=0x55555df0c910)
+    at /media/lewis/PhD/GH_lammps/src/run.cpp:171
+#3  0x00005555557c8f2c in LAMMPS_NS::Input::execute_command (this=0x55555cfd30d0)
+    at /media/lewis/PhD/GH_lammps/src/input.cpp:877
+#4  0x00005555557c967e in LAMMPS_NS::Input::file (this=0x55555cfd30d0) at /media/lewis/PhD/GH_lammps/src/input.cpp:315
+#5  0x0000555555739d41 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66
+Breakpoint 1 at 0x13bf40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff0dff000 (LWP 137417)]
+[New Thread 0x7fffea1ff000 (LWP 137418)]
+[New Thread 0x7fffe99fe000 (LWP 137419)]
+[New Thread 0x7fffe8f6a000 (LWP 137423)]
+[New Thread 0x7fffdcdde000 (LWP 137424)]
+[New Thread 0x7fffd6dde000 (LWP 137425)]
+
+Thread 1 "lmp" received signal SIGSEGV, Segmentation fault.
+LAMMPS_NS::BondHybrid::compute (this=0x55555d933900, eflag=1, vflag=2) at /media/lewis/PhD/GH_lammps/src/bond_hybrid.cpp:77
+Breakpoint 1 at 0x13bf40
+Catchpoint 2 (catch)
+Catchpoint 3 (throw)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff0dff000 (LWP 138010)]
+[New Thread 0x7fffea1ff000 (LWP 138012)]
+[New Thread 0x7fffe99fe000 (LWP 138013)]
+[New Thread 0x7fffe8f6a000 (LWP 138017)]
+[New Thread 0x7fffdcdde000 (LWP 138018)]
+[New Thread 0x7fffd6dde000 (LWP 138019)]
+
+Thread 1 "lmp" received signal SIGSEGV, Segmentation fault.
+LAMMPS_NS::BondHybrid::compute (this=0x55555d933900, eflag=1, vflag=2) at /media/lewis/PhD/GH_lammps/src/bond_hybrid.cpp:77
+#0  LAMMPS_NS::BondHybrid::compute (this=0x55555d933900, eflag=1, vflag=2) at /media/lewis/PhD/GH_lammps/src/bond_hybrid.cpp:77
+#1  0x0000555555f1d66d in LAMMPS_NS::VerletKokkos::setup (this=0x55555d145910, flag=1)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:132
+#2  0x00005555558dfda4 in LAMMPS_NS::Run::command (this=0x55555d1a8fc0, narg=<optimised out>, arg=0x55555d96f5e0)
+    at /media/lewis/PhD/GH_lammps/src/run.cpp:171
+#3  0x00005555557b19cc in LAMMPS_NS::Input::execute_command (this=0x55555c26c650)
+    at /media/lewis/PhD/GH_lammps/src/input.cpp:877
+#4  0x00005555557b211e in LAMMPS_NS::Input::file (this=0x55555c26c650) at /media/lewis/PhD/GH_lammps/src/input.cpp:315
+#5  0x0000555555729c91 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66
+#0  LAMMPS_NS::BondHybrid::compute (this=0x55555d933900, eflag=1, vflag=2) at /media/lewis/PhD/GH_lammps/src/bond_hybrid.cpp:77
+#1  0x0000555555f1d66d in LAMMPS_NS::VerletKokkos::setup (this=0x55555d145910, flag=1)
+    at /media/lewis/PhD/GH_lammps/src/KOKKOS/verlet_kokkos.cpp:132
+#2  0x00005555558dfda4 in LAMMPS_NS::Run::command (this=0x55555d1a8fc0, narg=<optimised out>, arg=0x55555d96f5e0)
+    at /media/lewis/PhD/GH_lammps/src/run.cpp:171
+#3  0x00005555557b19cc in LAMMPS_NS::Input::execute_command (this=0x55555c26c650)
+    at /media/lewis/PhD/GH_lammps/src/input.cpp:877
+#4  0x00005555557b211e in LAMMPS_NS::Input::file (this=0x55555c26c650) at /media/lewis/PhD/GH_lammps/src/input.cpp:315
+#5  0x0000555555729c91 in main (argc=<optimised out>, argv=<optimised out>) at /media/lewis/PhD/GH_lammps/src/main.cpp:66

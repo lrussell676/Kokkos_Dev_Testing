@@ -5,7 +5,7 @@ set logging enabled on
 break exit
 catch catch
 catch throw
-run -in in.duplex2 -k on -sf kk -pk kokkos comm device
-#run -in in.duplex2 -k on g 1 -sf kk
+#run -in in.duplex2 -k on -sf kk -pk kokkos comm device
+run -in in.duplex2 -k on g 1 t 1 -sf kk -pk kokkos neigh half
 #run -in in.duplex2 -k on -sf kk
 #run -in in.duplex2

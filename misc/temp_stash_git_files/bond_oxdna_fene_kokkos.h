@@ -25,9 +25,13 @@ BondStyle(oxdna/fene/kk/host,BondOxdnaFENEKokkos<LMPHostType>);
 #include "bond_oxdna_fene.h"
 #include "kokkos_type.h"
 
+#include "atom_vec_ellipsoid_kokkos.h"
+
 namespace LAMMPS_NS {
 
-struct TagBondOxdnaFENEPrecomputeClosestBond{};
+struct TagBondOxdnaFENEQuatToXYZ{};
+
+struct TagBondOxdnaFENEPrecomputeBondPrimeNeighs{};
 
 template<int OXDNAFLAG, int NEWTON_BOND, int EVFLAG>
 struct TagBondOxdnaFENECompute{};
@@ -47,7 +51,11 @@ class BondOxdnaFENEKokkos : public BondOxdnaFene {
 
 // NOLINTNEXTLINE
   KOKKOS_INLINE_FUNCTION
-  void operator()(TagBondOxdnaFENEPrecomputeClosestBond, const int&) const;
+  void operator()(TagBondOxdnaFENEQuatToXYZ, const int&) const;
+
+// NOLINTNEXTLINE
+  KOKKOS_INLINE_FUNCTION
+  void operator()(TagBondOxdnaFENEPrecomputeBondPrimeNeighs, const int&) const;
 
   template<int OXDNAFLAG, int NEWTON_BOND, int EVFLAG>
 // NOLINTNEXTLINE
@@ -71,7 +79,7 @@ class BondOxdnaFENEKokkos : public BondOxdnaFene {
  protected:
   
   int oxdnaflag;
-  enum EnabledOXDNAFlag{OXDNA=1,OXDNA2=2,OXRNA2=4,OXDNA3=8};
+  enum EnabledOXDNAFlag{OXDNA=1,OXDNA2=2,OXRNA2=4};
   
   class NeighborKokkos *neighborKK;
 
@@ -100,11 +108,12 @@ class BondOxdnaFENEKokkos : public BondOxdnaFene {
   typename AT::t_kkfloat_5d d_r0;
   typename AT::t_kkfloat_5d d_Delta;
   // per-atom arrays for local unit vectors
-  DAT::tdual_kkfloat_1d_3_lr k_nx_xtrct, k_ny_xtrct, k_nz_xtrct;
-  typename AT::t_kkfloat_1d_3_lr d_nx_xtrct, d_ny_xtrct, d_nz_xtrct;
+  typename AtomVecEllipsoidKokkosBonusArray<DeviceType>::t_bonus_1d bonus;
+  typename AT::t_int_1d_randomread ellipsoid;
+  DAT::tdual_kkfloat_1d_3 k_nx, k_ny, k_nz;
+  typename AT::t_kkfloat_1d_3 d_nx, d_ny, d_nz;
 
   void allocate() override;
-  void sync_coeffs_to_views();
 
   // Atom Mapping
   int map_style;
@@ -112,14 +121,10 @@ class BondOxdnaFENEKokkos : public BondOxdnaFene {
   dual_hash_type k_map_hash;
   DAT::tdual_int_1d k_sametag;
   typename AT::t_int_1d d_sametag;
-  // Precomputed closest images for bondlist atoms
-  // 0-3 : closest images of atom a, atom b, id3p[a], id5p[b] for each bond
-  DAT::tdual_int_2d k_closest_bond;
-  typename AT::t_int_2d d_closest_bond;
-
-  // NOLINTNEXTLINE
-  KOKKOS_INLINE_FUNCTION
-  int closest_image(const int, int) const;
+  // Precomputed atom a/b 3'/5' directionality and atom mapping of their 3' and 5' neighbors.
+  // 0-3 : atom a, atom b, id3p[a], id5p[b] for each bond
+  DAT::tdual_int_2d k_bond_prime_neighs;
+  typename AT::t_int_2d d_bond_prime_neighs;
 };
 
 }    // namespace LAMMPS_NS

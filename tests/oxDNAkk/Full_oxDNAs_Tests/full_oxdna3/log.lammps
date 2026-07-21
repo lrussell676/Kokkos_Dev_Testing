@@ -1,0 +1,262 @@
+LAMMPS (30 Mar 2026 - Development - patch_30Mar2026-2354-ge53685bb17-modified)
+KOKKOS mode with Kokkos version 5.1.99 is enabled
+  using single precision
+  using view layout = default
+  will use up to 1 GPU(s) per node
+  using 2 OpenMP thread(s) per MPI task
+package kokkos
+package kokkos neigh half
+variable number	equal 6
+variable ofreq	equal 10000
+variable efreq	equal 10000
+variable T      equal 0.1
+variable rhos   equal 0.2
+variable nsteps equal 100000
+
+units lj
+
+dimension 3
+
+newton on
+
+boundary  p p p
+
+atom_style hybrid bond ellipsoid oxdna
+WARNING: AtomVecEllipsoidKokkos does not (yet) fully support KK_FLOAT within bonus struct data (shape, quat). Using double for these fields. (src/KOKKOS/atom_vec_ellipsoid_kokkos.cpp:46)
+WARNING: Atom style hybrid defines both, per-type and per-atom masses; both must be set, but only per-atom masses will be used (src/atom_vec_hybrid.cpp:134)
+atom_modify sort 0 1.0
+
+# Pair interactions require lists of neighbours to be calculated
+neighbor 2.0 bin
+neigh_modify every 1 delay 0 check yes
+
+fix Basepairs all property/atom i_idc ghost yes
+read_data data.dsring2 fix Basepairs NULL Basepairs
+Reading data file ...
+  orthogonal box = (0 0 0) to (100 100 100)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  148 atoms
+  reading velocities ...
+  148 velocities
+  scanning bonds ...
+  1 = max bonds/atom
+  148 ellipsoids
+  orthogonal box = (0 0 0) to (100 100 100)
+  1 by 1 by 1 MPI processor grid
+  reading bonds ...
+  148 bonds
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     2 = max # of 1-2 neighbors
+     2 = max # of 1-3 neighbors
+     4 = max # of 1-4 neighbors
+     6 = max # of special neighbors
+  special bonds CPU = 0.002 seconds
+  read_data CPU = 0.048 seconds
+
+set atom * mass 3.1575
+Setting atom values ...
+  148 settings made for mass
+
+group all type 1 4
+148 atoms in group all
+
+# oxDNA3 bond interactions - FENE backbone
+bond_style hybrid oxdna3/fene
+bond_coeff * oxdna3/fene oxdna3_lj.cgdna
+Reading oxdna3 potential (fene) file oxdna3_lj.cgdna with DATE: 2026-03-26
+special_bonds lj 0 1 1
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        1        1       
+  special bond factors coul:  0        0        0       
+     2 = max # of 1-2 neighbors
+     2 = max # of 1-3 neighbors
+     4 = max # of 1-4 neighbors
+     6 = max # of special neighbors
+  special bonds CPU = 0.002 seconds
+
+# oxDNA3 pair interactions
+pair_style hybrid/overlay oxdna3/excv oxdna3/stk oxdna3/hbond oxdna3/xstk oxdna3/coaxstk oxdna3/dh
+pair_coeff * * oxdna3/excv     oxdna3_lj.cgdna
+Reading oxdna3 potential (excv) file oxdna3_lj.cgdna with DATE: 2026-03-26
+pair_coeff * * oxdna3/stk      ${T} oxdna3_lj.cgdna
+pair_coeff * * oxdna3/stk      0.1 oxdna3_lj.cgdna
+Reading oxdna3 potential (stk) file oxdna3_lj.cgdna with DATE: 2026-03-26
+pair_coeff * * oxdna3/hbond    oxdna3_lj.cgdna
+Reading oxdna3 potential (hbond) file oxdna3_lj.cgdna with DATE: 2026-03-26
+pair_coeff 1 4 oxdna3/hbond    oxdna3_lj.cgdna
+Reading oxdna3 potential (hbond) file oxdna3_lj.cgdna with DATE: 2026-03-26
+pair_coeff 2 3 oxdna3/hbond    oxdna3_lj.cgdna
+Reading oxdna3 potential (hbond) file oxdna3_lj.cgdna with DATE: 2026-03-26
+pair_coeff * * oxdna3/xstk     oxdna3_lj.cgdna
+Reading oxdna3 potential (xstk) file oxdna3_lj.cgdna with DATE: 2026-03-26
+pair_coeff * * oxdna3/coaxstk  oxdna3_lj.cgdna
+Reading oxdna potential (coaxstk) file oxdna3_lj.cgdna with DATE: 2026-03-26
+pair_coeff * * oxdna3/dh       ${T} ${rhos} oxdna3_lj.cgdna
+pair_coeff * * oxdna3/dh       0.1 ${rhos} oxdna3_lj.cgdna
+pair_coeff * * oxdna3/dh       0.1 0.2 oxdna3_lj.cgdna
+Reading oxdna potential (dh) file oxdna3_lj.cgdna with DATE: 2026-03-26
+
+# NVE ensemble
+fix 1 all nve/asphere
+fix 2 all langevin ${T} ${T} 2.5 457145 angmom 10
+fix 2 all langevin 0.1 ${T} 2.5 457145 angmom 10
+fix 2 all langevin 0.1 0.1 2.5 457145 angmom 10
+
+timestep 5e-3
+
+#comm_style tiled
+fix 3 all balance 1000 1.03 shift xyz 10 1.03
+comm_modify cutoff 5.8
+
+compute quat all property/atom quatw quati quatj quatk
+
+compute erot all erotate/asphere
+compute ekin all ke
+compute epot all pe
+
+compute ebond all bond
+compute eexcv all pair oxdna3/excv
+compute estk  all pair oxdna3/stk
+compute ehbond all pair oxdna3/hbond
+compute exstk all pair oxdna3/xstk
+compute ecoaxstk all pair oxdna3/coaxstk
+compute edh all pair oxdna3/dh
+
+variable erot equal c_erot
+variable ekin equal c_ekin
+variable edyn equal c_erot+c_ekin
+variable epot equal c_epot
+variable etot equal c_erot+c_ekin+c_epot
+
+variable ebond equal c_ebond[1]
+variable eexcv equal c_eexcv
+variable estk equal c_estk
+variable ehbond equal c_ehbond
+variable exstk equal c_exstk
+variable ecoaxstk equal c_ecoaxstk
+variable edh equal c_edh
+
+fix 5 all print ${efreq} "$(step)  ekin = ${ekin} |  erot = ${erot} | edyn = ${edyn} | ebond = ${ebond} | eexcv = ${eexcv} | estk = ${estk} | ehbond = ${ehbond} | exstk = ${exstk} | ecoaxstk = ${ecoaxstk} | edh = ${edh} | epot = ${epot} | etot = ${etot}" screen yes
+fix 5 all print 10000 "$(step)  ekin = ${ekin} |  erot = ${erot} | edyn = ${edyn} | ebond = ${ebond} | eexcv = ${eexcv} | estk = ${estk} | ehbond = ${ehbond} | exstk = ${exstk} | ecoaxstk = ${ecoaxstk} | edh = ${edh} | epot = ${epot} | etot = ${etot}" screen yes
+
+dump out all custom ${ofreq} out.${number}.lammpstrj id mol type x y z ix iy iz vx vy vz c_quat[1] c_quat[2] c_quat[3] c_quat[4] angmomx angmomy angmomz
+dump out all custom 10000 out.${number}.lammpstrj id mol type x y z ix iy iz vx vy vz c_quat[1] c_quat[2] c_quat[3] c_quat[4] angmomx angmomy angmomz
+dump out all custom 10000 out.6.lammpstrj id mol type x y z ix iy iz vx vy vz c_quat[1] c_quat[2] c_quat[3] c_quat[4] angmomx angmomy angmomz
+dump_modify out sort id
+dump_modify out format line "%d %d %d  %22.15le %22.15le %22.15le  %d %d %d  %22.15le %22.15le %22.15le  %22.15le %22.15le %22.15le %22.15le  %22.15le %22.15le %22.15le"
+
+run ${nsteps}
+run 100000
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Your simulation uses code contributions which should be cited:
+
+- KOKKOS package: https://doi.org/10.1145/3731599.3767498
+
+@inproceedings{Johansson25,
+ author = {A. Johansson and E. Weinberg and C. Trott and M. McCarthy and S. Moore},
+ title = {{LAMMPS-KOKKOS}: {P}erformance Portable Molecular Dynamics Across Exascale Architectures},
+ year = 2025,
+ booktitle = {Proceedings of the SC '25 Workshops of the International Conference for High Performance Computing,
+  Networking, Storage and Analysis},
+ pages = {1217–1232},
+}
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Generated 0 of 6 mixed pair_coeff terms from geometric mixing rule
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 5.6389877
+  ghost atom cutoff = 5.8
+  binsize = 5.6389877, bins = 18 18 18
+  7 neighbor lists, perpetual/occasional/extra = 7 0 0
+  (1) pair oxdna3/excv, perpetual
+      attributes: half, newton on, kokkos_device
+      pair build: half/bin/newton/kk/device
+      stencil: half/bin/3d/tri
+      bin: kk/device
+  (2) pair oxdna3/stk, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+  (3) pair oxdna3/hbond, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+  (4) pair oxdna3/xstk, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+  (5) pair oxdna3/coaxstk, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+  (6) pair oxdna3/dh, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+  (7) fix OXDNA/NPAIR/kk, perpetual, copy from (1)
+      attributes: half, newton on, kokkos_device
+      pair build: copy/kk/device
+      stencil: none
+      bin: none
+WARNING: Fix property/atom/kk not compatible with sending data in Kokkos communication (src/KOKKOS/comm_kokkos.cpp:942)
+WARNING: Fix with atom-based arrays not compatible with sending data in Kokkos communication, switching to legacy exchange/border communication (src/KOKKOS/comm_kokkos.cpp:949)
+0  ekin = 19.7446594167598 |  erot = 21.39885265673 | edyn = 41.1435120734898 | ebond = 16.2817420959473 | eexcv = 0 | estk = -141.703063964844 | ehbond = 0 | exstk = -18.8354377746582 | ecoaxstk = 0 | edh = 4.93216419219971 | epot = -139.324595451355 | etot = -98.1810833778652
+Per MPI rank memory allocation (min/avg/max) = 12.74 | 12.74 | 12.74 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press          Volume    
+         0   0.089544942   -1.0513942      0.11001177    -0.80797254     1.7233302e-05  1000000      
+10000  ekin = 21.781117958426 |  erot = 23.4539275560528 | edyn = 45.2350455144788 | ebond = 7.35828495025635 | eexcv = 0 | estk = -141.399276733398 | ehbond = -35.5012245178223 | exstk = -23.4881858825684 | ecoaxstk = 0 | edh = 5.46927309036255 | epot = -187.56112909317 | etot = -142.326083578691
+20000  ekin = 23.2736516265922 |  erot = 22.2156875371002 | edyn = 45.4893391636924 | ebond = 7.35338830947876 | eexcv = 0.0445592664182186 | estk = -140.922592163086 | ehbond = -45.2996864318848 | exstk = -22.1484107971191 | ecoaxstk = 0 | edh = 5.23280811309814 | epot = -195.739933703095 | etot = -150.250594539402
+30000  ekin = 22.8908466137035 |  erot = 23.651483371621 | edyn = 46.5423299853245 | ebond = 6.35208129882812 | eexcv = 0 | estk = -134.727066040039 | ehbond = -57.5630912780762 | exstk = -22.5384693145752 | ecoaxstk = 0 | edh = 4.94837713241577 | epot = -203.528168201447 | etot = -156.985838216122
+40000  ekin = 23.7523224531316 |  erot = 22.1666113109095 | edyn = 45.9189337640411 | ebond = 6.16825008392334 | eexcv = 0 | estk = -137.506439208984 | ehbond = -55.139762878418 | exstk = -23.4108180999756 | ecoaxstk = 0 | edh = 5.26213598251343 | epot = -204.626634120941 | etot = -158.7077003569
+50000  ekin = 21.3181486771975 |  erot = 23.3574714246206 | edyn = 44.6756201018181 | ebond = 6.89671611785889 | eexcv = 0 | estk = -136.28108215332 | ehbond = -54.9677734375 | exstk = -25.3754081726074 | ecoaxstk = 0 | edh = 4.90560579299927 | epot = -204.82194185257 | etot = -160.146321750751
+60000  ekin = 21.9821308482904 |  erot = 22.1954450847115 | edyn = 44.1775759330019 | ebond = 7.48741912841797 | eexcv = 0 | estk = -136.517608642578 | ehbond = -52.4636268615723 | exstk = -24.4675827026367 | ecoaxstk = 0 | edh = 4.8933801651001 | epot = -201.068018913269 | etot = -156.890442980267
+70000  ekin = 22.9194724367857 |  erot = 20.2144753983594 | edyn = 43.1339478351451 | ebond = 7.5676212310791 | eexcv = 0 | estk = -137.506149291992 | ehbond = -55.3269958496094 | exstk = -25.2108402252197 | ecoaxstk = 0 | edh = 4.7814793586731 | epot = -205.694884777069 | etot = -162.560936941924
+80000  ekin = 20.6924550381711 |  erot = 22.4014899780741 | edyn = 43.0939450162452 | ebond = 6.42746067047119 | eexcv = 0 | estk = -139.576049804688 | ehbond = -58.3950500488281 | exstk = -21.301944732666 | ecoaxstk = 0 | edh = 4.95650672912598 | epot = -207.889077186584 | etot = -164.795132170339
+90000  ekin = 19.3211243386843 |  erot = 22.795936579816 | edyn = 42.1170609185004 | ebond = 5.24044895172119 | eexcv = 0 | estk = -135.699111938477 | ehbond = -57.2063331604004 | exstk = -24.7442092895508 | ecoaxstk = 0 | edh = 4.84167909622192 | epot = -207.567526340485 | etot = -165.450465421984
+100000  ekin = 22.7549463507111 |  erot = 21.9620177657343 | edyn = 44.7169641164454 | ebond = 7.45106410980225 | eexcv = 0 | estk = -138.311080932617 | ehbond = -56.0216331481934 | exstk = -23.8804302215576 | ecoaxstk = 0 | edh = 4.86019515991211 | epot = -205.901885032654 | etot = -161.184920916208
+    100000   0.10319704    -1.441574       0.050345028   -1.2374793      1.5670238e-05  1000000      
+Loop time of 25.3239 on 2 procs for 100000 steps with 148 atoms
+
+Performance: 1705896.225 tau/day, 3948.834 timesteps/s, 584.427 katom-step/s
+104.2% CPU use with 1 MPI tasks x 2 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 10.042     | 10.042     | 10.042     |   0.0 | 39.65
+Bond    | 7.73       | 7.73       | 7.73       |   0.0 | 30.52
+Neigh   | 0.14665    | 0.14665    | 0.14665    |   0.0 |  0.58
+Comm    | 1.5219     | 1.5219     | 1.5219     |   0.0 |  6.01
+Output  | 0.0076881  | 0.0076881  | 0.0076881  |   0.0 |  0.03
+Modify  | 2.5017     | 2.5017     | 2.5017     |   0.0 |  9.88
+Other   |            | 3.374      |            |       | 13.32
+
+Nlocal:            148 ave         148 max         148 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:           4459 ave        4459 max        4459 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 4459
+Ave neighs/atom = 30.128378
+Ave special neighs/atom = 6
+Neighbor list builds = 103
+Dangerous builds = 0
+
+#write_data last_config.${number}.* nocoeff
+#write_restart last_config.${number}.*
+Total wall time: 0:00:25
